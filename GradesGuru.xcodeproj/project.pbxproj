@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,8 @@
 		C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */; };
 		C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5597A24E8F98000AAEC41 /* Constants.swift */; };
 		C3C5597F24E8FEC300AAEC41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */; };
+		C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5598024E9A8AC00AAEC41 /* Login.storyboard */; };
+		C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */; };
 		C3FF9261BD329D4183D7E467 /* Pods_GradesGuruTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeEstimate.swift; sourceTree = "<group>"; };
 		C3C5597A24E8F98000AAEC41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../CZSM/Upwork/Sports_App/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3C5598024E9A8AC00AAEC41 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.release.xcconfig"; sourceTree = "<group>"; };
 		D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuruTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuru_GradesGuruUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +121,6 @@
 				B5EB8F279B28A894C2190EA7 /* Pods-GradesGuruTests.debug.xcconfig */,
 				30DB77B627F6E9FA6B83DC02 /* Pods-GradesGuruTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -161,7 +164,6 @@
 				C3C1407024E86D02005046E9 /* Model */,
 				C3C1404024E86BBC005046E9 /* AppDelegate.swift */,
 				C3C1404224E86BBC005046E9 /* SceneDelegate.swift */,
-				C3C1404624E86BBC005046E9 /* Main.storyboard */,
 				C3C1404924E86BC0005046E9 /* Assets.xcassets */,
 				C3C1404B24E86BC0005046E9 /* LaunchScreen.storyboard */,
 				C3C1404E24E86BC0005046E9 /* Info.plist */,
@@ -205,6 +207,8 @@
 		C3C1407124E86D0B005046E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3C1404424E86BBC005046E9 /* ViewController.swift */,
+				C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,7 +216,8 @@
 		C3C1407224E86D15005046E9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C3C1404424E86BBC005046E9 /* ViewController.swift */,
+				C3C1404624E86BBC005046E9 /* Main.storyboard */,
+				C3C5598024E9A8AC00AAEC41 /* Login.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C1404D24E86BC0005046E9 /* LaunchScreen.storyboard in Resources */,
+				C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */,
 				C3C5597F24E8FEC300AAEC41 /* GoogleService-Info.plist in Resources */,
 				C3C1404A24E86BC0005046E9 /* Assets.xcassets in Resources */,
 				C3C1404824E86BBC005046E9 /* Main.storyboard in Resources */,
@@ -467,6 +473,7 @@
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,
 				C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */,
 				C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */,
+				C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
