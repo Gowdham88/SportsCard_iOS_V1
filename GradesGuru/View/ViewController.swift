@@ -12,10 +12,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
     var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
     }
     
      func numberOfSections(in tableView: UITableView) -> Int
@@ -37,12 +39,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                    cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
                }
 
-              
-
                cell!.textLabel?.text = GradeDetails[indexPath.row]
                cell!.detailTextLabel?.text = "Review"
 
                return cell!
        }
+     
 }
 
