@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="64a-ae-I9N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FYw-5a-giU">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -258,6 +258,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmV-J7-AEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1125" y="-1004"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="hnH-s5-H3V">
+            <objects>
+                <viewController id="FYw-5a-giU" customClass="LoginViewController" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R46-zA-bRB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome to Grade Guru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeQ-Ro-b0I">
+                                <rect key="frame" x="87.666666666666686" y="61.666666666666657" width="239" height="31.333333333333343"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="RIT-ZW-cCi">
+                                <rect key="frame" x="38" y="101" width="338" height="527"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="527" id="Y9J-uA-XJ6"/>
+                                </constraints>
+                                <string key="text">Grade Guru was created to help sports card collectors with grading. You can learn more about the grading process and determine which cards have the best chance of getting high grades.
+
+While Grade Guru does its best to help guide you through this process, you are the one actually evaluating your cards. Therefore, Grade Guru does not make any guarantee about the actual grade your cards may receive.
+
+Just scan your card, complete the centering process, and then follow Grade Guru's guidance to get your Grade Estimates!</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RIT-ZW-cCi" firstAttribute="centerX" secondItem="R46-zA-bRB" secondAttribute="centerX" id="2Cl-Nz-XtL"/>
+                            <constraint firstItem="RIT-ZW-cCi" firstAttribute="centerX" secondItem="NeQ-Ro-b0I" secondAttribute="centerX" id="7oM-fX-ntH"/>
+                            <constraint firstItem="RIT-ZW-cCi" firstAttribute="top" secondItem="NeQ-Ro-b0I" secondAttribute="bottom" constant="8" id="9DY-Ul-qEH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lVA-V6-aqs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btg-Qo-dWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1854" y="-511"/>
         </scene>
     </scenes>
     <resources>
