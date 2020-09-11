@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */; };
+		8ED551E52508E0F300C6389E /* OnboardingImage.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8ED551E42508E0F200C6389E /* OnboardingImage.svg */; };
+		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
 		C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404024E86BBC005046E9 /* AppDelegate.swift */; };
 		C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404224E86BBC005046E9 /* SceneDelegate.swift */; };
@@ -24,7 +26,6 @@
 		C3C1407C24E86E66005046E9 /* Edges.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1407B24E86E66005046E9 /* Edges.swift */; };
 		C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */; };
 		C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5597A24E8F98000AAEC41 /* Constants.swift */; };
-		C3C5597F24E8FEC300AAEC41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */; };
 		C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5598024E9A8AC00AAEC41 /* Login.storyboard */; };
 		C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */; };
 		C3FF9261BD329D4183D7E467 /* Pods_GradesGuruTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */; };
@@ -52,6 +53,8 @@
 		30DB77B627F6E9FA6B83DC02 /* Pods-GradesGuruTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.release.xcconfig"; sourceTree = "<group>"; };
 		80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.debug.xcconfig"; sourceTree = "<group>"; };
 		8BAF3B5A8AD3D1297850B152 /* Pods-GradesGuru-GradesGuruUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8ED551E42508E0F200C6389E /* OnboardingImage.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OnboardingImage.svg; sourceTree = "<group>"; };
+		8EE21B702506C6000098795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5EB8F279B28A894C2190EA7 /* Pods-GradesGuruTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A8061A4E4F7A70D59F7919 /* Pods-GradesGuru-GradesGuruUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C1403D24E86BBC005046E9 /* GradesGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradesGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +78,6 @@
 		C3C1407B24E86E66005046E9 /* Edges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edges.swift; sourceTree = "<group>"; };
 		C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeEstimate.swift; sourceTree = "<group>"; };
 		C3C5597A24E8F98000AAEC41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../CZSM/Upwork/Sports_App/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3C5598024E9A8AC00AAEC41 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8ED551E32508E08000C6389E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8ED551E42508E0F200C6389E /* OnboardingImage.svg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		C3C1403424E86BBC005046E9 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +169,7 @@
 		C3C1403F24E86BBC005046E9 /* GradesGuru */ = {
 			isa = PBXGroup;
 			children = (
+				8ED551E32508E08000C6389E /* Assets */,
 				C3C1407224E86D15005046E9 /* Controllers */,
 				C3C1407124E86D0B005046E9 /* View */,
 				C3C1407024E86D02005046E9 /* Model */,
@@ -167,7 +178,7 @@
 				C3C1404924E86BC0005046E9 /* Assets.xcassets */,
 				C3C1404B24E86BC0005046E9 /* LaunchScreen.storyboard */,
 				C3C1404E24E86BC0005046E9 /* Info.plist */,
-				C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */,
+				8EE21B702506C6000098795A /* GoogleService-Info.plist */,
 			);
 			path = GradesGuru;
 			sourceTree = "<group>";
@@ -333,7 +344,8 @@
 			files = (
 				C3C1404D24E86BC0005046E9 /* LaunchScreen.storyboard in Resources */,
 				C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */,
-				C3C5597F24E8FEC300AAEC41 /* GoogleService-Info.plist in Resources */,
+				8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */,
+				8ED551E52508E0F300C6389E /* OnboardingImage.svg in Resources */,
 				C3C1404A24E86BC0005046E9 /* Assets.xcassets in Resources */,
 				C3C1404824E86BBC005046E9 /* Main.storyboard in Resources */,
 			);
