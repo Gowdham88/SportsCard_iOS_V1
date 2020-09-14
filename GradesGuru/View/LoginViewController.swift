@@ -7,28 +7,30 @@
 //
 
 import UIKit
+import WebKit
 
 class LoginViewController: UIViewController {
+    
     var showB = true
 
     @IBOutlet weak var viewB: UIView!
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var path: String = Bundle.main.path(forResource: "/GradeGuru/Assets/OnboardingImage.svg", ofType: "svg")!
 
-        // Do any additional setup after loading the view.
+//        var url: NSURL = url.pa
+//
+//        //Creating a URL which points towards our path
+//
+//        //Creating a page request which will load our URL (Which points to our path)
+//
+//        var request: NSURLRequest = NSURLRequest(url: url as URL)
+//        webView.load(request as URLRequest)  //Telling our webView to load our above request
+//        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
