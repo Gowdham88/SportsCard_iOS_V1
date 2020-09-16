@@ -12,13 +12,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
     var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-       
-        
         
     }
     

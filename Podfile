@@ -6,6 +6,7 @@ target 'GradesGuru' do
   use_frameworks!
   pod 'Firebase'
   pod 'Firebase/Analytics'
+  pod 'SideMenu'
   
 
   # Pods for GradesGuru
