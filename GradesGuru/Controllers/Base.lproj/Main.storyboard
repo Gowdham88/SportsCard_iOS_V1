@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="-289"/>
+            <point key="canvasLocation" x="352" y="-289"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="zjT-mS-b1f">
@@ -197,7 +197,134 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uts-PG-0X3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="-289"/>
+            <point key="canvasLocation" x="1803" y="-973"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hJU-PD-hO7">
+            <objects>
+                <viewController id="4Cr-04-dtm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hwN-Zb-OZs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kpf-VM-6Wh">
+                                <rect key="frame" x="38" y="107" width="348" height="486"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <mutableString key="text">Grade Guru is here to help you decide which cards to grade!
+
+- Digitally measure centering
+
+- Self-evaluate corners, edges and surface
+
+- Estimate overall grades
+
+- View grading standards of the major grading companies
+
+While Grade Guru helps guide you through this
+process, YOU are the one actually evaluating your
+cards. Therefore, Grade Guru does not make any
+guarantee about the actual grade your cards may
+receive.
+
+To get started
+
+- Scan your first card
+
+- Complete the digital centering process
+
+- Review corners, edges and surface
+
+- Get your Grade Estimate!</mutableString>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HUQ-j8-PWU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ImT-RJ-U5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744.9275362318842" y="-288.58695652173913"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5mg-gI-Yqp">
+            <objects>
+                <viewController id="amg-2v-KB4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o3f-Oq-N34">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GaR-gB-jn4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFK-31-8at" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2472" y="-288"/>
+        </scene>
+        <!--Grade Guru-->
+        <scene sceneID="Lv2-Ky-OVQ">
+            <objects>
+                <viewController id="Dsp-IY-FM7" customClass="SideMenuTVC" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFit" id="Zem-uu-XhG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K16-XA-7px">
+                                <rect key="frame" x="0.0" y="75" width="414" height="308"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="87" id="i25-lV-4bi" customClass="sideMenuCell" customModule="GradesGuru" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i25-lV-4bi" id="PAZ-OL-z47">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6Q-pM-U6C">
+                                                    <rect key="frame" x="72" y="25" width="173" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
+                                                    <color key="textColor" red="0.90071207279999999" green="0.93639081719999995" blue="0.99458891149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GoPro" translatesAutoresizingMaskIntoConstraints="NO" id="SPp-hZ-28q">
+                                                    <rect key="frame" x="24" y="30" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="sideMenuTitle" destination="t6Q-pM-U6C" id="RXt-8Q-foy"/>
+                                            <outlet property="sidemenuImage" destination="SPp-hZ-28q" id="Nyp-4g-EFX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dsp-IY-FM7" id="pBd-Dg-gl1"/>
+                                    <outlet property="delegate" destination="Dsp-IY-FM7" id="3xm-1h-6Am"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="qeH-og-HSi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Grade Guru" id="8bR-qo-8DK">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="LeftAccessory1" landscapeImage="LeftAccessory1" style="plain" id="g9d-DW-QNm">
+                            <color key="tintColor" red="0.90071207279999999" green="0.93639081719999995" blue="0.99458891149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="sideMenuCancel:" destination="Dsp-IY-FM7" id="8JS-Uy-Bht"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rai-IN-USo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350.72463768115944" y="-973.36956521739137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dqE-a5-KJO">
@@ -213,7 +340,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmV-J7-AEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="-973"/>
+            <point key="canvasLocation" x="1119" y="-973"/>
         </scene>
         <!--Initial Page View Controller-->
         <scene sceneID="Cbo-kp-g6J">
@@ -349,57 +476,7 @@ receive.</string>
             </objects>
             <point key="canvasLocation" x="-1181" y="-973"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="4Rv-ve-w8F">
-            <objects>
-                <tableViewController id="YT1-GS-SqN" customClass="SideMenuTVC" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ySX-sX-GYo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Dx1-8P-NF9">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dx1-8P-NF9" id="MYX-t6-oNm">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="YT1-GS-SqN" id="PFV-0S-KLi"/>
-                            <outlet property="delegate" destination="YT1-GS-SqN" id="i1l-1W-XOQ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="eCe-kP-tzv"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fBc-1L-eex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="457" y="-973"/>
-        </scene>
-        <!--Side Menu Navigation Controller-->
-        <scene sceneID="pii-wH-VL4">
-            <objects>
-                <navigationController id="pdW-9R-S6P" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="snz-78-z8e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="YT1-GS-SqN" kind="relationship" relationship="rootViewController" id="IP9-rF-i6R"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fDp-Is-LNQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-368" y="-973"/>
-        </scene>
-        <!--Home PageVC-->
+        <!--Grade Guru-->
         <scene sceneID="6Pt-6w-vQK">
             <objects>
                 <viewController id="BNY-ON-uuq" customClass="HomePageVC" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
@@ -407,31 +484,44 @@ receive.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNB-Zs-Icv">
-                                <rect key="frame" x="0.0" y="93" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="scaleToFill" fixedFrame="YES" placeholder="Search here" backgroundImage="Search" translatesAutoresizingMaskIntoConstraints="NO" id="iNB-Zs-Icv">
+                                <rect key="frame" x="11" y="92" width="394" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90071207279999999" green="0.93639081719999995" blue="0.99458891149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUP-9s-hNM">
-                                <rect key="frame" x="87" y="343" width="241" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scan your First Card to get started!"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zH-TD-O8a">
+                                <rect key="frame" x="110" y="485" width="196" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <string key="text">Scan your first card to get 
+started!</string>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ScanImage" translatesAutoresizingMaskIntoConstraints="NO" id="uy0-lm-Yp8">
+                                <rect key="frame" x="115" y="219" width="187" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="05W-N2-aQK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VMV-Fa-P4O">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="hXi-nF-Rxm">
+                    <navigationItem key="navigationItem" title="Grade Guru" id="VMV-Fa-P4O">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="Menu" id="hXi-nF-Rxm">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <segue destination="pdW-9R-S6P" kind="presentation" id="ixM-cg-LWo"/>
+                                <segue destination="1Em-N5-s5s" kind="presentation" id="fQc-co-nnn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="iNB-Zs-Icv" id="sFJ-Tq-AMu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8P-1T-OHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367" y="-289"/>
+            <point key="canvasLocation" x="-449.27536231884062" y="-289.4021739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R23-2p-d0w">
@@ -451,12 +541,39 @@ receive.</string>
             </objects>
             <point key="canvasLocation" x="-1181.1594202898552" y="-288.58695652173913"/>
         </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="Lhh-h8-sa1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Em-N5-s5s" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P8h-Pn-Rhh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="Dsp-IY-FM7" kind="relationship" relationship="rootViewController" id="DVw-Vd-LPt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lx6-7l-61u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-368" y="-973"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="GoPro" width="30" height="30"/>
+        <image name="LeftAccessory1" width="11" height="17"/>
         <image name="LetsGo" width="164.66667175292969" height="39.666667938232422"/>
+        <image name="Menu" width="24" height="14"/>
         <image name="Review_Button1" width="80" height="25"/>
+        <image name="ScanImage" width="174" height="219"/>
         <image name="Scan_Back" width="174" height="219"/>
         <image name="Scan_Front" width="174" height="219"/>
+        <image name="Search" width="345" height="36"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
     </resources>
 </document>

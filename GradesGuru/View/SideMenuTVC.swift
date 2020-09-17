@@ -8,8 +8,17 @@
 
 import UIKit
 
-class SideMenuTVC: UITableViewController {
+class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    var sideMenu = ["Go Pro", "Grading Standards", "About Us", "Contact Us", "Rate Us", "Recommend To a Friend", "Terms & Privacy"]
+    
+    var sideMenuImages : [UIImage] = [UIImage(named: "GoPro")!, UIImage(named: "Grading_Standards")!, UIImage(named: "About_Us")!, UIImage(named: "Contact_Us")!, UIImage(named: "Rate_Us")!,  UIImage(named: "RecommendToFriend")!, UIImage(named: "TermsnPrivacy")!]
+    
+    @IBAction func sideMenuCancel(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -20,29 +29,35 @@ class SideMenuTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sideMenu.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! sideMenuCell
+        
+        cell.sideMenuTitle.text = sideMenu[indexPath.row]
+        cell.sidemenuImage.image = sideMenuImages[indexPath.row]
+        
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

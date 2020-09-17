@@ -10,6 +10,7 @@
 		82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */; };
 		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
+		C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5E80251380D60024BE54 /* sideMenuCell.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C36B240625111DC9006ED6E3 /* muli in Resources */ = {isa = PBXBuildFile; fileRef = C36B240525111DC9006ED6E3 /* muli */; };
 		C38D9B432511C82600BE981A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D9B422511C82600BE981A /* WebKit.framework */; };
@@ -62,6 +63,7 @@
 		8EE21B702506C6000098795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5EB8F279B28A894C2190EA7 /* Pods-GradesGuruTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A8061A4E4F7A70D59F7919 /* Pods-GradesGuru-GradesGuruUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C34C5E80251380D60024BE54 /* sideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMenuCell.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C36B240525111DC9006ED6E3 /* muli */ = {isa = PBXFileReference; lastKnownFileType = folder; path = muli; sourceTree = "<group>"; };
 		C38D9B422511C82600BE981A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -158,6 +160,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		C34C5E7F251380B10024BE54 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C34C5E80251380D60024BE54 /* sideMenuCell.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		C36B240425111DBA006ED6E3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		C3C1407124E86D0B005046E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C34C5E7F251380B10024BE54 /* SubView */,
 				C3C1404424E86BBC005046E9 /* ViewController.swift */,
 				C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */,
 				C36B24022511038B006ED6E3 /* InitialPageViewController.swift */,
@@ -510,6 +521,7 @@
 				C38D9B472512106D00BE981A /* LetsGo.swift in Sources */,
 				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
+				C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */,
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
