@@ -197,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uts-PG-0X3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1803" y="-973"/>
+            <point key="canvasLocation" x="1754" y="-973"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hJU-PD-hO7">
@@ -211,7 +211,7 @@
                                 <rect key="frame" x="38" y="107" width="348" height="486"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">Grade Guru is here to help you decide which cards to grade!
+                                <string key="text">Grade Guru is here to help you decide which cards to grade!
 
 - Digitally measure centering
 
@@ -235,7 +235,7 @@ To get started
 
 - Review corners, edges and surface
 
-- Get your Grade Estimate!</mutableString>
+- Get your Grade Estimate!</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -247,7 +247,7 @@ To get started
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImT-RJ-U5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1744.9275362318842" y="-288.58695652173913"/>
+            <point key="canvasLocation" x="1070" y="-289"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5mg-gI-Yqp">
@@ -262,7 +262,7 @@ To get started
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFK-31-8at" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472" y="-288"/>
+            <point key="canvasLocation" x="1754" y="-289"/>
         </scene>
         <!--Grade Guru-->
         <scene sceneID="Lv2-Ky-OVQ">
@@ -340,7 +340,7 @@ To get started
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmV-J7-AEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="-973"/>
+            <point key="canvasLocation" x="1070" y="-973"/>
         </scene>
         <!--Initial Page View Controller-->
         <scene sceneID="Cbo-kp-g6J">
@@ -348,7 +348,7 @@ To get started
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="hB6-CU-ghK" customClass="InitialPageViewController" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEY-8V-Kdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2652" y="-973"/>
+            <point key="canvasLocation" x="-2451" y="-973"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hnH-s5-H3V">
@@ -411,7 +411,7 @@ To get started
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btg-Qo-dWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1926.0869565217392" y="-972.554347826087"/>
+            <point key="canvasLocation" x="-1775" y="-973"/>
         </scene>
         <!--Lets Go-->
         <scene sceneID="yE7-E6-XbO">
@@ -474,7 +474,7 @@ receive.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Caw-NK-9fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1181" y="-973"/>
+            <point key="canvasLocation" x="-1107" y="-973"/>
         </scene>
         <!--Grade Guru-->
         <scene sceneID="6Pt-6w-vQK">
@@ -521,7 +521,7 @@ started!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8P-1T-OHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-449.27536231884062" y="-289.4021739130435"/>
+            <point key="canvasLocation" x="-368" y="-289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R23-2p-d0w">
@@ -539,7 +539,7 @@ started!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5t-eJ-e2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1181.1594202898552" y="-288.58695652173913"/>
+            <point key="canvasLocation" x="-1107" y="-289"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="Lhh-h8-sa1">

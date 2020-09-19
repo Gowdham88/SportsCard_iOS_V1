@@ -18,8 +18,8 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBAction func sideMenuCancel(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,6 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // #warning Incomplete implementation, return the number of rows
         return sideMenu.count
     }
-
-    
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! sideMenuCell
