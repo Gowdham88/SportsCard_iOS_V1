@@ -7,6 +7,8 @@ target 'GradesGuru' do
   pod 'Firebase'
   pod 'Firebase/Analytics'
   pod 'SideMenu'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   
 
   # Pods for GradesGuru

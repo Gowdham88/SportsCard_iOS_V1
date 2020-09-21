@@ -9,7 +9,6 @@
 import UIKit
 
 class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     
     var sideMenu = ["Go Pro", "Grading Standards", "About Us", "Contact Us", "Rate Us", "Recommend To a Friend", "Terms & Privacy"]
     

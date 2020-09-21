@@ -11,6 +11,7 @@
 		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
 		C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5E80251380D60024BE54 /* sideMenuCell.swift */; };
+		C352B2002515FC81004321F1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352B1FF2515FC81004321F1 /* Users.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C36B240625111DC9006ED6E3 /* muli in Resources */ = {isa = PBXBuildFile; fileRef = C36B240525111DC9006ED6E3 /* muli */; };
 		C38D9B432511C82600BE981A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D9B422511C82600BE981A /* WebKit.framework */; };
@@ -64,6 +65,7 @@
 		B5EB8F279B28A894C2190EA7 /* Pods-GradesGuruTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A8061A4E4F7A70D59F7919 /* Pods-GradesGuru-GradesGuruUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C34C5E80251380D60024BE54 /* sideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMenuCell.swift; sourceTree = "<group>"; };
+		C352B1FF2515FC81004321F1 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C36B240525111DC9006ED6E3 /* muli */ = {isa = PBXFileReference; lastKnownFileType = folder; path = muli; sourceTree = "<group>"; };
 		C38D9B422511C82600BE981A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -244,6 +246,7 @@
 				C3C1407B24E86E66005046E9 /* Edges.swift */,
 				C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */,
 				C3C5597A24E8F98000AAEC41 /* Constants.swift */,
+				C352B1FF2515FC81004321F1 /* Users.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
 				C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */,
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
+				C352B2002515FC81004321F1 /* Users.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,

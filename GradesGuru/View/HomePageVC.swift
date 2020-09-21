@@ -14,6 +14,8 @@ class HomePageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 

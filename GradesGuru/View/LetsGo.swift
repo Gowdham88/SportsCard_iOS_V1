@@ -10,8 +10,14 @@ import UIKit
 
 class LetsGo: UIViewController {
     
+    var StartDate : Date = Date()
     
     @IBAction func LetsGo(_ sender: Any) {
+        
+        
+        let Users1 = Users(device_ID: Usersdetails.device_ID, Subscription_Status: "Tru", Subscription_Date: StartDate, Subscription_Type: "True", Cost: 12, CurrentScan_Count: 3)
+        
+        UpdateUsers(Users: Users1)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 

@@ -13,10 +13,20 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //FirebaseApp.configure()
+        
+        if let uuid = UIDevice.current.identifierForVendor?.uuidString {
+            
+            print(uuid)
+            Usersdetails.device_ID = uuid
+            
+        }
+        
+        FirebaseApp.configure()
         return true
     }
 
