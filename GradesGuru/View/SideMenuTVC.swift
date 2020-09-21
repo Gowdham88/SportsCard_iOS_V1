@@ -44,17 +44,68 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! sideMenuCell
         
         cell.sideMenuTitle.text = sideMenu[indexPath.row]
         cell.sidemenuImage.image = sideMenuImages[indexPath.row]
         
+                
 
         // Configure the cell...
 
         return cell
     }
     
+    func ModalRepFullScreen(Storyboard: String, Identifier: String) {
+        
+        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
+
+        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
+        
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! sideMenuCell
+        
+        switch indexPath.row {
+        
+        case 0:
+        print("Go Pro")
+        
+        ModalRepFullScreen(Storyboard: "Main", Identifier: "GoPro")
+
+        case 1:
+        print("Grading Standards")
+        
+        case 2:
+        print("About Us")
+        
+        ModalRepFullScreen(Storyboard: "Main", Identifier: "aboutUs")
+        
+        case 3:
+        print("Contact Us")
+        
+        case 4:
+        print("Rate Us")
+        
+        case 5:
+        print("Recommend To a Friend")
+        
+        case 6:
+        print("Terms and Privacy Us")
+        
+        default:
+            break
+        }
+        
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

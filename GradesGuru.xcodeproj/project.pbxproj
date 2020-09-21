@@ -19,6 +19,8 @@
 		C38D9B472512106D00BE981A /* LetsGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B462512106D00BE981A /* LetsGo.swift */; };
 		C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B482512732F00BE981A /* HomePageVC.swift */; };
 		C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B4C251279F500BE981A /* SideMenuTVC.swift */; };
+		C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */; };
+		C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */; };
 		C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404024E86BBC005046E9 /* AppDelegate.swift */; };
 		C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404224E86BBC005046E9 /* SceneDelegate.swift */; };
 		C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404424E86BBC005046E9 /* ViewController.swift */; };
@@ -73,6 +75,8 @@
 		C38D9B462512106D00BE981A /* LetsGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsGo.swift; sourceTree = "<group>"; };
 		C38D9B482512732F00BE981A /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 		C38D9B4C251279F500BE981A /* SideMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVC.swift; sourceTree = "<group>"; };
+		C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoProVC.swift; sourceTree = "<group>"; };
 		C3C1403D24E86BBC005046E9 /* GradesGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradesGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C1404024E86BBC005046E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C1404224E86BBC005046E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				C38D9B462512106D00BE981A /* LetsGo.swift */,
 				C38D9B482512732F00BE981A /* HomePageVC.swift */,
 				C38D9B4C251279F500BE981A /* SideMenuTVC.swift */,
+				C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */,
+				C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -517,10 +523,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */,
 				C3C1407624E86E34005046E9 /* Centering.swift in Sources */,
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
 				C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */,
 				C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */,
+				C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */,
 				C38D9B472512106D00BE981A /* LetsGo.swift in Sources */,
 				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,

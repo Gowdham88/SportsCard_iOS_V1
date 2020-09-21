@@ -19,13 +19,20 @@ class LetsGo: UIViewController {
         
         UpdateUsers(Users: Users1)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        ModalRepFullScreen(Storyboard: "Main", Identifier: "HomePage")
+        
+    }
+    
+    func ModalRepFullScreen(Storyboard: String, Identifier: String) {
+        
+        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
 
-        let vc = storyboard.instantiateViewController(withIdentifier: "HomePage")
+        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
         
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
         
         self.present(vc, animated: true, completion: nil)
+        
         
     }
     
