@@ -16,10 +16,6 @@ var Usersdetails : Users = Users(device_ID: "", Subscription_Status: "", Subscri
 
 class Users : NSObject {
     
-//    let docRef : DocumentReference!
-    
-//    let userRef = ref.("location").child("-Khpr_PAuGSVngNspTVW")
-//    userRef.updateChildValues(["lat": 11.324231])
     
     var device_ID: String!
     var Subscription_Status: String!
