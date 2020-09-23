@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>536034392001-udqckivvl77pmcvdbddmq0r3j9c1ff81.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.536034392001-udqckivvl77pmcvdbddmq0r3j9c1ff81</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCPtjxOlc-YkEvJPbCGKtbmt7xzd8g5uLQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>536034392001</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.GG.Sportscard.GradesGuru</string>
+	<key>PROJECT_ID</key>
+	<string>gradeguru-6ae82</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gradeguru-6ae82.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:536034392001:ios:7815207e36772b1ea2a140</string>
+	<key>DATABASE_URL</key>
+	<string>https://gradeguru-6ae82.firebaseio.com</string>
+</dict>
+</plist>

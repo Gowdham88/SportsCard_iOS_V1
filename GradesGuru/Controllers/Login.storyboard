@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kvs-RJ-ndl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="W4e-Q9-fpq">
+            <objects>
+                <viewController id="Kvs-RJ-ndl" customClass="LoginViewController" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P9E-zL-MQR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Grade Guru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Un-Gt-rjJ">
+                                <rect key="frame" x="87.5" y="61.5" width="239" height="31.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-29-Ftk">
+                                <rect key="frame" x="38" y="101" width="338" height="527"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="527" id="L6A-WN-7Q5"/>
+                                </constraints>
+                                <mutableString key="text">Grade Guru was created to help sports card collectors with grading. You can learn more about the grading process and determine which cards have the best chance of getting high grades.
+
+While Grade Guru does its best to help guide you through this process, you are the one actually evaluating your cards. Therefore, Grade Guru does not make any guarantee about the actual grade your cards may receive.
+
+Just scan your card, complete the centering process, and then follow Grade Guru's guidance to get your Grade Estimates!</mutableString>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ng-hU-l75">
+                                <rect key="frame" x="38" y="639" width="349" height="186"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-g1-zxr">
+                                        <rect key="frame" x="-7" y="-7" width="240" height="384"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ef-d3-iAB">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFt-Bb-Jvl">
+                                                        <rect key="frame" x="25" y="19" width="290" height="56"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" title="     Sign up with Facebook" image="pencil" catalog="system"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frx-2U-IC8">
+                                                <rect key="frame" x="0.0" y="128" width="240" height="128"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckL-eb-BDa">
+                                                        <rect key="frame" x="-25" y="36" width="290" height="56"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" title="     Sign up with Email" image="envelope" catalog="system">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kit-H4-GC5">
+                                                <rect key="frame" x="0.0" y="256" width="240" height="128"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkH-5w-qkE">
+                                                        <rect key="frame" x="36" y="40" width="168" height="47"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="SKIP">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="frx-2U-IC8" firstAttribute="top" secondItem="EAa-g1-zxr" secondAttribute="top" constant="128" id="SZP-wr-WT4"/>
+                                            <constraint firstItem="frx-2U-IC8" firstAttribute="centerY" secondItem="EAa-g1-zxr" secondAttribute="centerY" id="sWB-Qw-Yfy"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="EAa-g1-zxr" firstAttribute="top" secondItem="6Ng-hU-l75" secondAttribute="top" constant="-7" id="EzC-7w-9Z0"/>
+                                    <constraint firstItem="EAa-g1-zxr" firstAttribute="leading" secondItem="6Ng-hU-l75" secondAttribute="leading" constant="-7" id="hdI-Dg-RNJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="EAa-g1-zxr" secondAttribute="bottom" constant="-191" id="pj2-iu-r0C"/>
+                                    <constraint firstAttribute="trailing" secondItem="EAa-g1-zxr" secondAttribute="trailing" constant="116" id="x3s-vj-RER"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1Zr-yG-az8" firstAttribute="trailing" secondItem="6Ng-hU-l75" secondAttribute="trailing" constant="27" id="0Me-nx-Wtz"/>
+                            <constraint firstItem="1Zr-yG-az8" firstAttribute="bottom" secondItem="6Ng-hU-l75" secondAttribute="bottom" constant="37" id="9SX-X4-WjW"/>
+                            <constraint firstItem="Tvh-29-Ftk" firstAttribute="top" secondItem="8Un-Gt-rjJ" secondAttribute="bottom" constant="8" id="EMh-n1-Qi0"/>
+                            <constraint firstItem="6Ng-hU-l75" firstAttribute="leading" secondItem="Tvh-29-Ftk" secondAttribute="leading" id="LW6-kd-OTf"/>
+                            <constraint firstItem="6Ng-hU-l75" firstAttribute="top" secondItem="Tvh-29-Ftk" secondAttribute="bottom" constant="11" id="cmc-e6-Ifx"/>
+                            <constraint firstItem="6Ng-hU-l75" firstAttribute="leading" secondItem="1Zr-yG-az8" secondAttribute="leading" constant="38" id="eaq-A5-KLH"/>
+                            <constraint firstItem="Tvh-29-Ftk" firstAttribute="centerX" secondItem="8Un-Gt-rjJ" secondAttribute="centerX" id="gPV-vu-chy"/>
+                            <constraint firstItem="Tvh-29-Ftk" firstAttribute="centerX" secondItem="P9E-zL-MQR" secondAttribute="centerX" id="jOQ-bT-x5E"/>
+                            <constraint firstItem="6Ng-hU-l75" firstAttribute="top" secondItem="P9E-zL-MQR" secondAttribute="top" constant="639" id="zSs-8g-2O9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Zr-yG-az8"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewB" destination="frx-2U-IC8" id="wmW-1n-6Eb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LvA-hr-u46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13.043478260869566" y="16.741071428571427"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="envelope" catalog="system" width="128" height="93"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

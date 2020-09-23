@@ -1,0 +1,6 @@
+framework module Pods_GradesGuru_GradesGuruUITests {
+  umbrella header "Pods-GradesGuru-GradesGuruUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
