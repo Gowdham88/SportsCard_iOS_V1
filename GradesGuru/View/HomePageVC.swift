@@ -8,9 +8,10 @@
 
 import UIKit
 
-class HomePageVC: UIViewController {
+class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,25 @@ class HomePageVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+         
+               let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
+               
+               
+               // Configure the cell...
+
+               return cell
+    }
     /*
     // MARK: - Navigation
 

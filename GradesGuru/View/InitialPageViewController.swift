@@ -21,12 +21,10 @@ class InitialPageViewController: UIPageViewController, UIPageViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.dataSource = self
         self.delegate = self
         
-        
-        
-        // This sets up the first view that will show up on our page control
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .forward,
@@ -44,9 +42,10 @@ class InitialPageViewController: UIPageViewController, UIPageViewControllerDeleg
         pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.white
-        self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.pageControl.tintColor = UIColor.blue
+        self.pageControl.pageIndicatorTintColor = UIColor.gray
+        self.pageControl.currentPageIndicatorTintColor = UIColor.blue
+        
         self.view.addSubview(pageControl)
     }
     

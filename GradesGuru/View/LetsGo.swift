@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import Foundation
 
 class LetsGo: UIViewController {
     
     var StartDate : Date = Date()
     
+    @IBOutlet weak var firstText: UITextView!
+    
+    let termsTextString = NSAttributedString(string: "While Grade Guru helps guide you through this \n process, YOU are the one actually evaluating your \n cards. Therefore, Grade Guru does not make any \n guarantee about the actual grade your cards may \n receive.")
+    
     @IBAction func LetsGo(_ sender: Any) {
-        
         
         let Users1 = Users(device_ID: Usersdetails.device_ID, Subscription_Status: "Tru", Subscription_Date: StartDate, Subscription_Type: "True", Cost: 12, CurrentScan_Count: 3)
         
@@ -38,7 +42,14 @@ class LetsGo: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        firstText.font = UIFont(name: "Muli-Regular", size: 18)
 
+//        firstText.attributedText = termsTextString.withLineSpacing(15)
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -53,3 +64,16 @@ class LetsGo: UIViewController {
     */
 
 }
+
+
+//    func addTextSpacing(_ spacing: CGFloat, Text: String){
+//
+//        let attributedString = NSMutableAttributedString(string: Text)
+//        attributedString.addAttribute(NSAttributedString.Key.kern, value: spacing, range: NSRange(location: 0, length: Text.count))
+//        attributedString.addAttribute(NSAttributedString.Key(rawValue: "\(self.font?.lineHeight)"), value: 50, range: NSRange(location: 0, length: Text.count))
+//
+//        Text = attributedString
+//    }
+
+
+
