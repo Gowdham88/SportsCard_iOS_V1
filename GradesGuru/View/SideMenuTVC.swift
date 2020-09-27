@@ -47,12 +47,47 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.sideMenuTitle.text = sideMenu[indexPath.row]
         cell.sidemenuImage.image = sideMenuImages[indexPath.row]
         
-                
-
         // Configure the cell...
 
         return cell
     }
+    
+//    fileprivate func whitespaceString(font: UIFont = UIFont.systemFont(ofSize: 15), width: CGFloat) -> String {
+//        let kPadding: CGFloat = 20
+//        let mutable = NSMutableString(string: "")
+//        let attribute = [NSAttributedString.Key.font: font]
+//        while mutable.size(withAttributes: attribute).width < width - (2 * kPadding) {
+//            mutable.append(" ")
+//        }
+//        return mutable as String
+//    }
+//
+//   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let whitespace = whitespaceString(width: kCellActionWidth)
+//        let deleteAction = UITableViewRowAction(style: .`default`, title: whitespace) { (action, indexPath) in
+//            // do whatever you want
+//        }
+//
+//        // create a color from patter image and set the color as a background color of action
+//        let kActionImageSize: CGFloat = 34
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: kCellActionWidth, height: kCellHeight))
+//        view.backgroundColor = UIColor.white
+//        let imageView = UIImageView(frame: CGRect(x: (kCellActionWidth - kActionImageSize) / 2,
+//                                                  y: (kCellHeight - kActionImageSize) / 2,
+//                                                  width: 34,
+//                                                  height: 34))
+//        imageView.image = UIImage(named: "x")
+//        view.addSubview(imageView)
+//        let image = view.image()
+//
+//        deleteAction.backgroundColor = UIColor(patternImage: image)
+//
+//        return [deleteAction]
+//    }
+  
+    
+   
+    
     
     func ModalRepFullScreen(Storyboard: String, Identifier: String) {
         
