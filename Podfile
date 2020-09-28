@@ -9,6 +9,8 @@ target 'GradesGuru' do
   pod 'SideMenu'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'Segmentio'
+
   
 
   # Pods for GradesGuru

@@ -325,6 +325,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.10)
+  - Segmentio (4.1)
   - SideMenu (6.4.9)
 
 DEPENDENCIES:
@@ -332,6 +333,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - Segmentio
   - SideMenu
 
 SPEC REPOS:
@@ -353,6 +355,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - Segmentio
     - SideMenu
 
 SPEC CHECKSUMS:
@@ -373,8 +376,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
   SideMenu: 8ef57a3cfc024a2d3fc1c036c7fe98537baec9e0
 
-PODFILE CHECKSUM: c1487d7704f5978f1b5952adf1cfbfa10445c89a
+PODFILE CHECKSUM: 450b1db876b94252f0afbc423e6896e1b8292522
 
 COCOAPODS: 1.9.3
