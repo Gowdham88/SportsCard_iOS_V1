@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
@@ -18,7 +18,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -56,6 +55,19 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
                return cell
         
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let vc = storyboard.instantiateViewController(withIdentifier: "Mainpage")
+        
+        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        
+        self.present(vc, animated: true, completion: nil)
+
+        //This method will be called when user changes tab.
     }
     
     /*
