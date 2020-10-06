@@ -23,8 +23,10 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0)
+
+        //        self.navigationController?.view.backgroundColor = .clear
         
     }
 
@@ -43,7 +45,7 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! sideMenuCell
-        
+        cell.backgroundColor = UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0)
         cell.sideMenuTitle.text = sideMenu[indexPath.row]
         cell.sidemenuImage.image = sideMenuImages[indexPath.row]
         
@@ -89,17 +91,7 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
    
     
     
-    func ModalRepFullScreen(Storyboard: String, Identifier: String) {
-        
-        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
 
-        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
-        
-        vc.modalPresentationStyle = .fullScreen
-        
-        self.present(vc, animated: true, completion: nil)
-        
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 
@@ -110,16 +102,16 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         case 0:
         print("Go Pro")
         
-        ModalRepFullScreen(Storyboard: "Main", Identifier: "GoPro")
-
+        presentDetail(Storyboard: "Main", Identifier: "GoPro")
+            
         case 1:
         print("Grading Standards")
         
         case 2:
         print("About Us")
         
-        ModalRepFullScreen(Storyboard: "Main", Identifier: "aboutUs")
-        
+        presentDetail(Storyboard: "Main", Identifier: "aboutUs")
+
         case 3:
         print("Contact Us")
         
@@ -184,4 +176,45 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     */
 
+
+
+    func presentDetail(Storyboard: String, Identifier: String) {
+        
+        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
+        let transition = CATransition()
+        transition.duration = 0.25
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        self.view.window!.layer.add(transition, forKey: kCATransition)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+        
+    }
+
 }
+
+
+    /*func ModalRepFullScreen(Storyboard: String, Identifier: String) {
+        
+        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
+//        vc.modalPresentationStyle = .fullScreen
+//        let transition = CATransition()
+//        transition.duration = 0.25
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        self.view.window!.layer.add(transition, forKey: kCATransition)
+//
+//        self.present(vc, animated: false, completion: nil)
+        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
+        
+    }*/

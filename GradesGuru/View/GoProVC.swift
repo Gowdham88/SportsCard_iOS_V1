@@ -19,9 +19,14 @@ class GoProVC: UIViewController {
     
     @IBAction func GoBack(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        
+        dismissDetail()
         
     }
+    
+    
+    
     
     let termsTextString = NSAttributedString(string: "This subscription automatically renews for the price \n selected above. Your subscription will auto-review unless \n cancelled more than 24 hours before the end of each \n subscription period. Payment will be charged to your iTunes \n account. You can manage your subscription and turn off \n auto-renewal in your iTunes account.")
     
@@ -84,8 +89,19 @@ class GoProVC: UIViewController {
         }
     }
 
+    func dismissDetail() {
+        
+        let transition = CATransition()
+        transition.duration = 0.25
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.view.window!.layer.add(transition, forKey: kCATransition)
+        dismiss(animated: false)
+    }
+    
     
 }
+
 
 
 
@@ -103,3 +119,4 @@ extension NSAttributedString {
         return NSAttributedString(attributedString: attributedString)
     }
 }
+

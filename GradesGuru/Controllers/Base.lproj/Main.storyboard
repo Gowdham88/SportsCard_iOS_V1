@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q48-bs-WGk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G0c-d8-ewQ">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -196,7 +196,11 @@
                         <barButtonItem id="NuJ-lf-iMn"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="D'onta Foreman" id="1lW-kU-DBP">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="LeftAccessory_Black" id="uFp-X3-Q7u"/>
+                        <barButtonItem key="leftBarButtonItem" image="LeftAccessory_Black" id="uFp-X3-Q7u">
+                            <connections>
+                                <action selector="BackButton:" destination="BYZ-38-t0r" id="gsW-rY-kmN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="InformationIcon" id="Vn5-A8-I0g">
                             <connections>
                                 <segue destination="LsS-2b-7zz" kind="show" id="Ywp-kb-D85"/>
@@ -576,7 +580,7 @@ To get started
                         <viewLayoutGuide key="safeArea" id="HUQ-j8-PWU"/>
                     </view>
                     <navigationItem key="navigationItem" title="About Us" id="oT0-Jp-NcY">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="LeftAccessory1" landscapeImage="LeftAccessory1" largeContentSizeImage="LeftAccessory1" style="plain" id="o2B-J5-tg5">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="LeftAccessory_Black" landscapeImage="LeftAccessory_Black" largeContentSizeImage="LeftAccessory_Black" style="plain" id="o2B-J5-tg5">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="GoBack:" destination="4Cr-04-dtm" id="eLZ-mZ-wsp"/>
@@ -725,7 +729,7 @@ auto-renewal in your iTunes account.</string>
                         <viewLayoutGuide key="safeArea" id="GaR-gB-jn4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Go Pro" id="GlQ-iB-sis">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="LeftAccessory1" landscapeImage="LeftAccessory1" largeContentSizeImage="LeftAccessory1" id="zHB-9e-qoE">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="LeftAccessory_Black" landscapeImage="LeftAccessory_Black" largeContentSizeImage="LeftAccessory_Black" id="zHB-9e-qoE">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="GoBack:" destination="amg-2v-KB4" id="iA4-Eh-8DN"/>
@@ -751,7 +755,7 @@ auto-renewal in your iTunes account.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K16-XA-7px">
-                                <rect key="frame" x="0.0" y="75" width="414" height="308"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="308"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -1081,11 +1085,9 @@ started!</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem title="" image="photo-camera" id="NbW-eE-7NN">
-                                        <color key="badgeColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tabBarItem>
+                                    <tabBarItem title="" image="photo-camera" selectedImage="photo-camera" id="NbW-eE-7NN"/>
                                 </items>
-                                <color key="tintColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="delegate" destination="BNY-ON-uuq" id="IUB-PF-vhJ"/>
                                 </connections>
@@ -1145,7 +1147,8 @@ started!</string>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P8h-Pn-Rhh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.45882352939999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.32549019610000002" green="0.45882352939999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,23 +10,17 @@ import UIKit
 
 class CardDetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-
-    
     @IBOutlet weak var mytableView: UITableView!
-    
     @IBOutlet weak var pickerView: UIPickerView!
     
     var selectedRow = "Sport"
     var sports = ["Baseball","Basketball","Football","Hockey","Soccer","Boxing","Golf"]
     var sportsyear = ["2008", "2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         pickerView.backgroundColor = .white
-
         pickerView.showsSelectionIndicator = true
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -44,13 +38,13 @@ class CardDetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
 
-        view.inputView = pickerView
-        view.inputAccessoryView = toolBar
-
+//        view.inputView = pickerView
+//        view.inputAccessoryView = toolBar
 //        PickerandTable(tableviewalpha: 1, pickerviewalpha: 0.5)
-
-        // Do any additional setup after loading the view.
+// Do any additional setup after loading the view.
+        
     }
+    
     
     @objc func donePicker () {
         
