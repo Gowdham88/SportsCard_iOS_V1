@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G0c-d8-ewQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hB6-CU-ghK">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -36,13 +36,29 @@
                                 <rect key="frame" x="0.0" y="75" width="414" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Scan_Back" translatesAutoresizingMaskIntoConstraints="NO" id="Gkr-t9-vOQ">
-                                        <rect key="frame" x="219" y="0.0" width="159" height="212"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-vH-Rol">
+                                        <rect key="frame" x="25" y="-3" width="174" height="219"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Scan_Back"/>
+                                        <connections>
+                                            <action selector="scan_Back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkb-N4-Yqg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iex-Ux-cT3">
+                                        <rect key="frame" x="207" y="-3" width="174" height="219"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Scan_Front"/>
+                                        <connections>
+                                            <action selector="scan_Front:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QqZ-rN-Tj3"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Scan_Back" translatesAutoresizingMaskIntoConstraints="NO" id="HOd-nd-f9h">
+                                        <rect key="frame" x="25" y="0.0" width="174" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Scan_Front" translatesAutoresizingMaskIntoConstraints="NO" id="vAA-I7-ykr">
-                                        <rect key="frame" x="35" y="0.0" width="158" height="212"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Scan_Front" translatesAutoresizingMaskIntoConstraints="NO" id="Ayn-9l-OAa">
+                                        <rect key="frame" x="207" y="0.0" width="174" height="202"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -209,6 +225,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="scan_back_ImageView" destination="HOd-nd-f9h" id="Z4i-TT-hSK"/>
+                        <outlet property="scan_back_button" destination="HW1-vH-Rol" id="Ide-yO-BqN"/>
+                        <outlet property="scan_front_ImageView" destination="Ayn-9l-OAa" id="naL-5t-gCg"/>
                         <outlet property="segmentioView" destination="HPf-Lw-4K4" id="q9W-ic-TS4"/>
                     </connections>
                 </viewController>
@@ -503,7 +522,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HG-Wu-8LB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2215.9420289855075" y="460.59782608695656"/>
+            <point key="canvasLocation" x="1754" y="449"/>
+        </scene>
+        <!--Select Set-->
+        <scene sceneID="OKH-ff-0sA">
+            <objects>
+                <viewController id="Fxp-Nk-eR0" customClass="SelectCellVC" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pax-uY-CHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="67" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u1S-HA-xuT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="67" id="ivq-sZ-C8y">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ivq-sZ-C8y" id="KLL-b2-bA6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fxp-Nk-eR0" id="208-9f-PjG"/>
+                                    <outlet property="delegate" destination="Fxp-Nk-eR0" id="xjd-7j-JdL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zXM-0L-oxI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Set" id="OvG-Vg-tML">
+                        <barButtonItem key="leftBarButtonItem" image="LeftAccessory_Black" id="frh-Ti-IiA"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFm-6J-hgB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3311.594202898551" y="437.77173913043481"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="zjT-mS-b1f">
@@ -590,7 +648,7 @@ To get started
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImT-RJ-U5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2660.8695652173915" y="-289.4021739130435"/>
+            <point key="canvasLocation" x="2546" y="-289"/>
         </scene>
         <!--Go Pro-->
         <scene sceneID="5mg-gI-Yqp">
@@ -1191,7 +1249,7 @@ started!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udT-sl-8P4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976.8115942028987" y="-289.4021739130435"/>
+            <point key="canvasLocation" x="1754" y="-289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z3I-e5-gQw">
@@ -1255,7 +1313,28 @@ started!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16v-SX-2UH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482.608695652174" y="460.59782608695656"/>
+            <point key="canvasLocation" x="1070" y="449"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VJD-nU-7Cu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dId-ag-3nY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l8z-qq-qaw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fxp-Nk-eR0" kind="relationship" relationship="rootViewController" id="jht-nT-upT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N5B-LP-Jkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545" y="438"/>
         </scene>
     </scenes>
     <resources>
