@@ -60,6 +60,11 @@
 		C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5597A24E8F98000AAEC41 /* Constants.swift */; };
 		C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5598024E9A8AC00AAEC41 /* Login.storyboard */; };
 		C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */; };
+		C3D31842259A4E94003325EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3183D259A4E93003325EB /* SceneDelegate.swift */; };
+		C3D31843259A4E94003325EB /* ImageviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3183E259A4E93003325EB /* ImageviewViewController.swift */; };
+		C3D31844259A4E94003325EB /* CameraStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3183F259A4E93003325EB /* CameraStartViewController.swift */; };
+		C3D31845259A4E94003325EB /* PanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D31840259A4E93003325EB /* PanViewController.swift */; };
+		C3D31846259A4E94003325EB /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D31841259A4E94003325EB /* BorderView.swift */; };
 		C3DCA239252CD7740001A3C0 /* SelectCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCA238252CD7740001A3C0 /* SelectCellVC.swift */; };
 		C3FF9261BD329D4183D7E467 /* Pods_GradesGuruTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */; };
 /* End PBXBuildFile section */
@@ -145,6 +150,11 @@
 		C3C5597A24E8F98000AAEC41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C5598024E9A8AC00AAEC41 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C3D3183D259A4E93003325EB /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = Border/SceneDelegate.swift; sourceTree = "<group>"; };
+		C3D3183E259A4E93003325EB /* ImageviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageviewViewController.swift; path = Border/ImageviewViewController.swift; sourceTree = "<group>"; };
+		C3D3183F259A4E93003325EB /* CameraStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraStartViewController.swift; path = Border/CameraStartViewController.swift; sourceTree = "<group>"; };
+		C3D31840259A4E93003325EB /* PanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PanViewController.swift; path = Border/PanViewController.swift; sourceTree = "<group>"; };
+		C3D31841259A4E94003325EB /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = Border/BorderView.swift; sourceTree = "<group>"; };
 		C3DCA238252CD7740001A3C0 /* SelectCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCellVC.swift; sourceTree = "<group>"; };
 		CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.release.xcconfig"; sourceTree = "<group>"; };
 		D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuruTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +328,11 @@
 		C3C1407024E86D02005046E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3D31841259A4E94003325EB /* BorderView.swift */,
+				C3D3183F259A4E93003325EB /* CameraStartViewController.swift */,
+				C3D3183E259A4E93003325EB /* ImageviewViewController.swift */,
+				C3D3183D259A4E93003325EB /* SceneDelegate.swift */,
+				C3D31840259A4E93003325EB /* PanViewController.swift */,
 				C381EFD5251A683C00C7E4C6 /* Masters */,
 				C3C1407324E86E21005046E9 /* ScanImage.swift */,
 				C3C1407524E86E34005046E9 /* Centering.swift */,
@@ -618,6 +633,8 @@
 				C3C1407624E86E34005046E9 /* Centering.swift in Sources */,
 				C381EFD7251A686500C7E4C6 /* SurfaceMaster.swift in Sources */,
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
+				C3D31842259A4E94003325EB /* SceneDelegate.swift in Sources */,
+				C3D31846259A4E94003325EB /* BorderView.swift in Sources */,
 				C381EFD2251A640E00C7E4C6 /* CenteringDetails.swift in Sources */,
 				C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */,
 				C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */,
@@ -627,7 +644,9 @@
 				C362423B252248DA00759DBB /* CardDetailsVC.swift in Sources */,
 				C381EFD9251A6A2800C7E4C6 /* EdgesMaster.swift in Sources */,
 				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
+				C3D31845259A4E94003325EB /* PanViewController.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
+				C3D31844259A4E94003325EB /* CameraStartViewController.swift in Sources */,
 				C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */,
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
 				C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */,
@@ -635,6 +654,7 @@
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
+				C3D31843259A4E94003325EB /* ImageviewViewController.swift in Sources */,
 				C3DCA239252CD7740001A3C0 /* SelectCellVC.swift in Sources */,
 				C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */,
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,

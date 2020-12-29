@@ -144,13 +144,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     
-        public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-
-            imageView = info[[UIImagePickerController.InfoKey.editedImage.self]] as! UIImage
-            scan_back_ImageView.contentMode = .scaleAspectFill
-            scan_back_ImageView.image = imageView
-            dismiss(animated:true, completion: nil)
-        }
+//        public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//
+//            imageView = info[[UIImagePickerController.InfoKey.editedImage.self]] as! UIImage
+//            scan_back_ImageView.contentMode = .scaleAspectFill
+//            scan_back_ImageView.image = imageView
+//            dismiss(animated:true, completion: nil)
+//        }
         public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             print("Cancel")
         }
