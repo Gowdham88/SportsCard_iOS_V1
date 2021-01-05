@@ -8,10 +8,12 @@
 
 import UIKit
 
-class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomePageVC: UIViewController {
    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
+    
+    @IBOutlet weak var addImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +41,25 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         }
         
+        
+        //Upload image action:
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(uploadImage(tapGestureRecognizer:)))
+        addImage.isUserInteractionEnabled = true
+        addImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        
         // Do any additional setup after loading the view.
     }
     
+    @objc func uploadImage(tapGestureRecognizer: UITapGestureRecognizer) {
+        //let tappedImage = tapGestureRecognizer.view as! UIImageView
+        print(":::::Image view tapped ::::::")
+    }
+  
+
+}
+
+extension HomePageVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -61,14 +79,19 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
                return cell
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
-    */
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            myTableView.beginUpdates()
+                //Names.removeAtIndex(indexPath!.row)
+            myTableView.deleteRows(at: [indexPath], with: .none)
+            myTableView.endUpdates()
 
+            }
+    }
+    
 }

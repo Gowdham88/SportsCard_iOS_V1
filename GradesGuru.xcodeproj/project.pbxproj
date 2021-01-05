@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E62A1F25A3906E00705440 /* WelcomeVc.swift */; };
 		82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */; };
 		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuru.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E62A1F25A3906E00705440 /* WelcomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVc.swift; sourceTree = "<group>"; };
 		30DB77B627F6E9FA6B83DC02 /* Pods-GradesGuruTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.release.xcconfig"; sourceTree = "<group>"; };
 		80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.debug.xcconfig"; sourceTree = "<group>"; };
 		8BAF3B5A8AD3D1297850B152 /* Pods-GradesGuru-GradesGuruUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				C36B24022511038B006ED6E3 /* InitialPageViewController.swift */,
 				C38D9B462512106D00BE981A /* LetsGo.swift */,
 				C38D9B482512732F00BE981A /* HomePageVC.swift */,
+				18E62A1F25A3906E00705440 /* WelcomeVc.swift */,
 				C38D9B4C251279F500BE981A /* SideMenuTVC.swift */,
 				C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */,
 				C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */,
@@ -614,6 +617,7 @@
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
 				C381EFD2251A640E00C7E4C6 /* CenteringDetails.swift in Sources */,
 				C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */,
+				18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */,
 				C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */,
 				C381EFD4251A664800C7E4C6 /* CornersMaster.swift in Sources */,
 				C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */,
