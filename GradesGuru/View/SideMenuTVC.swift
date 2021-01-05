@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import StoreKit
+import MessageUI
+import SafariServices
 
-class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource,UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     var sideMenu = ["Go Pro", "Grading Standards", "About Us", "Contact Us", "Rate Us", "Recommend To a Friend", "Terms & Privacy"]
     
@@ -29,6 +33,46 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+    }
+    
+    //Mark: Share the app link to friends
+    func shareApp() {
+        if let urlStr = NSURL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8") {
+            let objectsToShare = [urlStr]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                if let popup = activityVC.popoverPresentationController {
+                    popup.sourceView = self.view
+                    popup.sourceRect = CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0)
+                }
+            }
+
+            self.present(activityVC, animated: true, completion: nil)
+        }
+
+    }
+    
+    //Mark: App store rating
+    func rateApp() {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+
+        } else if let url = URL(string: "itms-apps://itunes.apple.com/app/" + "appId") {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
+    // MARK: - Email Delegate
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -90,15 +134,37 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         case 3:
         print("Contact Us")
+            if MFMailComposeViewController.canSendMail(){
+                let vc = MFMailComposeViewController()
+                vc.delegate = self
+                vc.setSubject("Grade Guru Support")
+                vc.setToRecipients(["sportscardsscience@gmail.com"])
+                vc.setMessageBody("Please let us know about any issues, feature request or anything else in your mind!", isHTML: true)
+        //        vc.addAttachmentData(<#T##attachment: Data##Data#>, mimeType: "plain", fileName: v)
+                present(vc, animated: true)
+            }else{
+                if let url = URL(string: "message://") {
+                  if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                  } else {
+                    UIApplication.shared.openURL(url)
+                  }
+                }
+            }
+          
         
         case 4:
         print("Rate Us")
+        rateApp()
+         
         
         case 5:
         print("Recommend To a Friend")
+        shareApp()
         
         case 6:
         print("Terms and Privacy Us")
+        ModalRepFullScreen(Storyboard: "Card", Identifier: "newTabbarController")
         
         default:
             break

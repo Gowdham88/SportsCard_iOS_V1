@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1877032B25A4BA59002EC49E /* Card.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1877032A25A4BA59002EC49E /* Card.storyboard */; };
+		1877033425A4BC4B002EC49E /* newTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033325A4BC4B002EC49E /* newTabbarController.swift */; };
+		1877033925A4BC58002EC49E /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033825A4BC58002EC49E /* SportViewController.swift */; };
+		1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033D25A4BC66002EC49E /* YearViewController.swift */; };
+		1877034325A4BC70002EC49E /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877034225A4BC70002EC49E /* SetViewController.swift */; };
 		18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E62A1F25A3906E00705440 /* WelcomeVc.swift */; };
 		82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */; };
 		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
@@ -82,6 +87,11 @@
 
 /* Begin PBXFileReference section */
 		0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuru.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1877032A25A4BA59002EC49E /* Card.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Card.storyboard; sourceTree = "<group>"; };
+		1877033325A4BC4B002EC49E /* newTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTabbarController.swift; sourceTree = "<group>"; };
+		1877033825A4BC58002EC49E /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
+		1877033D25A4BC66002EC49E /* YearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
+		1877034225A4BC70002EC49E /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		18E62A1F25A3906E00705440 /* WelcomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVc.swift; sourceTree = "<group>"; };
 		30DB77B627F6E9FA6B83DC02 /* Pods-GradesGuruTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.release.xcconfig"; sourceTree = "<group>"; };
 		80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +188,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1877032F25A4BC27002EC49E /* CardDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1877033325A4BC4B002EC49E /* newTabbarController.swift */,
+				1877033825A4BC58002EC49E /* SportViewController.swift */,
+				1877033D25A4BC66002EC49E /* YearViewController.swift */,
+				1877034225A4BC70002EC49E /* SetViewController.swift */,
+			);
+			path = CardDetails;
+			sourceTree = "<group>";
+		};
 		6B645DD4D519204F2FD028E1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +301,7 @@
 		C3C1403F24E86BBC005046E9 /* GradesGuru */ = {
 			isa = PBXGroup;
 			children = (
+				1877032F25A4BC27002EC49E /* CardDetails */,
 				C36B240425111DBA006ED6E3 /* Font */,
 				8ED551E32508E08000C6389E /* Assets */,
 				C3C1407224E86D15005046E9 /* Controllers */,
@@ -350,6 +372,7 @@
 			children = (
 				C3C1404624E86BBC005046E9 /* Main.storyboard */,
 				C3C5598024E9A8AC00AAEC41 /* Login.storyboard */,
+				1877032A25A4BA59002EC49E /* Card.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -468,6 +491,7 @@
 				C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */,
 				C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */,
 				C381EFC32519F8A300C7E4C6 /* Muli-ExtraLightItalic.ttf in Resources */,
+				1877032B25A4BA59002EC49E /* Card.storyboard in Resources */,
 				C381EFC42519F8A300C7E4C6 /* Muli-Light.ttf in Resources */,
 				C381EFC52519F8A300C7E4C6 /* Muli-Italic.ttf in Resources */,
 				C381EFC62519F8A300C7E4C6 /* Muli-SemiBold.ttf in Resources */,
@@ -622,6 +646,7 @@
 				C381EFD4251A664800C7E4C6 /* CornersMaster.swift in Sources */,
 				C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */,
 				C38D9B472512106D00BE981A /* LetsGo.swift in Sources */,
+				1877033425A4BC4B002EC49E /* newTabbarController.swift in Sources */,
 				C381EFD9251A6A2800C7E4C6 /* EdgesMaster.swift in Sources */,
 				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
@@ -629,13 +654,16 @@
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
 				C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */,
 				C352B2002515FC81004321F1 /* Users.swift in Sources */,
+				1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
+				1877033925A4BC58002EC49E /* SportViewController.swift in Sources */,
 				C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */,
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,
 				C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */,
 				C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */,
+				1877034325A4BC70002EC49E /* SetViewController.swift in Sources */,
 				C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */,
 				C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */,
 			);
@@ -811,8 +839,9 @@
 			baseConfigurationReference = 80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSJRRDKMW9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -820,6 +849,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GG.Sportscard.GradesGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -830,8 +860,9 @@
 			baseConfigurationReference = CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSJRRDKMW9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -839,6 +870,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GG.Sportscard.GradesGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
