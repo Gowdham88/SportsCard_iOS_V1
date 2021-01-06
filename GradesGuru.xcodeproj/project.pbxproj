@@ -839,7 +839,7 @@
 			baseConfigurationReference = 80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
@@ -860,7 +860,7 @@
 			baseConfigurationReference = CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;

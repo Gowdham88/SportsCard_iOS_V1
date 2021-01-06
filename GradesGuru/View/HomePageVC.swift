@@ -15,8 +15,24 @@ class HomePageVC: UIViewController {
     
     @IBOutlet weak var addImage: UIImageView!
     
+    @IBOutlet weak var tableViewBottomConstraints: NSLayoutConstraint!
+    
+    @IBOutlet weak var scanBtnView: UIView!
+    
+    //sample data array
+    var name = ["Karthik", "Gowdhaman", "Hanifa", "Rathna"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if name.count > 0 {
+            addImage.isHidden = true
+            scanBtnView.isHidden = false
+        } else {
+            addImage.isHidden = false
+            scanBtnView.isHidden = true
+        }
+         
         
         
 
@@ -42,18 +58,23 @@ class HomePageVC: UIViewController {
         }
         
         
-        //Upload image action:
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(uploadImage(tapGestureRecognizer:)))
-        addImage.isUserInteractionEnabled = true
-        addImage.addGestureRecognizer(tapGestureRecognizer)
-        
-        
         // Do any additional setup after loading the view.
     }
     
+
+    
+    @IBAction func scanDocument(_ sender: Any) {
+        print(":::::Document view tapped ::::::")
+        let homepageController: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homePageVC = homepageController.instantiateViewController(identifier: "ViewController") as! ViewController
+        self.navigationController?.pushViewController(homePageVC, animated: true)
+    }
+    
     @objc func uploadImage(tapGestureRecognizer: UITapGestureRecognizer) {
-        //let tappedImage = tapGestureRecognizer.view as! UIImageView
         print(":::::Image view tapped ::::::")
+        let homepageController: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homePageVC = homepageController.instantiateViewController(identifier: "ViewController") as! ViewController
+        self.navigationController?.pushViewController(homePageVC, animated: true)
     }
   
 
