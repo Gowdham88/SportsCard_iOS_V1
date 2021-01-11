@@ -17,8 +17,17 @@ class ViewController: UIViewController {
     
     var selected_img = ""
     
+    var frontImage = ""
+    var backImage = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if frontImage != ""{
+            print("£££ front Image added £££")
+        } else {
+            print("£££ front Image empty £££")
+        }
         
         //Upload image action:
         let tapFrontImg = UITapGestureRecognizer(target: self, action: #selector(scanFrontPage(tapGestureRecognizer:)))
@@ -29,12 +38,20 @@ class ViewController: UIViewController {
         scanBackPage.isUserInteractionEnabled = true
         scanBackPage.addGestureRecognizer(tapBackImg)
         
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+
     }
     
     @objc func scanFrontPage(tapGestureRecognizer: UITapGestureRecognizer) {
         selected_img = "front_img"
         print(":::::FrontImage view tapped ::::::")
         scanImageOption()
+        
         
     }
     
@@ -44,6 +61,11 @@ class ViewController: UIViewController {
         scanImageOption()
         
     }
+    
+    @IBAction func infoBtnAction(_ sender: Any) {
+        showViewInfo()
+    }
+    
 }
 
 
@@ -99,6 +121,13 @@ extension ViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func showViewInfo() {
+        //self.navigationController?.navigationBar.isHidden = true
+        let infoPage = self.storyboard?.instantiateViewController(withIdentifier: "InfoVc") as! InfoVc
+        infoPage.modalPresentationStyle = .overCurrentContext
+        self.present(infoPage, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -120,7 +149,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                     }
             if selected_img == "front_img"
             {
+                
+            self.frontImage = selected_img
             self.scanfrontPage.image = pickedImage
+            
                 
             self.scanfrontPage.layer.cornerRadius = 8.0
             self.scanfrontPage.layer.masksToBounds = true
@@ -129,8 +161,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 
             self.scanfrontPage.isHidden = false
             self.scanfrontPage.contentMode = .scaleAspectFill
+                
+            
             }
             else{
+                self.backImage = selected_img
                 self.scanBackPage.image = pickedImage
                 
                 self.scanBackPage.layer.cornerRadius = 8.0
@@ -140,6 +175,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 
                 self.scanBackPage.isHidden = false
                 self.scanBackPage.contentMode = .scaleAspectFill
+                
+                
 
             }
         
