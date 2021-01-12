@@ -8,76 +8,90 @@
 
 import UIKit
 
-class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
+class HomePageVC: UIViewController {
    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
+    
+    @IBOutlet weak var addImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+
+            textfield.backgroundColor = UIColor.white
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "Search here", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+            
+//            textfield.background = UIImage(named: "noun_Search")
+            
+            searchBar.backgroundColor = UIColor(patternImage: UIImage(named: "Search")!)
+            
+//            searchBar.backgroundImage = UIImage(named: "Search")
+            searchBar.frame = CGRect(x: 20, y: 100, width: view.frame.width - 25, height: 40)
+           
+
+            if let leftView = textfield.leftView as? UIImageView {
+                leftView.image = UIImage(named: "noun_Search.png")
+                
+//                leftView.tintColor = UIColor.black
+            }
+
+        }
+        
+        
+        //Upload image action:
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(uploadImage(tapGestureRecognizer:)))
+        addImage.isUserInteractionEnabled = true
+        addImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        // Do any additional setup after loading the view.
     }
+    
+    @objc func uploadImage(tapGestureRecognizer: UITapGestureRecognizer) {
+        //let tappedImage = tapGestureRecognizer.view as! UIImageView
+        print(":::::Image view tapped ::::::")
+    }
+  
+
+}
+
+extension HomePageVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-        
+        return 1
     }
-    
-      func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    
-            let action = UIContextualAction(
-                style: .normal,
-                title: "",
-                handler: { (action, view, completion) in
-                    //do what you want here
-                    completion(true)
-            })
-    
-            action.image = UIImage(named: "Delete")
-            action.backgroundColor = .red
-            let configuration = UISwipeActionsConfiguration(actions: [action])
-            configuration.performsFirstActionWithFullSwipe = false
-            return configuration
-        
-        }
-        
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+         
                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
-        
+               
+               
                // Configure the cell...
 
                return cell
-        
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        let vc = storyboard.instantiateViewController(withIdentifier: "Mainpage")
-        
-        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-        
-        self.present(vc, animated: true, completion: nil)
-
-        //This method will be called when user changes tab.
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
-    /*
-    // MARK: - Navigation
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            myTableView.beginUpdates()
+                //Names.removeAtIndex(indexPath!.row)
+            myTableView.deleteRows(at: [indexPath], with: .none)
+            myTableView.endUpdates()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+            }
     }
-    */
-
+    
 }
