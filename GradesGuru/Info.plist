@@ -70,7 +70,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key></key>
-	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow access to open the camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow gallery to access</string>
 </dict>
 </plist>

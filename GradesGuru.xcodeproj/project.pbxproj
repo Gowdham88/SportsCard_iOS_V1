@@ -13,6 +13,7 @@
 		1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033D25A4BC66002EC49E /* YearViewController.swift */; };
 		1877034325A4BC70002EC49E /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877034225A4BC70002EC49E /* SetViewController.swift */; };
 		18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E62A1F25A3906E00705440 /* WelcomeVc.swift */; };
+		18F6742D25ACC139003C570D /* InfoVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6742C25ACC139003C570D /* InfoVc.swift */; };
 		82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */; };
 		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
@@ -93,6 +94,7 @@
 		1877033D25A4BC66002EC49E /* YearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 		1877034225A4BC70002EC49E /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		18E62A1F25A3906E00705440 /* WelcomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVc.swift; sourceTree = "<group>"; };
+		18F6742C25ACC139003C570D /* InfoVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVc.swift; sourceTree = "<group>"; };
 		30DB77B627F6E9FA6B83DC02 /* Pods-GradesGuruTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.release.xcconfig"; sourceTree = "<group>"; };
 		80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.debug.xcconfig"; sourceTree = "<group>"; };
 		8BAF3B5A8AD3D1297850B152 /* Pods-GradesGuru-GradesGuruUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				C3C1407024E86D02005046E9 /* Model */,
 				C3C1404024E86BBC005046E9 /* AppDelegate.swift */,
 				C3C1404224E86BBC005046E9 /* SceneDelegate.swift */,
+				18F6742C25ACC139003C570D /* InfoVc.swift */,
 				C3C1404924E86BC0005046E9 /* Assets.xcassets */,
 				C3C1404B24E86BC0005046E9 /* LaunchScreen.storyboard */,
 				C3C1404E24E86BC0005046E9 /* Info.plist */,
@@ -641,6 +644,7 @@
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
 				C381EFD2251A640E00C7E4C6 /* CenteringDetails.swift in Sources */,
 				C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */,
+				18F6742D25ACC139003C570D /* InfoVc.swift in Sources */,
 				18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */,
 				C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */,
 				C381EFD4251A664800C7E4C6 /* CornersMaster.swift in Sources */,
@@ -839,7 +843,7 @@
 			baseConfigurationReference = 80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
@@ -860,7 +864,7 @@
 			baseConfigurationReference = CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
