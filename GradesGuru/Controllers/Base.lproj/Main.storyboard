@@ -37,23 +37,69 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IE-YK-SQi">
                                 <rect key="frame" x="0.0" y="68.999999999999986" width="414" height="220.66666666666663"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan_Back" translatesAutoresizingMaskIntoConstraints="NO" id="Gkr-t9-vOQ">
-                                        <rect key="frame" x="223.33333333333337" y="16.666666666666671" width="165.66666666666663" height="187.66666666666663"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan_Front" translatesAutoresizingMaskIntoConstraints="NO" id="vAA-I7-ykr">
-                                        <rect key="frame" x="25" y="16.666666666666671" width="165.66666666666666" height="187.66666666666663"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81n-cM-Zf9">
+                                        <rect key="frame" x="30" y="16.666666666666671" width="145" height="187.66666666666663"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan_Front" translatesAutoresizingMaskIntoConstraints="NO" id="vAA-I7-ykr">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="187.66666666666666"/>
+                                            </imageView>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdy-2n-yZM">
+                                                <rect key="frame" x="101.33333333333334" y="153.66666666666669" width="43.666666666666657" height="34"/>
+                                                <state key="normal" image="round_camera"/>
+                                                <connections>
+                                                    <action selector="frontReScanBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXB-gN-x4B"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Jdy-2n-yZM" secondAttribute="bottom" id="7oP-Oc-yAJ"/>
+                                            <constraint firstItem="vAA-I7-ykr" firstAttribute="leading" secondItem="81n-cM-Zf9" secondAttribute="leading" id="BEJ-zq-ecX"/>
+                                            <constraint firstItem="Jdy-2n-yZM" firstAttribute="height" secondItem="vAA-I7-ykr" secondAttribute="height" multiplier="0.18" id="E8p-H4-ieq"/>
+                                            <constraint firstItem="Jdy-2n-yZM" firstAttribute="width" secondItem="vAA-I7-ykr" secondAttribute="width" multiplier="0.3" id="TGU-dV-8mA"/>
+                                            <constraint firstAttribute="trailing" secondItem="vAA-I7-ykr" secondAttribute="trailing" id="c2S-N7-EYB"/>
+                                            <constraint firstAttribute="bottom" secondItem="vAA-I7-ykr" secondAttribute="bottom" id="ikn-rQ-Fxi"/>
+                                            <constraint firstItem="vAA-I7-ykr" firstAttribute="top" secondItem="81n-cM-Zf9" secondAttribute="top" id="qcS-Ff-A7N"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jdy-2n-yZM" secondAttribute="trailing" id="t1b-oy-gtA"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUA-Ye-b4b">
+                                        <rect key="frame" x="239" y="16.666666666666671" width="145" height="187.66666666666663"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan_Back" translatesAutoresizingMaskIntoConstraints="NO" id="Gkr-t9-vOQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="187.66666666666666"/>
+                                            </imageView>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5y-LN-eKr">
+                                                <rect key="frame" x="101.66666666666669" y="153.66666666666669" width="43.333333333333343" height="34"/>
+                                                <state key="normal" image="round_camera"/>
+                                                <connections>
+                                                    <action selector="frontReScanBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oCA-xG-yse"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="y5y-LN-eKr" secondAttribute="trailing" id="5p4-mP-EhA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gkr-t9-vOQ" secondAttribute="trailing" id="GIt-w1-tPt"/>
+                                            <constraint firstAttribute="bottom" secondItem="y5y-LN-eKr" secondAttribute="bottom" id="RAH-zU-7vi"/>
+                                            <constraint firstItem="y5y-LN-eKr" firstAttribute="height" secondItem="Gkr-t9-vOQ" secondAttribute="height" multiplier="0.18" id="TCF-Yy-nrN"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gkr-t9-vOQ" secondAttribute="bottom" id="fek-DD-fgb"/>
+                                            <constraint firstItem="Gkr-t9-vOQ" firstAttribute="top" secondItem="TUA-Ye-b4b" secondAttribute="top" id="gRr-un-ZDC"/>
+                                            <constraint firstItem="Gkr-t9-vOQ" firstAttribute="leading" secondItem="TUA-Ye-b4b" secondAttribute="leading" id="s34-Z8-EOt"/>
+                                            <constraint firstItem="y5y-LN-eKr" firstAttribute="width" secondItem="Gkr-t9-vOQ" secondAttribute="width" multiplier="0.3" id="wPt-RI-EyV"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="vAA-I7-ykr" firstAttribute="height" secondItem="8IE-YK-SQi" secondAttribute="height" multiplier="0.85" id="1R0-9d-wEc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gkr-t9-vOQ" secondAttribute="trailing" constant="25" id="5yh-Lp-Ugh"/>
-                                    <constraint firstItem="vAA-I7-ykr" firstAttribute="width" secondItem="8IE-YK-SQi" secondAttribute="width" multiplier="0.4" id="Bv5-4Z-t0g"/>
-                                    <constraint firstItem="Gkr-t9-vOQ" firstAttribute="height" secondItem="8IE-YK-SQi" secondAttribute="height" multiplier="0.85" id="DDo-5m-Yhn"/>
-                                    <constraint firstItem="vAA-I7-ykr" firstAttribute="leading" secondItem="8IE-YK-SQi" secondAttribute="leading" constant="25" id="a1V-qv-NBM"/>
-                                    <constraint firstItem="vAA-I7-ykr" firstAttribute="centerY" secondItem="8IE-YK-SQi" secondAttribute="centerY" id="e0v-5i-ODM"/>
-                                    <constraint firstItem="Gkr-t9-vOQ" firstAttribute="centerY" secondItem="8IE-YK-SQi" secondAttribute="centerY" id="eih-Ka-Wvi"/>
-                                    <constraint firstItem="Gkr-t9-vOQ" firstAttribute="width" secondItem="8IE-YK-SQi" secondAttribute="width" multiplier="0.4" id="h3a-2G-1Jg"/>
+                                    <constraint firstItem="TUA-Ye-b4b" firstAttribute="width" secondItem="8IE-YK-SQi" secondAttribute="width" multiplier="0.35" id="Nw2-60-OpH"/>
+                                    <constraint firstItem="TUA-Ye-b4b" firstAttribute="centerY" secondItem="8IE-YK-SQi" secondAttribute="centerY" id="ORT-AR-5Z2"/>
+                                    <constraint firstItem="81n-cM-Zf9" firstAttribute="height" secondItem="8IE-YK-SQi" secondAttribute="height" multiplier="0.85" id="Oso-Ou-SzV"/>
+                                    <constraint firstItem="TUA-Ye-b4b" firstAttribute="height" secondItem="8IE-YK-SQi" secondAttribute="height" multiplier="0.85" id="eCU-TU-zRL"/>
+                                    <constraint firstItem="81n-cM-Zf9" firstAttribute="leading" secondItem="8IE-YK-SQi" secondAttribute="leading" constant="30" id="h5k-vF-Pdh"/>
+                                    <constraint firstItem="81n-cM-Zf9" firstAttribute="centerY" secondItem="8IE-YK-SQi" secondAttribute="centerY" id="i0Y-jd-set"/>
+                                    <constraint firstItem="81n-cM-Zf9" firstAttribute="width" secondItem="8IE-YK-SQi" secondAttribute="width" multiplier="0.35" id="kbV-Uy-QoA"/>
+                                    <constraint firstAttribute="trailing" secondItem="TUA-Ye-b4b" secondAttribute="trailing" constant="30" id="xlB-05-Bdg"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-G3-vp5">
@@ -69,11 +115,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-sK-I7Q">
-                                                <rect key="frame" x="20" y="57.333333333333336" width="20" height="18.333333333333314"/>
+                                                <rect key="frame" x="20" y="57.333333333333329" width="20" height="18"/>
                                                 <color key="tintColor" red="0.060044281179999999" green="0.39126497510000002" blue="0.91601318119999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete each section for Grade Estimate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrf-eB-gtB">
-                                                <rect key="frame" x="52" y="45" width="332" height="42.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete each section for Grade Estimate" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrf-eB-gtB">
+                                                <rect key="frame" x="48" y="48" width="321" height="37.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" red="0.060044281179999999" green="0.39126497510000002" blue="0.91601318119999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -81,18 +127,18 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.90071207279999999" green="0.93639081719999995" blue="0.99458891149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="width" secondItem="xrf-eB-gtB" secondAttribute="width" multiplier="0.060241" id="4rL-Ed-85j"/>
-                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="height" secondItem="xrf-eB-gtB" secondAttribute="height" multiplier="0.484127" id="B1Z-18-6ec"/>
-                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="top" secondItem="EHy-sQ-UO2" secondAttribute="bottom" constant="14" id="GxV-Ry-RPe"/>
+                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="width" secondItem="dGl-5G-Q0r" secondAttribute="width" multiplier="0.0507614" id="5hi-oy-Zv2"/>
+                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="top" secondItem="EHy-sQ-UO2" secondAttribute="bottom" constant="14" id="HM3-nb-soa"/>
+                                            <constraint firstAttribute="trailing" secondItem="xrf-eB-gtB" secondAttribute="trailing" constant="25" id="Hpi-8j-749"/>
                                             <constraint firstItem="EHy-sQ-UO2" firstAttribute="top" secondItem="dGl-5G-Q0r" secondAttribute="top" constant="10" id="TgW-Tq-shz"/>
                                             <constraint firstItem="EHy-sQ-UO2" firstAttribute="leading" secondItem="dGl-5G-Q0r" secondAttribute="leading" constant="25" id="VpC-Le-6EZ"/>
+                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="height" secondItem="dGl-5G-Q0r" secondAttribute="height" multiplier="0.190625" id="WQ9-E4-SwF"/>
+                                            <constraint firstItem="xrf-eB-gtB" firstAttribute="height" secondItem="dGl-5G-Q0r" secondAttribute="height" multiplier="0.35" id="WWt-Of-sSa"/>
                                             <constraint firstItem="EHy-sQ-UO2" firstAttribute="height" secondItem="dGl-5G-Q0r" secondAttribute="height" multiplier="0.3" id="Y3I-Ap-bv6"/>
-                                            <constraint firstAttribute="bottom" secondItem="xrf-eB-gtB" secondAttribute="bottom" constant="19" id="Zg7-4R-Mp6"/>
-                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="leading" secondItem="dGl-5G-Q0r" secondAttribute="leading" constant="20" id="blu-wP-WZG"/>
-                                            <constraint firstAttribute="trailing" secondItem="xrf-eB-gtB" secondAttribute="trailing" constant="10" id="myU-eZ-O6Z"/>
+                                            <constraint firstItem="xrf-eB-gtB" firstAttribute="leading" secondItem="Gm7-sK-I7Q" secondAttribute="trailing" constant="8" symbolic="YES" id="mYU-Ih-L8s"/>
                                             <constraint firstItem="EHy-sQ-UO2" firstAttribute="width" secondItem="dGl-5G-Q0r" secondAttribute="width" multiplier="0.8" id="rVh-9T-L7V"/>
-                                            <constraint firstItem="xrf-eB-gtB" firstAttribute="height" secondItem="dGl-5G-Q0r" secondAttribute="height" multiplier="0.4" id="rhJ-hh-BFM"/>
-                                            <constraint firstItem="xrf-eB-gtB" firstAttribute="leading" secondItem="Gm7-sK-I7Q" secondAttribute="trailing" constant="12" id="vRL-1W-EvN"/>
+                                            <constraint firstItem="xrf-eB-gtB" firstAttribute="top" secondItem="EHy-sQ-UO2" secondAttribute="bottom" constant="6" id="ra6-SH-C4Z"/>
+                                            <constraint firstItem="Gm7-sK-I7Q" firstAttribute="leading" secondItem="dGl-5G-Q0r" secondAttribute="leading" constant="20" symbolic="YES" id="uOz-gr-hOw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -226,6 +272,10 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backScanBtn" destination="y5y-LN-eKr" id="286-Jc-q9o"/>
+                        <outlet property="completeLbl" destination="xrf-eB-gtB" id="mWH-8N-FcY"/>
+                        <outlet property="frontScanBtn" destination="Jdy-2n-yZM" id="DYX-vY-DqP"/>
+                        <outlet property="gradeEstLbl" destination="EHy-sQ-UO2" id="siR-Aa-omo"/>
                         <outlet property="scanBackPage" destination="Gkr-t9-vOQ" id="05m-94-WEL"/>
                         <outlet property="scanfrontPage" destination="vAA-I7-ykr" id="rMU-eH-JQH"/>
                     </connections>
@@ -983,7 +1033,31 @@ started!</string>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiF-Gd-g3x">
                                         <rect key="frame" x="0.0" y="40.000000000000028" width="401.33333333333331" height="475.33333333333337"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <mutableString key="text">Grade Guru is here to help you decide which cards to grade!
+
+- Digitally measure centering
+
+- Self-evaluate corners, edges and surface
+
+- Estimate overall grades
+
+- View grading standards of the major grading companies
+
+While Grade Guru helps guide you through this
+process, YOU are the one actually evaluating your
+cards. Therefore, Grade Guru does not make any
+guarantee about the actual grade your cards may
+receive.
+
+To get started
+
+- Scan your first card
+
+- Complete the digital centering process
+
+- Review corners, edges and surface
+
+- Get your Grade Estimate!</mutableString>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1071,6 +1145,7 @@ started!</string>
         <image name="UpgradeNow" width="274" height="79"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="pencil.slash" catalog="system" width="128" height="113"/>
+        <image name="round_camera" width="42.666667938232422" height="42.666667938232422"/>
         <image name="scan_add" width="225" height="225"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

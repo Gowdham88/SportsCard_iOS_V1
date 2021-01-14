@@ -15,20 +15,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var scanfrontPage: UIImageView!
     @IBOutlet weak var scanBackPage: UIImageView!
     
-    var selected_img = ""
     
-    var frontImage = ""
-    var backImage = ""
+    @IBOutlet weak var frontScanBtn: UIButton!
+    @IBOutlet weak var backScanBtn: UIButton!
+    
+    @IBOutlet weak var gradeEstLbl: UILabel!
+    @IBOutlet weak var completeLbl: UILabel!
+    
+    var selected_img = ""
+    var isfrontAdded: Bool = false
+    var isbackAdded: Bool = false
+    
+    var isFrontImage: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if frontImage != ""{
-            print("£££ front Image added £££")
-        } else {
-            print("£££ front Image empty £££")
-        }
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(verifyFrontImageAdded(notification:)), name: Notification.Name("frontImgSelected"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(verifyBackImageAdded(notification:)), name: Notification.Name("backImgSelected"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bothImageAdded(notification:)), name: Notification.Name("bothImageAdded"), object: nil)
+      
         //Upload image action:
         let tapFrontImg = UITapGestureRecognizer(target: self, action: #selector(scanFrontPage(tapGestureRecognizer:)))
         scanfrontPage.isUserInteractionEnabled = true
@@ -38,13 +47,11 @@ class ViewController: UIViewController {
         scanBackPage.isUserInteractionEnabled = true
         scanBackPage.addGestureRecognizer(tapBackImg)
         
-        
-        
+       
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
-
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     @objc func scanFrontPage(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -64,6 +71,48 @@ class ViewController: UIViewController {
     
     @IBAction func infoBtnAction(_ sender: Any) {
         showViewInfo()
+    }
+    
+    @IBAction func frontReScanBtnTapped(_ sender: Any) {
+        scanImageOption()
+    }
+    
+    @objc func verifyFrontImageAdded(notification: Notification) {
+        if isFrontImage {
+            print("£££ front Image added £££")
+            self.frontScanBtn.isHidden = false
+            self.isfrontAdded = true
+        } else {
+            print("£££ front Image empty £££")
+            self.frontScanBtn.isHidden = true
+            self.isfrontAdded = false
+        }
+        
+    }
+    
+    @objc func verifyBackImageAdded(notification: Notification) {
+        if isFrontImage {
+            print("£££ back Image added £££")
+            self.backScanBtn.isHidden = false
+            self.isbackAdded = true
+        } else {
+            print("£££ back Image empty £££")
+            self.backScanBtn.isHidden = true
+            self.isbackAdded = false
+        }
+        
+    }
+    
+    @objc func bothImageAdded(notification: Notification) {
+        if isfrontAdded && isbackAdded {
+            self.completeLbl.textColor = .systemGreen
+            self.gradeEstLbl.textColor = .systemGreen
+        } else {
+            self.completeLbl.textColor = .systemBlue
+            self.gradeEstLbl.textColor = .systemBlue
+
+        }
+        
     }
     
 }
@@ -150,10 +199,12 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             if selected_img == "front_img"
             {
                 
-            self.frontImage = selected_img
             self.scanfrontPage.image = pickedImage
-            
+            self.isFrontImage = true
                 
+            NotificationCenter.default.post(name: Notification.Name("frontImgSelected"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("bothImageAdded"), object: nil)
+
             self.scanfrontPage.layer.cornerRadius = 8.0
             self.scanfrontPage.layer.masksToBounds = true
             self.scanfrontPage.layer.borderColor = UIColor.gray.cgColor
@@ -165,9 +216,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             }
             else{
-                self.backImage = selected_img
                 self.scanBackPage.image = pickedImage
                 
+                NotificationCenter.default.post(name: Notification.Name("backImgSelected"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name("bothImageAdded"), object: nil)
+
                 self.scanBackPage.layer.cornerRadius = 8.0
                 self.scanBackPage.layer.masksToBounds = true
                 self.scanBackPage.layer.borderColor = UIColor.gray.cgColor
