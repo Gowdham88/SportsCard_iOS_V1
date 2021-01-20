@@ -188,7 +188,7 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         case 6:
         print("Terms and Privacy Us")
-        ModalRepFullScreen(Storyboard: "Card", Identifier: "newTabbarController")
+//        ModalRepFullScreen(Storyboard: "Card", Identifier: "newTabbarController")
         
         default:
             break
