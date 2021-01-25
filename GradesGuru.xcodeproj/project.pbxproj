@@ -21,6 +21,11 @@
 		C352B2002515FC81004321F1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352B1FF2515FC81004321F1 /* Users.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
+		C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */; };
+		C37D1DCF25BD29A20002D9AC /* Grade_Guru_Data.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C37D1DCE25BD29A20002D9AC /* Grade_Guru_Data.xlsx */; };
+		C37D1DF225BDE1090002D9AC /* Grade_Guru_Data_1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C37D1DF125BDE1090002D9AC /* Grade_Guru_Data_1.xlsx */; };
+		C37D1DF725BDE2260002D9AC /* Grade_Guru_Data_2.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C37D1DF625BDE2260002D9AC /* Grade_Guru_Data_2.xlsx */; };
+		C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */; };
 		C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */; };
 		C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */; };
 		C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */; };
@@ -105,6 +110,11 @@
 		C352B1FF2515FC81004321F1 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
+		C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesChoiceTVC.swift; sourceTree = "<group>"; };
+		C37D1DCE25BD29A20002D9AC /* Grade_Guru_Data.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data.xlsx; sourceTree = "<group>"; };
+		C37D1DF125BDE1090002D9AC /* Grade_Guru_Data_1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_1.xlsx; sourceTree = "<group>"; };
+		C37D1DF625BDE2260002D9AC /* Grade_Guru_Data_2.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_2.xlsx; sourceTree = "<group>"; };
+		C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingCells.swift; sourceTree = "<group>"; };
 		C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -238,6 +248,7 @@
 			children = (
 				C34C5E80251380D60024BE54 /* sideMenuCell.swift */,
 				C37642B3251BB358008F26C9 /* HomeTVCell.swift */,
+				C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -261,6 +272,16 @@
 				C381EFBC2519F8A200C7E4C6 /* Muli-SemiBoldItalic.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		C37D1DCD25BD29930002D9AC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C37D1DF625BDE2260002D9AC /* Grade_Guru_Data_2.xlsx */,
+				C37D1DF125BDE1090002D9AC /* Grade_Guru_Data_1.xlsx */,
+				C37D1DCE25BD29A20002D9AC /* Grade_Guru_Data.xlsx */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C381EFD5251A683C00C7E4C6 /* Masters */ = {
@@ -303,6 +324,7 @@
 		C3C1403F24E86BBC005046E9 /* GradesGuru */ = {
 			isa = PBXGroup;
 			children = (
+				C37D1DCD25BD29930002D9AC /* Data */,
 				1877032F25A4BC27002EC49E /* CardDetails */,
 				C36B240425111DBA006ED6E3 /* Font */,
 				8ED551E32508E08000C6389E /* Assets */,
@@ -366,6 +388,7 @@
 				C38D9B4C251279F500BE981A /* SideMenuTVC.swift */,
 				C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */,
 				C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */,
+				C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -491,9 +514,11 @@
 			files = (
 				C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */,
 				C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */,
+				C37D1DF725BDE2260002D9AC /* Grade_Guru_Data_2.xlsx in Resources */,
 				C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */,
 				C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */,
 				C381EFC32519F8A300C7E4C6 /* Muli-ExtraLightItalic.ttf in Resources */,
+				C37D1DF225BDE1090002D9AC /* Grade_Guru_Data_1.xlsx in Resources */,
 				1877032B25A4BA59002EC49E /* Card.storyboard in Resources */,
 				C381EFC42519F8A300C7E4C6 /* Muli-Light.ttf in Resources */,
 				C381EFC52519F8A300C7E4C6 /* Muli-Italic.ttf in Resources */,
@@ -508,6 +533,7 @@
 				C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */,
 				C38D9B452511D8F800BE981A /* OnboardingImage.svg in Resources */,
 				8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */,
+				C37D1DCF25BD29A20002D9AC /* Grade_Guru_Data.xlsx in Resources */,
 				C3C1404A24E86BC0005046E9 /* Assets.xcassets in Resources */,
 				C3C1404824E86BBC005046E9 /* Main.storyboard in Resources */,
 			);
@@ -651,6 +677,7 @@
 				C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */,
 				C38D9B472512106D00BE981A /* LetsGo.swift in Sources */,
 				1877033425A4BC4B002EC49E /* newTabbarController.swift in Sources */,
+				C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */,
 				C381EFD9251A6A2800C7E4C6 /* EdgesMaster.swift in Sources */,
 				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
@@ -667,6 +694,7 @@
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,
 				C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */,
 				C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */,
+				C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */,
 				1877034325A4BC70002EC49E /* SetViewController.swift in Sources */,
 				C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */,
 				C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */,

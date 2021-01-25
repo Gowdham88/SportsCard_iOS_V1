@@ -218,6 +218,9 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - CoreXLSX (0.14.0):
+    - XMLCoder (~> 0.11.1)
+    - ZIPFoundation (~> 0.9.11)
   - Firebase (6.30.0):
     - Firebase/Core (= 6.30.0)
   - Firebase/Analytics (6.30.0):
@@ -327,8 +330,11 @@ PODS:
   - PromisesObjC (1.2.10)
   - Segmentio (4.1)
   - SideMenu (6.4.9)
+  - XMLCoder (0.11.1)
+  - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
+  - CoreXLSX (~> 0.14.0)
   - Firebase
   - Firebase/Analytics
   - Firebase/Firestore
@@ -340,6 +346,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - CoreXLSX
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -357,10 +364,13 @@ SPEC REPOS:
     - PromisesObjC
     - Segmentio
     - SideMenu
+    - XMLCoder
+    - ZIPFoundation
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  CoreXLSX: 341fab0a6e87ec6c3e0c7df0e91a346a79ad7503
   Firebase: 210f41ca352067d83b1ba4fd2e7fb49a0c017397
   FirebaseAnalytics: a299a86ef70fcc6aa011418bc65a7e101fb9636c
   FirebaseCore: 9a41e2de78fef10f63cee30ab10e2945266bc1fc
@@ -378,7 +388,9 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
   SideMenu: 8ef57a3cfc024a2d3fc1c036c7fe98537baec9e0
+  XMLCoder: c4638336674de7ba279cd23f2005817d69f538e0
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 450b1db876b94252f0afbc423e6896e1b8292522
+PODFILE CHECKSUM: d7ec3cb66b8e3c68ef774f799a693c5154f777b3
 
 COCOAPODS: 1.9.3

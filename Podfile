@@ -10,6 +10,7 @@ target 'GradesGuru' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Segmentio'
+  pod 'CoreXLSX', '~> 0.14.0'
 
   
 
