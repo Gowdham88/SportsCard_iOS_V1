@@ -18,12 +18,15 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var PSAB = [String]()
     var PSAC = [String]()
     
-   
+    @IBAction func Back_Button(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let filename = "Grade_Guru_Data_2"
+        let filename = "Grade_Guru_Data_4"
         let filetype = "xlsx"
         let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
         
@@ -42,9 +45,11 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                         if let worksheetName = name {
                           print("This worksheet has a name: \(worksheetName)")
             
-                        switch worksheetName {
+                        switch ChosenGrading {
                         
-                        case "Corners_PSA":
+                        case "Corners":
+                            
+                            if worksheetName == "Corners_PSA" {
                             let worksheet = try file.parseWorksheet(at: path)
                             
                             if let sharedStrings = try file.parseSharedStrings() {
@@ -66,18 +71,59 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 print("columnCStringsC: \(columnCStrings)")
                                 
                             }
+                        }
                             
-//                            for row in worksheet.data?.rows ?? [] {
-//
-//                              for c in row.cells {
-//
-//                                print("Row c.refernce: \(c.reference.description.description)")
-//
-//
-//
-//                              }
-//                            }
+                        case "Surface":
                             
+                            if worksheetName == "Surface_PSA" {
+                            let worksheet = try file.parseWorksheet(at: path)
+                            
+                            if let sharedStrings = try file.parseSharedStrings() {
+                                
+                              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                                .compactMap { $0.stringValue(sharedStrings) }
+                                
+                                let columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
+                                  .compactMap { $0.stringValue(sharedStrings) }
+                                
+                                let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                                  .compactMap { $0.stringValue(sharedStrings) }
+                                
+                                PSAB = columnBStrings
+                                PSAC = columnCStrings
+                                
+                                print("columnCStringsA: \(columnAStrings)")
+                                print("columnCStringsB: \(columnBStrings)")
+                                print("columnCStringsC: \(columnCStrings)")
+                                
+                            }
+                        }
+                            
+                        case "Edges":
+                            
+                            if worksheetName == "Edges_PSA" {
+                            let worksheet = try file.parseWorksheet(at: path)
+                            
+                            if let sharedStrings = try file.parseSharedStrings() {
+                                
+                              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                                .compactMap { $0.stringValue(sharedStrings) }
+                                
+                                let columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
+                                  .compactMap { $0.stringValue(sharedStrings) }
+                                
+                                let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                                  .compactMap { $0.stringValue(sharedStrings) }
+                                
+                                PSAB = columnBStrings
+                                PSAC = columnCStrings
+                                
+                                print("columnCStringsA: \(columnAStrings)")
+                                print("columnCStringsB: \(columnBStrings)")
+                                print("columnCStringsC: \(columnCStrings)")
+                                
+                            }
+                        }
                         default:
                             print("Default")
                         }
@@ -110,53 +156,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         }
         
-        //        do {
-//               let docPath = try file.parseWorkbooks()
-//               let workSheet = try file.parseWorksheet(at: docPath.first ?? "")
-//               let sharedStrings = try file.parseSharedStrings()
-//
-//               for path in try file.parseWorksheetPaths() {
-//                   let ws = try file.parseWorksheet(at: path)
-//                   for alphabt in alphaArr {
-//                       let cells = ws.cells(atColumns: [ColumnReference(alphabt)!])
-//                       let columnCStrings = cells.compactMap{ $0.value }.compactMap { Int($0) }.compactMap {sharedStrings.items[$0].text }
-//                       print(columnCStrings)
-//                   }
-//               }
-//           } catch {
-//               print(error.localizedDescription)
-//           }
-        
-        
-        
-//        for wbk in try file.parseWorkbooks() {
-//          for (name, path) in try file.parseWorksheetPathsAndNames(workbook: wbk) {
-//            if let worksheetName = name {
-//              print("This worksheet has a name: \(worksheetName)")
-//            }
-//
-//            let worksheet = try file.parseWorksheet(at: path)
-//            for row in worksheet.data?.rows ?? [] {
-//              for c in row.cells {
-//                print(c)
-//              }
-//            }
-//          }
-//        }
-        
-        
-        // Do any additional setup after loading the view.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -168,13 +168,21 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
         
-        cell.textLabel?.text = PSAB[indexPath.row + 1]
+//        cell.textLabel?.text = PSAB[indexPath.row + 1]
         
-
+        cell.Grading_Title.text = PSAB[indexPath.row + 1]
+        cell.Grading_Description.text = PSAC[indexPath.row + 1]
+        
         return cell
 
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 80
+        
     }
 
 }

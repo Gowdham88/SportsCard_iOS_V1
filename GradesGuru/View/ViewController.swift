@@ -8,6 +8,7 @@
 
 import UIKit
 
+var ChosenGrading = String()
 class ViewController: UIViewController {
    
     var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
@@ -262,5 +263,29 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
 
               return cell!
       }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        ChosenGrading = GradeDetails[indexPath.row]
+        
+        print("indexPath: \(indexPath.row)")
+        print("ChosenGrading: \(ChosenGrading)")
+        
+        if ChosenGrading == "Centering" {
+            
+            print("Centering Chosen")
+            
+        } else {
+            
+            let popup = (self.storyboard?.instantiateViewController(withIdentifier: "GradesChoiceTVC"))!
+            
+            popup.modalPresentationStyle = .fullScreen
+             
+            self.present(popup, animated: true, completion: nil)
+            
+        }
+        
+        
+    }
 }
 

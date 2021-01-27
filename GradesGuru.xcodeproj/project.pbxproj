@@ -22,10 +22,8 @@
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
 		C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */; };
-		C37D1DCF25BD29A20002D9AC /* Grade_Guru_Data.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C37D1DCE25BD29A20002D9AC /* Grade_Guru_Data.xlsx */; };
-		C37D1DF225BDE1090002D9AC /* Grade_Guru_Data_1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C37D1DF125BDE1090002D9AC /* Grade_Guru_Data_1.xlsx */; };
-		C37D1DF725BDE2260002D9AC /* Grade_Guru_Data_2.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C37D1DF625BDE2260002D9AC /* Grade_Guru_Data_2.xlsx */; };
 		C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */; };
+		C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */; };
 		C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */; };
 		C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */; };
 		C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */; };
@@ -111,10 +109,8 @@
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesChoiceTVC.swift; sourceTree = "<group>"; };
-		C37D1DCE25BD29A20002D9AC /* Grade_Guru_Data.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data.xlsx; sourceTree = "<group>"; };
-		C37D1DF125BDE1090002D9AC /* Grade_Guru_Data_1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_1.xlsx; sourceTree = "<group>"; };
-		C37D1DF625BDE2260002D9AC /* Grade_Guru_Data_2.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_2.xlsx; sourceTree = "<group>"; };
 		C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingCells.swift; sourceTree = "<group>"; };
+		C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_4.xlsx; sourceTree = "<group>"; };
 		C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -277,9 +273,7 @@
 		C37D1DCD25BD29930002D9AC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C37D1DF625BDE2260002D9AC /* Grade_Guru_Data_2.xlsx */,
-				C37D1DF125BDE1090002D9AC /* Grade_Guru_Data_1.xlsx */,
-				C37D1DCE25BD29A20002D9AC /* Grade_Guru_Data.xlsx */,
+				C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -514,11 +508,9 @@
 			files = (
 				C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */,
 				C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */,
-				C37D1DF725BDE2260002D9AC /* Grade_Guru_Data_2.xlsx in Resources */,
 				C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */,
 				C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */,
 				C381EFC32519F8A300C7E4C6 /* Muli-ExtraLightItalic.ttf in Resources */,
-				C37D1DF225BDE1090002D9AC /* Grade_Guru_Data_1.xlsx in Resources */,
 				1877032B25A4BA59002EC49E /* Card.storyboard in Resources */,
 				C381EFC42519F8A300C7E4C6 /* Muli-Light.ttf in Resources */,
 				C381EFC52519F8A300C7E4C6 /* Muli-Italic.ttf in Resources */,
@@ -533,8 +525,8 @@
 				C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */,
 				C38D9B452511D8F800BE981A /* OnboardingImage.svg in Resources */,
 				8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */,
-				C37D1DCF25BD29A20002D9AC /* Grade_Guru_Data.xlsx in Resources */,
 				C3C1404A24E86BC0005046E9 /* Assets.xcassets in Resources */,
+				C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */,
 				C3C1404824E86BBC005046E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
