@@ -6,6 +6,12 @@ target 'GradesGuru' do
   use_frameworks!
   pod 'Firebase'
   pod 'Firebase/Analytics'
+  pod 'SideMenu'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'Segmentio'
+  pod 'CoreXLSX', '~> 0.14.0'
+
   
 
   # Pods for GradesGuru

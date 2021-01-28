@@ -7,8 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1877032B25A4BA59002EC49E /* Card.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1877032A25A4BA59002EC49E /* Card.storyboard */; };
+		1877033425A4BC4B002EC49E /* newTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033325A4BC4B002EC49E /* newTabbarController.swift */; };
+		1877033925A4BC58002EC49E /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033825A4BC58002EC49E /* SportViewController.swift */; };
+		1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877033D25A4BC66002EC49E /* YearViewController.swift */; };
+		1877034325A4BC70002EC49E /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877034225A4BC70002EC49E /* SetViewController.swift */; };
+		18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E62A1F25A3906E00705440 /* WelcomeVc.swift */; };
+		18F6742D25ACC139003C570D /* InfoVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6742C25ACC139003C570D /* InfoVc.swift */; };
 		82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */; };
+		8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EE21B702506C6000098795A /* GoogleService-Info.plist */; };
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
+		C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5E80251380D60024BE54 /* sideMenuCell.swift */; };
+		C352B2002515FC81004321F1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352B1FF2515FC81004321F1 /* Users.swift */; };
+		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
+		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
+		C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */; };
+		C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */; };
+		C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */; };
+		C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */; };
+		C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */; };
+		C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */; };
+		C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB42519F8A100C7E4C6 /* Muli-Regular.ttf */; };
+		C381EFC32519F8A300C7E4C6 /* Muli-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB52519F8A200C7E4C6 /* Muli-ExtraLightItalic.ttf */; };
+		C381EFC42519F8A300C7E4C6 /* Muli-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB62519F8A200C7E4C6 /* Muli-Light.ttf */; };
+		C381EFC52519F8A300C7E4C6 /* Muli-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB72519F8A200C7E4C6 /* Muli-Italic.ttf */; };
+		C381EFC62519F8A300C7E4C6 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB82519F8A200C7E4C6 /* Muli-SemiBold.ttf */; };
+		C381EFC72519F8A300C7E4C6 /* Muli-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB92519F8A200C7E4C6 /* Muli-ExtraBoldItalic.ttf */; };
+		C381EFC82519F8A300C7E4C6 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFBA2519F8A200C7E4C6 /* Muli-LightItalic.ttf */; };
+		C381EFC92519F8A300C7E4C6 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFBB2519F8A200C7E4C6 /* Muli-ExtraLight.ttf */; };
+		C381EFCA2519F8A300C7E4C6 /* Muli-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFBC2519F8A200C7E4C6 /* Muli-SemiBoldItalic.ttf */; };
+		C381EFCB2519F8A300C7E4C6 /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFBD2519F8A200C7E4C6 /* Muli-Black.ttf */; };
+		C381EFCC2519F8A300C7E4C6 /* Muli-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFBE2519F8A300C7E4C6 /* Muli-BoldItalic.ttf */; };
+		C381EFCE251A5DB400C7E4C6 /* HomeMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFCD251A5DB400C7E4C6 /* HomeMaster.swift */; };
+		C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFCF251A600100C7E4C6 /* ScanDetails.swift */; };
+		C381EFD2251A640E00C7E4C6 /* CenteringDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFD1251A640E00C7E4C6 /* CenteringDetails.swift */; };
+		C381EFD4251A664800C7E4C6 /* CornersMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFD3251A664800C7E4C6 /* CornersMaster.swift */; };
+		C381EFD7251A686500C7E4C6 /* SurfaceMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFD6251A686500C7E4C6 /* SurfaceMaster.swift */; };
+		C381EFD9251A6A2800C7E4C6 /* EdgesMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFD8251A6A2800C7E4C6 /* EdgesMaster.swift */; };
+		C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381EFDA251A6B3700C7E4C6 /* CardDetailsMaster.swift */; };
+		C38D9B432511C82600BE981A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D9B422511C82600BE981A /* WebKit.framework */; };
+		C38D9B452511D8F800BE981A /* OnboardingImage.svg in Resources */ = {isa = PBXBuildFile; fileRef = C38D9B442511D8F800BE981A /* OnboardingImage.svg */; };
+		C38D9B472512106D00BE981A /* LetsGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B462512106D00BE981A /* LetsGo.swift */; };
+		C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B482512732F00BE981A /* HomePageVC.swift */; };
+		C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B4C251279F500BE981A /* SideMenuTVC.swift */; };
+		C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */; };
+		C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */; };
 		C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404024E86BBC005046E9 /* AppDelegate.swift */; };
 		C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404224E86BBC005046E9 /* SceneDelegate.swift */; };
 		C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404424E86BBC005046E9 /* ViewController.swift */; };
@@ -24,7 +67,6 @@
 		C3C1407C24E86E66005046E9 /* Edges.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1407B24E86E66005046E9 /* Edges.swift */; };
 		C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */; };
 		C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5597A24E8F98000AAEC41 /* Constants.swift */; };
-		C3C5597F24E8FEC300AAEC41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */; };
 		C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5598024E9A8AC00AAEC41 /* Login.storyboard */; };
 		C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */; };
 		C3FF9261BD329D4183D7E467 /* Pods_GradesGuruTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */; };
@@ -49,11 +91,54 @@
 
 /* Begin PBXFileReference section */
 		0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuru.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1877032A25A4BA59002EC49E /* Card.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Card.storyboard; sourceTree = "<group>"; };
+		1877033325A4BC4B002EC49E /* newTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTabbarController.swift; sourceTree = "<group>"; };
+		1877033825A4BC58002EC49E /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
+		1877033D25A4BC66002EC49E /* YearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
+		1877034225A4BC70002EC49E /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		18E62A1F25A3906E00705440 /* WelcomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVc.swift; sourceTree = "<group>"; };
+		18F6742C25ACC139003C570D /* InfoVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVc.swift; sourceTree = "<group>"; };
 		30DB77B627F6E9FA6B83DC02 /* Pods-GradesGuruTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.release.xcconfig"; sourceTree = "<group>"; };
 		80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.debug.xcconfig"; sourceTree = "<group>"; };
 		8BAF3B5A8AD3D1297850B152 /* Pods-GradesGuru-GradesGuruUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8EE21B702506C6000098795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5EB8F279B28A894C2190EA7 /* Pods-GradesGuruTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuruTests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuruTests/Pods-GradesGuruTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A8061A4E4F7A70D59F7919 /* Pods-GradesGuru-GradesGuruUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C34C5E80251380D60024BE54 /* sideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMenuCell.swift; sourceTree = "<group>"; };
+		C352B1FF2515FC81004321F1 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
+		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
+		C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesChoiceTVC.swift; sourceTree = "<group>"; };
+		C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingCells.swift; sourceTree = "<group>"; };
+		C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_4.xlsx; sourceTree = "<group>"; };
+		C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
+		C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C381EFB42519F8A100C7E4C6 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
+		C381EFB52519F8A200C7E4C6 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		C381EFB62519F8A200C7E4C6 /* Muli-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Light.ttf"; sourceTree = "<group>"; };
+		C381EFB72519F8A200C7E4C6 /* Muli-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Italic.ttf"; sourceTree = "<group>"; };
+		C381EFB82519F8A200C7E4C6 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
+		C381EFB92519F8A200C7E4C6 /* Muli-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C381EFBA2519F8A200C7E4C6 /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-LightItalic.ttf"; sourceTree = "<group>"; };
+		C381EFBB2519F8A200C7E4C6 /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C381EFBC2519F8A200C7E4C6 /* Muli-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		C381EFBD2519F8A200C7E4C6 /* Muli-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Black.ttf"; sourceTree = "<group>"; };
+		C381EFBE2519F8A300C7E4C6 /* Muli-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C381EFCD251A5DB400C7E4C6 /* HomeMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMaster.swift; sourceTree = "<group>"; };
+		C381EFCF251A600100C7E4C6 /* ScanDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDetails.swift; sourceTree = "<group>"; };
+		C381EFD1251A640E00C7E4C6 /* CenteringDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringDetails.swift; sourceTree = "<group>"; };
+		C381EFD3251A664800C7E4C6 /* CornersMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornersMaster.swift; sourceTree = "<group>"; };
+		C381EFD6251A686500C7E4C6 /* SurfaceMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceMaster.swift; sourceTree = "<group>"; };
+		C381EFD8251A6A2800C7E4C6 /* EdgesMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesMaster.swift; sourceTree = "<group>"; };
+		C381EFDA251A6B3700C7E4C6 /* CardDetailsMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsMaster.swift; sourceTree = "<group>"; };
+		C38D9B422511C82600BE981A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C38D9B442511D8F800BE981A /* OnboardingImage.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OnboardingImage.svg; sourceTree = "<group>"; };
+		C38D9B462512106D00BE981A /* LetsGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsGo.swift; sourceTree = "<group>"; };
+		C38D9B482512732F00BE981A /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		C38D9B4C251279F500BE981A /* SideMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVC.swift; sourceTree = "<group>"; };
+		C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoProVC.swift; sourceTree = "<group>"; };
 		C3C1403D24E86BBC005046E9 /* GradesGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradesGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C1404024E86BBC005046E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C1404224E86BBC005046E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +160,6 @@
 		C3C1407B24E86E66005046E9 /* Edges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edges.swift; sourceTree = "<group>"; };
 		C3C1407D24E87BE2005046E9 /* GradeEstimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeEstimate.swift; sourceTree = "<group>"; };
 		C3C5597A24E8F98000AAEC41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../CZSM/Upwork/Sports_App/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3C5598024E9A8AC00AAEC41 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C38D9B432511C82600BE981A /* WebKit.framework in Frameworks */,
 				82AC3ACF4868AFCDFD885151 /* Pods_GradesGuru.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +196,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1877032F25A4BC27002EC49E /* CardDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1877033325A4BC4B002EC49E /* newTabbarController.swift */,
+				1877033825A4BC58002EC49E /* SportViewController.swift */,
+				1877033D25A4BC66002EC49E /* YearViewController.swift */,
+				1877034225A4BC70002EC49E /* SetViewController.swift */,
+			);
+			path = CardDetails;
+			sourceTree = "<group>";
+		};
 		6B645DD4D519204F2FD028E1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,11 +223,74 @@
 		6BF69A0E6FAD54CEE8F33546 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C38D9B422511C82600BE981A /* WebKit.framework */,
 				0D6317678CEDB6447FC83BCA /* Pods_GradesGuru.framework */,
 				FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */,
 				D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8ED551E32508E08000C6389E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C38D9B442511D8F800BE981A /* OnboardingImage.svg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C34C5E7F251380B10024BE54 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C34C5E80251380D60024BE54 /* sideMenuCell.swift */,
+				C37642B3251BB358008F26C9 /* HomeTVCell.swift */,
+				C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		C36B240425111DBA006ED6E3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C381EFBD2519F8A200C7E4C6 /* Muli-Black.ttf */,
+				C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */,
+				C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */,
+				C381EFBE2519F8A300C7E4C6 /* Muli-BoldItalic.ttf */,
+				C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */,
+				C381EFB92519F8A200C7E4C6 /* Muli-ExtraBoldItalic.ttf */,
+				C381EFBB2519F8A200C7E4C6 /* Muli-ExtraLight.ttf */,
+				C381EFB52519F8A200C7E4C6 /* Muli-ExtraLightItalic.ttf */,
+				C381EFB72519F8A200C7E4C6 /* Muli-Italic.ttf */,
+				C381EFB62519F8A200C7E4C6 /* Muli-Light.ttf */,
+				C381EFBA2519F8A200C7E4C6 /* Muli-LightItalic.ttf */,
+				C381EFB42519F8A100C7E4C6 /* Muli-Regular.ttf */,
+				C381EFB82519F8A200C7E4C6 /* Muli-SemiBold.ttf */,
+				C381EFBC2519F8A200C7E4C6 /* Muli-SemiBoldItalic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C37D1DCD25BD29930002D9AC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C381EFD5251A683C00C7E4C6 /* Masters */ = {
+			isa = PBXGroup;
+			children = (
+				C352B1FF2515FC81004321F1 /* Users.swift */,
+				C381EFCD251A5DB400C7E4C6 /* HomeMaster.swift */,
+				C381EFCF251A600100C7E4C6 /* ScanDetails.swift */,
+				C381EFD1251A640E00C7E4C6 /* CenteringDetails.swift */,
+				C381EFD3251A664800C7E4C6 /* CornersMaster.swift */,
+				C381EFD6251A686500C7E4C6 /* SurfaceMaster.swift */,
+				C381EFD8251A6A2800C7E4C6 /* EdgesMaster.swift */,
+				C381EFDA251A6B3700C7E4C6 /* CardDetailsMaster.swift */,
+			);
+			path = Masters;
 			sourceTree = "<group>";
 		};
 		C3C1403424E86BBC005046E9 = {
@@ -159,15 +318,20 @@
 		C3C1403F24E86BBC005046E9 /* GradesGuru */ = {
 			isa = PBXGroup;
 			children = (
+				C37D1DCD25BD29930002D9AC /* Data */,
+				1877032F25A4BC27002EC49E /* CardDetails */,
+				C36B240425111DBA006ED6E3 /* Font */,
+				8ED551E32508E08000C6389E /* Assets */,
 				C3C1407224E86D15005046E9 /* Controllers */,
 				C3C1407124E86D0B005046E9 /* View */,
 				C3C1407024E86D02005046E9 /* Model */,
 				C3C1404024E86BBC005046E9 /* AppDelegate.swift */,
 				C3C1404224E86BBC005046E9 /* SceneDelegate.swift */,
+				18F6742C25ACC139003C570D /* InfoVc.swift */,
 				C3C1404924E86BC0005046E9 /* Assets.xcassets */,
 				C3C1404B24E86BC0005046E9 /* LaunchScreen.storyboard */,
 				C3C1404E24E86BC0005046E9 /* Info.plist */,
-				C3C5597E24E8FEC300AAEC41 /* GoogleService-Info.plist */,
+				8EE21B702506C6000098795A /* GoogleService-Info.plist */,
 			);
 			path = GradesGuru;
 			sourceTree = "<group>";
@@ -193,6 +357,7 @@
 		C3C1407024E86D02005046E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C381EFD5251A683C00C7E4C6 /* Masters */,
 				C3C1407324E86E21005046E9 /* ScanImage.swift */,
 				C3C1407524E86E34005046E9 /* Centering.swift */,
 				C3C1407724E86E43005046E9 /* Corners.swift */,
@@ -207,8 +372,17 @@
 		C3C1407124E86D0B005046E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C34C5E7F251380B10024BE54 /* SubView */,
 				C3C1404424E86BBC005046E9 /* ViewController.swift */,
 				C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */,
+				C36B24022511038B006ED6E3 /* InitialPageViewController.swift */,
+				C38D9B462512106D00BE981A /* LetsGo.swift */,
+				C38D9B482512732F00BE981A /* HomePageVC.swift */,
+				18E62A1F25A3906E00705440 /* WelcomeVc.swift */,
+				C38D9B4C251279F500BE981A /* SideMenuTVC.swift */,
+				C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */,
+				C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */,
+				C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +392,7 @@
 			children = (
 				C3C1404624E86BBC005046E9 /* Main.storyboard */,
 				C3C5598024E9A8AC00AAEC41 /* Login.storyboard */,
+				1877032A25A4BA59002EC49E /* Card.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,10 +506,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */,
+				C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */,
+				C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */,
+				C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */,
+				C381EFC32519F8A300C7E4C6 /* Muli-ExtraLightItalic.ttf in Resources */,
+				1877032B25A4BA59002EC49E /* Card.storyboard in Resources */,
+				C381EFC42519F8A300C7E4C6 /* Muli-Light.ttf in Resources */,
+				C381EFC52519F8A300C7E4C6 /* Muli-Italic.ttf in Resources */,
+				C381EFC62519F8A300C7E4C6 /* Muli-SemiBold.ttf in Resources */,
+				C381EFC72519F8A300C7E4C6 /* Muli-ExtraBoldItalic.ttf in Resources */,
+				C381EFC82519F8A300C7E4C6 /* Muli-LightItalic.ttf in Resources */,
+				C381EFC92519F8A300C7E4C6 /* Muli-ExtraLight.ttf in Resources */,
+				C381EFCA2519F8A300C7E4C6 /* Muli-SemiBoldItalic.ttf in Resources */,
+				C381EFCB2519F8A300C7E4C6 /* Muli-Black.ttf in Resources */,
+				C381EFCC2519F8A300C7E4C6 /* Muli-BoldItalic.ttf in Resources */,
 				C3C1404D24E86BC0005046E9 /* LaunchScreen.storyboard in Resources */,
 				C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */,
-				C3C5597F24E8FEC300AAEC41 /* GoogleService-Info.plist in Resources */,
+				C38D9B452511D8F800BE981A /* OnboardingImage.svg in Resources */,
+				8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */,
 				C3C1404A24E86BC0005046E9 /* Assets.xcassets in Resources */,
+				C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */,
 				C3C1404824E86BBC005046E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,15 +655,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C381EFCE251A5DB400C7E4C6 /* HomeMaster.swift in Sources */,
+				C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */,
 				C3C1407624E86E34005046E9 /* Centering.swift in Sources */,
+				C381EFD7251A686500C7E4C6 /* SurfaceMaster.swift in Sources */,
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
+				C381EFD2251A640E00C7E4C6 /* CenteringDetails.swift in Sources */,
+				C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */,
+				18F6742D25ACC139003C570D /* InfoVc.swift in Sources */,
+				18E62A2025A3906E00705440 /* WelcomeVc.swift in Sources */,
 				C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */,
+				C381EFD4251A664800C7E4C6 /* CornersMaster.swift in Sources */,
+				C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */,
+				C38D9B472512106D00BE981A /* LetsGo.swift in Sources */,
+				1877033425A4BC4B002EC49E /* newTabbarController.swift in Sources */,
+				C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */,
+				C381EFD9251A6A2800C7E4C6 /* EdgesMaster.swift in Sources */,
+				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
+				C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */,
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
+				C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */,
+				C352B2002515FC81004321F1 /* Users.swift in Sources */,
+				1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
+				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
+				1877033925A4BC58002EC49E /* SportViewController.swift in Sources */,
+				C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */,
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,
+				C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */,
 				C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */,
+				C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */,
+				1877034325A4BC70002EC49E /* SetViewController.swift in Sources */,
 				C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */,
 				C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */,
 			);
@@ -647,8 +863,9 @@
 			baseConfigurationReference = 80EC47DE7E36AC310689C79F /* Pods-GradesGuru.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSJRRDKMW9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -656,6 +873,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GG.Sportscard.GradesGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -666,8 +884,9 @@
 			baseConfigurationReference = CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSJRRDKMW9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GradesGuru/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,6 +894,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GG.Sportscard.GradesGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

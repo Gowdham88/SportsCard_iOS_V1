@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
+
+class Constants : NSObject {
+    
+   
+    
+}
+
+
+
+
