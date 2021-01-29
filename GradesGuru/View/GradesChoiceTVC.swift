@@ -26,7 +26,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let filename = "Grade_Guru_Data_4"
+        let filename = ChosenGrading
         let filetype = "xlsx"
         let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
         
@@ -49,7 +49,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                         
                         case "Corners":
                             
-                            if worksheetName == "Corners_PSA" {
                             let worksheet = try file.parseWorksheet(at: path)
                             
                             if let sharedStrings = try file.parseSharedStrings() {
@@ -71,11 +70,10 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 print("columnCStringsC: \(columnCStrings)")
                                 
                             }
-                        }
+                        
                             
-                        case "Surface":
+                        case "Surface": 
                             
-                            if worksheetName == "Surface_PSA" {
                             let worksheet = try file.parseWorksheet(at: path)
                             
                             if let sharedStrings = try file.parseSharedStrings() {
@@ -97,11 +95,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 print("columnCStringsC: \(columnCStrings)")
                                 
                             }
-                        }
                             
                         case "Edges":
                             
-                            if worksheetName == "Edges_PSA" {
                             let worksheet = try file.parseWorksheet(at: path)
                             
                             if let sharedStrings = try file.parseSharedStrings() {
@@ -123,7 +119,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 print("columnCStringsC: \(columnCStrings)")
                                 
                             }
-                        }
                         default:
                             print("Default")
                         }
@@ -158,6 +153,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    func fetchColumn(Path: String) {
+        
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
