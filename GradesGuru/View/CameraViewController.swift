@@ -21,7 +21,7 @@ var borderview2XY : BorderView = BorderView(id: 2, x: 0.0, y: 20.0, scale: 1.03)
 var borderview3XY : BorderView = BorderView(id: 3, x: 350.0, y: 0.0, scale: 1.03)
 var borderview4XY : BorderView = BorderView(id: 4, x: 0.0, y: 500.0, scale: 1.03)
 
-class ViewController: UIViewController, ImageScrollViewDelegate, UIScrollViewDelegate, VNDocumentCameraViewControllerDelegate {
+class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollViewDelegate, VNDocumentCameraViewControllerDelegate {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var ImageScrollView: ImageScrollView!

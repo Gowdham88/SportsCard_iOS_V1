@@ -21,6 +21,12 @@
 		C352B2002515FC81004321F1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352B1FF2515FC81004321F1 /* Users.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
+		C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */; };
+		C37BFB3E25CDC62B008522EE /* SelectCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3925CDC62A008522EE /* SelectCellVC.swift */; };
+		C37BFB4125CDC62B008522EE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3C25CDC62B008522EE /* CameraViewController.swift */; };
+		C37BFB7425CDC86B008522EE /* CameraStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB6F25CDC86A008522EE /* CameraStartViewController.swift */; };
+		C37BFB7725CDC86B008522EE /* ImageviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB7225CDC86A008522EE /* ImageviewViewController.swift */; };
+		C37BFB7825CDC86B008522EE /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB7325CDC86A008522EE /* BorderView.swift */; };
 		C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */; };
 		C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */; };
 		C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */; };
@@ -112,6 +118,12 @@
 		C352B1FF2515FC81004321F1 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
+		C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
+		C37BFB3925CDC62A008522EE /* SelectCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCellVC.swift; sourceTree = "<group>"; };
+		C37BFB3C25CDC62B008522EE /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		C37BFB6F25CDC86A008522EE /* CameraStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraStartViewController.swift; path = GradesGuru/Model/Border/CameraStartViewController.swift; sourceTree = SOURCE_ROOT; };
+		C37BFB7225CDC86A008522EE /* ImageviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageviewViewController.swift; path = GradesGuru/Model/Border/ImageviewViewController.swift; sourceTree = SOURCE_ROOT; };
+		C37BFB7325CDC86A008522EE /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = GradesGuru/Model/Border/BorderView.swift; sourceTree = SOURCE_ROOT; };
 		C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesChoiceTVC.swift; sourceTree = "<group>"; };
 		C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingCells.swift; sourceTree = "<group>"; };
 		C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_4.xlsx; sourceTree = "<group>"; };
@@ -384,6 +396,12 @@
 		C3C1407124E86D0B005046E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C37BFB7325CDC86A008522EE /* BorderView.swift */,
+				C37BFB6F25CDC86A008522EE /* CameraStartViewController.swift */,
+				C37BFB7225CDC86A008522EE /* ImageviewViewController.swift */,
+				C37BFB3C25CDC62B008522EE /* CameraViewController.swift */,
+				C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */,
+				C37BFB3925CDC62A008522EE /* SelectCellVC.swift */,
 				C34C5E7F251380B10024BE54 /* SubView */,
 				C3C1404424E86BBC005046E9 /* ViewController.swift */,
 				C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */,
@@ -691,19 +709,25 @@
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
 				C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */,
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
+				C37BFB4125CDC62B008522EE /* CameraViewController.swift in Sources */,
 				C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */,
 				C352B2002515FC81004321F1 /* Users.swift in Sources */,
 				1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */,
+				C37BFB7725CDC86B008522EE /* ImageviewViewController.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
 				1877033925A4BC58002EC49E /* SportViewController.swift in Sources */,
+				C37BFB7425CDC86B008522EE /* CameraStartViewController.swift in Sources */,
+				C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */,
 				C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */,
 				C3C1407C24E86E66005046E9 /* Edges.swift in Sources */,
 				C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */,
 				C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */,
 				C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */,
 				1877034325A4BC70002EC49E /* SetViewController.swift in Sources */,
+				C37BFB7825CDC86B008522EE /* BorderView.swift in Sources */,
+				C37BFB3E25CDC62B008522EE /* SelectCellVC.swift in Sources */,
 				C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */,
 				C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */,
 			);
@@ -881,7 +905,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XSJRRDKMW9;
 				INFOPLIST_FILE = GradesGuru/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -902,7 +926,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XSJRRDKMW9;
 				INFOPLIST_FILE = GradesGuru/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

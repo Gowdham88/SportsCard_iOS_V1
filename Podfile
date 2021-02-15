@@ -11,6 +11,7 @@ target 'GradesGuru' do
   pod 'FirebaseFirestoreSwift'
   pod 'Segmentio'
   pod 'CoreXLSX', '~> 0.14.0'
+  pod 'ImageScrollView'
 
   
 
