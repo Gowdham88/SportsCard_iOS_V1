@@ -301,8 +301,12 @@
                             <constraint firstItem="8IE-YK-SQi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="yzQ-g2-qQL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Grade Guru" id="dZB-qH-fCW">
-                        <barButtonItem key="backBarButtonItem" title="back" id="gCZ-20-ys1"/>
+                    <navigationItem key="navigationItem" title="Grade Guru" largeTitleDisplayMode="never" id="dZB-qH-fCW">
+                        <barButtonItem key="leftBarButtonItem" image="Back_Black" id="RUq-se-6FR">
+                            <connections>
+                                <action selector="back_Pressed:" destination="BYZ-38-t0r" id="Q0k-tT-P5j"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="InformationIcon" id="IXz-Q6-oBO">
                             <connections>
                                 <action selector="infoBtnAction:" destination="BYZ-38-t0r" id="gzN-CH-f5k"/>
@@ -400,7 +404,7 @@ To get started
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="About Us" id="oT0-Jp-NcY">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="LeftAccessory1" landscapeImage="LeftAccessory1" largeContentSizeImage="LeftAccessory1" style="plain" id="o2B-J5-tg5">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back_Black" style="plain" id="o2B-J5-tg5">
                             <color key="tintColor" systemColor="darkTextColor"/>
                             <connections>
                                 <action selector="GoBack:" destination="4Cr-04-dtm" id="eLZ-mZ-wsp"/>
@@ -549,7 +553,7 @@ auto-renewal in your iTunes account.</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Go Pro" id="GlQ-iB-sis">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="LeftAccessory1" landscapeImage="LeftAccessory1" largeContentSizeImage="LeftAccessory1" id="zHB-9e-qoE">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back_Black" id="zHB-9e-qoE">
                             <color key="tintColor" systemColor="darkTextColor"/>
                             <connections>
                                 <action selector="GoBack:" destination="amg-2v-KB4" id="iA4-Eh-8DN"/>
@@ -1066,7 +1070,7 @@ started!</string>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9y-xh-Hp4">
                                         <rect key="frame" x="361.33333333333337" y="0.0" width="40" height="25.666666666666668"/>
-                                        <state key="normal" image="pencil.slash" catalog="system"/>
+                                        <state key="normal" image="Close"/>
                                         <connections>
                                             <action selector="popClose:" destination="utm-cN-fdC" eventType="touchUpInside" id="Dhh-Gc-BC6"/>
                                         </connections>
@@ -1452,8 +1456,10 @@ To get started
     </scenes>
     <resources>
         <image name="Annual" width="159" height="156"/>
+        <image name="Back_Black" width="9.5419998168945312" height="16.191999435424805"/>
         <image name="Camera_Icon" width="30" height="30"/>
         <image name="Camera_Icon_Purple" width="19" height="15"/>
+        <image name="Close" width="20" height="20"/>
         <image name="GoPro" width="30" height="30"/>
         <image name="Home" width="19" height="19"/>
         <image name="InformationIcon" width="20" height="20"/>
@@ -1471,7 +1477,6 @@ To get started
         <image name="UpgradeNow" width="274" height="79"/>
         <image name="addcamera" width="26.540000915527344" height="20"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
-        <image name="pencil.slash" catalog="system" width="128" height="113"/>
         <image name="price_blue" width="19" height="19"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

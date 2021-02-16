@@ -69,6 +69,7 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     // MARK: - Email Delegate
     
+    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
@@ -130,6 +131,11 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 //        return [deleteAction]
 //    }
   
+    
+   
+    
+    
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 
@@ -242,10 +248,14 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
+        
+
+
+        
         let transition = CATransition()
         transition.duration = 0.25
         transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
+        transition.subtype = CATransitionSubtype.fromLeft
         self.view.window!.layer.add(transition, forKey: kCATransition)
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)

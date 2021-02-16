@@ -11,19 +11,33 @@ import UIKit
 class AboutUsVC: UIViewController {
     
     @IBAction func GoBack(_ sender: Any) {
+
+//        dismiss(animated: true, completion: nil)
         
-        dismissDetail()
+        dismissVC()
+
+
+    }
+    
+    func dismissVC() {
         
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     func dismissDetail() {
         
-        let transition = CATransition()
-        transition.duration = 0.25
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromLeft
-        self.view.window!.layer.add(transition, forKey: kCATransition)
-        dismiss(animated: false)
+//        let transition = CATransition()
+//        transition.duration = 0.25
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromLeft
+//        self.view.window!.layer.add(transition, forKey: kCATransition)
+//        dismiss(animated: false)
     }
 
     override func viewDidLoad() {

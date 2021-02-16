@@ -116,6 +116,13 @@ class ViewController: UIViewController {
         scanImageOption()
     }
     
+    @IBAction func back_Pressed(_ sender: Any) {
+        
+        _ = navigationController?.popToRootViewController(animated: true)
+        
+    }
+    
+    
     @objc func verifyFrontImageAdded(notification: Notification) {
         if isFrontImage {
             print("£££ front Image added £££")
