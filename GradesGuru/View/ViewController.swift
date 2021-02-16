@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Segmentio
 
 var ChosenGrading = String()
+
 class ViewController: UIViewController {
    
+    @IBOutlet var segmentioView: Segmentio!
+    
     var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
+    
+    var content = [SegmentioItem]()
+    let PSAtitle = SegmentioItem(title: "PSA", image: nil)
+    let BGStitle = SegmentioItem(title: "BGS", image: nil)
+    let SGCtitle = SegmentioItem(title: "SGC", image: nil)
+
 
     @IBOutlet weak var scanfrontPage: UIImageView!
     @IBOutlet weak var scanBackPage: UIImageView!
@@ -23,6 +33,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var gradeEstLbl: UILabel!
     @IBOutlet weak var completeLbl: UILabel!
     
+    var segmentioStyle = SegmentioStyle.onlyLabel
+
+    
     var selected_img = ""
     var isfrontAdded: Bool = false
     var isbackAdded: Bool = false
@@ -32,7 +45,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        switch segmentioStyle {
+        case .onlyLabel, .imageBeforeLabel, .imageAfterLabel:
+            print("Only Label")
+        case .onlyImage:
+            
+            print("Only Image")
+        default:
+            break
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(verifyFrontImageAdded(notification:)), name: Notification.Name("frontImgSelected"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(verifyBackImageAdded(notification:)), name: Notification.Name("backImgSelected"), object: nil)
@@ -48,10 +70,26 @@ class ViewController: UIViewController {
         scanBackPage.isUserInteractionEnabled = true
         scanBackPage.addGestureRecognizer(tapBackImg)
         
+        
+        content.append(PSAtitle)
+        content.append(BGStitle)
+        content.append(SGCtitle)
+        
+//        segmentioView.setup(content: content, style: .onlyLabel, options: SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: SegmentioIndicatorOptions(type: .bottom, ratio: 1.0, height: 5.0, color: UIColor(red: 83.0, green: 117.0, blue: 252.0, alpha: 1.0)), horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: SegmentioHorizontalSeparatorType.bottom, height: 0.5, color: .lightGray), verticalSeparatorOptions: SegmentioVerticalSeparatorOptions(ratio: 0, color: .gray), imageContentMode: .center, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: SegmentioStates(defaultState: SegmentioState(backgroundColor: .clear,titleFont:UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black),selectedState: SegmentioState(backgroundColor: UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0),titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .white),highlightedState: SegmentioState(backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),titleFont:UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black)), animationDuration: 0.1))
+    
+        segmentioView.selectedSegmentioIndex = 0
+        
+
+        
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        SegmentioBuilder.buildSegmentioView(
+            segmentioView: segmentioView,
+            segmentioStyle: segmentioStyle
+        )
         
     }
     

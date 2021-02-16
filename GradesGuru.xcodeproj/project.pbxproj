@@ -19,6 +19,13 @@
 		8FDCA6DAC63894AD406322A7 /* Pods_GradesGuru_GradesGuruUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */; };
 		C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5E80251380D60024BE54 /* sideMenuCell.swift */; };
 		C352B2002515FC81004321F1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352B1FF2515FC81004321F1 /* Users.swift */; };
+		C35F252725DC1F8B007BD420 /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F252625DC1F8B007BD420 /* SegmentioBuilder.swift */; };
+		C35F252D25DC1FB7007BD420 /* Hints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F252B25DC1FB7007BD420 /* Hints.swift */; };
+		C35F252E25DC1FB7007BD420 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F252C25DC1FB7007BD420 /* ColorPalette.swift */; };
+		C35F253625DC2221007BD420 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253225DC2220007BD420 /* UIColor+RGB.swift */; };
+		C35F253725DC2221007BD420 /* UIFont+ExampleFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */; };
+		C35F253825DC2221007BD420 /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253425DC2221007BD420 /* String+Convenience.swift */; };
+		C35F253925DC2221007BD420 /* UINavigationBar+Flat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
 		C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */; };
@@ -116,6 +123,13 @@
 		B7A8061A4E4F7A70D59F7919 /* Pods-GradesGuru-GradesGuruUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; path = "Target Support Files/Pods-GradesGuru-GradesGuruUITests/Pods-GradesGuru-GradesGuruUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C34C5E80251380D60024BE54 /* sideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMenuCell.swift; sourceTree = "<group>"; };
 		C352B1FF2515FC81004321F1 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		C35F252625DC1F8B007BD420 /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegmentioBuilder.swift; path = SegmentView/SegmentioBuilder.swift; sourceTree = "<group>"; };
+		C35F252B25DC1FB7007BD420 /* Hints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hints.swift; path = SegmentView/Hints.swift; sourceTree = "<group>"; };
+		C35F252C25DC1FB7007BD420 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPalette.swift; path = SegmentView/ColorPalette.swift; sourceTree = "<group>"; };
+		C35F253225DC2220007BD420 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+RGB.swift"; path = "SegmentView/UIColor+RGB.swift"; sourceTree = "<group>"; };
+		C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+ExampleFonts.swift"; path = "SegmentView/UIFont+ExampleFonts.swift"; sourceTree = "<group>"; };
+		C35F253425DC2221007BD420 /* String+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Convenience.swift"; path = "SegmentView/String+Convenience.swift"; sourceTree = "<group>"; };
+		C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Flat.swift"; path = "SegmentView/UINavigationBar+Flat.swift"; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
@@ -381,6 +395,13 @@
 		C3C1407024E86D02005046E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C35F253425DC2221007BD420 /* String+Convenience.swift */,
+				C35F253225DC2220007BD420 /* UIColor+RGB.swift */,
+				C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */,
+				C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */,
+				C35F252C25DC1FB7007BD420 /* ColorPalette.swift */,
+				C35F252B25DC1FB7007BD420 /* Hints.swift */,
+				C35F252625DC1F8B007BD420 /* SegmentioBuilder.swift */,
 				C381EFD5251A683C00C7E4C6 /* Masters */,
 				C3C1407324E86E21005046E9 /* ScanImage.swift */,
 				C3C1407524E86E34005046E9 /* Centering.swift */,
@@ -690,7 +711,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C381EFCE251A5DB400C7E4C6 /* HomeMaster.swift in Sources */,
+				C35F253825DC2221007BD420 /* String+Convenience.swift in Sources */,
 				C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */,
+				C35F252D25DC1FB7007BD420 /* Hints.swift in Sources */,
 				C3C1407624E86E34005046E9 /* Centering.swift in Sources */,
 				C381EFD7251A686500C7E4C6 /* SurfaceMaster.swift in Sources */,
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
@@ -712,12 +735,14 @@
 				C37BFB4125CDC62B008522EE /* CameraViewController.swift in Sources */,
 				C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */,
 				C352B2002515FC81004321F1 /* Users.swift in Sources */,
+				C35F252725DC1F8B007BD420 /* SegmentioBuilder.swift in Sources */,
 				1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */,
 				C37BFB7725CDC86B008522EE /* ImageviewViewController.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
 				1877033925A4BC58002EC49E /* SportViewController.swift in Sources */,
+				C35F253625DC2221007BD420 /* UIColor+RGB.swift in Sources */,
 				C37BFB7425CDC86B008522EE /* CameraStartViewController.swift in Sources */,
 				C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */,
 				C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */,
@@ -726,10 +751,13 @@
 				C3C1407E24E87BE2005046E9 /* GradeEstimate.swift in Sources */,
 				C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */,
 				1877034325A4BC70002EC49E /* SetViewController.swift in Sources */,
+				C35F253725DC2221007BD420 /* UIFont+ExampleFonts.swift in Sources */,
+				C35F253925DC2221007BD420 /* UINavigationBar+Flat.swift in Sources */,
 				C37BFB7825CDC86B008522EE /* BorderView.swift in Sources */,
 				C37BFB3E25CDC62B008522EE /* SelectCellVC.swift in Sources */,
 				C3C1404324E86BBC005046E9 /* SceneDelegate.swift in Sources */,
 				C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */,
+				C35F252E25DC1FB7007BD420 /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
