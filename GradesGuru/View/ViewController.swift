@@ -204,21 +204,33 @@ class ViewController: UIViewController {
             preferredStyle: .alert)
 
         // 3.
-        let loginAction = UIAlertAction(
-        title: "Log in", style: .default) {
+        let Submit = UIAlertAction(
+        title: "Submit", style: .default) {
             (action) -> Void in
 
             if let Title = TitleTextField?.text {
                 print(" Title = \(Title)")
+                
+                if let subTitle = subTitleTextField?.text {
+                    print("subTitle = \(subTitle)")
+                    
+                    self.TitleView = self.setTitle(title: Title, subtitle: subTitle)
+                } else {
+                    print("No subTitle entered")
+                }
+                
             } else {
                 print("No Title entered")
             }
 
-            if let subTitle = subTitleTextField?.text {
-                print("subTitle = \(subTitle)")
-            } else {
-                print("No subTitle entered")
-            }
+            
+        }
+        
+        let Cancel = UIAlertAction(
+        title: "Cancel", style: .default) {
+            (action) -> Void in
+
+           print("Cancelled")
         }
 
         // 4.
@@ -229,14 +241,14 @@ class ViewController: UIViewController {
         }
 
         alertController.addTextField {
-            (txtPassword) -> Void in
-            subTitleTextField = txtPassword
-            subTitleTextField?.isSecureTextEntry = true
+            (txtSubTitle) -> Void in
+            subTitleTextField = txtSubTitle
             subTitleTextField?.placeholder = "<Your subTitle here>"
         }
 
         // 5.
-        alertController.addAction(loginAction)
+        alertController.addAction(Submit)
+        alertController.addAction(Cancel)
         present(alertController, animated: true, completion: nil)
         
     }
