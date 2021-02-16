@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hB6-CU-ghK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aLC-Go-jtP">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -26,7 +26,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Grade Guru-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
@@ -301,12 +301,18 @@
                             <constraint firstItem="8IE-YK-SQi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="yzQ-g2-qQL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Grade Guru" largeTitleDisplayMode="never" id="dZB-qH-fCW">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="dZB-qH-fCW">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="Back_Black" id="RUq-se-6FR">
                             <connections>
                                 <action selector="back_Pressed:" destination="BYZ-38-t0r" id="Q0k-tT-P5j"/>
                             </connections>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Ezv-46-ceA">
+                            <rect key="frame" x="90" y="4" width="210" height="36"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" image="InformationIcon" id="IXz-Q6-oBO">
                             <connections>
                                 <action selector="infoBtnAction:" destination="BYZ-38-t0r" id="gzN-CH-f5k"/>
@@ -315,6 +321,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="TitleView" destination="Ezv-46-ceA" id="YOR-rr-D3T"/>
                         <outlet property="backScanBtn" destination="y5y-LN-eKr" id="286-Jc-q9o"/>
                         <outlet property="completeLbl" destination="xrf-eB-gtB" id="mWH-8N-FcY"/>
                         <outlet property="frontScanBtn" destination="Jdy-2n-yZM" id="DYX-vY-DqP"/>
@@ -1021,6 +1028,12 @@ started!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31633651260000001" green="0.44106769559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <userDefinedRuntimeAttributes>

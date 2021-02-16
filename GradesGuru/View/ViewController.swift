@@ -14,6 +14,7 @@ var ChosenGrading = String()
 class ViewController: UIViewController {
    
     @IBOutlet var segmentioView: Segmentio!
+    @IBOutlet var TitleView: UIView!
     
     var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
     
@@ -44,6 +45,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        initNavigationItemTitleView()
+        TitleView = setTitle(title: "Enter a Name", subtitle: "SubTitle")
+
+        //        setTitle(title: "Title", subtitle: "SubTitle")
         
         switch segmentioStyle {
         case .onlyLabel, .imageBeforeLabel, .imageAfterLabel:
@@ -160,6 +166,137 @@ class ViewController: UIViewController {
         }
         
     }
+    
+//    private func initNavigationItemTitleView() {
+//        let titleView = UILabel()
+//        let subView = UILabel()
+//
+//        titleView.text = "Hello World"
+//        subView.text = "Subview"
+//
+//        titleView.font = UIFont(name: "HelveticaNeue-Medium", size: 17)
+//        subView.font = UIFont(name: "HelveticaNeue-Medium", size: 13)
+//
+//        let width = titleView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)).width
+//        let subwidth = subView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)).width
+//
+//        titleView.frame = CGRect(origin:CGPoint.zero, size:CGSize(width: width, height: 500))
+//        subView.frame = CGRect(origin:CGPoint.zero, size:CGSize(width: subwidth, height: 500))
+//
+//        self.navigationItem.titleView = titleView
+//        self.navigationItem.titleView?.addSubview(subView)
+//
+////        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController().titleWasTapped()))
+//
+//
+//    }
+    
+    @objc private func titleWasTapped() {
+        NSLog("Hello, titleWasTapped!")
+        
+        var TitleTextField: UITextField?
+        var subTitleTextField: UITextField?
+
+        // 2.
+        let alertController = UIAlertController(
+            title: "Card Title",
+            message: "Please enter your Card Details",
+            preferredStyle: .alert)
+
+        // 3.
+        let loginAction = UIAlertAction(
+        title: "Log in", style: .default) {
+            (action) -> Void in
+
+            if let Title = TitleTextField?.text {
+                print(" Title = \(Title)")
+            } else {
+                print("No Title entered")
+            }
+
+            if let subTitle = subTitleTextField?.text {
+                print("subTitle = \(subTitle)")
+            } else {
+                print("No subTitle entered")
+            }
+        }
+
+        // 4.
+        alertController.addTextField {
+            (txtTitle) -> Void in
+            TitleTextField = txtTitle
+            TitleTextField!.placeholder = "<Your Title here>"
+        }
+
+        alertController.addTextField {
+            (txtPassword) -> Void in
+            subTitleTextField = txtPassword
+            subTitleTextField?.isSecureTextEntry = true
+            subTitleTextField?.placeholder = "<Your subTitle here>"
+        }
+
+        // 5.
+        alertController.addAction(loginAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func showAlertController(_ sender: Any) {
+        // 1.
+        
+
+    }
+    
+    func setTitle(title:String, subtitle:String) -> UIView {
+        
+        let width = TitleView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)).width
+
+        let titleLabel = UILabel(frame: CGRect(x: -20, y: 0, width: 100, height: 50))
+        
+        //(frame: CGRect(origin:CGPoint.zero, size:CGSize(width: width, height: 500))) // CGRect(0, -2, 0, 0))
+
+        titleLabel.backgroundColor = .clear
+        titleLabel.textColor = .black
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.text = title
+        titleLabel.sizeToFit()
+
+        let subtitleLabel = UILabel(frame: CGRect(x: -200, y: 18, width: 100, height: 50))
+        subtitleLabel.backgroundColor = .clear
+        subtitleLabel.textColor = .black
+        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
+        subtitleLabel.text = subtitle
+        subtitleLabel.sizeToFit()
+
+//        let titleView = UIView(frame: CGRect(x: 80, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
+        
+        //UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), 30))
+        TitleView.backgroundColor = .clear
+        TitleView.frame = CGRect(x: 0, y: 0, width: 60, height: 40)
+        
+        TitleView.addSubview(titleLabel)
+        TitleView.addSubview(subtitleLabel)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(titleWasTapped))
+        
+        TitleView.isUserInteractionEnabled = true
+        TitleView.addGestureRecognizer(recognizer)
+
+        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
+
+        if widthDiff < 0 {
+            let newX = widthDiff / 2
+            subtitleLabel.frame.origin.x = abs(newX)
+        } else {
+            let newX = widthDiff / 2
+            titleLabel.frame.origin.x = newX
+        }
+
+        
+        
+        return TitleView
+    }
+    
     
 }
 
