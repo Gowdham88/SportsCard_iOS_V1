@@ -100,7 +100,13 @@ extension HomePageVC: UITableViewDelegate, UITableViewDataSource {
 
                return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Card", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "newTabbarController")
+        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+
+        self.present(vc, animated: true, completion: nil) //present(vc, animated: true)
+    }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
