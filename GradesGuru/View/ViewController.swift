@@ -10,13 +10,14 @@ import UIKit
 import Segmentio
 
 var ChosenGrading = String()
+var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
+
 
 class ViewController: UIViewController {
    
     @IBOutlet var segmentioView: Segmentio!
     @IBOutlet var TitleView: UIView!
     
-    var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
     
     var content = [SegmentioItem]()
     let PSAtitle = SegmentioItem(title: "PSA", image: nil)

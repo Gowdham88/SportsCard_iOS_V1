@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreXLSX
+import BTNavigationDropdownMenu
+import Segmentio
+
 
 
 
@@ -15,16 +18,67 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var CenteringData = [String]()
     
+    @IBOutlet var segmentioView: Segmentio!
+    var segmentioStyle = SegmentioStyle.onlyLabel
+
+    
     var PSAB = [String]()
     var PSAC = [String]()
     
     @IBAction func Back_Button(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+    var menuView: BTNavigationDropdownMenu!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentioView.selectedSegmentioIndex = 0
+        
+        switch segmentioStyle {
+        case .onlyLabel, .imageBeforeLabel, .imageAfterLabel:
+            print("Only Label")
+        case .onlyImage:
+            
+            print("Only Image")
+        default:
+            break
+        }
+        
+
+//        self.selectedCellLabel.text = GradeDetails.first
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        // "Old" version
+        // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Dropdown Menu", items: items)
+
+        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.index(2), items: GradeDetails)
+
+        // Another way to initialize:
+        // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
+
+        menuView.cellHeight = 50
+        
+        menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
+        menuView.cellSelectionColor = UIColor(red: 255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha: 1.0)
+        menuView.shouldKeepSelectedCellColor = true
+        menuView.cellTextLabelColor = UIColor.white
+        menuView.cellTextLabelFont = UIFont(name: "Muli-Regular", size: 17)
+        menuView.cellTextLabelAlignment = .left // .Center // .Right // .Left
+        menuView.arrowPadding = 15
+        menuView.animationDuration = 0.5
+        menuView.maskBackgroundColor = UIColor.black
+        menuView.maskBackgroundOpacity = 0.3
+        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> Void in
+            print("Did select item at index: \(indexPath)")
+//            self.selectedCellLabel.text = GradeDetails[indexPath]
+        }
+        
+        self.navigationItem.titleView = menuView
+
+
         
         let filename = ChosenGrading
         let filetype = "xlsx"
@@ -153,6 +207,15 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        SegmentioBuilder.buildSegmentioView(
+            segmentioView: segmentioView,
+            segmentioStyle: segmentioStyle
+        )
+        
+    }
+    
     func fetchColumn(Path: String) {
         
     }
@@ -166,7 +229,12 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
+        
+        cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
+
         
 //        cell.textLabel?.text = PSAB[indexPath.row + 1]
         

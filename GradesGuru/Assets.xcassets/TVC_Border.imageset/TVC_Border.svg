@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="341" height="48" viewBox="0 0 341 48">
+  <g id="Group_131" data-name="Group 131" transform="translate(-17 -368)">
+    <g id="Group_63" data-name="Group 63" transform="translate(-11 -61)">
+      <g id="Rectangle_72" data-name="Rectangle 72" transform="translate(28 429)" fill="#fff" stroke="#becdde" stroke-width="1">
+        <rect width="341" height="48" rx="5" stroke="none"/>
+        <rect x="0.5" y="0.5" width="340" height="47" rx="4.5" fill="none"/>
+      </g>
+      <g id="Group_154" data-name="Group 154" transform="translate(-6 6)">
+        <text id="_5" data-name="5" transform="translate(45 442)" fill="none" font-size="13" font-family="Muli-SemiBold, Muli" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">5</tspan></text>
+        <text id="Excellent" transform="translate(41 463)" fill="none" font-size="13" font-family="Muli-SemiBold, Muli" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">Excellent</tspan></text>
+      </g>
+      <text id="Minor_rounding_of_corners" data-name="Minor rounding of corners" transform="translate(319 458)" fill="none" font-size="13" font-family="Muli-Regular, Muli" letter-spacing="0.004em"><tspan x="-154.921" y="0">Minor rounding of corners</tspan></text>
+    </g>
+  </g>
+</svg>

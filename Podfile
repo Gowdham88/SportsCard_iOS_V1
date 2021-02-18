@@ -12,6 +12,8 @@ target 'GradesGuru' do
   pod 'Segmentio'
   pod 'CoreXLSX', '~> 0.14.0'
   pod 'ImageScrollView'
+  pod 'BTNavigationDropdownMenu'
+
 
   
 

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.415" height="14.469" viewBox="0 0 18.415 14.469">
+  <g id="photo-camera" transform="translate(0 -47.104)">
+    <g id="Group_42" data-name="Group 42" transform="translate(0 47.104)">
+      <g id="Group_41" data-name="Group 41" transform="translate(0 0)">
+        <path id="Path_14" data-name="Path 14" d="M16.213,49.62H14.291l-1.061-1.573a2.216,2.216,0,0,0-1.821-.944h-4.4a2.216,2.216,0,0,0-1.821.944L4.123,49.62H2.2A2.176,2.176,0,0,0,0,51.783V59.41a2.176,2.176,0,0,0,2.2,2.162H16.213a2.176,2.176,0,0,0,2.2-2.162V51.783A2.176,2.176,0,0,0,16.213,49.62ZM9.207,59.8a4.866,4.866,0,1,1,4.964-4.856A4.916,4.916,0,0,1,9.207,59.8Zm6.725-7.136h-.881a.639.639,0,0,1,0-1.278h.8a.645.645,0,0,1,.681.609A.626.626,0,0,1,15.933,52.667Z" transform="translate(0 -47.104)" fill="#5375fc"/>
+      </g>
+    </g>
+    <g id="Group_44" data-name="Group 44" transform="translate(6.426 52.158)">
+      <g id="Group_43" data-name="Group 43" transform="translate(0 0)">
+        <path id="Path_15" data-name="Path 15" d="M167.645,180.736a2.771,2.771,0,1,0,2.781,2.761A2.787,2.787,0,0,0,167.645,180.736Z" transform="translate(-164.864 -180.736)" fill="#5375fc"/>
+      </g>
+    </g>
+  </g>
+</svg>
