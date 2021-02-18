@@ -36,7 +36,6 @@
 		C37BFB7825CDC86B008522EE /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB7325CDC86A008522EE /* BorderView.swift */; };
 		C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */; };
 		C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */; };
-		C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */; };
 		C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */; };
 		C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */; };
 		C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */; };
@@ -63,6 +62,10 @@
 		C38D9B472512106D00BE981A /* LetsGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B462512106D00BE981A /* LetsGo.swift */; };
 		C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B482512732F00BE981A /* HomePageVC.swift */; };
 		C38D9B4D251279F500BE981A /* SideMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9B4C251279F500BE981A /* SideMenuTVC.swift */; };
+		C38E08FC25DE8A2400C43A10 /* Corners.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C38E08F825DE8A2400C43A10 /* Corners.xlsx */; };
+		C38E08FD25DE8A2400C43A10 /* Surface.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C38E08F925DE8A2400C43A10 /* Surface.xlsx */; };
+		C38E08FE25DE8A2400C43A10 /* Edges.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C38E08FA25DE8A2400C43A10 /* Edges.xlsx */; };
+		C38E08FF25DE8A2400C43A10 /* Centering.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C38E08FB25DE8A2400C43A10 /* Centering.xlsx */; };
 		C3BEF0FC251910DF008BEFC1 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */; };
 		C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */; };
 		C3C1404124E86BBC005046E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1404024E86BBC005046E9 /* AppDelegate.swift */; };
@@ -82,10 +85,6 @@
 		C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5597A24E8F98000AAEC41 /* Constants.swift */; };
 		C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5598024E9A8AC00AAEC41 /* Login.storyboard */; };
 		C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */; };
-		C3FBBD3D25C1E86C00BCBE26 /* Edges.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C3FBBD3925C1E86B00BCBE26 /* Edges.xlsx */; };
-		C3FBBD3E25C1E86C00BCBE26 /* Corners.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C3FBBD3A25C1E86C00BCBE26 /* Corners.xlsx */; };
-		C3FBBD3F25C1E86C00BCBE26 /* Centering.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C3FBBD3B25C1E86C00BCBE26 /* Centering.xlsx */; };
-		C3FBBD4025C1E86C00BCBE26 /* Surface.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C3FBBD3C25C1E86C00BCBE26 /* Surface.xlsx */; };
 		C3FF9261BD329D4183D7E467 /* Pods_GradesGuruTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,7 +139,6 @@
 		C37BFB7325CDC86A008522EE /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = GradesGuru/Model/Border/BorderView.swift; sourceTree = SOURCE_ROOT; };
 		C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesChoiceTVC.swift; sourceTree = "<group>"; };
 		C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingCells.swift; sourceTree = "<group>"; };
-		C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade_Guru_Data_4.xlsx; sourceTree = "<group>"; };
 		C381EFB12519F8A100C7E4C6 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		C381EFB22519F8A100C7E4C6 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		C381EFB32519F8A100C7E4C6 /* Muli-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -167,6 +165,10 @@
 		C38D9B462512106D00BE981A /* LetsGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsGo.swift; sourceTree = "<group>"; };
 		C38D9B482512732F00BE981A /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 		C38D9B4C251279F500BE981A /* SideMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVC.swift; sourceTree = "<group>"; };
+		C38E08F825DE8A2400C43A10 /* Corners.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Corners.xlsx; sourceTree = "<group>"; };
+		C38E08F925DE8A2400C43A10 /* Surface.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Surface.xlsx; sourceTree = "<group>"; };
+		C38E08FA25DE8A2400C43A10 /* Edges.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Edges.xlsx; sourceTree = "<group>"; };
+		C38E08FB25DE8A2400C43A10 /* Centering.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Centering.xlsx; sourceTree = "<group>"; };
 		C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoProVC.swift; sourceTree = "<group>"; };
 		C3C1403D24E86BBC005046E9 /* GradesGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradesGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,10 +194,6 @@
 		C3C5597A24E8F98000AAEC41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C5598024E9A8AC00AAEC41 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C3FBBD3925C1E86B00BCBE26 /* Edges.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Edges.xlsx; sourceTree = "<group>"; };
-		C3FBBD3A25C1E86C00BCBE26 /* Corners.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Corners.xlsx; sourceTree = "<group>"; };
-		C3FBBD3B25C1E86C00BCBE26 /* Centering.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Centering.xlsx; sourceTree = "<group>"; };
-		C3FBBD3C25C1E86C00BCBE26 /* Surface.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Surface.xlsx; sourceTree = "<group>"; };
 		CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.release.xcconfig"; sourceTree = "<group>"; };
 		D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuruTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuru_GradesGuruUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,11 +305,10 @@
 		C37D1DCD25BD29930002D9AC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C3FBBD3B25C1E86C00BCBE26 /* Centering.xlsx */,
-				C3FBBD3A25C1E86C00BCBE26 /* Corners.xlsx */,
-				C3FBBD3925C1E86B00BCBE26 /* Edges.xlsx */,
-				C3FBBD3C25C1E86C00BCBE26 /* Surface.xlsx */,
-				C380945F25C1D97A00EB5E06 /* Grade_Guru_Data_4.xlsx */,
+				C38E08FB25DE8A2400C43A10 /* Centering.xlsx */,
+				C38E08F825DE8A2400C43A10 /* Corners.xlsx */,
+				C38E08FA25DE8A2400C43A10 /* Edges.xlsx */,
+				C38E08F925DE8A2400C43A10 /* Surface.xlsx */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -558,30 +555,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */,
-				C3FBBD3D25C1E86C00BCBE26 /* Edges.xlsx in Resources */,
 				C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */,
 				C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */,
 				C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */,
+				C38E08FD25DE8A2400C43A10 /* Surface.xlsx in Resources */,
 				C381EFC32519F8A300C7E4C6 /* Muli-ExtraLightItalic.ttf in Resources */,
 				1877032B25A4BA59002EC49E /* Card.storyboard in Resources */,
 				C381EFC42519F8A300C7E4C6 /* Muli-Light.ttf in Resources */,
 				C381EFC52519F8A300C7E4C6 /* Muli-Italic.ttf in Resources */,
-				C3FBBD3F25C1E86C00BCBE26 /* Centering.xlsx in Resources */,
-				C3FBBD3E25C1E86C00BCBE26 /* Corners.xlsx in Resources */,
 				C381EFC62519F8A300C7E4C6 /* Muli-SemiBold.ttf in Resources */,
 				C381EFC72519F8A300C7E4C6 /* Muli-ExtraBoldItalic.ttf in Resources */,
 				C381EFC82519F8A300C7E4C6 /* Muli-LightItalic.ttf in Resources */,
 				C381EFC92519F8A300C7E4C6 /* Muli-ExtraLight.ttf in Resources */,
 				C381EFCA2519F8A300C7E4C6 /* Muli-SemiBoldItalic.ttf in Resources */,
 				C381EFCB2519F8A300C7E4C6 /* Muli-Black.ttf in Resources */,
+				C38E08FF25DE8A2400C43A10 /* Centering.xlsx in Resources */,
+				C38E08FE25DE8A2400C43A10 /* Edges.xlsx in Resources */,
 				C381EFCC2519F8A300C7E4C6 /* Muli-BoldItalic.ttf in Resources */,
 				C3C1404D24E86BC0005046E9 /* LaunchScreen.storyboard in Resources */,
 				C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */,
+				C38E08FC25DE8A2400C43A10 /* Corners.xlsx in Resources */,
 				C38D9B452511D8F800BE981A /* OnboardingImage.svg in Resources */,
 				8EE21B712506C6000098795A /* GoogleService-Info.plist in Resources */,
-				C3FBBD4025C1E86C00BCBE26 /* Surface.xlsx in Resources */,
 				C3C1404A24E86BC0005046E9 /* Assets.xcassets in Resources */,
-				C380946025C1D97B00EB5E06 /* Grade_Guru_Data_4.xlsx in Resources */,
 				C3C1404824E86BBC005046E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

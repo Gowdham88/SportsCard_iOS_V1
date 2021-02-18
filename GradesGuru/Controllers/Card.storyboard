@@ -38,7 +38,8 @@
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFC-ad-Bs8">
                                                     <rect key="frame" x="127.5" y="13" width="251.5" height="35"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                                                    <color key="textColor" red="0.32549019610000002" green="0.45882352939999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="br7-X7-Twx">
@@ -54,7 +55,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="O5E-V3-RY1"/>
                                                         <constraint firstAttribute="width" constant="104.5" id="hR1-DY-ucz"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -90,10 +91,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="6mD-fb-Fr1" secondAttribute="height" multiplier="49:31" id="0v3-qL-GWi"/>
                                                     </constraints>
+                                                    <color key="onTintColor" red="0.32549019610000002" green="0.45882352939999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ap-BJ-VNj">
                                                     <rect key="frame" x="25" y="16" width="308" height="41"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -125,14 +127,14 @@
                                             <constraint firstAttribute="width" constant="40" id="xTF-qV-SNU"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="arrow.backward" catalog="system"/>
+                                        <state key="normal" image="Back_Black"/>
                                         <connections>
                                             <action selector="backBtnTapped:" destination="W2B-MW-Cfb" eventType="touchUpInside" id="76U-3U-Fb2"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpa-2W-gk0">
                                         <rect key="frame" x="55" y="50" width="354" height="40"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -157,7 +159,7 @@
                                             <constraint firstAttribute="width" constant="40" id="N8B-WA-WwH"/>
                                             <constraint firstAttribute="height" constant="40" id="OIr-vW-fgo"/>
                                         </constraints>
-                                        <state key="normal" image="trash.fill" catalog="system"/>
+                                        <state key="normal" image="DeleteRed"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -212,14 +214,14 @@
                                             <constraint firstAttribute="height" constant="40" id="oZQ-sx-qDT"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="arrow.backward" catalog="system"/>
+                                        <state key="normal" image="Back_Black"/>
                                         <connections>
                                             <action selector="backAction:" destination="JIP-iA-0d7" eventType="touchUpInside" id="Uhd-YB-rtr"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Sport" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yp-c5-STh">
                                         <rect key="frame" x="55" y="50" width="354" height="40"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -248,7 +250,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzU-0N-Z34">
                                                     <rect key="frame" x="30" y="16" width="352" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -308,14 +310,14 @@
                                             <constraint firstAttribute="width" constant="40" id="Mh2-U8-bgX"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="arrow.backward" catalog="system"/>
+                                        <state key="normal" image="Back_Black"/>
                                         <connections>
                                             <action selector="backAction:" destination="zeP-a4-eeF" eventType="touchUpInside" id="EqI-43-AAI"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-5I-xWQ">
                                         <rect key="frame" x="55" y="50" width="354" height="40"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -344,7 +346,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdl-JB-6Lr">
                                                     <rect key="frame" x="30" y="16" width="352" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -404,14 +406,14 @@
                                             <constraint firstAttribute="height" constant="40" id="PVq-Fg-5Bc"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="arrow.backward" catalog="system"/>
+                                        <state key="normal" image="Back_Black"/>
                                         <connections>
                                             <action selector="backAction:" destination="H2E-Z9-Hqh" eventType="touchUpInside" id="NFC-EH-8h7"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohz-o1-oQx">
                                         <rect key="frame" x="55" y="50" width="354" height="40"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -440,7 +442,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siz-6t-UDM">
                                                     <rect key="frame" x="30" y="16" width="352" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -495,8 +497,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
-        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <image name="Back_Black" width="9.5419998168945312" height="16.191999435424805"/>
+        <image name="DeleteRed" width="14" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

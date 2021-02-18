@@ -18,6 +18,7 @@ public extension UITableViewCell {
 class GradingCells: UITableViewCell {
     
     
+    @IBOutlet var grading_number: UILabel!
     @IBOutlet var Grading_Title: UILabel!
     
     @IBOutlet var Grading_Description: UILabel!
@@ -28,11 +29,13 @@ class GradingCells: UITableViewCell {
         // Initialization code
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        let padding = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        bounds = bounds.inset(by: padding)
+//    }
 
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

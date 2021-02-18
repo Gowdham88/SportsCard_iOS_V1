@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="341" height="48" viewBox="0 0 341 48">
+  <g id="Group_127" data-name="Group 127" transform="translate(-17 -366)">
+    <g id="Group_63" data-name="Group 63" transform="translate(-11 -61)">
+      <g id="Rectangle_68" data-name="Rectangle 68" transform="translate(28 427)" fill="rgba(83,117,252,0.15)" stroke="#5375fc" stroke-width="1">
+        <rect width="341" height="48" rx="5" stroke="none"/>
+        <rect x="0.5" y="0.5" width="340" height="47" rx="4.5" fill="none"/>
+      </g>
+      <g id="Group_150" data-name="Group 150" transform="translate(1)" opacity="0">
+        <text id="_10" data-name="10" transform="translate(35 446)" fill="#5375fc" font-size="13" font-family="Muli-SemiBold, Muli" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">10</tspan></text>
+        <text id="Gem_Mint" data-name="Gem Mint" transform="translate(35 467)" fill="#5375fc" font-size="13" font-family="Muli-SemiBold, Muli" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">Gem Mint</tspan></text>
+      </g>
+      <text id="Front" transform="translate(196 446)" fill="#5375fc" font-size="13" font-family="Muli-Regular, Muli" letter-spacing="0.004em" opacity="0"><tspan x="-31.564" y="0">Front</tspan></text>
+      <text id="_60_40" data-name="60/40" transform="translate(251 446)" fill="#5375fc" font-size="13" font-family="Muli-Regular, Muli" letter-spacing="0.004em" opacity="0"><tspan x="-35.113" y="0">60/40</tspan></text>
+      <text id="_75_25" data-name="75/25" transform="translate(251 466)" fill="#5375fc" font-size="13" font-family="Muli-Regular, Muli" letter-spacing="0.004em" opacity="0"><tspan x="-35.113" y="0">75/25</tspan></text>
+      <text id="Back" transform="translate(194 466)" fill="#5375fc" font-size="13" font-family="Muli-Regular, Muli" letter-spacing="0.004em" opacity="0"><tspan x="-29.939" y="0">Back</tspan></text>
+    </g>
+  </g>
+</svg>
