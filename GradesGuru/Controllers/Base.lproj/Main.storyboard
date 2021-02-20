@@ -1160,8 +1160,8 @@ To get started
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gNM-Oi-ikU">
-                                <rect key="frame" x="0.0" y="85" width="414" height="830"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="85" width="414" height="651"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="49" id="n1I-Kw-dyp" customClass="GradingCells" customModule="GradesGuru" customModuleProvider="target">
@@ -1195,6 +1195,7 @@ To get started
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="CellContentView" destination="loE-Kc-y9b" id="nUM-cx-AB8"/>
                                             <outlet property="Grading_Description" destination="q5Q-dv-9XL" id="iRa-EI-6Gu"/>
                                             <outlet property="Grading_Title" destination="4gl-Pb-Z3N" id="b6P-31-WFZ"/>
                                             <outlet property="grading_number" destination="tbD-G8-KHI" id="nBp-fX-7rz"/>
@@ -1239,6 +1240,7 @@ To get started
                     </navigationItem>
                     <connections>
                         <outlet property="segmentioView" destination="Q5u-7D-q1A" id="arE-g5-LVZ"/>
+                        <outlet property="tableView" destination="gNM-Oi-ikU" id="nGc-r9-irE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0M-bH-ihY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

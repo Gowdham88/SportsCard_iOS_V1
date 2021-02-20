@@ -17,6 +17,7 @@ public extension UITableViewCell {
 
 class GradingCells: UITableViewCell {
     
+    @IBOutlet var CellContentView: UIView!
     
     @IBOutlet var grading_number: UILabel!
     @IBOutlet var Grading_Title: UILabel!
@@ -39,8 +40,10 @@ class GradingCells: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
 
-        // Configure the view for the selected state
+        
     }
 
+   
 }

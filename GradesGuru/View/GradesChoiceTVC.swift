@@ -15,6 +15,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var CenteringData = [String]()
 
+    @IBOutlet var tableView: UITableView!
     
     @IBOutlet var segmentioView: Segmentio!
     var segmentioStyle = SegmentioStyle.onlyLabel
@@ -34,6 +35,10 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
 //        self.tableView.allowsMultipleSelection = true
 //        self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        tableView.setContentOffset(CGPoint(x: 0, y: CGFloat.greatestFiniteMagnitude), animated: false)
+
+
         
         segmentioView.selectedSegmentioIndex = 0
         
@@ -254,11 +259,24 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
         
-        cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
+        if cell.isSelected {
+            
+            
+            cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border_Purple.svg")!)
+            SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
+            
+            } else {
+                
+                cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
+
+                SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
+                
+            }
+        
+        
+//        cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
         
 //        cell.textLabel?.text = PSAB[indexPath.row + 1]
         cell.grading_number.text = PSAA[indexPath.row]
@@ -270,11 +288,38 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
-        
-        cell.backgroundView = UIImageView(image: UIImage(named: "Purple_CellBack.svg")!)
+
+        if cell.isSelected {
+            
+            
+            cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border_Purple.svg")!)
+            SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
+            
+            } else {
+                
+                cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
+
+                SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
+                
+            }
 
     }
+    
+    
+    func SetBackground(cellview: UIView, Gradingnumber: UILabel, GradingTitle: UILabel, GradingDescptn: UILabel, ImageName: String) {
+        
+        let backgroundImage = UIImageView(frame: cellview.bounds)
+        backgroundImage.clipsToBounds = true
+        backgroundImage.image = UIImage(named: ImageName)
+        backgroundImage.contentMode = .scaleToFill
+        cellview.addSubview(backgroundImage)
+        cellview.bringSubviewToFront(Gradingnumber)
+        cellview.bringSubviewToFront(GradingTitle)
+        cellview.bringSubviewToFront(GradingDescptn)
+
+    }
+    
     
 }
