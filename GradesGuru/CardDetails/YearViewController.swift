@@ -56,7 +56,6 @@ extension YearViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = yearTAbleView.dequeueReusableCell(withIdentifier: "sportsCell") as! sportsCell
         cell.sportsCellTextValue.text = yearData[indexPath.row].capitalized
-        cell.contentView.addTopBorder()
         return cell
         
     }

@@ -18,16 +18,13 @@ class ViewController: UIViewController {
     @IBOutlet var segmentioView: Segmentio!
     @IBOutlet var TitleView: UIView!
     
-    
     var content = [SegmentioItem]()
     let PSAtitle = SegmentioItem(title: "PSA", image: nil)
     let BGStitle = SegmentioItem(title: "BGS", image: nil)
     let SGCtitle = SegmentioItem(title: "SGC", image: nil)
 
-
     @IBOutlet weak var scanfrontPage: UIImageView!
     @IBOutlet weak var scanBackPage: UIImageView!
-    
     
     @IBOutlet weak var frontScanBtn: UIButton!
     @IBOutlet weak var backScanBtn: UIButton!
@@ -37,20 +34,15 @@ class ViewController: UIViewController {
     
     var segmentioStyle = SegmentioStyle.onlyLabel
 
-    
     var selected_img = ""
     var isfrontAdded: Bool = false
     var isbackAdded: Bool = false
-    
     var isFrontImage: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        initNavigationItemTitleView()
         TitleView = setTitle(title: "Enter a Name", subtitle: "SubTitle")
-
-        //        setTitle(title: "Title", subtitle: "SubTitle")
         
         switch segmentioStyle {
         case .onlyLabel, .imageBeforeLabel, .imageAfterLabel:
@@ -76,7 +68,6 @@ class ViewController: UIViewController {
         let tapBackImg = UITapGestureRecognizer(target: self, action: #selector(scanBackPage(tapGestureRecognizer:)))
         scanBackPage.isUserInteractionEnabled = true
         scanBackPage.addGestureRecognizer(tapBackImg)
-        
         
         content.append(PSAtitle)
         content.append(BGStitle)

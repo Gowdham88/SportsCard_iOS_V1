@@ -53,7 +53,6 @@ extension SportViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = sportsTableView.dequeueReusableCell(withIdentifier: "sportsCell") as! sportsCell
         cell.sportsCellTextValue.text = sportData[indexPath.row].capitalized
-        cell.contentView.addTopBorder()
         return cell
         
     }

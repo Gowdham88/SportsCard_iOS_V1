@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class newTabbarController: UIViewController {
+class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: ***** Variable and outlets  *****
     
     // outlets
@@ -30,7 +30,7 @@ class newTabbarController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabbarTableView.separatorStyle = .none
+      
         self.tabbarTableView.delegate  = self
         self.tabbarTableView.dataSource = self
     }
@@ -46,11 +46,6 @@ class newTabbarController: UIViewController {
         
     }
     
-}
-
-
-// MARK: ***** Extention TableView delegate  *****
-extension newTabbarController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.textboxCellPlaceHolderArray.count + self.switchLabelPlaceHolderArray.count
@@ -66,14 +61,11 @@ extension newTabbarController: UITableViewDelegate,UITableViewDataSource{
             cell.textFieldInsideCell.placeholder = "Enter \(self.textboxCellPlaceHolderArray[indexPath.row])"
             cell.textFieldInsideCell.delegate = self
             if indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3 {
-                cell.imageViewInsideCell.isHidden = false
                 cell.textFieldInsideCell.isEnabled = false
             }else{
-                cell.imageViewInsideCell.isHidden = true
                 cell.textFieldInsideCell.isEnabled = true
             }
             
-            cell.contentView.addTopBorder()
             return cell
         case textboxCellPlaceHolderArray.count...SwitchStartingPoint:
             let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithSwitchButton") as! cellWithSwitchButton
@@ -85,7 +77,6 @@ extension newTabbarController: UITableViewDelegate,UITableViewDataSource{
                 cell.switchInsideCell.isHidden = false
                 
             }
-            cell.contentView.addTopBorder()
             return cell
         default:
             return UITableViewCell()
@@ -115,7 +106,15 @@ extension newTabbarController: UITableViewDelegate,UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
 }
+
+
+// MARK: ***** Extention TableView delegate  *****
+
 
 // MARK: ***** TextField Delegate Functions  *****
 
@@ -133,7 +132,6 @@ class cellWithTextbox: UITableViewCell{
     
     @IBOutlet weak var placeHolderLabel: UILabel!
     @IBOutlet weak var textFieldInsideCell: UITextField!
-    @IBOutlet weak var imageViewInsideCell: UIImageView!
     
     static var identifier = "cellWithTextbox"
     
@@ -141,8 +139,7 @@ class cellWithTextbox: UITableViewCell{
         super.awakeFromNib()
         self.selectionStyle = .none
         
-        self.imageViewInsideCell.image = #imageLiteral(resourceName: "right_arrow").withRenderingMode(.alwaysTemplate)
-        self.imageViewInsideCell.tintColor = .lightGray
+      
     }
 }
 
@@ -164,33 +161,4 @@ class cellWithSwitchButton: UITableViewCell{
 
 // MARK: ***** extention UIView Top and Bottom border  *****
 
-extension UIView{
-    func addTopAndBottomBorders() {
-       let thickness: CGFloat = 2.0
-       let topBorder = CALayer()
-       let bottomBorder = CALayer()
-       topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: thickness)
-       topBorder.backgroundColor = UIColor.black.cgColor
-       bottomBorder.frame = CGRect(x:0, y: self.frame.size.height - thickness, width: self.frame.size.width, height:thickness)
-       bottomBorder.backgroundColor = UIColor.black.cgColor
-        self.layer.addSublayer(topBorder)
-        self.layer.addSublayer(bottomBorder)
-    }
-    
-    func addTopBorder(){
-        let thickness: CGFloat = 2.0
-        let topBorder = CALayer()
-        topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: thickness)
-        topBorder.backgroundColor = UIColor.black.cgColor
-        self.layer.addSublayer(topBorder)
-        
-    }
-    
-    func addBottomBorder(){
-        let thickness: CGFloat = 2.0
-        let bottomBorder = CALayer()
-        bottomBorder.frame = CGRect(x:0, y: self.frame.size.height - thickness, width: self.frame.size.width, height:thickness)
-        bottomBorder.backgroundColor = UIColor.black.cgColor
-        self.layer.addSublayer(bottomBorder)
-    }
-}
+

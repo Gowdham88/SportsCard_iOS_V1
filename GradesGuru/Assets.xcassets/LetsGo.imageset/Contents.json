@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "LetsGo.png",
+      "filename" : "Rectangle 42.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "LetsGo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "LetsGo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

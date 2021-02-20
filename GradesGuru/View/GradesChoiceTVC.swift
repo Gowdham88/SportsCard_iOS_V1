@@ -98,14 +98,17 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
         do {
-                    for wbk in try file.parseWorkbooks() {
+                    
+            for wbk in try file.parseWorkbooks() {
                         
-                        let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
+                
+                let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
                         
                       for (name, path) in ws {
                         
                         if let worksheetName = name {
                           print("This worksheet has a name: \(worksheetName)")
+                        print("Chosen Grading: \(ChosenGrading)")
             
                         switch ChosenGrading {
                         
@@ -138,6 +141,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 
                             }
                         
+                          /*
                             
                         case "Surface": 
                             
@@ -188,6 +192,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 print("EdgescolumnCStringsC: \(columnCStrings)")
                                 
                             }
+                            */
                         default:
                             print("Default")
                         }
@@ -239,7 +244,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PSAA.count
+        return PSAA.count - 1
     }
     
 
@@ -263,26 +268,33 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         if cell.isSelected {
             
-            
+//            setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border_Purple.svg")!)
+
             cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border_Purple.svg")!)
-            SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
+//            SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
             
             } else {
-                
-                cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
 
-                SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
+//            setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border.svg")!)
+
+            cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
+//                SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
                 
             }
-        
-        
+
 //        cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
-        
 //        cell.textLabel?.text = PSAB[indexPath.row + 1]
-        cell.grading_number.text = PSAA[indexPath.row]
-        cell.Grading_Title.text = PSAB[indexPath.row]
-        cell.Grading_Description.text = PSAC[indexPath.row]
         
+        if indexPath.row < PSAA.count {
+            
+            cell.grading_number.text = PSAA[indexPath.row + 1]
+            cell.Grading_Title.text = PSAB[indexPath.row + 1]
+            cell.Grading_Description.text = PSAC[indexPath.row + 1]
+            
+        
+            
+        }
+       
         return cell
 
     }
@@ -292,17 +304,20 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
 
         if cell.isSelected {
+
+//            setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border_Purple.svg")!)
+
             
-            
-            cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border_Purple.svg")!)
+
             SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
-            
+
             } else {
-                
-                cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
+
+                //                setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border.svg")!)
+
 
                 SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
-                
+
             }
 
     }
@@ -315,11 +330,22 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         backgroundImage.image = UIImage(named: ImageName)
         backgroundImage.contentMode = .scaleToFill
         cellview.addSubview(backgroundImage)
+        
         cellview.bringSubviewToFront(Gradingnumber)
         cellview.bringSubviewToFront(GradingTitle)
         cellview.bringSubviewToFront(GradingDescptn)
 
     }
-    
+ 
+    func setBKImage(cellview: UIView, Image: UIImage) {
+        
+        
+        let backgroundImage = UIImageView(frame: cellview.bounds)
+        backgroundImage.clipsToBounds = true
+        backgroundImage.image = Image
+        backgroundImage.contentMode = .scaleToFill
+        cellview.addSubview(backgroundImage)
+        
+    }
     
 }
