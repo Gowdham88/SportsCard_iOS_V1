@@ -11,14 +11,19 @@ import CoreXLSX
 import BTNavigationDropdownMenu
 import Segmentio
 
+var purpleimage = UIImage(named: "TVC_Border_Purple.svg")
+var whiteimage = UIImage(named: "TVC_Border.svg")
+var selectedCells = [Int:Int]()
+
 class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var CenteringData = [String]()
 
     @IBOutlet var tableView: UITableView!
-    
     @IBOutlet var segmentioView: Segmentio!
     var segmentioStyle = SegmentioStyle.onlyLabel
+    
+    var CardCorners = [Corners]()
 
     var PSAA = [String]()
     var PSAB = [String]()
@@ -29,17 +34,16 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     var menuView: BTNavigationDropdownMenu!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.allowsSelection = (2 != 0)
         
 //        self.tableView.allowsMultipleSelection = true
 //        self.tableView.allowsMultipleSelectionDuringEditing = true
         
         tableView.setContentOffset(CGPoint(x: 0, y: CGFloat.greatestFiniteMagnitude), animated: false)
 
-
-        
         segmentioView.selectedSegmentioIndex = 0
         
         switch segmentioStyle {
@@ -138,6 +142,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                 print("CornerscolumnCStringsA: \(columnAStrings)")
                                 print("CornerscolumnCStringsB: \(columnBStrings)")
                                 print("CornerscolumnCStringsC: \(columnCStrings)")
+                                
+                                var CornersValue = Corners(Device_ID: "123", Card_ID: "123", Pictures: ["1","2"], Corners_Value: 12.09, PSA: [1: ["10","Pristine","Description"]], SelectedPSA: [0:0,1:1], BGS: [1: ["10","Pristine","Description"]], SelectedBGS: [0:0,1:1], SGC: [1: ["10","Pristine","Description"]], SelectedSGC: [0:0,1:1], viewonPSA: "viewonPSA")
                                 
                             }
                         
@@ -246,19 +252,24 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return PSAA.count - 1
     }
-    
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 60
         
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
             return 20
-        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
             let headerView = UIView()
             headerView.backgroundColor = view.backgroundColor
+        
             return headerView
         }
     
@@ -266,86 +277,84 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
         
-        if cell.isSelected {
-            
-//            setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border_Purple.svg")!)
-
-            cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border_Purple.svg")!)
-//            SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
-            
-            } else {
-
-//            setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border.svg")!)
-
-            cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
-//                SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
-                
-            }
-
-//        cell.backgroundView = UIImageView(image: UIImage(named: "TVC_Border.svg")!)
-//        cell.textLabel?.text = PSAB[indexPath.row + 1]
-        
         if indexPath.row < PSAA.count {
             
             cell.grading_number.text = PSAA[indexPath.row + 1]
             cell.Grading_Title.text = PSAB[indexPath.row + 1]
             cell.Grading_Description.text = PSAC[indexPath.row + 1]
             
-        
+            if selectedCells[indexPath.row] != nil {
+                
+                cell.backgroundView = UIImageView(image: purpleimage)
+
+            } else {
+                
+                cell.backgroundView = UIImageView(image: whiteimage)
+
+            }
             
         }
        
         return cell
 
     }
+   
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+       
+        print("selectedCells: \(selectedCells)")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
 
-        if cell.isSelected {
+        let backgroundImage = UIImageView(frame: cell.bounds)
+        backgroundImage.clipsToBounds = true
+        backgroundImage.contentMode = .scaleToFill
+        
+        if selectedCells[indexPath.row] != nil {
+            
+            if selectedCells.count <= 2 {
+            
+                cell.backgroundView = UIImageView(image: whiteimage)
+                
+//                cell.backgroundView = UIImageView(image: whiteimage)
 
-//            setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border_Purple.svg")!)
+    //            cell.imageView?.insertSubview(backgroundImage, at: 0)
+    //
+    //            cell.bringSubviewToFront(cell.grading_number)
+    //            cell.bringSubviewToFront(cell.Grading_Title)
+    //            cell.bringSubviewToFront(cell.Grading_Description)
+                
+        }
+            
+            selectedCells.removeValue(forKey: indexPath.row)
 
             
+        } else {
+            
+            if selectedCells.count < 2 {
+                
+                cell.backgroundView = UIImageView(image: purpleimage)
 
-            SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border_Purple.svg")
-
-            } else {
-
-                //                setBKImage(cellview: cell.contentView, Image: UIImage(named: "TVC_Border.svg")!)
-
-
-                SetBackground(cellview: cell.contentView, Gradingnumber: cell.grading_number, GradingTitle: cell.Grading_Title, GradingDescptn: cell.Grading_Description, ImageName: "TVC_Border.svg")
-
+                selectedCells.updateValue(indexPath.row, forKey: indexPath.row)
+                
             }
+            
 
-    }
-    
-    
-    func SetBackground(cellview: UIView, Gradingnumber: UILabel, GradingTitle: UILabel, GradingDescptn: UILabel, ImageName: String) {
-        
-        let backgroundImage = UIImageView(frame: cellview.bounds)
-        backgroundImage.clipsToBounds = true
-        backgroundImage.image = UIImage(named: ImageName)
-        backgroundImage.contentMode = .scaleToFill
-        cellview.addSubview(backgroundImage)
-        
-        cellview.bringSubviewToFront(Gradingnumber)
-        cellview.bringSubviewToFront(GradingTitle)
-        cellview.bringSubviewToFront(GradingDescptn)
-
-    }
+            
+//            cell.imageView?.removeFromSuperview()
+//            cell.imageView?.isHidden = false
+//            backgroundImage.image = purpleimage
+//            cell.addSubview(backgroundImage)
+            
+//            cell.bringSubviewToFront(cell.grading_number)
+//            cell.bringSubviewToFront(cell.Grading_Title)
+//            cell.bringSubviewToFront(cell.Grading_Description)
+            
+            
+        }
  
-    func setBKImage(cellview: UIView, Image: UIImage) {
-        
-        
-        let backgroundImage = UIImageView(frame: cellview.bounds)
-        backgroundImage.clipsToBounds = true
-        backgroundImage.image = Image
-        backgroundImage.contentMode = .scaleToFill
-        cellview.addSubview(backgroundImage)
-        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+
     }
     
-}
+  }

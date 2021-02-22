@@ -8,16 +8,33 @@
 
 import Foundation
 
-
 class Corners: NSObject, NSCoding {
     
     var Device_ID: String!
     var Card_ID: String!
+    var Pictures: [String]!
     var Corners_Value: Double!
-    var PSA_Chosen: Int!
+    var PSA: [Int: [String]]!
+    var SelectedPSA: [Int:Int]!
+    var BGS: [Int: [String]]!
+    var SelectedBGS: [Int:Int]!
+    var SGC: [Int: [String]]!
+    var SelectedSGC: [Int:Int]!
+    var viewonPSA: String!
     
-    
-    init(Device_ID: String, Card_ID: String, Corners_Value: Double, PSA_Chosen: Int) {
+    init(Device_ID: String, Card_ID: String, Pictures: [String]!, Corners_Value: Double!, PSA: [Int: [String]]!, SelectedPSA: [Int:Int]!, BGS: [Int: [String]]!, SelectedBGS: [Int:Int]!, SGC: [Int: [String]]!, SelectedSGC: [Int:Int]!, viewonPSA: String!) {
+        
+        self.Device_ID = Device_ID
+        self.Card_ID = Card_ID
+        self.Pictures = Pictures
+        self.Corners_Value = Corners_Value
+        self.PSA = PSA
+        self.SelectedPSA = SelectedPSA
+        self.BGS = BGS
+        self.SelectedBGS = SelectedBGS
+        self.SGC = SGC
+        self.SelectedSGC = SelectedSGC
+        self.viewonPSA = viewonPSA
         
 //        self.id = id
 //        self.x = x

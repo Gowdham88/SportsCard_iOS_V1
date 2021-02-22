@@ -33,9 +33,6 @@ class HomePageVC: UIViewController {
             scanBtnView.isHidden = true
         }
          
-        
-        
-
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 
             textfield.backgroundColor = UIColor.white
@@ -52,7 +49,7 @@ class HomePageVC: UIViewController {
             if let leftView = textfield.leftView as? UIImageView {
                 leftView.image = UIImage(named: "noun_Search.png")
                 
-//                leftView.tintColor = UIColor.black
+                leftView.tintColor = UIColor(red: 83.0/255.0, green: 117.0/225.0, blue: 252.0/255.0, alpha: 1.0)
             }
 
         }

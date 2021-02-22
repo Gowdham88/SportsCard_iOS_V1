@@ -9,7 +9,6 @@ import UIKit
 
 class SetViewController: UIViewController {
 
-    
     // MARK: ***** Variables and outlets  *****
     
     @IBOutlet weak var headerView: UIView!
@@ -23,9 +22,9 @@ class SetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.setTAbleView.delegate = self
         self.setTAbleView.dataSource = self
+        
         // Do any additional setup after loading the view.
 
     }
@@ -36,9 +35,10 @@ class SetViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
+        
         self.dismiss(animated: true, completion: nil)
+        
     }
-    
     
 }
 
