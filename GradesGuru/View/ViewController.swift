@@ -10,6 +10,7 @@ import UIKit
 import Segmentio
 
 var ChosenGrading = String()
+var ChosenGradingIndex = Int()
 var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
 
 
@@ -76,9 +77,6 @@ class ViewController: UIViewController {
 //        segmentioView.setup(content: content, style: .onlyLabel, options: SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: SegmentioIndicatorOptions(type: .bottom, ratio: 1.0, height: 5.0, color: UIColor(red: 83.0, green: 117.0, blue: 252.0, alpha: 1.0)), horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: SegmentioHorizontalSeparatorType.bottom, height: 0.5, color: .lightGray), verticalSeparatorOptions: SegmentioVerticalSeparatorOptions(ratio: 0, color: .gray), imageContentMode: .center, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: SegmentioStates(defaultState: SegmentioState(backgroundColor: .clear,titleFont:UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black),selectedState: SegmentioState(backgroundColor: UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0),titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .white),highlightedState: SegmentioState(backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),titleFont:UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black)), animationDuration: 0.1))
     
         segmentioView.selectedSegmentioIndex = 0
-        
-
-        
        
     }
     
@@ -295,12 +293,9 @@ class ViewController: UIViewController {
             let newX = widthDiff / 2
             titleLabel.frame.origin.x = newX
         }
-
-        
         
         return TitleView
     }
-    
     
 }
 
@@ -456,6 +451,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         ChosenGrading = GradeDetails[indexPath.row]
+        ChosenGradingIndex = indexPath.row
         
         print("indexPath: \(indexPath.row)")
         print("ChosenGrading: \(ChosenGrading)")
@@ -473,7 +469,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
             self.present(popup, animated: true, completion: nil)
             
         }
-        
         
     }
 }

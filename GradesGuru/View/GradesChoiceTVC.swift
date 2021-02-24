@@ -14,25 +14,38 @@ import Segmentio
 var purpleimage = UIImage(named: "TVC_Border_Purple.svg")
 var whiteimage = UIImage(named: "TVC_Border.svg")
 var selectedCells = [Int:Int]()
+var selected_CardID = String()
+
 
 class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var CenteringData = [String]()
+    var menuView: BTNavigationDropdownMenu!
+    var segmentioStyle = SegmentioStyle.onlyLabel
+    var CardCorners = [Corners]()
+    
+    var PSAGrade = [String]()
+    var PSADesc = [String]()
+    var PSAState = [String]()
+    
+    var BGSGrade = [String]()
+    var BGSDesc = [String]()
+    var BGSState = [String]()
+    
+    var SGCGrade = [String]()
+    var SGCDesc = [String]()
+    var SGCState = [String]()
+    
+    var CardCornersvalue : Corners! = nil
+    var storedWorksheet = ["Corners": ["Corners_PSA", "Corners_BGS", "Corners_SGC"], "Surface": ["Surface_PSA", "Surface_BGS", "Surface_SGC"], "Edges": ["Edges_PSA", "Edges_BGS", "Edges_SGC"]]
 
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentioView: Segmentio!
-    var segmentioStyle = SegmentioStyle.onlyLabel
-    
-    var CardCorners = [Corners]()
-
-    var PSAA = [String]()
-    var PSAB = [String]()
-    var PSAC = [String]()
     
     @IBAction func Back_Button(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    var menuView: BTNavigationDropdownMenu!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,16 +60,19 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         segmentioView.selectedSegmentioIndex = 0
         
         switch segmentioStyle {
+        
         case .onlyLabel, .imageBeforeLabel, .imageAfterLabel:
+            
             print("Only Label")
+            
         case .onlyImage:
             
             print("Only Image")
+            
         default:
             break
         }
         
-
 //        self.selectedCellLabel.text = GradeDetails.first
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha: 1.0)
@@ -65,7 +81,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         // "Old" version
         // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Dropdown Menu", items: items)
 
-        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.index(2), items: GradeDetails)
+        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.index(ChosenGradingIndex), items: GradeDetails)
 
         // Another way to initialize:
         // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
@@ -88,12 +104,23 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         menuView.maskBackgroundOpacity = 0.3
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> Void in
             print("Did select item at index: \(indexPath)")
+            
+            ChosenGrading = GradeDetails[indexPath]
+            self.loadspreadsheet(chosenGrading: ChosenGrading)
+            
 //            self.selectedCellLabel.text = GradeDetails[indexPath]
         }
         
         self.navigationItem.titleView = menuView
         
-        let filename = ChosenGrading
+
+        loadspreadsheet(chosenGrading: ChosenGrading)
+        
+    }
+    
+    func loadspreadsheet(chosenGrading: String) {
+        
+        let filename = chosenGrading
         let filetype = "xlsx"
         let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
         
@@ -101,167 +128,173 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
           fatalError("XLSX file at \(filepath) is corrupted or does not exist")
         }
         
-        do {
-                    
-            for wbk in try file.parseWorkbooks() {
-                        
-                
-                let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
-                        
-                      for (name, path) in ws {
-                        
-                        if let worksheetName = name {
-                          print("This worksheet has a name: \(worksheetName)")
-                        print("Chosen Grading: \(ChosenGrading)")
+        if LoadGrades.loadPSA(Key: storedWorksheet[ChosenGrading]![0]).PSAGrade != nil {
             
-                        switch ChosenGrading {
-                        
-                        case "Corners":
-                            
-                            let worksheet = try file.parseWorksheet(at: path)
-                            
-                            if let sharedStrings = try file.parseSharedStrings() {
-                                
-                              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
-                                .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                let columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
-                                  .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
-                                  .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                PSAA = columnAStrings
-                                PSAB = columnBStrings
-                                PSAC = columnCStrings
-                                
-                                print("PSAA.Count: \(PSAA.count)")
-                                print("PSAB.Count: \(PSAB.count)")
-                                print("PSAC.Count: \(PSAC.count)")
-                                
-                                print("CornerscolumnCStringsA: \(columnAStrings)")
-                                print("CornerscolumnCStringsB: \(columnBStrings)")
-                                print("CornerscolumnCStringsC: \(columnCStrings)")
-                                
-                                var CornersValue = Corners(Device_ID: "123", Card_ID: "123", Pictures: ["1","2"], Corners_Value: 12.09, PSA: [1: ["10","Pristine","Description"]], SelectedPSA: [0:0,1:1], BGS: [1: ["10","Pristine","Description"]], SelectedBGS: [0:0,1:1], SGC: [1: ["10","Pristine","Description"]], SelectedSGC: [0:0,1:1], viewonPSA: "viewonPSA")
-                                
-                            }
-                        
-                          /*
-                            
-                        case "Surface": 
-                            
-                            let worksheet = try file.parseWorksheet(at: path)
-                            
-                            if let sharedStrings = try file.parseSharedStrings() {
-                                
-                              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
-                                .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                let columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
-                                  .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
-                                  .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                
-                                PSAB = columnBStrings
-                                PSAC = columnCStrings
-                                
-                                print("SurfacecolumnCStringsA: \(columnAStrings)")
-                                print("SurfacecolumnCStringsB: \(columnBStrings)")
-                                print("SurfacecolumnCStringsC: \(columnCStrings)")
-                                print("PSAC: \(PSAC.count)")
-                                
-                            }
-                            
-                        case "Edges":
-                            
-                            let worksheet = try file.parseWorksheet(at: path)
-                            
-                            if let sharedStrings = try file.parseSharedStrings() {
-                                
-                              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
-                                .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                let columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
-                                  .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
-                                  .compactMap { $0.stringValue(sharedStrings) }
-                                
-                                PSAB = columnBStrings
-                                PSAC = columnCStrings
-                                
-                                print("EdgescolumnCStringsA: \(columnAStrings)")
-                                print("EdgescolumnCStringsB: \(columnBStrings)")
-                                print("EdgescolumnCStringsC: \(columnCStrings)")
-                                
-                            }
-                            */
-                        default:
-                            print("Default")
-                        }
-                      }
-                        
-                      }
-                    }
+            switch ChosenGrading {
             
-            /*for path in try file.parseWorksheetPaths() {
+            case "Corners":
                 
-                let ws = try file.parseWorksheet(at: path)
-                          
-                for row in ws.data!.rows {
-                            
-                    for Excelrowdata in row.cells {
-                        
-                        print("Excelrowdata: \(Excelrowdata)")
-                    }
-                          
-                }
+                Load_PSA_BGS_SGC(GradingType: ChosenGrading)
                 
-            }*/
+            case "Surface":
+                
+                Load_PSA_BGS_SGC(GradingType: ChosenGrading)
 
-        } catch let error1 as NSError {
-
-            print("Error: \(error1)")
+            case "Edges":
+                
+                Load_PSA_BGS_SGC(GradingType: ChosenGrading)
+                
+            default:
+                return
+            }
             
-        } catch {
-            print("Any other error")
+            print("CardCornersvalue: \(CardCornersvalue)")
+            print("PSAGrade\(PSAGrade)")
+            print("PSADesc\(PSADesc)")
+            print("PSAState\(PSAState)")
+            
+        } else {
+            
+            do {
+                var columnAStrings = [String]()
+                var columnBStrings = [String]()
+                var columnCStrings = [String]()
+                
+                for wbk in try file.parseWorkbooks() {
+                            
+                    var i = 0
+                    let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
+                            
+                          for (name, path) in ws {
+                            
+                            if let worksheetName = name {
+                              print("This worksheet has a name: \(worksheetName)")
+                            print("Chosen Grading: \(ChosenGrading)")
+                                
+                                let worksheet = try file.parseWorksheet(at: path)
+                                
+                                if let sharedStrings = try file.parseSharedStrings() {
+                                    
+                                  columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                                    .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                     columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
+                                      .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                     columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                                      .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                    switch worksheetName {
+                                    
+                                    case storedWorksheet[ChosenGrading]![0]:
+                                        
+                                        PSAGrade = columnAStrings
+                                        PSADesc = columnBStrings
+                                        PSAState = columnCStrings
+                                        
+                                        let PSADetails1 : PSADetails = PSADetails(PSAGrade: PSAGrade, PSADesc: PSADesc, PSAState: PSAState)
+
+                                        SaveGrades.savePSA(PSAValue: PSADetails1, Key: worksheetName)
+                                    
+                                    case storedWorksheet[ChosenGrading]![1]:
+                                        
+                                        BGSGrade = columnAStrings
+                                        BGSDesc = columnBStrings
+                                        BGSState = columnCStrings
+                                        
+                                        let BGSDetails1 : BGSDetails = BGSDetails(BGSGrade: BGSGrade, BGSDesc: BGSDesc, BGSState: BGSState)
+
+                                        SaveGrades.saveBGS(BGSValue: BGSDetails1, Key: worksheetName)
+                                        
+                                    case storedWorksheet[ChosenGrading]![2]:
+                                        
+                                        SGCGrade = columnAStrings
+                                        SGCDesc = columnBStrings
+                                        SGCState = columnCStrings
+                                        
+                                        let SGCDetails1 : SGCDetails = SGCDetails(SGCGrade: SGCGrade, SGCDesc: SGCDesc, SGCState: SGCState)
+
+                                        
+                                        SaveGrades.saveSGC(SGCValue: SGCDetails1, Key: worksheetName)
+                                      
+                                    
+                                    default:
+                                        print("Default")
+                                    }
+                                    
+                                  
+                                }
+                                
+                
+
+                          }
+                            
+                           i += 1
+                        
+                          }
+                    }
+
+            } catch let error1 as NSError {
+
+                print("Error: \(error1)")
+                
+            } catch {
+                print("Any other error")
+                
+            }
             
         }
+        
+    }
+    func Load_PSA_BGS_SGC(GradingType: String) {
+        
+        PSAGrade = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSAGrade
+        PSADesc = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSADesc
+        PSAState = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSAState
+        
+        BGSGrade = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSGrade
+        BGSDesc = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSDesc
+        BGSState = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSState
+        
+        SGCGrade = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
+        SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
+        SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
+        
+        tableView.reloadData()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
+        
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
         SegmentioBuilder.buildSegmentioView(
             segmentioView: segmentioView,
             segmentioStyle: segmentioStyle
         )
-        
     }
-    
-    func fetchColumn(Path: String) {
-        
-    }
+   
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PSAA.count - 1
+        return PSAGrade.count - 1
     }
+    
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 60
-        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-            return 20
+        return 20
         
     }
     
@@ -277,11 +310,11 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
         
-        if indexPath.row < PSAA.count {
+        if indexPath.row < PSAGrade.count {
             
-            cell.grading_number.text = PSAA[indexPath.row + 1]
-            cell.Grading_Title.text = PSAB[indexPath.row + 1]
-            cell.Grading_Description.text = PSAC[indexPath.row + 1]
+            cell.grading_number.text = PSAGrade[indexPath.row + 1]
+            cell.Grading_Title.text = PSADesc[indexPath.row + 1]
+            cell.Grading_Description.text = PSAState[indexPath.row + 1]
             
             if selectedCells[indexPath.row] != nil {
                 

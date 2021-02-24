@@ -44,7 +44,6 @@ class BorderView: NSObject, NSCoding {
 
 }
 
-
 class SaveUtil {
     
     static func saveBorder(borderview: BorderView) {

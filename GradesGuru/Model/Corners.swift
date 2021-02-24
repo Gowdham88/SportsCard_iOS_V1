@@ -38,19 +38,20 @@ class Corners: NSObject, NSCoding {
         
     }
     
+    
     required init!(coder aDecoder: NSCoder) {
         
-        self.Device_ID = (aDecoder.decodeObject(forKey: "id") as! String)
-        self.Card_ID = (aDecoder.decodeObject(forKey: "id") as! String)
-        self.Pictures = (aDecoder.decodeObject(forKey: "id") as! [String])
-        self.Corners_Value = (aDecoder.decodeObject(forKey: "id") as! Double)
-        self.PSA = (aDecoder.decodeObject(forKey: "id") as! [Int: [String]])
-        self.SelectedPSA = (aDecoder.decodeObject(forKey: "id") as! [Int:Int])
-        self.BGS = (aDecoder.decodeObject(forKey: "id") as! [Int: [String]])
-        self.SelectedBGS = (aDecoder.decodeObject(forKey: "id") as! [Int:Int])
-        self.SGC = (aDecoder.decodeObject(forKey: "id") as! [Int: [String]])
-        self.SelectedSGC = (aDecoder.decodeObject(forKey: "id") as! [Int:Int])
-        self.viewonPSA = (aDecoder.decodeObject(forKey: "id") as! String)
+        self.Device_ID = (aDecoder.decodeObject(forKey: "Device_ID") as! String)
+        self.Card_ID = (aDecoder.decodeObject(forKey: "Card_ID") as! String)
+        self.Pictures = (aDecoder.decodeObject(forKey: "Pictures") as! [String])
+        self.Corners_Value = (aDecoder.decodeObject(forKey: "Corners_Value") as! Double)
+        self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! [Int: [String]])
+        self.SelectedPSA = (aDecoder.decodeObject(forKey: "SelectedPSA") as! [Int:Int])
+        self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! [Int: [String]])
+        self.SelectedBGS = (aDecoder.decodeObject(forKey: "SelectedBGS") as! [Int:Int])
+        self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! [Int: [String]])
+        self.SelectedSGC = (aDecoder.decodeObject(forKey: "SelectedSGC") as! [Int:Int])
+        self.viewonPSA = (aDecoder.decodeObject(forKey: "viewonPSA") as! String)
         
         super.init()
         
@@ -59,7 +60,7 @@ class Corners: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         
         aCoder.encode(Device_ID, forKey: "Device_ID")
-        aCoder.encode(Card_ID, forKey: Card_ID)
+        aCoder.encode(Card_ID, forKey: "Card_ID")
         aCoder.encode(Pictures, forKey: "Pictures")
         aCoder.encode(Corners_Value, forKey: "Corners_Value")
         aCoder.encode(PSA, forKey: "PSA")
@@ -74,6 +75,222 @@ class Corners: NSObject, NSCoding {
 
 }
 
+class PSADetails: NSObject, NSCoding {
+    
+    var PSAGrade: [String]!
+    var PSADesc: [String]!
+    var PSAState: [String]!
+    
+    init(PSAGrade: [String], PSADesc: [String], PSAState: [String]) {
+        
+        self.PSAGrade = PSAGrade
+        self.PSADesc = PSADesc
+        self.PSAState = PSAState
+        
+    }
+    
+    required init!(coder aDecoder: NSCoder) {
+        
+        self.PSAGrade = (aDecoder.decodeObject(forKey: "PSAGrade") as! [String])
+        self.PSADesc = (aDecoder.decodeObject(forKey: "PSADesc") as! [String])
+        self.PSAState = (aDecoder.decodeObject(forKey: "PSAState") as! [String])
+        
+        super.init()
+        
+       }
+
+    func encode(with aCoder: NSCoder) {
+        
+        aCoder.encode(PSAGrade, forKey: "PSAGrade")
+        aCoder.encode(PSADesc, forKey: "PSADesc")
+        aCoder.encode(PSAState, forKey: "PSAState")
+    
+    }
+
+}
+
+class BGSDetails: NSObject, NSCoding {
+    
+    var BGSGrade: [String]!
+    var BGSDesc: [String]!
+    var BGSState: [String]!
+    
+    init(BGSGrade: [String], BGSDesc: [String], BGSState: [String]) {
+        
+        self.BGSGrade = BGSGrade
+        self.BGSDesc = BGSDesc
+        self.BGSState = BGSState
+        
+    }
+    
+    required init!(coder aDecoder: NSCoder) {
+        
+        self.BGSGrade = (aDecoder.decodeObject(forKey: "BGSGrade") as! [String])
+        self.BGSDesc = (aDecoder.decodeObject(forKey: "BGSDesc") as! [String])
+        self.BGSState = (aDecoder.decodeObject(forKey: "BGSState") as! [String])
+        
+        super.init()
+        
+       }
+
+    func encode(with aCoder: NSCoder) {
+        
+        aCoder.encode(BGSGrade, forKey: "BGSGrade")
+        aCoder.encode(BGSDesc, forKey: "BGSDesc")
+        aCoder.encode(BGSState, forKey: "BGSState")
+    
+    }
+
+}
+
+class SGCDetails: NSObject, NSCoding {
+    
+    var SGCGrade: [String]!
+    var SGCDesc: [String]!
+    var SGCState: [String]!
+    
+    init(SGCGrade: [String], SGCDesc: [String], SGCState: [String]) {
+        
+        self.SGCGrade = SGCGrade
+        self.SGCDesc = SGCDesc
+        self.SGCState = SGCState
+        
+    }
+    
+    required init!(coder aDecoder: NSCoder) {
+        
+        self.SGCGrade = (aDecoder.decodeObject(forKey: "SGCGrade") as! [String])
+        self.SGCDesc = (aDecoder.decodeObject(forKey: "SGCDesc") as! [String])
+        self.SGCState = (aDecoder.decodeObject(forKey: "SGCState") as! [String])
+        
+        super.init()
+        
+       }
+
+    func encode(with aCoder: NSCoder) {
+        
+        aCoder.encode(SGCGrade, forKey: "SGCGrade")
+        aCoder.encode(SGCDesc, forKey: "SGCDesc")
+        aCoder.encode(SGCState, forKey: "SGCState")
+    
+    }
+
+}
+
+
+class SaveGrades {
+    
+    static func saveGradesvalue(GradesValue: Corners, CardID: String) {
+    
+            print("Grades Saved")
+    
+            let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: GradesValue, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+                fatalError("Can't encode data")
+            }
+    
+            defaults.set(encodedData, forKey: CardID)
+    
+        }
+    
+    
+    static func savePSA(PSAValue: PSADetails, Key: String) {
+    
+            print("PSA Grades Saved")
+    
+            let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: PSAValue, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+                fatalError("Can't encode data")
+            }
+    
+            defaults.set(encodedData, forKey: Key)
+    
+        }
+    
+    static func saveBGS(BGSValue: BGSDetails, Key: String) {
+    
+            print("BGS Grades Saved")
+    
+            let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: BGSValue, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+                fatalError("Can't encode data")
+            }
+    
+            defaults.set(encodedData, forKey: Key)
+    
+        }
+    
+    static func saveSGC(SGCValue: SGCDetails, Key: String) {
+    
+            print("SGC Grades Saved")
+    
+            let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: SGCValue, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+                fatalError("Can't encode data")
+            }
+    
+            defaults.set(encodedData, forKey: Key)
+    
+        }
+
+    
+}
+
+class LoadGrades {
+    
+    static func loadGradesvalue(CardID: String) -> Corners  {
+    
+            let defaults =  UserDefaults.standard
+    
+            let data = defaults.data(forKey: CardID)
+    
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! Corners
+        }
+    
+    static func loadPSA(Key: String) -> PSADetails  {
+    
+            let defaults =  UserDefaults.standard
+    
+            let data = defaults.data(forKey: Key)
+    
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! PSADetails
+        }
+    
+    static func loadBGS(Key: String) -> BGSDetails  {
+    
+            let defaults =  UserDefaults.standard
+    
+            let data = defaults.data(forKey: Key)
+    
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! BGSDetails
+        }
+    
+    static func loadSGC(Key: String) -> SGCDetails  {
+    
+            let defaults =  UserDefaults.standard
+    
+            let data = defaults.data(forKey: Key)
+    
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! SGCDetails
+        }
+    
+}
 
 //class SaveUtil {
 //    
