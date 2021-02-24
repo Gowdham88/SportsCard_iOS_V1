@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseCore
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,14 +19,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        FirebaseApp.configure()
+
+        
         if let uuid = UIDevice.current.identifierForVendor?.uuidString {
             
-            print(uuid)
+            
+            print("uuid: \(uuid)")
+            
             Usersdetails.device_ID = uuid
+            let defaults = UserDefaults.standard
+            
+            
+            if defaults.value(forKey: "device_ID") != nil {
+                
+                        
+                window = UIWindow(frame: UIScreen.main.bounds)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let viewController = storyboard.instantiateViewController(identifier: "HomePageVC")
+                window?.rootViewController = viewController
+                window?.makeKeyAndVisible()
+                
+                return true
+             
+            } else {
+                
+                defaults.set(Usersdetails.device_ID, forKey: "device_ID")
+                
+                window = UIWindow(frame: UIScreen.main.bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let viewController = storyboard.instantiateInitialViewController()
+                window?.rootViewController = viewController
+                window?.makeKeyAndVisible()
+                return true
+                    
+            }
+            
             
         }
         
-        FirebaseApp.configure()
         return true
     }
 

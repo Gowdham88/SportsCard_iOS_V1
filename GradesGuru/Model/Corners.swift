@@ -36,19 +36,21 @@ class Corners: NSObject, NSCoding {
         self.SelectedSGC = SelectedSGC
         self.viewonPSA = viewonPSA
         
-//        self.id = id
-//        self.x = x
-//        self.y = y
-//        self.scale = scale
-        
     }
     
     required init!(coder aDecoder: NSCoder) {
         
-//        self.id = (aDecoder.decodeObject(forKey: "id") as! Int)
-//        self.x = (aDecoder.decodeObject(forKey: "x") as! CGFloat)
-//        self.y = (aDecoder.decodeObject(forKey: "y") as! CGFloat)
-//        self.scale = (aDecoder.decodeObject(forKey: "scale") as! CGFloat)
+        self.Device_ID = (aDecoder.decodeObject(forKey: "id") as! String)
+        self.Card_ID = (aDecoder.decodeObject(forKey: "id") as! String)
+        self.Pictures = (aDecoder.decodeObject(forKey: "id") as! [String])
+        self.Corners_Value = (aDecoder.decodeObject(forKey: "id") as! Double)
+        self.PSA = (aDecoder.decodeObject(forKey: "id") as! [Int: [String]])
+        self.SelectedPSA = (aDecoder.decodeObject(forKey: "id") as! [Int:Int])
+        self.BGS = (aDecoder.decodeObject(forKey: "id") as! [Int: [String]])
+        self.SelectedBGS = (aDecoder.decodeObject(forKey: "id") as! [Int:Int])
+        self.SGC = (aDecoder.decodeObject(forKey: "id") as! [Int: [String]])
+        self.SelectedSGC = (aDecoder.decodeObject(forKey: "id") as! [Int:Int])
+        self.viewonPSA = (aDecoder.decodeObject(forKey: "id") as! String)
         
         super.init()
         
@@ -56,11 +58,18 @@ class Corners: NSObject, NSCoding {
 
     func encode(with aCoder: NSCoder) {
         
-//        aCoder.encode(id, forKey: "id")
-//        aCoder.encode(x, forKey: "x")
-//        aCoder.encode(y, forKey: "y")
-//        aCoder.encode(scale, forKey: "scale")
-        
+        aCoder.encode(Device_ID, forKey: "Device_ID")
+        aCoder.encode(Card_ID, forKey: Card_ID)
+        aCoder.encode(Pictures, forKey: "Pictures")
+        aCoder.encode(Corners_Value, forKey: "Corners_Value")
+        aCoder.encode(PSA, forKey: "PSA")
+        aCoder.encode(SelectedPSA, forKey: "SelectedPSA")
+        aCoder.encode(BGS, forKey: "BGS")
+        aCoder.encode(SelectedBGS, forKey: "SelectedBGS")
+        aCoder.encode(SGC, forKey: "SGC")
+        aCoder.encode(SelectedSGC, forKey: "SelectedSGC")
+        aCoder.encode(viewonPSA, forKey: "viewonPSA")
+    
     }
 
 }

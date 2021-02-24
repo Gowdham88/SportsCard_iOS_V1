@@ -5,6 +5,7 @@ target 'GradesGuru' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Firebase'
+  pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
   pod 'SideMenu'
   pod 'Firebase/Firestore'
@@ -13,6 +14,7 @@ target 'GradesGuru' do
   pod 'CoreXLSX', '~> 0.14.0'
   pod 'ImageScrollView'
   pod 'BTNavigationDropdownMenu'
+  
 
 
   
