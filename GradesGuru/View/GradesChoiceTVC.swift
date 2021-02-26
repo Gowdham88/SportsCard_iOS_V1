@@ -17,6 +17,7 @@ var selectedCells = [Int:Int]()
 var selected_CardID = String()
 
 
+
 class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var CenteringData = [String]()
@@ -36,10 +37,11 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var SGCDesc = [String]()
     var SGCState = [String]()
     
+    var selected_Segment = Int()
     var CardCornersvalue : Corners! = nil
+    
     var storedWorksheet = ["Corners": ["Corners_PSA", "Corners_BGS", "Corners_SGC"], "Surface": ["Surface_PSA", "Surface_BGS", "Surface_SGC"], "Edges": ["Edges_PSA", "Edges_BGS", "Edges_SGC"]]
 
-    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentioView: Segmentio!
     
@@ -115,6 +117,14 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
 
         loadspreadsheet(chosenGrading: ChosenGrading)
+        
+        segmentioView.valueDidChange = { segmentio, segmentIndex in
+            print("Selected item: ", segmentIndex)
+            
+            self.selected_Segment = segmentIndex
+            self.tableView.reloadData()
+            
+        }
         
     }
     
@@ -257,8 +267,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         BGSState = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSState
         
         SGCGrade = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
-        SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
-        SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
+        SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCDesc
+        SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCState
         
         tableView.reloadData()
         
@@ -283,7 +293,21 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PSAGrade.count - 1
+        
+        var GradeCount = Int()
+        switch selected_Segment {
+        
+        case 0:
+            GradeCount = PSAGrade.count - 1
+        case 1:
+            GradeCount = BGSGrade.count - 1
+        case 2:
+            GradeCount = SGCGrade.count - 1
+        default:
+            break
+        }
+        
+        return GradeCount
     }
     
 
@@ -310,11 +334,38 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
         
-        if indexPath.row < PSAGrade.count {
+        var Grade = [String]()
+        var Desc = [String]()
+        var State = [String]()
+        
+        switch selected_Segment {
+        
+        case 0:
             
-            cell.grading_number.text = PSAGrade[indexPath.row + 1]
-            cell.Grading_Title.text = PSADesc[indexPath.row + 1]
-            cell.Grading_Description.text = PSAState[indexPath.row + 1]
+            Grade = PSAGrade
+            Desc = PSADesc
+            State = PSAState
+        case 1:
+
+            Grade = BGSGrade
+            Desc = BGSDesc
+            State = BGSState
+            
+        case 2:
+
+            Grade = SGCGrade
+            Desc = SGCDesc
+            State = SGCState
+            
+        default:
+            break
+        }
+        
+        if indexPath.row < Grade.count {
+            
+            cell.grading_number.text = Grade[indexPath.row + 1]
+            cell.Grading_Title.text = Desc[indexPath.row + 1]
+            cell.Grading_Description.text = State[indexPath.row + 1]
             
             if selectedCells[indexPath.row] != nil {
                 
@@ -327,7 +378,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             
         }
-       
+        
+        
         return cell
 
     }

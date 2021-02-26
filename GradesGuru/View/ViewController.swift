@@ -306,6 +306,7 @@ extension ViewController {
     {
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+                    
                     self.openCamera()
                 }))
 
@@ -322,21 +323,22 @@ extension ViewController {
     func openCamera()
     {
         
-        performSegue(withIdentifier: "centering", sender: self)
+//        performSegue(withIdentifier: "centering", sender: self)
         
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-//            let imagePicker = UIImagePickerController()
-//            imagePicker.delegate = self
-//            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-//            imagePicker.allowsEditing = true
-//            self.present(imagePicker, animated: true, completion: nil)
-//        }
-//        else
-//        {
-//            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
 
     func openGallery()
@@ -459,6 +461,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
         if ChosenGrading == "Centering" {
             
             print("Centering Chosen")
+            
+            let popup = (self.storyboard?.instantiateViewController(withIdentifier: "CenteringTVC"))!
+            
+            popup.modalPresentationStyle = .fullScreen
+             
+            self.present(popup, animated: true, completion: nil)
             
         } else {
             

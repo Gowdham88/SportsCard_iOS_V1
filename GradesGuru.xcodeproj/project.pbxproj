@@ -26,6 +26,7 @@
 		C35F253725DC2221007BD420 /* UIFont+ExampleFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */; };
 		C35F253825DC2221007BD420 /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253425DC2221007BD420 /* String+Convenience.swift */; };
 		C35F253925DC2221007BD420 /* UINavigationBar+Flat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */; };
+		C36A7C0B25E8E39D00EAAC8A /* CenteringTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
 		C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */; };
@@ -129,6 +130,7 @@
 		C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+ExampleFonts.swift"; path = "SegmentView/UIFont+ExampleFonts.swift"; sourceTree = "<group>"; };
 		C35F253425DC2221007BD420 /* String+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Convenience.swift"; path = "SegmentView/String+Convenience.swift"; sourceTree = "<group>"; };
 		C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Flat.swift"; path = "SegmentView/UINavigationBar+Flat.swift"; sourceTree = "<group>"; };
+		C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringTVC.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				C3BEF0FB251910DF008BEFC1 /* AboutUsVC.swift */,
 				C3BEF0FD251912CB008BEFC1 /* GoProVC.swift */,
 				C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */,
+				C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
 				1877033925A4BC58002EC49E /* SportViewController.swift in Sources */,
+				C36A7C0B25E8E39D00EAAC8A /* CenteringTVC.swift in Sources */,
 				C35F253625DC2221007BD420 /* UIColor+RGB.swift in Sources */,
 				C37BFB7425CDC86B008522EE /* CameraStartViewController.swift in Sources */,
 				C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */,
