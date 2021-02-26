@@ -12,7 +12,9 @@ import Segmentio
 var ChosenGrading = String()
 var ChosenGradingIndex = Int()
 var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
-
+var CardCornersvalue : Corners! = nil
+var CardSurfacevalue : Corners! = nil
+var CardEdgesvalue : Corners! = nil
 
 class ViewController: UIViewController {
    
@@ -330,6 +332,11 @@ extension ViewController {
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = true
+            
+            CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "CZ\(CardNumber)", Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+            CardSurfacevalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "CZ\(CardNumber)", Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+            CardEdgesvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "CZ\(CardNumber)", Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+            
             self.present(imagePicker, animated: true, completion: nil)
         }
         else
@@ -348,6 +355,9 @@ extension ViewController {
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            
+            CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "1", Pictures: ["1"], Corners_Value: 2.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "1")
+            
             self.present(imagePicker, animated: true, completion: nil)
         }
         else

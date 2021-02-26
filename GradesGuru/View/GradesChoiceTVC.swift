@@ -13,7 +13,7 @@ import Segmentio
 
 var purpleimage = UIImage(named: "TVC_Border_Purple.svg")
 var whiteimage = UIImage(named: "TVC_Border.svg")
-var selectedCells = [Int:Int]()
+var selectedCells = [Int:Double]()
 var selected_CardID = String()
 
 
@@ -23,23 +23,24 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var CenteringData = [String]()
     var menuView: BTNavigationDropdownMenu!
     var segmentioStyle = SegmentioStyle.onlyLabel
-    var CardCorners = [Corners]()
     
     var PSAGrade = [String]()
     var PSADesc = [String]()
     var PSAState = [String]()
+    var PSASelected = [Int:Double]()
     
     var BGSGrade = [String]()
     var BGSDesc = [String]()
     var BGSState = [String]()
+    var BGSSelected = [Int:Double]()
     
     var SGCGrade = [String]()
     var SGCDesc = [String]()
     var SGCState = [String]()
+    var SGCSelected = [Int:Double]()
     
     var selected_Segment = Int()
-    var CardCornersvalue : Corners! = nil
-    
+   
     var storedWorksheet = ["Corners": ["Corners_PSA", "Corners_BGS", "Corners_SGC"], "Surface": ["Surface_PSA", "Surface_BGS", "Surface_SGC"], "Edges": ["Edges_PSA", "Edges_BGS", "Edges_SGC"]]
 
     @IBOutlet var tableView: UITableView!
@@ -114,7 +115,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
         self.navigationItem.titleView = menuView
-        
 
         loadspreadsheet(chosenGrading: ChosenGrading)
         
@@ -172,7 +172,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                 for wbk in try file.parseWorkbooks() {
                             
-                    var i = 0
                     let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
                             
                           for (name, path) in ws {
@@ -202,7 +201,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         PSADesc = columnBStrings
                                         PSAState = columnCStrings
                                         
-                                        let PSADetails1 : PSADetails = PSADetails(PSAGrade: PSAGrade, PSADesc: PSADesc, PSAState: PSAState)
+                                        let PSADetails1 : PSADetails = PSADetails(PSAGrade: PSAGrade, PSADesc: PSADesc, PSAState: PSAState, PSASelected: [0:0])
 
                                         SaveGrades.savePSA(PSAValue: PSADetails1, Key: worksheetName)
                                     
@@ -212,7 +211,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         BGSDesc = columnBStrings
                                         BGSState = columnCStrings
                                         
-                                        let BGSDetails1 : BGSDetails = BGSDetails(BGSGrade: BGSGrade, BGSDesc: BGSDesc, BGSState: BGSState)
+                                        let BGSDetails1 : BGSDetails = BGSDetails(BGSGrade: BGSGrade, BGSDesc: BGSDesc, BGSState: BGSState, BGSSelected: [0:0])
 
                                         SaveGrades.saveBGS(BGSValue: BGSDetails1, Key: worksheetName)
                                         
@@ -222,25 +221,18 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         SGCDesc = columnBStrings
                                         SGCState = columnCStrings
                                         
-                                        let SGCDetails1 : SGCDetails = SGCDetails(SGCGrade: SGCGrade, SGCDesc: SGCDesc, SGCState: SGCState)
-
+                                        let SGCDetails1 : SGCDetails = SGCDetails(SGCGrade: SGCGrade, SGCDesc: SGCDesc, SGCState: SGCState, SGCSelected: [0:0])
                                         
                                         SaveGrades.saveSGC(SGCValue: SGCDetails1, Key: worksheetName)
                                       
-                                    
                                     default:
                                         print("Default")
                                     }
-                                    
                                   
                                 }
-                                
                 
-
-                          }
+                            }
                             
-                           i += 1
-                        
                           }
                     }
 
@@ -256,26 +248,29 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
     }
+    
     func Load_PSA_BGS_SGC(GradingType: String) {
         
         PSAGrade = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSAGrade
         PSADesc = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSADesc
         PSAState = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSAState
+        PSASelected = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSASelected
         
         BGSGrade = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSGrade
         BGSDesc = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSDesc
         BGSState = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSState
+        BGSSelected = LoadGrades.loadBGS(Key: storedWorksheet[GradingType]![1]).BGSSelected
         
         SGCGrade = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
         SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCDesc
         SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCState
+        SGCSelected = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCSelected
         
         tableView.reloadData()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         
         
     }
@@ -286,15 +281,18 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             segmentioView: segmentioView,
             segmentioStyle: segmentioStyle
         )
+        
     }
    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var GradeCount = Int()
+        
         switch selected_Segment {
         
         case 0:
@@ -345,17 +343,21 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             Grade = PSAGrade
             Desc = PSADesc
             State = PSAState
+            selectedCells = PSASelected
+            
         case 1:
 
             Grade = BGSGrade
             Desc = BGSDesc
             State = BGSState
+            selectedCells = BGSSelected
             
         case 2:
 
             Grade = SGCGrade
             Desc = SGCDesc
             State = SGCState
+            selectedCells = SGCSelected
             
         default:
             break
@@ -379,11 +381,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         }
         
-        
         return cell
 
     }
-   
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
@@ -394,47 +394,31 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let backgroundImage = UIImageView(frame: cell.bounds)
         backgroundImage.clipsToBounds = true
         backgroundImage.contentMode = .scaleToFill
-        
+     
         if selectedCells[indexPath.row] != nil {
             
             if selectedCells.count <= 2 {
             
                 cell.backgroundView = UIImageView(image: whiteimage)
                 
-//                cell.backgroundView = UIImageView(image: whiteimage)
-
-    //            cell.imageView?.insertSubview(backgroundImage, at: 0)
-    //
-    //            cell.bringSubviewToFront(cell.grading_number)
-    //            cell.bringSubviewToFront(cell.Grading_Title)
-    //            cell.bringSubviewToFront(cell.Grading_Description)
-                
         }
             
             selectedCells.removeValue(forKey: indexPath.row)
-
             
+            selected_Grading(Grading: ChosenGrading, Segment: selected_Segment)
+            
+
         } else {
             
             if selectedCells.count < 2 {
                 
                 cell.backgroundView = UIImageView(image: purpleimage)
 
-                selectedCells.updateValue(indexPath.row, forKey: indexPath.row)
+                selectedCells.updateValue(Double(indexPath.row), forKey: indexPath.row)
+                
+                selected_Grading(Grading: ChosenGrading, Segment: selected_Segment)
                 
             }
-            
-
-            
-//            cell.imageView?.removeFromSuperview()
-//            cell.imageView?.isHidden = false
-//            backgroundImage.image = purpleimage
-//            cell.addSubview(backgroundImage)
-            
-//            cell.bringSubviewToFront(cell.grading_number)
-//            cell.bringSubviewToFront(cell.Grading_Title)
-//            cell.bringSubviewToFront(cell.Grading_Description)
-            
             
         }
  
@@ -442,4 +426,58 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     }
     
+    func selected_Grading(Grading: String, Segment: Int) {
+
+        switch Grading {
+        
+        case "Corners":
+            switch selected_Segment {
+
+            case 0:
+                CardCornersvalue.SelectedPSA = selectedCells
+            case 1:
+                CardCornersvalue.SelectedBGS = selectedCells
+            case 2:
+                CardCornersvalue.SelectedSGC = selectedCells
+
+            default:
+                break
+                
+            }
+            
+        case "Surface":
+            switch selected_Segment {
+
+            case 0:
+                CardSurfacevalue.SelectedPSA = selectedCells
+            case 1:
+                CardSurfacevalue.SelectedBGS = selectedCells
+            case 2:
+                CardSurfacevalue.SelectedSGC = selectedCells
+
+        
+        default:
+            break
+        }
+        
+        case "Edges":
+            switch selected_Segment {
+
+            case 0:
+                CardEdgesvalue.SelectedPSA = selectedCells
+            case 1:
+                CardEdgesvalue.SelectedBGS = selectedCells
+            case 2:
+                CardEdgesvalue.SelectedSGC = selectedCells
+
+        default:
+            break
+        }
+            
+        default:
+            break
+        }
+    
+    }
+
   }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var CardNumber = 0
+
 class HomePageVC: UIViewController {
    
     @IBOutlet weak var searchBar: UISearchBar!
@@ -62,6 +64,8 @@ class HomePageVC: UIViewController {
     
     @IBAction func scanDocument(_ sender: Any) {
         print(":::::Document view tapped ::::::")
+        
+        CardNumber += 1
         let homepageController: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let homePageVC = homepageController.instantiateViewController(identifier: "ViewController") as! ViewController
         self.navigationController?.pushViewController(homePageVC, animated: true)

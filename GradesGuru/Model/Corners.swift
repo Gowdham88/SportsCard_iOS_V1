@@ -14,15 +14,15 @@ class Corners: NSObject, NSCoding {
     var Card_ID: String!
     var Pictures: [String]!
     var Corners_Value: Double!
-    var PSA: [Int: [String]]!
-    var SelectedPSA: [Int:Int]!
-    var BGS: [Int: [String]]!
-    var SelectedBGS: [Int:Int]!
-    var SGC: [Int: [String]]!
-    var SelectedSGC: [Int:Int]!
+    var PSA: Double!
+    var SelectedPSA: [Int:Double]!
+    var BGS: Double!
+    var SelectedBGS: [Int:Double]!
+    var SGC: Double!
+    var SelectedSGC: [Int:Double]!
     var viewonPSA: String!
     
-    init(Device_ID: String, Card_ID: String, Pictures: [String]!, Corners_Value: Double!, PSA: [Int: [String]]!, SelectedPSA: [Int:Int]!, BGS: [Int: [String]]!, SelectedBGS: [Int:Int]!, SGC: [Int: [String]]!, SelectedSGC: [Int:Int]!, viewonPSA: String!) {
+    init(Device_ID: String, Card_ID: String, Pictures: [String]!, Corners_Value: Double!, PSA: Double!, SelectedPSA: [Int:Double]!, BGS: Double!, SelectedBGS: [Int:Double]!, SGC: Double!, SelectedSGC: [Int:Double]!, viewonPSA: String!) {
         
         self.Device_ID = Device_ID
         self.Card_ID = Card_ID
@@ -45,12 +45,12 @@ class Corners: NSObject, NSCoding {
         self.Card_ID = (aDecoder.decodeObject(forKey: "Card_ID") as! String)
         self.Pictures = (aDecoder.decodeObject(forKey: "Pictures") as! [String])
         self.Corners_Value = (aDecoder.decodeObject(forKey: "Corners_Value") as! Double)
-        self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! [Int: [String]])
-        self.SelectedPSA = (aDecoder.decodeObject(forKey: "SelectedPSA") as! [Int:Int])
-        self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! [Int: [String]])
-        self.SelectedBGS = (aDecoder.decodeObject(forKey: "SelectedBGS") as! [Int:Int])
-        self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! [Int: [String]])
-        self.SelectedSGC = (aDecoder.decodeObject(forKey: "SelectedSGC") as! [Int:Int])
+        self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! Double)
+        self.SelectedPSA = (aDecoder.decodeObject(forKey: "SelectedPSA") as! [Int:Double])
+        self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! Double)
+        self.SelectedBGS = (aDecoder.decodeObject(forKey: "SelectedBGS") as! [Int:Double])
+        self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! Double)
+        self.SelectedSGC = (aDecoder.decodeObject(forKey: "SelectedSGC") as! [Int:Double])
         self.viewonPSA = (aDecoder.decodeObject(forKey: "viewonPSA") as! String)
         
         super.init()
@@ -80,12 +80,14 @@ class PSADetails: NSObject, NSCoding {
     var PSAGrade: [String]!
     var PSADesc: [String]!
     var PSAState: [String]!
+    var PSASelected: [Int:Double]!
     
-    init(PSAGrade: [String], PSADesc: [String], PSAState: [String]) {
+    init(PSAGrade: [String], PSADesc: [String], PSAState: [String], PSASelected: [Int:Double]!) {
         
         self.PSAGrade = PSAGrade
         self.PSADesc = PSADesc
         self.PSAState = PSAState
+        self.PSASelected = PSASelected
         
     }
     
@@ -94,6 +96,7 @@ class PSADetails: NSObject, NSCoding {
         self.PSAGrade = (aDecoder.decodeObject(forKey: "PSAGrade") as! [String])
         self.PSADesc = (aDecoder.decodeObject(forKey: "PSADesc") as! [String])
         self.PSAState = (aDecoder.decodeObject(forKey: "PSAState") as! [String])
+        self.PSASelected = (aDecoder.decodeObject(forKey: "PSASelected") as! [Int:Double])
         
         super.init()
         
@@ -104,7 +107,7 @@ class PSADetails: NSObject, NSCoding {
         aCoder.encode(PSAGrade, forKey: "PSAGrade")
         aCoder.encode(PSADesc, forKey: "PSADesc")
         aCoder.encode(PSAState, forKey: "PSAState")
-    
+        aCoder.encode(PSASelected, forKey: "PSASelected")
     }
 
 }
@@ -114,12 +117,14 @@ class BGSDetails: NSObject, NSCoding {
     var BGSGrade: [String]!
     var BGSDesc: [String]!
     var BGSState: [String]!
-    
-    init(BGSGrade: [String], BGSDesc: [String], BGSState: [String]) {
+    var BGSSelected: [Int:Double]!
+
+    init(BGSGrade: [String], BGSDesc: [String], BGSState: [String],BGSSelected: [Int:Double]) {
         
         self.BGSGrade = BGSGrade
         self.BGSDesc = BGSDesc
         self.BGSState = BGSState
+        self.BGSSelected = BGSSelected
         
     }
     
@@ -128,7 +133,8 @@ class BGSDetails: NSObject, NSCoding {
         self.BGSGrade = (aDecoder.decodeObject(forKey: "BGSGrade") as! [String])
         self.BGSDesc = (aDecoder.decodeObject(forKey: "BGSDesc") as! [String])
         self.BGSState = (aDecoder.decodeObject(forKey: "BGSState") as! [String])
-        
+        self.BGSSelected = (aDecoder.decodeObject(forKey: "BGSSelected") as! [Int:Double])
+
         super.init()
         
        }
@@ -138,7 +144,8 @@ class BGSDetails: NSObject, NSCoding {
         aCoder.encode(BGSGrade, forKey: "BGSGrade")
         aCoder.encode(BGSDesc, forKey: "BGSDesc")
         aCoder.encode(BGSState, forKey: "BGSState")
-    
+        aCoder.encode(BGSSelected, forKey: "BGSSelected")
+
     }
 
 }
@@ -148,12 +155,15 @@ class SGCDetails: NSObject, NSCoding {
     var SGCGrade: [String]!
     var SGCDesc: [String]!
     var SGCState: [String]!
+    var SGCSelected: [Int:Double]!
+
     
-    init(SGCGrade: [String], SGCDesc: [String], SGCState: [String]) {
+    init(SGCGrade: [String], SGCDesc: [String], SGCState: [String], SGCSelected: [Int:Double]) {
         
         self.SGCGrade = SGCGrade
         self.SGCDesc = SGCDesc
         self.SGCState = SGCState
+        self.SGCSelected = SGCSelected
         
     }
     
@@ -162,6 +172,7 @@ class SGCDetails: NSObject, NSCoding {
         self.SGCGrade = (aDecoder.decodeObject(forKey: "SGCGrade") as! [String])
         self.SGCDesc = (aDecoder.decodeObject(forKey: "SGCDesc") as! [String])
         self.SGCState = (aDecoder.decodeObject(forKey: "SGCState") as! [String])
+        self.SGCSelected = (aDecoder.decodeObject(forKey: "SGCSelected") as! [Int:Double])
         
         super.init()
         
@@ -172,7 +183,8 @@ class SGCDetails: NSObject, NSCoding {
         aCoder.encode(SGCGrade, forKey: "SGCGrade")
         aCoder.encode(SGCDesc, forKey: "SGCDesc")
         aCoder.encode(SGCState, forKey: "SGCState")
-    
+        aCoder.encode(SGCSelected, forKey: "SGCSelected")
+
     }
 
 }
@@ -249,7 +261,6 @@ class SaveGrades {
     
         }
 
-    
 }
 
 class LoadGrades {

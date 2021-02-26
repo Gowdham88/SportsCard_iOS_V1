@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aLC-Go-jtP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hB6-CU-ghK">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -322,7 +322,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qva-Rc-PgM">
                                 <rect key="frame" x="54" y="55" width="307" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <string key="text">Scan &amp; center from &amp; back for centering grade
+                                <string key="text">Scan &amp; center front &amp; back for centering grade
 estimate.</string>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                 <color key="textColor" red="0.60181665419999997" green="0.66562479730000002" blue="0.7364340425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1085,18 +1085,21 @@ started!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVS-3n-s52">
-                                <rect key="frame" x="6.3333333333333428" y="110.33333333333331" width="401.33333333333326" height="515.33333333333348"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kVS-3n-s52">
+                                <rect key="frame" x="6" y="110" width="402" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9y-xh-Hp4">
-                                        <rect key="frame" x="361.33333333333337" y="0.0" width="40" height="25.666666666666668"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9y-xh-Hp4">
+                                        <rect key="frame" x="358" y="5" width="40" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Close"/>
                                         <connections>
                                             <action selector="popClose:" destination="utm-cN-fdC" eventType="touchUpInside" id="Dhh-Gc-BC6"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiF-Gd-g3x">
-                                        <rect key="frame" x="0.0" y="40.000000000000028" width="401.33333333333331" height="475.33333333333337"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="jiF-Gd-g3x">
+                                        <rect key="frame" x="0.0" y="31" width="403" height="477"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Grade Guru is here to help you decide which cards to grade!
 
@@ -1124,31 +1127,15 @@ To get started
 
 - Get your Grade Estimate!</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="C9y-xh-Hp4" firstAttribute="height" secondItem="kVS-3n-s52" secondAttribute="height" multiplier="0.05" id="Fqz-kB-49y"/>
-                                    <constraint firstAttribute="trailing" secondItem="C9y-xh-Hp4" secondAttribute="trailing" id="GaB-Um-y5Y"/>
-                                    <constraint firstItem="C9y-xh-Hp4" firstAttribute="width" secondItem="kVS-3n-s52" secondAttribute="width" multiplier="0.1" id="Jj1-VV-QT6"/>
-                                    <constraint firstItem="jiF-Gd-g3x" firstAttribute="leading" secondItem="kVS-3n-s52" secondAttribute="leading" id="bnt-tQ-qAK"/>
-                                    <constraint firstItem="jiF-Gd-g3x" firstAttribute="top" secondItem="kVS-3n-s52" secondAttribute="top" constant="40" id="nBi-Mj-W0n"/>
-                                    <constraint firstAttribute="bottom" secondItem="jiF-Gd-g3x" secondAttribute="bottom" id="pfA-wE-z83"/>
-                                    <constraint firstAttribute="trailing" secondItem="jiF-Gd-g3x" secondAttribute="trailing" id="qmU-Vs-6re"/>
-                                    <constraint firstItem="C9y-xh-Hp4" firstAttribute="top" secondItem="kVS-3n-s52" secondAttribute="top" id="vEP-1x-GG8"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Psw-I1-wqG"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="kVS-3n-s52" firstAttribute="height" secondItem="NR5-6c-LIC" secondAttribute="height" multiplier="0.7" id="MpZ-LV-dlF"/>
-                            <constraint firstItem="kVS-3n-s52" firstAttribute="centerX" secondItem="NR5-6c-LIC" secondAttribute="centerX" id="Wfw-j0-yCG"/>
-                            <constraint firstItem="kVS-3n-s52" firstAttribute="centerY" secondItem="NR5-6c-LIC" secondAttribute="centerY" id="WmU-4B-DM8"/>
-                            <constraint firstItem="kVS-3n-s52" firstAttribute="width" secondItem="NR5-6c-LIC" secondAttribute="width" multiplier="0.97" id="s16-xT-khm"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="popView" destination="kVS-3n-s52" id="KTS-xd-7Uj"/>
