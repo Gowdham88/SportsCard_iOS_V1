@@ -11,12 +11,15 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-var CardDetails : CardDetailsMaster = CardDetailsMaster(device_ID: "", CardID: "", PlayerName : "", Sport : 2, Year : 1234, Set : "", VariationColour : "", CardNo : 1, Rookie : 2, Autograph: "", Patch: "", ScannedDate: Date())
+var CardDetails : CardDetailsMaster = CardDetailsMaster(Device_ID: "", Card_ID: "", PlayerName : "", Sport : 2, Year : 1234, Set : "", VariationColour : "", CardNo : 1, Rookie : 2, Autograph: "", Patch: "", ScannedDate: "")
 
-class CardDetailsMaster : NSObject {
+var CardIDs = [String]()
+var dataSaved = false
+
+class CardDetailsMaster : NSObject, NSCoding {
     
-    var device_ID: String!
-    var CardID: String!
+    var Device_ID: String!
+    var Card_ID: String!
     var PlayerName : String!
     var Sport : Int!
     var Year : Int!
@@ -26,12 +29,12 @@ class CardDetailsMaster : NSObject {
     var Rookie : Int!
     var Autograph: String!
     var Patch: String!
-    var ScannedDate: Date!
+    var ScannedDate: String!
     
-    init(device_ID: String, CardID: String, PlayerName : String, Sport : Int, Year : Int, Set : String, VariationColour : String, CardNo : Int, Rookie : Int, Autograph: String, Patch: String, ScannedDate: Date) {
+    init(Device_ID: String, Card_ID: String, PlayerName : String, Sport : Int, Year : Int, Set : String, VariationColour : String, CardNo : Int, Rookie : Int, Autograph: String, Patch: String, ScannedDate: String) {
         
-        self.device_ID = device_ID
-        self.CardID = CardID
+        self.Device_ID = Device_ID
+        self.Card_ID = Card_ID
         self.PlayerName = PlayerName
         self.Sport = Sport
         self.Year = Year
@@ -45,11 +48,107 @@ class CardDetailsMaster : NSObject {
         
     }
     
-    func LoadCardDetails() {
+    required init!(coder aDecoder: NSCoder) {
         
+        self.Device_ID = (aDecoder.decodeObject(forKey: "Device_ID") as! String)
+        self.Card_ID = (aDecoder.decodeObject(forKey: "Card_ID") as! String)
+        self.Sport = (aDecoder.decodeObject(forKey: "Sport") as! Int)
+        self.Year = (aDecoder.decodeObject(forKey: "Year") as! Int)
+        self.Set = (aDecoder.decodeObject(forKey: "Set") as! String)
+        self.VariationColour = (aDecoder.decodeObject(forKey: "VariationColour") as! String)
+        self.CardNo = (aDecoder.decodeObject(forKey: "CardNo") as! Int)
+        self.Rookie = (aDecoder.decodeObject(forKey: "Rookie") as! Int)
+        self.Autograph = (aDecoder.decodeObject(forKey: "Autograph") as! String)
+        self.Patch = (aDecoder.decodeObject(forKey: "Patch") as! String)
+        self.ScannedDate = (aDecoder.decodeObject(forKey: "ScannedDate") as! String)
         
+        super.init()
+        
+       }
+
+    func encode(with aCoder: NSCoder) {
+        
+        aCoder.encode(Device_ID, forKey: "Device_ID")
+        aCoder.encode(Card_ID, forKey: "Card_ID")
+        aCoder.encode(Sport, forKey: "Sport")
+        aCoder.encode(Year, forKey: "Year")
+        aCoder.encode(Set, forKey: "Set")
+        aCoder.encode(VariationColour, forKey: "VariationColour")
+        aCoder.encode(CardNo, forKey: "CardNo")
+        aCoder.encode(Rookie, forKey: "Rookie")
+        aCoder.encode(Autograph, forKey: "Autograph")
+        aCoder.encode(Patch, forKey: "Patch")
+        aCoder.encode(ScannedDate, forKey: "ScannedDate")
+    
     }
     
+}
+
+class SaveCards {
+    
+    static func saveCardsvalue(CardsValue: CardDetailsMaster, Card_ID: String) {
+    
+            print("Cards Saved: Card_ID: \(Card_ID)")
+        
+    
+            let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: CardsValue, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+
+                fatalError("Can't encode data")
+            
+            }
+        
+            defaults.set(encodedData, forKey: Card_ID)
+    
+        }
+    
+    static func saveCardIDs(Cards: [String], Device_ID: String) {
+    
+            print("Card IDs Saved: Cards \(Cards) , Device_ID: \(Device_ID)")
+    
+            let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: Cards, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+            
+
+                fatalError("Can't encode data")
+            }
+    
+            defaults.set(encodedData, forKey: Device_ID)
+    
+        }
+    
+    }
+
+class LoadCards {
+    
+    static func loadCardsDetails(Card_ID: String) -> CardDetailsMaster  {
+    
+            let defaults =  UserDefaults.standard
+    
+            let data = defaults.data(forKey: Card_ID)
+    
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! CardDetailsMaster
+        
+        }
+    
+    static func loadCardIDs(Device_ID: String) -> [String] {
+    
+            let defaults =  UserDefaults.standard
+    
+            let data = defaults.data(forKey: Device_ID)
+    
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [String]
+        
+        }
+
 }
 
 func UpdateCardDetails(CardDetailsMaster: CardDetailsMaster) {

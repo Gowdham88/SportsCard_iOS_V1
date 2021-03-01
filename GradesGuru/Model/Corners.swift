@@ -80,14 +80,14 @@ class PSADetails: NSObject, NSCoding {
     var PSAGrade: [String]!
     var PSADesc: [String]!
     var PSAState: [String]!
-    var PSASelected: [Int:Double]!
+//    var PSASelected: [Int:Double]!
     
-    init(PSAGrade: [String], PSADesc: [String], PSAState: [String], PSASelected: [Int:Double]!) {
+    init(PSAGrade: [String], PSADesc: [String], PSAState: [String]) {
         
         self.PSAGrade = PSAGrade
         self.PSADesc = PSADesc
         self.PSAState = PSAState
-        self.PSASelected = PSASelected
+//        self.PSASelected = PSASelected
         
     }
     
@@ -96,7 +96,7 @@ class PSADetails: NSObject, NSCoding {
         self.PSAGrade = (aDecoder.decodeObject(forKey: "PSAGrade") as! [String])
         self.PSADesc = (aDecoder.decodeObject(forKey: "PSADesc") as! [String])
         self.PSAState = (aDecoder.decodeObject(forKey: "PSAState") as! [String])
-        self.PSASelected = (aDecoder.decodeObject(forKey: "PSASelected") as! [Int:Double])
+//        self.PSASelected = (aDecoder.decodeObject(forKey: "PSASelected") as! [Int:Double])
         
         super.init()
         
@@ -107,7 +107,7 @@ class PSADetails: NSObject, NSCoding {
         aCoder.encode(PSAGrade, forKey: "PSAGrade")
         aCoder.encode(PSADesc, forKey: "PSADesc")
         aCoder.encode(PSAState, forKey: "PSAState")
-        aCoder.encode(PSASelected, forKey: "PSASelected")
+//        aCoder.encode(PSASelected, forKey: "PSASelected")
     }
 
 }
@@ -117,14 +117,14 @@ class BGSDetails: NSObject, NSCoding {
     var BGSGrade: [String]!
     var BGSDesc: [String]!
     var BGSState: [String]!
-    var BGSSelected: [Int:Double]!
+//    var BGSSelected: [Int:Double]!
 
-    init(BGSGrade: [String], BGSDesc: [String], BGSState: [String],BGSSelected: [Int:Double]) {
+    init(BGSGrade: [String], BGSDesc: [String], BGSState: [String]) {
         
         self.BGSGrade = BGSGrade
         self.BGSDesc = BGSDesc
         self.BGSState = BGSState
-        self.BGSSelected = BGSSelected
+//        self.BGSSelected = BGSSelected
         
     }
     
@@ -133,7 +133,7 @@ class BGSDetails: NSObject, NSCoding {
         self.BGSGrade = (aDecoder.decodeObject(forKey: "BGSGrade") as! [String])
         self.BGSDesc = (aDecoder.decodeObject(forKey: "BGSDesc") as! [String])
         self.BGSState = (aDecoder.decodeObject(forKey: "BGSState") as! [String])
-        self.BGSSelected = (aDecoder.decodeObject(forKey: "BGSSelected") as! [Int:Double])
+//        self.BGSSelected = (aDecoder.decodeObject(forKey: "BGSSelected") as! [Int:Double])
 
         super.init()
         
@@ -144,7 +144,7 @@ class BGSDetails: NSObject, NSCoding {
         aCoder.encode(BGSGrade, forKey: "BGSGrade")
         aCoder.encode(BGSDesc, forKey: "BGSDesc")
         aCoder.encode(BGSState, forKey: "BGSState")
-        aCoder.encode(BGSSelected, forKey: "BGSSelected")
+//        aCoder.encode(BGSSelected, forKey: "BGSSelected")
 
     }
 
@@ -155,15 +155,15 @@ class SGCDetails: NSObject, NSCoding {
     var SGCGrade: [String]!
     var SGCDesc: [String]!
     var SGCState: [String]!
-    var SGCSelected: [Int:Double]!
+//    var SGCSelected: [Int:Double]!
 
     
-    init(SGCGrade: [String], SGCDesc: [String], SGCState: [String], SGCSelected: [Int:Double]) {
+    init(SGCGrade: [String], SGCDesc: [String], SGCState: [String]) {
         
         self.SGCGrade = SGCGrade
         self.SGCDesc = SGCDesc
         self.SGCState = SGCState
-        self.SGCSelected = SGCSelected
+//        self.SGCSelected = SGCSelected
         
     }
     
@@ -172,7 +172,7 @@ class SGCDetails: NSObject, NSCoding {
         self.SGCGrade = (aDecoder.decodeObject(forKey: "SGCGrade") as! [String])
         self.SGCDesc = (aDecoder.decodeObject(forKey: "SGCDesc") as! [String])
         self.SGCState = (aDecoder.decodeObject(forKey: "SGCState") as! [String])
-        self.SGCSelected = (aDecoder.decodeObject(forKey: "SGCSelected") as! [Int:Double])
+//        self.SGCSelected = (aDecoder.decodeObject(forKey: "SGCSelected") as! [Int:Double])
         
         super.init()
         
@@ -183,7 +183,7 @@ class SGCDetails: NSObject, NSCoding {
         aCoder.encode(SGCGrade, forKey: "SGCGrade")
         aCoder.encode(SGCDesc, forKey: "SGCDesc")
         aCoder.encode(SGCState, forKey: "SGCState")
-        aCoder.encode(SGCSelected, forKey: "SGCSelected")
+//        aCoder.encode(SGCSelected, forKey: "SGCSelected")
 
     }
 
@@ -194,9 +194,10 @@ class SaveGrades {
     
     static func saveGradesvalue(GradesValue: Corners, CardID: String) {
     
-            print("Grades Saved")
-    
-            let defaults =  UserDefaults.standard
+        let Key_ID = "\(ChosenGrading),\(CardID)"
+        print("Grades Saved Key, \(Key_ID)")
+
+        let defaults =  UserDefaults.standard
            
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: GradesValue, requiringSecureCoding: false)
         
@@ -205,14 +206,14 @@ class SaveGrades {
                 fatalError("Can't encode data")
             }
     
-            defaults.set(encodedData, forKey: CardID)
+            defaults.set(encodedData, forKey: Key_ID)
     
         }
     
     
     static func savePSA(PSAValue: PSADetails, Key: String) {
     
-            print("PSA Grades Saved")
+            print("PSA Grades Saved, Key: \(Key)")
     
             let defaults =  UserDefaults.standard
            
@@ -220,9 +221,10 @@ class SaveGrades {
         
         //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
                     else {
+            
                 fatalError("Can't encode data")
             }
-    
+        
             defaults.set(encodedData, forKey: Key)
     
         }
@@ -266,15 +268,20 @@ class SaveGrades {
 class LoadGrades {
     
     static func loadGradesvalue(CardID: String) -> Corners  {
-    
+           
             let defaults =  UserDefaults.standard
-    
-            let data = defaults.data(forKey: CardID)
+            let Key_ID = "\(ChosenGrading),\(CardID)"
+
+            print("Grades Loaded, Key: \(Key_ID)")
+        
+            let data = defaults.data(forKey: Key_ID)
     
             return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! Corners
         }
     
     static func loadPSA(Key: String) -> PSADetails  {
+        
+            print("loadPSA Key: \(Key)")
     
             let defaults =  UserDefaults.standard
     
@@ -285,6 +292,8 @@ class LoadGrades {
     
     static func loadBGS(Key: String) -> BGSDetails  {
     
+            print("loadBGS Key: \(Key)")
+        
             let defaults =  UserDefaults.standard
     
             let data = defaults.data(forKey: Key)
@@ -294,6 +303,8 @@ class LoadGrades {
     
     static func loadSGC(Key: String) -> SGCDetails  {
     
+            print("loadSGC Key: \(Key)")
+        
             let defaults =  UserDefaults.standard
     
             let data = defaults.data(forKey: Key)

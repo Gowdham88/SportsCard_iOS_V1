@@ -333,6 +333,7 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - ImageScrollView (1.9.2)
   - leveldb-library (1.22)
+  - LoadingPlaceholderView (0.0.2)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -353,6 +354,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - ImageScrollView
+  - LoadingPlaceholderView
   - Segmentio
   - SideMenu
 
@@ -378,6 +380,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - ImageScrollView
     - leveldb-library
+    - LoadingPlaceholderView
     - nanopb
     - PromisesObjC
     - Segmentio
@@ -406,6 +409,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   ImageScrollView: 329f63d29b22f21594250d31536aa83e018571ed
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  LoadingPlaceholderView: e913f5ae2673612d405ce395acca7cedb1bfaa81
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
@@ -413,6 +417,6 @@ SPEC CHECKSUMS:
   XMLCoder: c4638336674de7ba279cd23f2005817d69f538e0
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: c4147cc88f16d4f27b69bde60696a11c734d6ab3
+PODFILE CHECKSUM: a6bb0e7f012d3bf035af6aecdd66edd36e15d0fd
 
 COCOAPODS: 1.9.3

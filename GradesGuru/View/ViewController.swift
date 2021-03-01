@@ -12,15 +12,16 @@ import Segmentio
 var ChosenGrading = String()
 var ChosenGradingIndex = Int()
 var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
-var CardCornersvalue : Corners! = nil
-var CardSurfacevalue : Corners! = nil
-var CardEdgesvalue : Corners! = nil
+
+var CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+var CardSurfacevalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+var CardEdgesvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
 
 class ViewController: UIViewController {
    
     @IBOutlet var segmentioView: Segmentio!
     @IBOutlet var TitleView: UIView!
-    
+
     var content = [SegmentioItem]()
     let PSAtitle = SegmentioItem(title: "PSA", image: nil)
     let BGStitle = SegmentioItem(title: "BGS", image: nil)
@@ -333,12 +334,25 @@ extension ViewController {
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = true
             
-            CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "CZ\(CardNumber)", Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
-            CardSurfacevalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "CZ\(CardNumber)", Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
-            CardEdgesvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "CZ\(CardNumber)", Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+//            let Device_ID = Usersdetails.device_ID
+//            let Card_ID = "CZ\(CardNumber)"
+//
+//
+//            CardDetails = CardDetailsMaster(Device_ID: Device_ID!, Card_ID: Card_ID, PlayerName: "", Sport: 0, Year: 0, Set: "", VariationColour: "", CardNo: 1, Rookie: 1, Autograph: "", Patch: "", ScannedDate: Date())
+//
+//            CardCornersvalue = Corners(Device_ID: Device_ID!, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+//
+//            CardIDs.append(Card_ID)
+//
+//            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
+//            SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID!)
+//
+//
             
             self.present(imagePicker, animated: true, completion: nil)
+            
         }
+        
         else
         {
             let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
@@ -356,9 +370,7 @@ extension ViewController {
             imagePicker.allowsEditing = true
             imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
             
-            CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: "1", Pictures: ["1"], Corners_Value: 2.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "1")
-            
-            self.present(imagePicker, animated: true, completion: nil)
+                    self.present(imagePicker, animated: true, completion: nil)
         }
         else
         {
@@ -426,10 +438,35 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 self.scanBackPage.isHidden = false
                 self.scanBackPage.contentMode = .scaleAspectFill
                 
-                
-
             }
-        
+            
+            let Device_ID = Usersdetails.device_ID
+            let Card_ID = "CZ\(CardNumber)"
+            
+            CardDetails = CardDetailsMaster(Device_ID: Device_ID!, Card_ID: Card_ID, PlayerName: "", Sport: 0, Year: 0, Set: "", VariationColour: "", CardNo: 1, Rookie: 1, Autograph: "", Patch: "", ScannedDate: "")
+
+            CardCornersvalue = Corners(Device_ID: Device_ID!, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+          
+            
+            if CardIDs.contains(Card_ID) {
+                
+                print("Card ID present")
+                
+            } else {
+                
+                CardIDs.append(Card_ID)
+                SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
+                SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID!)
+                
+            }
+                
+                
+                
+                print("CardIDs: \(CardIDs)")
+           
+
+           
+            
         picker.dismiss(animated: true, completion: nil)
     }
 }

@@ -10,29 +10,39 @@ import UIKit
 
 var CardNumber = 0
 
-class HomePageVC: UIViewController {
+class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
-    
     @IBOutlet weak var addImage: UIImageView!
-    
-    @IBOutlet weak var tableViewBottomConstraints: NSLayoutConstraint!
-    
     @IBOutlet weak var scanBtnView: UIView!
     
     //sample data array
-    var name = ["Karthik", "Gowdhaman", "Hanifa", "Rathna"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if name.count > 0 {
+        if CardIDs.count > 0 {
+            
             addImage.isHidden = true
             scanBtnView.isHidden = false
+            myTableView.isHidden = false
+            searchBar.isHidden = false
+            
         } else {
+            
+            
+            let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+            addImage.addGestureRecognizer(tapGR)
+            addImage.isUserInteractionEnabled = true
+            
+            
             addImage.isHidden = false
             scanBtnView.isHidden = true
+            myTableView.isHidden = true
+            searchBar.isHidden = true
+            
         }
          
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
@@ -40,55 +50,73 @@ class HomePageVC: UIViewController {
             textfield.backgroundColor = UIColor.white
             textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "Search here", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
             
-//            textfield.background = UIImage(named: "noun_Search")
-            
             searchBar.backgroundColor = UIColor(patternImage: UIImage(named: "Search")!)
             
-//            searchBar.backgroundImage = UIImage(named: "Search")
             searchBar.frame = CGRect(x: 20, y: 100, width: view.frame.width - 25, height: 40)
            
 
             if let leftView = textfield.leftView as? UIImageView {
+                
                 leftView.image = UIImage(named: "noun_Search.png")
                 
                 leftView.tintColor = UIColor(red: 83.0/255.0, green: 117.0/225.0, blue: 252.0/255.0, alpha: 1.0)
             }
 
         }
-        
-        
         // Do any additional setup after loading the view.
     }
     
-
-    
     @IBAction func scanDocument(_ sender: Any) {
+        
         print(":::::Document view tapped ::::::")
         
         CardNumber += 1
-        let homepageController: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homePageVC = homepageController.instantiateViewController(identifier: "ViewController") as! ViewController
-        self.navigationController?.pushViewController(homePageVC, animated: true)
+        Navigateto_MainVC()
+        
     }
     
-    @objc func uploadImage(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        
         print(":::::Image view tapped ::::::")
+        
+        if tapGestureRecognizer.state == .ended {
+                            
+            print("UIImageView tapped")
+            Navigateto_MainVC()
+
+        }
+        
+    }
+    
+    func Navigateto_MainVC() {
+        
         let homepageController: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let homePageVC = homepageController.instantiateViewController(identifier: "ViewController") as! ViewController
         self.navigationController?.pushViewController(homePageVC, animated: true)
+        
     }
-  
-
-}
-
-extension HomePageVC: UITableViewDelegate, UITableViewDataSource {
+    
+    override func viewDidLayoutSubviews() {
+        
+        if CardIDs.count > 0 {
+            
+            CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID)
+            
+        } else {
+            
+            print("Cards IDS Nil")
+            
+        }
+        
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return CardIDs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,5 +149,6 @@ extension HomePageVC: UITableViewDelegate, UITableViewDataSource {
 
             }
     }
+    
     
 }
