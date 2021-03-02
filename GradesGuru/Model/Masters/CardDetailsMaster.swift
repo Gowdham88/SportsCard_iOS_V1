@@ -11,15 +11,18 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-var CardDetails : CardDetailsMaster = CardDetailsMaster(Device_ID: "", Card_ID: "", PlayerName : "", Sport : 2, Year : 1234, Set : "", VariationColour : "", CardNo : 1, Rookie : 2, Autograph: "", Patch: "", ScannedDate: "")
+var CardDetails : CardDetailsMaster = CardDetailsMaster(Device_ID: "", Card_ID: "", Card_frontImage : UIImage(named: "Scan")!, Card_BackImage : UIImage(named: "Scan")!, PlayerName : "", Sport : 2, Year : 1234, Set : "", VariationColour : "", CardNo : 1, Rookie : 2, Autograph: "", Patch: "", ScannedDate: "")
 
 var CardIDs = [String]()
-var dataSaved = false
 
 class CardDetailsMaster : NSObject, NSCoding {
     
+    
+    
     var Device_ID: String!
     var Card_ID: String!
+    var Card_frontImage: UIImage!
+    var Card_BackImage: UIImage!
     var PlayerName : String!
     var Sport : Int!
     var Year : Int!
@@ -31,10 +34,12 @@ class CardDetailsMaster : NSObject, NSCoding {
     var Patch: String!
     var ScannedDate: String!
     
-    init(Device_ID: String, Card_ID: String, PlayerName : String, Sport : Int, Year : Int, Set : String, VariationColour : String, CardNo : Int, Rookie : Int, Autograph: String, Patch: String, ScannedDate: String) {
+    init(Device_ID: String, Card_ID: String, Card_frontImage : UIImage, Card_BackImage: UIImage, PlayerName : String, Sport : Int, Year : Int, Set : String, VariationColour : String, CardNo : Int, Rookie : Int, Autograph: String, Patch: String, ScannedDate: String) {
         
         self.Device_ID = Device_ID
         self.Card_ID = Card_ID
+        self.Card_frontImage = Card_frontImage
+        self.Card_BackImage = Card_BackImage
         self.PlayerName = PlayerName
         self.Sport = Sport
         self.Year = Year
@@ -52,6 +57,8 @@ class CardDetailsMaster : NSObject, NSCoding {
         
         self.Device_ID = (aDecoder.decodeObject(forKey: "Device_ID") as! String)
         self.Card_ID = (aDecoder.decodeObject(forKey: "Card_ID") as! String)
+        self.Card_frontImage = (aDecoder.decodeObject(forKey: "Card_frontImage") as! UIImage)
+        self.Card_BackImage = (aDecoder.decodeObject(forKey: "Card_BackImage") as! UIImage)
         self.Sport = (aDecoder.decodeObject(forKey: "Sport") as! Int)
         self.Year = (aDecoder.decodeObject(forKey: "Year") as! Int)
         self.Set = (aDecoder.decodeObject(forKey: "Set") as! String)
@@ -70,6 +77,8 @@ class CardDetailsMaster : NSObject, NSCoding {
         
         aCoder.encode(Device_ID, forKey: "Device_ID")
         aCoder.encode(Card_ID, forKey: "Card_ID")
+        aCoder.encode(Card_frontImage, forKey: "Card_frontImage")
+        aCoder.encode(Card_BackImage, forKey: "Card_BackImage")
         aCoder.encode(Sport, forKey: "Sport")
         aCoder.encode(Year, forKey: "Year")
         aCoder.encode(Set, forKey: "Set")
@@ -139,11 +148,11 @@ class LoadCards {
         
         }
     
-    static func loadCardIDs(Device_ID: String) -> [String] {
+    static func loadCardIDs(Device_ID: String?) -> [String] {
     
             let defaults =  UserDefaults.standard
     
-            let data = defaults.data(forKey: Device_ID)
+        let data = defaults.data(forKey: Device_ID!)
     
             return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [String]
         

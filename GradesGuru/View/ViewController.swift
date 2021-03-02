@@ -393,7 +393,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     //MARK:-- ImagePicker delegate
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             
-            
             var pickedImage : UIImage!
 
             if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
@@ -443,7 +442,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             let Device_ID = Usersdetails.device_ID
             let Card_ID = "CZ\(CardNumber)"
             
-            CardDetails = CardDetailsMaster(Device_ID: Device_ID!, Card_ID: Card_ID, PlayerName: "", Sport: 0, Year: 0, Set: "", VariationColour: "", CardNo: 1, Rookie: 1, Autograph: "", Patch: "", ScannedDate: "")
+            CardDetails = CardDetailsMaster(Device_ID: Device_ID!, Card_ID: Card_ID, Card_frontImage: UIImage(named: "Scan")!, Card_BackImage: UIImage(named: "Scan")!, PlayerName: "", Sport: 0, Year: 0, Set: "", VariationColour: "", CardNo: 1, Rookie: 1, Autograph: "", Patch: "", ScannedDate: "")
+
 
             CardCornersvalue = Corners(Device_ID: Device_ID!, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
           
@@ -453,7 +453,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 print("Card ID present")
                 
             } else {
-                
+                print("New Card ID")
                 CardIDs.append(Card_ID)
                 SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
                 SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID!)

@@ -10,40 +10,21 @@ import UIKit
 
 var CardNumber = 0
 
-class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addImage: UIImageView!
-    @IBOutlet weak var scanBtnView: UIView!
     
+    @IBOutlet var tabBar: UITabBar!
     //sample data array
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if CardIDs.count > 0 {
-            
-            addImage.isHidden = true
-            scanBtnView.isHidden = false
-            myTableView.isHidden = false
-            searchBar.isHidden = false
-            
-        } else {
-            
-            
-            let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-            addImage.addGestureRecognizer(tapGR)
-            addImage.isUserInteractionEnabled = true
-            
-            
-            addImage.isHidden = false
-            scanBtnView.isHidden = true
-            myTableView.isHidden = true
-            searchBar.isHidden = true
-            
-        }
+        LoadCardIDS()
          
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 
@@ -54,7 +35,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             searchBar.frame = CGRect(x: 20, y: 100, width: view.frame.width - 25, height: 40)
            
-
             if let leftView = textfield.leftView as? UIImageView {
                 
                 leftView.image = UIImage(named: "noun_Search.png")
@@ -63,17 +43,36 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
 
         }
+        
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func scanDocument(_ sender: Any) {
+    func LoadCardIDS()  {
         
-        print(":::::Document view tapped ::::::")
         
-        CardNumber += 1
-        Navigateto_MainVC()
+        if UserDefaults.standard.object(forKey: Usersdetails.device_ID) != nil {
+            
+            addImage.isHidden = true
+            myTableView.isHidden = false
+            searchBar.isHidden = false
+            tabBar.isHidden = false
+            
+            CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID)
+            
+            print("LoadCardIDS: \(CardIDs)")
+            
+            myTableView.reloadData()
+
+        } else {
+            
+            print("No Cards")
+        }
+        
+        
+            
         
     }
+    
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         
@@ -96,18 +95,23 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+       
+        LoadCardIDS()
+        
+        
+    }
+   
     override func viewDidLayoutSubviews() {
         
-        if CardIDs.count > 0 {
-            
-            CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID)
-            
-        } else {
-            
-            print("Cards IDS Nil")
-            
-        }
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        addImage.addGestureRecognizer(tapGR)
+        addImage.isUserInteractionEnabled = true
         
+        addImage.isHidden = false
+        myTableView.isHidden = true
+        searchBar.isHidden = true
+        tabBar.isHidden = true
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,11 +123,16 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return CardIDs.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 115
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
          
                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
-               
+        
+                cell.DPImage.image = UIImage(named: "Dummy_Sportscard")
                
                // Configure the cell...
 
@@ -140,15 +149,62 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCell.EditingStyle.delete) {
-            myTableView.beginUpdates()
-                //Names.removeAtIndex(indexPath!.row)
-            myTableView.deleteRows(at: [indexPath], with: .none)
-            myTableView.endUpdates()
-
-            }
-    }
+   
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if (editingStyle == UITableViewCell.EditingStyle.delete) {
+//            myTableView.beginUpdates()
+//                //Names.removeAtIndex(indexPath!.row)
+//            myTableView.deleteRows(at: [indexPath], with: .none)
+//            myTableView.endUpdates()
+//
+//        } else if editingStyle == UITableViewCell.EditingStyle.insert {
+//
+//            Navigateto_MainVC()
+//        }
+//    }
     
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        print(":::::Document view tapped ::::::")
+        
+        CardNumber += 1
+        Navigateto_MainVC()
+        
+        }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let actionEdit = UIContextualAction(
+            style: .normal,
+            title: "Edit",
+            handler: { [self] (action, view, completion) in
+                //do what you want here
+                Navigateto_MainVC()
+
+                completion(true)
+        })
+
+        let actionDelete = UIContextualAction(
+            style: .destructive,
+            title: "",
+            handler: { [self] (action, view, completion) in
+                //do what you want here
+                
+               myTableView.beginUpdates()
+               //Names.removeAtIndex(indexPath!.row)
+               myTableView.deleteRows(at: [indexPath], with: .none)
+               myTableView.endUpdates()
+    
+                completion(true)
+        })
+        
+        actionDelete.image = UIImage(named: "Delete")
+        actionDelete.backgroundColor = .red
+        let configuration = UISwipeActionsConfiguration(actions: [actionDelete, actionEdit])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
     
 }

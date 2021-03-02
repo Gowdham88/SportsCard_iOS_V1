@@ -818,7 +818,7 @@ started!</string>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zu-Ec-6ct">
                                 <rect key="frame" x="0.0" y="44" width="414" height="636"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <searchBar key="tableHeaderView" contentMode="scaleToFill" text="" placeholder="Search here" id="iNB-Zs-Icv">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -910,30 +910,21 @@ started!</string>
                                     <outlet property="delegate" destination="BNY-ON-uuq" id="C67-6Q-LPZ"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jbX-Rr-hUN">
-                                <rect key="frame" x="0.0" y="677" width="414" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ugq-4a-0Ix">
-                                        <rect key="frame" x="0.0" y="0.0" width="418" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUn-9w-wav">
-                                        <rect key="frame" x="194" y="9" width="26" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <state key="normal" image="addcamera"/>
-                                        <connections>
-                                            <action selector="scanDocument:" destination="BNY-ON-uuq" eventType="touchUpInside" id="sga-n5-QwK"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ScanImage" translatesAutoresizingMaskIntoConstraints="NO" id="uy0-lm-Yp8">
                                 <rect key="frame" x="104" y="151" width="207" height="295"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SjA-Nn-m65">
+                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem image="addcamera" id="yaA-t8-SFN"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="BNY-ON-uuq" id="VoZ-DE-kmg"/>
+                                </connections>
+                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="05W-N2-aQK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -949,8 +940,8 @@ started!</string>
                     <connections>
                         <outlet property="addImage" destination="uy0-lm-Yp8" id="pii-9k-F2h"/>
                         <outlet property="myTableView" destination="7zu-Ec-6ct" id="acu-MJ-DfP"/>
-                        <outlet property="scanBtnView" destination="jbX-Rr-hUN" id="BwE-Zw-WR5"/>
                         <outlet property="searchBar" destination="iNB-Zs-Icv" id="sFJ-Tq-AMu"/>
+                        <outlet property="tabBar" destination="SjA-Nn-m65" id="aLg-ce-6Qi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8P-1T-OHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1491,9 +1482,6 @@ To get started
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
