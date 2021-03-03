@@ -80,6 +80,24 @@ class ViewController: UIViewController {
 //        segmentioView.setup(content: content, style: .onlyLabel, options: SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: SegmentioIndicatorOptions(type: .bottom, ratio: 1.0, height: 5.0, color: UIColor(red: 83.0, green: 117.0, blue: 252.0, alpha: 1.0)), horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: SegmentioHorizontalSeparatorType.bottom, height: 0.5, color: .lightGray), verticalSeparatorOptions: SegmentioVerticalSeparatorOptions(ratio: 0, color: .gray), imageContentMode: .center, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: SegmentioStates(defaultState: SegmentioState(backgroundColor: .clear,titleFont:UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black),selectedState: SegmentioState(backgroundColor: UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0),titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .white),highlightedState: SegmentioState(backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),titleFont:UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black)), animationDuration: 0.1))
     
         segmentioView.selectedSegmentioIndex = 0
+        
+        if CardIDs.contains(selected_CardID) {
+            
+            print("CardID Available ")
+            
+            
+            CardDetails = LoadCards.loadCardsDetails(Card_ID: selected_CardID)
+            
+            print("CardDetails.Card_ID: \(CardDetails.Card_ID)")
+            
+            scanfrontPage.image = CardDetails.Card_frontImage
+            scanBackPage.image = CardDetails.Card_BackImage
+            
+        } else {
+            
+            print("Card ID not available")
+            
+        }
        
     }
     
@@ -246,11 +264,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func showAlertController(_ sender: Any) {
-        // 1.
-        
-
-    }
+  
     
     func setTitle(title:String, subtitle:String) -> UIView {
         
@@ -346,9 +360,7 @@ extension ViewController {
 //
 //            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
 //            SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID!)
-//
-//
-            
+
             self.present(imagePicker, animated: true, completion: nil)
             
         }
@@ -439,35 +451,59 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 
             }
             
-            let Device_ID = Usersdetails.device_ID
+            let Device_ID = Usersdetails.device_ID!
+            
+            let defaults = UserDefaults.standard
+            var CardNumber = 0
+            
+            if defaults.value(forKey: "cardNumber") != nil {
+                
+                CardNumber = defaults.value(forKey: "cardNumber") as! Int
+                
+            } else {
+                
+                CardNumber = 0
+                
+            }
+            
             let Card_ID = "CZ\(CardNumber)"
+            selected_CardID = Card_ID
             
-            CardDetails = CardDetailsMaster(Device_ID: Device_ID!, Card_ID: Card_ID, Card_frontImage: UIImage(named: "Scan")!, Card_BackImage: UIImage(named: "Scan")!, PlayerName: "", Sport: 0, Year: 0, Set: "", VariationColour: "", CardNo: 1, Rookie: 1, Autograph: "", Patch: "", ScannedDate: "")
-
-
-            CardCornersvalue = Corners(Device_ID: Device_ID!, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
-          
+            print("Device_ID: \(Device_ID)")
+            print("Card_ID: \(Card_ID)")
             
+            CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: 1, Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
+
+            CardCornersvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+            CardSurfacevalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+            CardEdgesvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+            
+            var GradesValue = [Corners]()
+            GradesValue.append(CardCornersvalue)
+            GradesValue.append(CardSurfacevalue)
+            GradesValue.append(CardSurfacevalue)
+
             if CardIDs.contains(Card_ID) {
                 
                 print("Card ID present")
                 
+                SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
+                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: Card_ID, ChosenGrading: ChosenGrading)
+               
+                
             } else {
+                
                 print("New Card ID")
                 CardIDs.append(Card_ID)
                 SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
-                SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID!)
-                
+                SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID)
+                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: Card_ID, ChosenGrading: ChosenGrading)
+
             }
                 
-                
-                
-                print("CardIDs: \(CardIDs)")
+            print("CardIDs: \(CardIDs)")
            
-
-           
-            
-        picker.dismiss(animated: true, completion: nil)
+            picker.dismiss(animated: true, completion: nil)
     }
 }
 

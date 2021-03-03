@@ -8,23 +8,38 @@
 
 import UIKit
 
-var CardNumber = 0
 
 class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
-   
+    var myCardImages = [UIImage]()
+    var cardImages = [UIImage]()
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addImage: UIImageView!
     
     @IBOutlet var tabBar: UITabBar!
     //sample data array
-    
+    var CardNumber = 0
+    var defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LoadCardIDS()
+        if defaults.value(forKey: "cardNumber") != nil {
+            
+            CardNumber = defaults.value(forKey: "cardNumber") as! Int
+            
+        } else {
+            
+            CardNumber = 0
+            defaults.setValue(CardNumber, forKey: "cardNumber")
+            //calling if loading for the first time
+            LoadCardIDS()
+
+            
+        }
+        
          
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 
@@ -47,25 +62,46 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         // Do any additional setup after loading the view.
     }
     
+    
     func LoadCardIDS()  {
         
+        let saveCardsIDs = "SaveCardIDS_\(Usersdetails.device_ID!)"
         
-        if UserDefaults.standard.object(forKey: Usersdetails.device_ID) != nil {
+        print("saveCardsIDs: \(saveCardsIDs)")
+        
+        if UserDefaults.standard.object(forKey: saveCardsIDs) != nil {
             
             addImage.isHidden = true
             myTableView.isHidden = false
             searchBar.isHidden = false
             tabBar.isHidden = false
             
-            CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID)
+            CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID!)
             
+            cardImages.removeAll()
+            for cardID in CardIDs {
+                
+                print("For Loop cardID: \(cardID)")
+
+                let carddetails = LoadCards.loadCardsDetails(Card_ID: cardID)
+                
+                let cardImage = carddetails.Card_frontImage
+                
+                cardImages.append(cardImage!)
+                
+                print("1.cardImages.count: \(cardImages.count)")
+                
+            }
+            
+            print("2.cardImages.count: \(cardImages.count)")
             print("LoadCardIDS: \(CardIDs)")
-            
+            myCardImages = cardImages
             myTableView.reloadData()
 
         } else {
             
             print("No Cards")
+            
         }
         
         
@@ -97,7 +133,21 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidAppear(_ animated: Bool) {
        
-        LoadCardIDS()
+        if defaults.value(forKey: "cardNumber") != nil {
+            
+            CardNumber = defaults.value(forKey: "cardNumber") as! Int
+            
+            //calling if loading for on or after second time
+            LoadCardIDS()
+
+            
+        } else {
+            
+            CardNumber = 0
+
+            defaults.setValue(CardNumber, forKey: "cardNumber")
+            
+        }
         
         
     }
@@ -132,16 +182,23 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
          
                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
         
-                cell.DPImage.image = UIImage(named: "Dummy_Sportscard")
+            print("cardImages.count: \(cardImages.count)")
+            print("myCardImages.count: \(myCardImages.count)")
+        
+                cell.DPImage.image = myCardImages[indexPath.row]
                
                // Configure the cell...
 
                return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Card", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "newTabbarController")
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        
+        selected_CardID = CardIDs[indexPath.row]
+        print("selected_CardID: \(selected_CardID)")
 
         self.present(vc, animated: true, completion: nil) //present(vc, animated: true)
     }
@@ -167,8 +224,11 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         print(":::::Document view tapped ::::::")
-        
+        selected_CardID = ""
         CardNumber += 1
+        
+        defaults.setValue(CardNumber, forKey: "cardNumber")
+        
         Navigateto_MainVC()
         
         }
@@ -181,6 +241,10 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             title: "Edit",
             handler: { [self] (action, view, completion) in
                 //do what you want here
+                
+                selected_CardID = CardIDs[indexPath.row]
+                print("selected_CardID: \(selected_CardID)")
+                
                 Navigateto_MainVC()
 
                 completion(true)
@@ -191,6 +255,9 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             title: "",
             handler: { [self] (action, view, completion) in
                 //do what you want here
+                
+                selected_CardID = CardIDs[indexPath.row]
+                print("selected_CardID: \(selected_CardID)")
                 
                myTableView.beginUpdates()
                //Names.removeAtIndex(indexPath!.row)

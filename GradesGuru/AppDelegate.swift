@@ -21,13 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
 
-        
         if let uuid = UIDevice.current.identifierForVendor?.uuidString {
-            
             
             print("uuid: \(uuid)")
             
-            Usersdetails.device_ID = uuid
+//            Usersdetails.device_ID = uuid
+            
+            Usersdetails.device_ID = "123"
+            
             let defaults = UserDefaults.standard
             
             
@@ -55,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return true
                     
             }
-            
             
         }
         

@@ -10,19 +10,19 @@ import Foundation
 
 class Corners: NSObject, NSCoding {
     
-    var Device_ID: String!
-    var Card_ID: String!
-    var Pictures: [String]!
-    var Corners_Value: Double!
-    var PSA: Double!
-    var SelectedPSA: [Int:Double]!
-    var BGS: Double!
-    var SelectedBGS: [Int:Double]!
-    var SGC: Double!
-    var SelectedSGC: [Int:Double]!
-    var viewonPSA: String!
+    var Device_ID: String?
+    var Card_ID: String?
+    var Pictures: [String]?
+    var Corners_Value: Double?
+    var PSA: Double?
+    var SelectedPSA: [Int:Double]?
+    var BGS: Double?
+    var SelectedBGS: [Int:Double]?
+    var SGC: Double?
+    var SelectedSGC: [Int:Double]?
+    var viewonPSA: String?
     
-    init(Device_ID: String, Card_ID: String, Pictures: [String]!, Corners_Value: Double!, PSA: Double!, SelectedPSA: [Int:Double]!, BGS: Double!, SelectedBGS: [Int:Double]!, SGC: Double!, SelectedSGC: [Int:Double]!, viewonPSA: String!) {
+    init(Device_ID: String, Card_ID: String, Pictures: [String], Corners_Value: Double, PSA: Double, SelectedPSA: [Int:Double], BGS: Double, SelectedBGS: [Int:Double], SGC: Double, SelectedSGC: [Int:Double], viewonPSA: String) {
         
         self.Device_ID = Device_ID
         self.Card_ID = Card_ID
@@ -192,10 +192,9 @@ class SGCDetails: NSObject, NSCoding {
 
 class SaveGrades {
     
-    static func saveGradesvalue(GradesValue: Corners, CardID: String) {
+    static func saveGradesvalue(GradesValue: [Corners], CardID: String, ChosenGrading: String) {
     
-        let Key_ID = "\(ChosenGrading),\(CardID)"
-        print("Grades Saved Key, \(Key_ID)")
+        print("Grades Saved Key CardID, \(CardID)")
 
         let defaults =  UserDefaults.standard
            
@@ -206,7 +205,7 @@ class SaveGrades {
                 fatalError("Can't encode data")
             }
     
-            defaults.set(encodedData, forKey: Key_ID)
+            defaults.set(encodedData, forKey: CardID)
     
         }
     
@@ -267,17 +266,17 @@ class SaveGrades {
 
 class LoadGrades {
     
-    static func loadGradesvalue(CardID: String) -> Corners  {
+    static func loadGradesvalue(CardID: String, ChosenGrading: String) -> [Corners]  {
            
             let defaults =  UserDefaults.standard
-            let Key_ID = "\(ChosenGrading),\(CardID)"
 
-            print("Grades Loaded, Key: \(Key_ID)")
+            print("Grades Loaded, CardID -Key : \(CardID)")
         
-            let data = defaults.data(forKey: Key_ID)
+            let data = defaults.data(forKey: CardID)
     
-            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! Corners
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [Corners]
         }
+    
     
     static func loadPSA(Key: String) -> PSADetails  {
         
