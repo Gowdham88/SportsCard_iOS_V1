@@ -29,13 +29,15 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if defaults.value(forKey: "cardNumber") != nil {
             
             CardNumber = defaults.value(forKey: "cardNumber") as! Int
+            LoadCardIDS()
+
             
         } else {
             
             CardNumber = 0
             defaults.setValue(CardNumber, forKey: "cardNumber")
             //calling if loading for the first time
-            LoadCardIDS()
+
 
             
         }
@@ -67,8 +69,10 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         let saveCardsIDs = "SaveCardIDS_\(Usersdetails.device_ID!)"
         
-        print("saveCardsIDs: \(saveCardsIDs)")
+        cardImages.removeAll()
+
         
+        print("saveCardsIDs: \(saveCardsIDs)")
         if UserDefaults.standard.object(forKey: saveCardsIDs) != nil {
             
             addImage.isHidden = true
@@ -78,7 +82,7 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
             CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID!)
             
-            cardImages.removeAll()
+            
             for cardID in CardIDs {
                 
                 print("For Loop cardID: \(cardID)")
@@ -138,6 +142,7 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             CardNumber = defaults.value(forKey: "cardNumber") as! Int
             
             //calling if loading for on or after second time
+
             LoadCardIDS()
 
             

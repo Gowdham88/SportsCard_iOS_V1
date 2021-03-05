@@ -303,10 +303,18 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             break
         }
         
-        tableView.reloadData()
+        if didselectcell == true {
+            
+            didselectcell = false
+        } else {
+            
+            
+            tableView.reloadData()
+        }
+
         
     }
-    
+    var didselectcell = false
     override func viewDidAppear(_ animated: Bool) {
         
         if selected_CardID.isEmpty {
@@ -437,6 +445,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
        
         print("0.selectedCells: \(selectedCells)")
         print("selected_Segment in Cell for row at index path")
+        
+        didselectcell = true
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
 
