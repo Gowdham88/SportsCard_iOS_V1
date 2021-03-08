@@ -26,6 +26,7 @@
 		C35F253725DC2221007BD420 /* UIFont+ExampleFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */; };
 		C35F253825DC2221007BD420 /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253425DC2221007BD420 /* String+Convenience.swift */; };
 		C35F253925DC2221007BD420 /* UINavigationBar+Flat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */; };
+		C3697C6725F64E4900CE81EA /* GetGrading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3697C6625F64E4900CE81EA /* GetGrading.swift */; };
 		C36A7C0B25E8E39D00EAAC8A /* CenteringTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
@@ -130,6 +131,7 @@
 		C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+ExampleFonts.swift"; path = "SegmentView/UIFont+ExampleFonts.swift"; sourceTree = "<group>"; };
 		C35F253425DC2221007BD420 /* String+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Convenience.swift"; path = "SegmentView/String+Convenience.swift"; sourceTree = "<group>"; };
 		C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Flat.swift"; path = "SegmentView/UINavigationBar+Flat.swift"; sourceTree = "<group>"; };
+		C3697C6625F64E4900CE81EA /* GetGrading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGrading.swift; sourceTree = "<group>"; };
 		C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringTVC.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
@@ -283,6 +285,14 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		C3697C6525F64D9900CE81EA /* Calculate_Grades */ = {
+			isa = PBXGroup;
+			children = (
+				C3697C6625F64E4900CE81EA /* GetGrading.swift */,
+			);
+			path = Calculate_Grades;
+			sourceTree = "<group>";
+		};
 		C36B240425111DBA006ED6E3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +404,7 @@
 		C3C1407024E86D02005046E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3697C6525F64D9900CE81EA /* Calculate_Grades */,
 				C35F253425DC2221007BD420 /* String+Convenience.swift */,
 				C35F253225DC2220007BD420 /* UIColor+RGB.swift */,
 				C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */,
@@ -752,6 +763,7 @@
 				C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */,
 				1877034325A4BC70002EC49E /* SetViewController.swift in Sources */,
 				C35F253725DC2221007BD420 /* UIFont+ExampleFonts.swift in Sources */,
+				C3697C6725F64E4900CE81EA /* GetGrading.swift in Sources */,
 				C35F253925DC2221007BD420 /* UINavigationBar+Flat.swift in Sources */,
 				C37BFB7825CDC86B008522EE /* BorderView.swift in Sources */,
 				C37BFB3E25CDC62B008522EE /* SelectCellVC.swift in Sources */,
