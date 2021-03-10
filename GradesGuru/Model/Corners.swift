@@ -192,9 +192,11 @@ class SGCDetails: NSObject, NSCoding {
 
 class SaveGrades {
     
-    static func saveGradesvalue(GradesValue: [Corners], CardID: String, ChosenGrading: String) {
-    
-        print("Grades Saved Key CardID, \(CardID)")
+    static func saveGradesvalue(GradesValue: Corners, CardID: String, ChosenGrading: String) {
+        
+        let key = "\(CardID),\(ChosenGrading)"
+        
+        print("Grades Saved Key CardID, \(key)")
 
         let defaults =  UserDefaults.standard
            
@@ -205,7 +207,7 @@ class SaveGrades {
                 fatalError("Can't encode data")
             }
     
-            defaults.set(encodedData, forKey: CardID)
+            defaults.set(encodedData, forKey: key)
     
         }
     
@@ -230,7 +232,7 @@ class SaveGrades {
     
     static func saveBGS(BGSValue: BGSDetails, Key: String) {
     
-            print("BGS Grades Saved")
+            print("BGS Grades Saved: \(Key)")
     
             let defaults =  UserDefaults.standard
            
@@ -247,7 +249,7 @@ class SaveGrades {
     
     static func saveSGC(SGCValue: SGCDetails, Key: String) {
     
-            print("SGC Grades Saved")
+            print("SGC Grades Saved: \(Key)")
     
             let defaults =  UserDefaults.standard
            
@@ -266,15 +268,17 @@ class SaveGrades {
 
 class LoadGrades {
     
-    static func loadGradesvalue(CardID: String, ChosenGrading: String) -> [Corners]  {
+    static func loadGradesvalue(CardID: String, ChosenGrading: String) -> Corners  {
            
             let defaults =  UserDefaults.standard
+            let key = "\(CardID),\(ChosenGrading)"
 
-            print("Grades Loaded, CardID -Key : \(CardID)")
+
+            print("Grades Loaded, CardID -Key : \(key)")
         
-            let data = defaults.data(forKey: CardID)
+            let data = defaults.data(forKey: key)
     
-            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [Corners]
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! Corners
         }
     
     

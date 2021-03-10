@@ -42,7 +42,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var SGCSelected = [Int:Double]()
     
     var selected_Segment = Int()
-   
+    let defaults = UserDefaults.standard
+
     var storedWorksheet = ["Corners": ["Corners_PSA", "Corners_BGS", "Corners_SGC"], "Surface": ["Surface_PSA", "Surface_BGS", "Surface_SGC"], "Edges": ["Edges_PSA", "Edges_BGS", "Edges_SGC"]]
 
     @IBOutlet var tableView: UITableView!
@@ -111,19 +112,21 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         menuView.animationDuration = 0.5
         menuView.maskBackgroundColor = UIColor.black
         menuView.maskBackgroundOpacity = 0.3
-        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> Void in
+        menuView.didSelectItemAtIndexHandler = { [self](indexPath: Int) -> Void in
+            
             print("Did select item at index: \(indexPath)")
             
             ChosenGrading = GradeDetails[indexPath]
             
-            self.loadspreadsheet(chosenGrading: ChosenGrading)
+            didselectcell = false
             
-//            self.selectedCellLabel.text = GradeDetails[indexPath]
+            Load_PSA_BGS_SGC(GradingType: ChosenGrading)
+            
+            
         }
         
         self.navigationItem.titleView = menuView
 
-        loadspreadsheet(chosenGrading: ChosenGrading)
      
         segmentioView.valueDidChange = { segmentio, segmentIndex in
             print("Selected item: ", segmentIndex)
@@ -133,15 +136,46 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         }
         
+
+        if defaults.value(forKey: "FirstTime") != nil {
+            
+            
+            print("Loading More than Once")
+            Load_PSA_BGS_SGC(GradingType: ChosenGrading)
+                
+         
+        } else {
+            
+            
+            self.saveSpreadsheet()
+            defaults.set(true, forKey: "FirstTime")
+
+                
+        }
+        
       
     }
     
+    
+    func saveSpreadsheet() {
+        
+        let grading = ["Corners", "Surface", "Edges"]
+
+        for grd in grading {
+            
+            loadspreadsheet(chosenGrading: grd)
+            
+        }
+        
+    }
+
+
     func loadspreadsheet(chosenGrading: String) {
         
         let filename = chosenGrading
         let filetype = "xlsx"
         let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
-        
+        var sheetIndex = 0
         guard let file = XLSXFile(filepath: filepath) else {
             
           fatalError("XLSX file at \(filepath) is corrupted or does not exist")
@@ -157,7 +191,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 for wbk in try file.parseWorkbooks() {
                             
                     let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
-                            
+                    
+                    print("ws.count: \(ws.count)")
+                    
                           for (name, path) in ws {
                             
                             if let worksheetName = name {
@@ -179,9 +215,14 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                      columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
                                       .compactMap { $0.stringValue(sharedStrings) }
                                     
-                                    switch worksheetName {
+                                    print("storedWorksheet[ChosenGrading]: \(storedWorksheet[ChosenGrading])")
+                                    print("worksheetName: \(worksheetName)")
+                                        
+                                    switch sheetIndex {
                                     
-                                    case storedWorksheet[ChosenGrading]![0]:
+                                    case 0:
+                                        
+                                        print("Saving PSA from worksheet")
                                         
                                         PSAGrade = columnAStrings
                                         PSADesc = columnBStrings
@@ -189,11 +230,15 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         
                                         let PSADetails1 : PSADetails = PSADetails(PSAGrade: PSAGrade, PSADesc: PSADesc, PSAState: PSAState)
                                         
-                                        print("storedWorksheet[ChosenGrading]![0]: \(storedWorksheet[ChosenGrading]![0])")
+//                                        print("storedWorksheet[ChosenGrading]![0]: \(storedWorksheet[ChosenGrading]![0])")
 
                                         SaveGrades.savePSA(PSAValue: PSADetails1, Key: worksheetName)
+//                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
+
                                     
-                                    case storedWorksheet[ChosenGrading]![1]:
+                                    case 1:
+                                        
+                                        print("Saving BGS from worksheet")
                                         
                                         BGSGrade = columnAStrings
                                         BGSDesc = columnBStrings
@@ -202,8 +247,11 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         let BGSDetails1 : BGSDetails = BGSDetails(BGSGrade: BGSGrade, BGSDesc: BGSDesc, BGSState: BGSState)
 
                                         SaveGrades.saveBGS(BGSValue: BGSDetails1, Key: worksheetName)
+//                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
                                         
-                                    case storedWorksheet[ChosenGrading]![2]:
+                                    case 2:
+                                        
+                                        print("Saving SGC from worksheet")
                                         
                                         SGCGrade = columnAStrings
                                         SGCDesc = columnBStrings
@@ -215,7 +263,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         print("GradingDownloadStatus: \(GradingDownloadStatus)")
                                         SaveGrades.saveSGC(SGCValue: SGCDetails1, Key: worksheetName)
                                         
-                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
+//                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
                                         
                                     default:
                                         
@@ -226,9 +274,15 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                             }
                             
+                            sheetIndex += 1
+                            
                           }
                     
-                    }
+                    Load_PSA_BGS_SGC(GradingType: chosenGrading)
+                    
+                    
+                }
+                
                 
             } catch let error1 as NSError {
                 
@@ -241,6 +295,176 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
             
     }
+    
+    
+    func loadGradingdataSheet() {
+        
+        let filename = "GradeEstimates"
+        let filetype = "xlsx"
+        let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
+        var sheetIndex = 0
+        guard let file = XLSXFile(filepath: filepath) else {
+            
+          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+        
+        }
+        
+            do {
+                
+                var columnAStrings = [String]()
+                var columnBStrings = [String]()
+                var columnCStrings = [String]()
+                var columnDStrings = [String]()
+                var columnEStrings = [String]()
+                var columnFStrings = [String]()
+                var columnGStrings = [String]()
+                
+                for wbk in try file.parseWorkbooks() {
+                            
+                    let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
+                    
+                    print("ws.count: \(ws.count)")
+                    
+                          for (name, path) in ws {
+                            
+                            if let worksheetName = name {
+                                
+                            print("This worksheet has a name: \(worksheetName)")
+                                
+                            print("Chosen Grading: \(ChosenGrading)")
+                                
+                                let worksheet = try file.parseWorksheet(at: path)
+                                
+                                if let sharedStrings = try file.parseSharedStrings() {
+                                    
+                                  columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                                    .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                     columnBStrings = worksheet.cells(atColumns: [ColumnReference("B")!])
+                                      .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                     columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                                      .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                    columnDStrings = worksheet.cells(atColumns: [ColumnReference("D")!])
+                                     .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                    columnEStrings = worksheet.cells(atColumns: [ColumnReference("E")!])
+                                     .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                    columnFStrings = worksheet.cells(atColumns: [ColumnReference("F")!])
+                                     .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                    columnGStrings = worksheet.cells(atColumns: [ColumnReference("G")!])
+                                     .compactMap { $0.stringValue(sharedStrings) }
+                                    
+                                    print("storedWorksheet[ChosenGrading]: \(storedWorksheet[ChosenGrading])")
+                                    print("worksheetName: \(worksheetName)")
+                                        
+                                   
+                                        
+                                        print("Saving Default Grade from worksheet")
+//
+//                                        PSAGrade = columnAStrings
+//                                        PSADesc = columnBStrings
+//                                        PSAState = columnCStrings
+                                    
+                                    var Grade_Array = [Default_Grade_Values]()
+                                    
+                                    let DefaultValue : Default_Grade_Values!
+                                    
+                                    var GlobalPSA = String()
+                                    var GlobalBGS = String()
+                                    var GlobalSGC = String()
+                                    
+                                    if columnEStrings.contains(GlobalPSA) {
+                                        
+                                        
+                                    for (index, value) in columnEStrings.enumerated() {
+                                        
+                                        
+                                        if value == GlobalPSA {
+                                            
+                                            for (index1, myvalue1) in columnFStrings.dropLast(index).enumerated() {
+                                                
+                                                if myvalue1 == GlobalBGS {
+                                                    
+                                                    
+                                                    for (index2, myvalue2) in columnFStrings.dropLast(index).enumerated() {
+                                                        
+                                                        
+                                                        if myvalue2 == GlobalSGC {
+                                                            
+                                                            print("GOT A HIT")
+                                                            
+                                                            print("Center columnAStrings[index2]: \(columnAStrings[index2])")
+                                                            print("Corner columnBStrings[index2]:\(columnBStrings[index2])")
+                                                            print("Surface columnCStrings[index2]: \(columnCStrings[index2])")
+                                                            print("Edges columnDStrings[index2]: \(columnDStrings[index2])")
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                    
+                                                    
+                                                }
+                                                
+                                                
+                                                
+                                            }
+                                            
+                                        }
+                                        
+//                                    DefaultValue = Default_Grade_Values(Center: columnAStrings[index], Corner: columnBStrings[index], Surface: columnCStrings[index], Edges: columnDStrings[index], PSA: columnEStrings[index], BGS: columnFStrings[index], SGC: columnGStrings[index])
+//
+//                                        Grade_Array.append(DefaultValue)
+                                        
+                                        
+                                    }
+                                    
+                                }
+                                        
+                                        
+                                        
+//                                        print("storedWorksheet[ChosenGrading]![0]: \(storedWorksheet[ChosenGrading]![0])")
+
+                                        //SaveGrades.savePSA(PSAValue: PSADetails1, Key: worksheetName)
+                                    
+                                    
+                                    Save_Default_Grade_Values.saveGradesvalue(Default_GradesValues: Grade_Array)
+//                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
+
+                        
+                                   
+                                  
+                                }
+                
+                            }
+                            
+//                            sheetIndex += 1
+                            
+                          }
+                    
+//                    Load_PSA_BGS_SGC(GradingType: chosenGrading)
+                    
+                    
+                }
+                
+                
+            } catch let error1 as NSError {
+                
+                print("Error: \(error1)")
+                
+            } catch {
+                
+                print("Any other error")
+                
+        }
+            
+    }
+    
+    
     
     private func setupLoadingPlaceholderView() {
 //        loadingPlaceholderView.gradientColor = .white
@@ -270,7 +494,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCDesc
         SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCState
 
-        tableView.reloadData()
+//        tableView.reloadData()
+        
+        LoadSelectedCells(ChosenGrading: ChosenGrading, Card_ID: selected_CardID)
         
     }
     
@@ -279,23 +505,23 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         switch ChosenGrading {
         
         case "Corners":
-            PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[0].SelectedPSA ?? [0:0.0]
-            BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[0].SelectedBGS ?? [0:0.0]
-            SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[0].SelectedSGC ?? [0:0.0]
+            PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedPSA ?? [0:0.0]
+            BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedBGS ?? [0:0.0]
+            SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedSGC ?? [0:0.0]
             
             print("Corners PSASelected, BGSSelected, SGCSelected: \(PSASelected), \(BGSSelected), \(SGCSelected)")
             
         case "Surface":
-            PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[1].SelectedPSA ?? [0:0.0]
-            BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[1].SelectedBGS ?? [0:0.0]
-            SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[1].SelectedSGC ?? [0:0.0]
+            PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedPSA ?? [0:0.0]
+            BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedBGS ?? [0:0.0]
+            SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedSGC ?? [0:0.0]
             
             print("Surface PSASelected, BGSSelected, SGCSelected: \(PSASelected), \(BGSSelected), \(SGCSelected)")
 
         case "Edges":
-            PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[2].SelectedPSA ?? [0:0.0]
-            BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[2].SelectedBGS ?? [0:0.0]
-            SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)[2].SelectedSGC ?? [0:0.0]
+            PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedPSA ?? [0:0.0]
+            BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedBGS ?? [0:0.0]
+            SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedSGC ?? [0:0.0]
             
             print("Edges PSASelected, BGSSelected, SGCSelected: \(PSASelected), \(BGSSelected), \(SGCSelected)")
 
@@ -324,11 +550,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else {
             
             print("Card ID Available")
-            
             LoadSelectedCells(ChosenGrading: ChosenGrading, Card_ID: selected_CardID)
             
         }
-        
         
     }
     
@@ -494,22 +718,76 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func selected_Grading(Grading: String, Segment: Int) {
         
-        let GradesValue = [CardCornersvalue, CardSurfacevalue, CardEdgesvalue]
-
 
             switch selected_Segment {
             
             case 0:
-                CardCornersvalue.SelectedPSA = selectedCells
-                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: selected_CardID, ChosenGrading: Grading)
+                
+                switch ChosenGrading {
+                
+                case "Corners":
+                    CardCornersvalue.SelectedPSA = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                case "Surface":
+                    CardSurfacevalue.SelectedPSA = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardSurfacevalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                case "Edges":
+                    CardEdgesvalue.SelectedPSA = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardEdgesvalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                default:
+                    break
+                }
+
                 
             case 1:
-                CardCornersvalue.SelectedBGS = selectedCells
-                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: selected_CardID, ChosenGrading: Grading)
+                
+                switch ChosenGrading {
+                
+                case "Corners":
+                    CardCornersvalue.SelectedBGS = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                case "Surface":
+                    CardSurfacevalue.SelectedBGS = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardSurfacevalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                case "Edges":
+                    CardEdgesvalue.SelectedBGS = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardEdgesvalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                default:
+                    break
+                }
+                
+                
+                
             case 2:
-                CardCornersvalue.SelectedSGC = selectedCells
-                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: selected_CardID, ChosenGrading: Grading)
+                
+                switch ChosenGrading {
+                
+                case "Corners":
+                    
+                    CardCornersvalue.SelectedSGC = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: selected_CardID, ChosenGrading: Grading)
 
+                case "Surface":
+
+                    CardSurfacevalue.SelectedSGC = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardSurfacevalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                case "Edges":
+                    
+                    CardEdgesvalue.SelectedSGC = selectedCells
+                    SaveGrades.saveGradesvalue(GradesValue: CardEdgesvalue, CardID: selected_CardID, ChosenGrading: Grading)
+                    
+                default:
+                    break
+                }
+                
+              
             default:
                 break
 
@@ -517,6 +795,14 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         
        LoadSelectedCells(ChosenGrading: ChosenGrading, Card_ID: selected_CardID)
+        
+    }
+    
+    
+    func calculate_PSA_BGS_SGC_Values() {
+        
+        
+        
         
     }
 

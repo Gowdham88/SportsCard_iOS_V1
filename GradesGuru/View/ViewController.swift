@@ -475,21 +475,28 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: 1, Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
 
             CardCornersvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
-            CardSurfacevalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
-            CardEdgesvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+            
+//            CardSurfacevalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+//            CardEdgesvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
             
             var GradesValue = [Corners]()
             GradesValue.append(CardCornersvalue)
             GradesValue.append(CardSurfacevalue)
             GradesValue.append(CardSurfacevalue)
+            
 
             if CardIDs.contains(Card_ID) {
                 
                 print("Card ID present")
-                
                 SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
-                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: Card_ID, ChosenGrading: ChosenGrading)
-               
+
+                for grades in GradeDetails {
+                    
+                    print("grades CardIDs.contains(Card_ID) : \(grades)")
+                    
+                    SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: Card_ID, ChosenGrading: grades)
+                    
+                }
                 
             } else {
                 
@@ -497,7 +504,14 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 CardIDs.append(Card_ID)
                 SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: Card_ID)
                 SaveCards.saveCardIDs(Cards: CardIDs, Device_ID: Device_ID)
-                SaveGrades.saveGradesvalue(GradesValue: GradesValue, CardID: Card_ID, ChosenGrading: ChosenGrading)
+                
+                for grades in GradeDetails {
+                    
+                    print("grades New Card ID: \(grades)")
+                    
+                    SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: Card_ID, ChosenGrading: grades)
+                    
+                }
 
             }
                 
