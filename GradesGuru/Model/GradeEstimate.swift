@@ -60,9 +60,6 @@ class Default_Grade_Values: NSObject, NSCoding {
 }
 
 
-
-
-
 class Save_Default_Grade_Values {
     
     static func saveGradesvalue(Default_GradesValues: [Default_Grade_Values]) {
@@ -102,5 +99,4 @@ class Load_Default_Grade_Values {
         }
     
   
-    
 }

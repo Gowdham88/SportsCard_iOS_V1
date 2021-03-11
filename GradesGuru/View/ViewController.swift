@@ -77,8 +77,6 @@ class ViewController: UIViewController {
         content.append(BGStitle)
         content.append(SGCtitle)
         
-//        segmentioView.setup(content: content, style: .onlyLabel, options: SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: SegmentioIndicatorOptions(type: .bottom, ratio: 1.0, height: 5.0, color: UIColor(red: 83.0, green: 117.0, blue: 252.0, alpha: 1.0)), horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: SegmentioHorizontalSeparatorType.bottom, height: 0.5, color: .lightGray), verticalSeparatorOptions: SegmentioVerticalSeparatorOptions(ratio: 0, color: .gray), imageContentMode: .center, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: SegmentioStates(defaultState: SegmentioState(backgroundColor: .clear,titleFont:UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black),selectedState: SegmentioState(backgroundColor: UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0),titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .white),highlightedState: SegmentioState(backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),titleFont:UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),titleTextColor: .black)), animationDuration: 0.1))
-    
         segmentioView.selectedSegmentioIndex = 0
         
         if CardIDs.contains(selected_CardID) {
@@ -110,11 +108,43 @@ class ViewController: UIViewController {
         
     }
     
+    func LoadCardGradeValues(ChosenGrading: String, Card_ID: String) {
+        
+        print("LoadCardGradeValues, Chosen Grading: \(ChosenGrading)")
+        
+        switch ChosenGrading {
+        
+        case "Corners":
+            
+            CardCornersvalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
+            
+            
+        case "Surface":
+            
+            CardSurfacevalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
+           
+            
+        case "Edges":
+            
+            CardEdgesvalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
+            
+            
+        default:
+            break
+        }
+        
+            
+            print("PSA, BGS, SGC: \(GlobalPSA), \(GlobalBGS), \(GlobalSGC)")
+            
+    
+    }
+    
+    
+    
     @objc func scanFrontPage(tapGestureRecognizer: UITapGestureRecognizer) {
         selected_img = "front_img"
         print(":::::FrontImage view tapped ::::::")
         scanImageOption()
-        
         
     }
     
@@ -138,7 +168,6 @@ class ViewController: UIViewController {
         _ = navigationController?.popToRootViewController(animated: true)
         
     }
-    
     
     @objc func verifyFrontImageAdded(notification: Notification) {
         if isFrontImage {
@@ -234,7 +263,6 @@ class ViewController: UIViewController {
                 print("No Title entered")
             }
 
-            
         }
         
         let Cancel = UIAlertAction(
@@ -541,11 +569,36 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
                   cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
               }
 
+
+    
               cell!.textLabel?.text = GradeDetails[indexPath.row]
               cell!.detailTextLabel?.text = "Review"
+    
+    switch indexPath.row {
+    
+    case 0:
+                
+        cell?.detailTextLabel?.text = "Review"
+                
+    case 1:
+        
+        cell?.detailTextLabel?.text = "\(CardCornersvalue.Corners_Value)"
+        
+    case 2:
+        
+        cell?.detailTextLabel?.text = "\(CardSurfacevalue.Corners_Value)"
+           
+    case 3:
+        
+        cell?.detailTextLabel?.text = "\(CardEdgesvalue.Corners_Value)"
+           
+    default:
+        cell?.detailTextLabel?.text = "Review"
+            
+    }
 
               return cell!
-      }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     

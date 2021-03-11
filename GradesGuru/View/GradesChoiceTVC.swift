@@ -16,11 +16,16 @@ var purpleimage = UIImage(named: "TVC_Border_Purple.svg")
 var whiteimage = UIImage(named: "TVC_Border.svg")
 var selectedCells = [Int:Double]()
 var selected_CardID = String()
+var GlobalAverage = Double()
+var GlobalPSA = Double()
+var GlobalBGS = Double()
+var GlobalSGC = Double()
 
 class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
   //  let loadingPlaceholderView = LoadingPlaceholderView()
     var GradingDownloadStatus = ["Corners":false,"Surface":false, "Edges":false]
+    var didselectcell = false
 
     var CenteringData = [String]()
     var menuView: BTNavigationDropdownMenu!
@@ -188,6 +193,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 var columnBStrings = [String]()
                 var columnCStrings = [String]()
                 
+                loadGradingdataSheet()
+                
                 for wbk in try file.parseWorkbooks() {
                             
                     let ws = try file.parseWorksheetPathsAndNames(workbook: wbk)
@@ -280,8 +287,9 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                     
                     Load_PSA_BGS_SGC(GradingType: chosenGrading)
                     
-                    
                 }
+                
+//                loadGradingdataSheet()
                 
                 
             } catch let error1 as NSError {
@@ -299,10 +307,11 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func loadGradingdataSheet() {
         
+        print("LOADING GRADING DATA SHEET")
+        
         let filename = "GradeEstimates"
         let filetype = "xlsx"
         let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
-        var sheetIndex = 0
         guard let file = XLSXFile(filepath: filepath) else {
             
           fatalError("XLSX file at \(filepath) is corrupted or does not exist")
@@ -373,29 +382,27 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                     
                                     let DefaultValue : Default_Grade_Values!
                                     
-                                    var GlobalPSA = String()
-                                    var GlobalBGS = String()
-                                    var GlobalSGC = String()
+                                   
                                     
-                                    if columnEStrings.contains(GlobalPSA) {
+                                    if columnEStrings.contains("\(GlobalPSA)") {
                                         
                                         
                                     for (index, value) in columnEStrings.enumerated() {
                                         
                                         
-                                        if value == GlobalPSA {
+                                        if value == "\(GlobalPSA)" {
                                             
                                             for (index1, myvalue1) in columnFStrings.dropLast(index).enumerated() {
                                                 
-                                                if myvalue1 == GlobalBGS {
+                                                if myvalue1 == "\(GlobalBGS)" {
                                                     
                                                     
                                                     for (index2, myvalue2) in columnFStrings.dropLast(index).enumerated() {
                                                         
                                                         
-                                                        if myvalue2 == GlobalSGC {
+                                                        if myvalue2 == "\(GlobalSGC)" {
                                                             
-                                                            print("GOT A HIT")
+                                                    print("GOT A HIT")
                                                             
                                                             print("Center columnAStrings[index2]: \(columnAStrings[index2])")
                                                             print("Corner columnBStrings[index2]:\(columnBStrings[index2])")
@@ -416,37 +423,20 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                             
                                         }
                                         
-//                                    DefaultValue = Default_Grade_Values(Center: columnAStrings[index], Corner: columnBStrings[index], Surface: columnCStrings[index], Edges: columnDStrings[index], PSA: columnEStrings[index], BGS: columnFStrings[index], SGC: columnGStrings[index])
-//
-//                                        Grade_Array.append(DefaultValue)
-                                        
                                         
                                     }
                                     
                                 }
                                         
-                                        
-                                        
-//                                        print("storedWorksheet[ChosenGrading]![0]: \(storedWorksheet[ChosenGrading]![0])")
+                            Save_Default_Grade_Values.saveGradesvalue(Default_GradesValues: Grade_Array)
 
-                                        //SaveGrades.savePSA(PSAValue: PSADetails1, Key: worksheetName)
-                                    
-                                    
-                                    Save_Default_Grade_Values.saveGradesvalue(Default_GradesValues: Grade_Array)
-//                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
-
-                        
-                                   
                                   
                                 }
                 
                             }
                             
-//                            sheetIndex += 1
                             
                           }
-                    
-//                    Load_PSA_BGS_SGC(GradingType: chosenGrading)
                     
                     
                 }
@@ -476,11 +466,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
         print("Load_PSA_BGS_SGC_GradingType\(GradingType)")
         
-//        if GradingDownloadStatus[ChosenGrading] == false {
-//
-//            loadingPlaceholderView.cover(view)
-//
-//        }
+        // LOADS DEFAULT PSA BGS AND SGC VALUES
         
         PSAGrade = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSAGrade
         PSADesc = LoadGrades.loadPSA(Key: storedWorksheet[GradingType]![0]).PSADesc
@@ -494,7 +480,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCDesc
         SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCState
 
-//        tableView.reloadData()
         
         LoadSelectedCells(ChosenGrading: ChosenGrading, Card_ID: selected_CardID)
         
@@ -502,11 +487,16 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func LoadSelectedCells(ChosenGrading: String, Card_ID: String) {
         
+        
         switch ChosenGrading {
         
         case "Corners":
             PSASelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedPSA ?? [0:0.0]
+            GlobalPSA = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).PSA ?? 0.0
+            
             BGSSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedBGS ?? [0:0.0]
+            GlobalBGS = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).BGS ?? 0.0
+            
             SGCSelected = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading).SelectedSGC ?? [0:0.0]
             
             print("Corners PSASelected, BGSSelected, SGCSelected: \(PSASelected), \(BGSSelected), \(SGCSelected)")
@@ -532,6 +522,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if didselectcell == true {
             
             didselectcell = false
+            
         } else {
             
             
@@ -540,7 +531,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
         
     }
-    var didselectcell = false
+  
     override func viewDidAppear(_ animated: Bool) {
         
         if selected_CardID.isEmpty {
@@ -625,6 +616,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             State = PSAState
             selectedCells = PSASelected
             
+            
         case 1:
 
             Grade = BGSGrade
@@ -670,10 +662,11 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         print("0.selectedCells: \(selectedCells)")
         print("selected_Segment in Cell for row at index path")
         
+        //using this Didselectcell Bool to reload data called under LoadSelectedCells function
+        
         didselectcell = true
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GradingCells
-
         let backgroundImage = UIImageView(frame: cell.bounds)
         backgroundImage.clipsToBounds = true
         backgroundImage.contentMode = .scaleToFill
@@ -687,10 +680,17 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             
             selectedCells.removeValue(forKey: indexPath.row)
-            print("1.selected cells: \(selectedCells)")
-
-            selected_Grading(Grading: ChosenGrading, Segment: selected_Segment)
             
+            print("After Removal selectedCells: \(selectedCells)")
+            
+            let allvalues = selectedCells.map(\.value)
+            let sum = allvalues.reduce(.zero, +)
+            let average = Double(sum) / Double(allvalues.count)
+            
+            print("average: \(average)")
+            print("1.selected cells: \(selectedCells)")
+            GlobalAverage = average
+            selected_Grading(Grading: ChosenGrading, Segment: selected_Segment)
 
         } else {
             
@@ -699,14 +699,43 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 print("2.Start: \(selectedCells)")
                 cell.backgroundView = UIImageView(image: purpleimage)
                 
-                let myselectedcells = Double(indexPath.row)
-
-                selectedCells[indexPath.row] = myselectedcells
+                var myselectedcells = String() //Double(indexPath.row)
                 
+                switch selected_Segment {
+                
+                case 0:
+                    
+                     myselectedcells = PSAGrade[indexPath.row]
+
+                case 1:
+
+                    myselectedcells = BGSGrade[indexPath.row]
+
+                case 2:
+
+                    myselectedcells = SGCGrade[indexPath.row]
+
+                default:
+                    break
+                }
+                
+                selectedCells[indexPath.row] = Double(myselectedcells)
                 
                 print("2.selected cells: \(selectedCells)")
                 
+                let allvalues1 = selectedCells.map(\.value)
+                let sum1 = allvalues1.reduce(.zero, +)
+                let average1 = Double(sum1) / Double(allvalues1.count)
+                
+                print("average1: \(average1)")
+                
+                GlobalAverage = average1
+                
                 selected_Grading(Grading: ChosenGrading, Segment: selected_Segment)
+                
+            } else {
+                
+                print("selectedCells.count is TWO --> \(selectedCells.count)")
                 
             }
             
@@ -727,14 +756,20 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                 case "Corners":
                     CardCornersvalue.SelectedPSA = selectedCells
+                    CardCornersvalue.PSA = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 case "Surface":
                     CardSurfacevalue.SelectedPSA = selectedCells
+                    CardSurfacevalue.PSA = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardSurfacevalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 case "Edges":
                     CardEdgesvalue.SelectedPSA = selectedCells
+                    CardEdgesvalue.PSA = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardEdgesvalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 default:
@@ -748,14 +783,20 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                 case "Corners":
                     CardCornersvalue.SelectedBGS = selectedCells
+                    CardCornersvalue.BGS = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 case "Surface":
                     CardSurfacevalue.SelectedBGS = selectedCells
+                    CardSurfacevalue.BGS = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardSurfacevalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 case "Edges":
                     CardEdgesvalue.SelectedBGS = selectedCells
+                    CardEdgesvalue.BGS = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardEdgesvalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 default:
@@ -771,16 +812,22 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 case "Corners":
                     
                     CardCornersvalue.SelectedSGC = selectedCells
+                    CardCornersvalue.SGC = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardCornersvalue, CardID: selected_CardID, ChosenGrading: Grading)
 
                 case "Surface":
 
                     CardSurfacevalue.SelectedSGC = selectedCells
+                    CardSurfacevalue.SGC = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardSurfacevalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 case "Edges":
                     
                     CardEdgesvalue.SelectedSGC = selectedCells
+                    CardEdgesvalue.SGC = GlobalAverage
+                    
                     SaveGrades.saveGradesvalue(GradesValue: CardEdgesvalue, CardID: selected_CardID, ChosenGrading: Grading)
                     
                 default:
