@@ -21,6 +21,9 @@ class ViewController: UIViewController {
    
     @IBOutlet var segmentioView: Segmentio!
     @IBOutlet var TitleView: UIView!
+    
+    @IBOutlet var myTableView: UITableView!
+    
 
     var content = [SegmentioItem]()
     let PSAtitle = SegmentioItem(title: "PSA", image: nil)
@@ -106,7 +109,145 @@ class ViewController: UIViewController {
             segmentioStyle: segmentioStyle
         )
         
+        let defaults = UserDefaults.standard
+        
+        if defaults.data(forKey: "\(selected_CardID),\(ChosenGrading)") != nil {
+        
+            for (index,value) in GradeDetails.enumerated() {
+                
+                LoadCardGradeValues(ChosenGrading: value, Card_ID: selected_CardID)
+                
+            }
+            
+        } else {
+            
+            let key = "\(selected_CardID),\(ChosenGrading)"
+            print("No data stored under \(key)")
+            
+        }
+        
     }
+    
+    var FinalValue = String()
+
+    
+    func SearchValues(PSA: Double, BGS: Double, SGC: Double, chosenGrading: String) -> Double {
+        
+        var columnAStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "A")
+        var columnBStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "B")
+        var columnCStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "C")
+        var columnDStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "D")
+        var columnEStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "E")
+        var columnFStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "F")
+        var columnGStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "G")
+
+        if columnFStrings.contains("\(GlobalPSA)") {
+            
+            print("columnEStrings.contains GlobalPSA: \(GlobalPSA)")
+            
+        for (index, value) in columnFStrings.enumerated() {
+            
+            print("Inside First For Loop Enumerated")
+            
+           if Double(value) == GlobalPSA {
+                
+                print("VALUE EQUALS GLOBAL PSA")
+                
+            if columnEStrings.contains("\(GlobalBGS)") {
+                
+                print("columnFStrings.contains GlobalBGS: \(GlobalBGS)")
+                
+               for (index1, myvalue1) in columnEStrings.dropLast(index).enumerated() {
+                    
+                  print("Inside SECOND FOR Loop Enumerated")
+                    print("For Loop GlobalBGS: \(GlobalBGS)")
+                    print("For Loop myvalue1: \(myvalue1)")
+                    
+                 if Double(myvalue1) == GlobalBGS {
+                        
+                    if columnGStrings.contains("\(GlobalSGC)") {
+                        
+                        print("Inside If GlobalBGS: \(GlobalBGS)")
+
+                         for (index2, myvalue2) in columnGStrings.dropLast(index1).enumerated() {
+                             
+                             print("Inside THIRD FOR Loop Enumerated")
+                             print("For Loop GlobalBGS: \(GlobalSGC)")
+                             print("For Loop myvalue2: \(myvalue2)")
+                             
+                             if Double(myvalue2) == GlobalSGC {
+                                 
+                                 print("GOT A HIT")
+                                 
+                                 print("GlobalSGC: \(GlobalSGC)")
+                                 
+                                 print("Center columnAStrings[index2]: \(columnAStrings[index2])")
+                                 print("Corner columnBStrings[index2]:\(columnBStrings[index2])")
+                                 print("Surface columnCStrings[index2]: \(columnCStrings[index2])")
+                                 print("Edges columnDStrings[index2]: \(columnDStrings[index2])")
+                                 
+                                 switch ChosenGrading {
+                                 
+                                 case "Corners":
+                                     FinalValue = "\(columnBStrings[index2])"
+                                     
+ //                                return Double(FinalValue)!
+                                     
+                                 case "Surface":
+                                     FinalValue = "\(columnCStrings[index2])"
+                                     
+ //                                return Double(FinalValue)!
+                                     
+                                 case "Edges":
+                                     FinalValue = "\(columnDStrings[index2])"
+ //                                return Double(FinalValue)!
+                                     
+                                 default:
+                                     break
+                                     
+                                 }
+                                 
+                            }
+                             
+                        }
+                        
+                        
+                    } else {
+                        
+                    print("GLOBAL SGC NOT AVAILABLE INSIDE THIS ARRAY")
+                        
+                        }
+                        
+                    }
+                    
+                }
+                
+            } else {
+                
+                
+                print("columnFStrings does not have this BGS value: \(GlobalBGS)")
+                
+            }
+                
+            } else {
+                
+                print("BGS NOT equal")
+            }
+            
+            }
+        
+            print("FinalValue: \(FinalValue)")
+            return Double(FinalValue)!
+            
+        } else {
+            
+            print("VALUE NOT AVAILABLE")
+            return 0.0
+            
+        }
+        
+    }
+    
     
     func LoadCardGradeValues(ChosenGrading: String, Card_ID: String) {
         
@@ -118,16 +259,26 @@ class ViewController: UIViewController {
             
             CardCornersvalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
             
+            CardCornersvalue.Corners_Value = SearchValues(PSA: CardCornersvalue.PSA!, BGS: CardCornersvalue.BGS!, SGC: CardCornersvalue.SGC!, chosenGrading: ChosenGrading)
+            
+            print("CardCornersvalue.Corners_Value: \(CardCornersvalue.Corners_Value)")
+            
             
         case "Surface":
             
             CardSurfacevalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
+            
+            CardSurfacevalue.Corners_Value = SearchValues(PSA: CardSurfacevalue.PSA!, BGS: CardSurfacevalue.BGS!, SGC: CardSurfacevalue.SGC!, chosenGrading: ChosenGrading)
            
+            print("CardSurfacevalue.Corners_Value: \(CardSurfacevalue.Corners_Value)")
             
         case "Edges":
             
             CardEdgesvalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
             
+            CardEdgesvalue.Corners_Value = SearchValues(PSA: CardEdgesvalue.PSA!, BGS: CardEdgesvalue.BGS!, SGC: CardEdgesvalue.SGC!, chosenGrading: ChosenGrading)
+            
+            print("CardEdgesvalue.Corners_Value: \(CardEdgesvalue.Corners_Value)")
             
         default:
             break
@@ -136,6 +287,7 @@ class ViewController: UIViewController {
             
             print("PSA, BGS, SGC: \(GlobalPSA), \(GlobalBGS), \(GlobalSGC)")
             
+        myTableView.reloadData()
     
     }
     
@@ -206,30 +358,6 @@ class ViewController: UIViewController {
         }
         
     }
-    
-//    private func initNavigationItemTitleView() {
-//        let titleView = UILabel()
-//        let subView = UILabel()
-//
-//        titleView.text = "Hello World"
-//        subView.text = "Subview"
-//
-//        titleView.font = UIFont(name: "HelveticaNeue-Medium", size: 17)
-//        subView.font = UIFont(name: "HelveticaNeue-Medium", size: 13)
-//
-//        let width = titleView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)).width
-//        let subwidth = subView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)).width
-//
-//        titleView.frame = CGRect(origin:CGPoint.zero, size:CGSize(width: width, height: 500))
-//        subView.frame = CGRect(origin:CGPoint.zero, size:CGSize(width: subwidth, height: 500))
-//
-//        self.navigationItem.titleView = titleView
-//        self.navigationItem.titleView?.addSubview(subView)
-//
-////        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController().titleWasTapped()))
-//
-//
-//    }
     
     @objc private func titleWasTapped() {
         NSLog("Hello, titleWasTapped!")
@@ -578,7 +706,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
     
     case 0:
                 
-        cell?.detailTextLabel?.text = "Review"
+        cell?.detailTextLabel?.text = "Centering Data"
                 
     case 1:
         

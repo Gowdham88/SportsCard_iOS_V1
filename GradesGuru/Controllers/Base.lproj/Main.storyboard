@@ -258,6 +258,7 @@
                         <outlet property="completeLbl" destination="xrf-eB-gtB" id="mWH-8N-FcY"/>
                         <outlet property="frontScanBtn" destination="Jdy-2n-yZM" id="DYX-vY-DqP"/>
                         <outlet property="gradeEstLbl" destination="EHy-sQ-UO2" id="siR-Aa-omo"/>
+                        <outlet property="myTableView" destination="47n-FV-hOJ" id="Zfn-KP-gfL"/>
                         <outlet property="scanBackPage" destination="Gkr-t9-vOQ" id="05m-94-WEL"/>
                         <outlet property="scanfrontPage" destination="vAA-I7-ykr" id="rMU-eH-JQH"/>
                         <outlet property="segmentioView" destination="isk-CK-yxl" id="eaL-Ib-4bx"/>

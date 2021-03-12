@@ -26,7 +26,7 @@
 		C35F253725DC2221007BD420 /* UIFont+ExampleFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */; };
 		C35F253825DC2221007BD420 /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253425DC2221007BD420 /* String+Convenience.swift */; };
 		C35F253925DC2221007BD420 /* UINavigationBar+Flat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */; };
-		C360869B25F89BCE00666FFE /* GradeEstimates.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C360869A25F89BCE00666FFE /* GradeEstimates.xlsx */; };
+		C36435A525FB92D200C6611A /* GradeEstimates.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = C36435A425FB92D200C6611A /* GradeEstimates.xlsx */; };
 		C3697C6725F64E4900CE81EA /* GetGrading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3697C6625F64E4900CE81EA /* GetGrading.swift */; };
 		C36A7C0B25E8E39D00EAAC8A /* CenteringTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
@@ -132,7 +132,7 @@
 		C35F253325DC2221007BD420 /* UIFont+ExampleFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+ExampleFonts.swift"; path = "SegmentView/UIFont+ExampleFonts.swift"; sourceTree = "<group>"; };
 		C35F253425DC2221007BD420 /* String+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Convenience.swift"; path = "SegmentView/String+Convenience.swift"; sourceTree = "<group>"; };
 		C35F253525DC2221007BD420 /* UINavigationBar+Flat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Flat.swift"; path = "SegmentView/UINavigationBar+Flat.swift"; sourceTree = "<group>"; };
-		C360869A25F89BCE00666FFE /* GradeEstimates.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = GradeEstimates.xlsx; sourceTree = "<group>"; };
+		C36435A425FB92D200C6611A /* GradeEstimates.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = GradeEstimates.xlsx; sourceTree = "<group>"; };
 		C3697C6625F64E4900CE81EA /* GetGrading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGrading.swift; sourceTree = "<group>"; };
 		C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringTVC.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 		C37D1DCD25BD29930002D9AC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C360869A25F89BCE00666FFE /* GradeEstimates.xlsx */,
+				C36435A425FB92D200C6611A /* GradeEstimates.xlsx */,
 				C38E08FB25DE8A2400C43A10 /* Centering.xlsx */,
 				C38E08F825DE8A2400C43A10 /* Corners.xlsx */,
 				C38E08FA25DE8A2400C43A10 /* Edges.xlsx */,
@@ -573,7 +573,7 @@
 			files = (
 				C381EFBF2519F8A300C7E4C6 /* Muli-Bold.ttf in Resources */,
 				C381EFC02519F8A300C7E4C6 /* Muli-ExtraBold.ttf in Resources */,
-				C360869B25F89BCE00666FFE /* GradeEstimates.xlsx in Resources */,
+				C36435A525FB92D200C6611A /* GradeEstimates.xlsx in Resources */,
 				C381EFC12519F8A300C7E4C6 /* Muli-BlackItalic.ttf in Resources */,
 				C381EFC22519F8A300C7E4C6 /* Muli-Regular.ttf in Resources */,
 				C38E08FD25DE8A2400C43A10 /* Surface.xlsx in Resources */,

@@ -38,7 +38,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             defaults.setValue(CardNumber, forKey: "cardNumber")
             //calling if loading for the first time
 
-
             
         }
         

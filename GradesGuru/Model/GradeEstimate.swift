@@ -81,6 +81,25 @@ class Save_Default_Grade_Values {
     
         }
     
+    static func saveGradesArrayStrings(ArrayStrings: [String], column: String) {
+        
+        let key = "GradesArrayStrings\(column)"
+        
+        print("Grades Saved Key, \(key)")
+
+        let defaults =  UserDefaults.standard
+           
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: ArrayStrings, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                    else {
+                fatalError("Can't encode data")
+            }
+    
+            defaults.set(encodedData, forKey: key)
+    
+        }
+    
 }
 
 class Load_Default_Grade_Values {
@@ -98,5 +117,19 @@ class Load_Default_Grade_Values {
             return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [Default_Grade_Values]
         }
     
+    
+    static func LoadGradesArrayStrings(column: String) -> [String] {
+        
+        let key = "GradesArrayStrings\(column)"
+        
+        print("Load Grades Key, \(key)")
+
+        let defaults =  UserDefaults.standard
+           
+        let data = defaults.data(forKey: key)
+
+        return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [String]
+    
+    }
   
 }
