@@ -67,9 +67,7 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func LoadCardIDS()  {
         
         let saveCardsIDs = "SaveCardIDS_\(Usersdetails.device_ID!)"
-        
         cardImages.removeAll()
-
         
         print("saveCardsIDs: \(saveCardsIDs)")
         if UserDefaults.standard.object(forKey: saveCardsIDs) != nil {
@@ -80,7 +78,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             tabBar.isHidden = false
             
             CardIDs = LoadCards.loadCardIDs(Device_ID: Usersdetails.device_ID!)
-            
             
             for cardID in CardIDs {
                 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import CoreXLSX
 import BTNavigationDropdownMenu
 import Segmentio
@@ -407,7 +408,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                     
 
                                         
-                            Save_Default_Grade_Values.saveGradesvalue(Default_GradesValues: Grade_Array)
+                                    Save_Default_Grade_Values.saveGradesvalue(Default_GradesValues: Grade_Array, PSAKey: String(GlobalPSA))
 
                                   
                                 }

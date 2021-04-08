@@ -14,11 +14,11 @@ class Default_Grade_Values: NSObject, NSCoding {
     var Corner: String?
     var Surface: String?
     var Edges: String?
-    var PSA: Double?
-    var BGS: Double?
-    var SGC: Double?
+    var PSA: String?
+    var BGS: String?
+    var SGC: String?
     
-    init(Center: String, Corner: String, Surface: String, Edges: String, PSA: Double, BGS: Double, SGC: Double) {
+    init(Center: String, Corner: String, Surface: String, Edges: String, PSA: String, BGS: String, SGC: String) {
         
         self.Center = Center
         self.Corner = Corner
@@ -37,9 +37,9 @@ class Default_Grade_Values: NSObject, NSCoding {
         self.Corner = (aDecoder.decodeObject(forKey: "Corner") as! String)
         self.Surface = (aDecoder.decodeObject(forKey: "Surface") as! String)
         self.Edges = (aDecoder.decodeObject(forKey: "Edges") as! String)
-        self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! Double)
-        self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! Double)
-        self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! Double)
+        self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! String)
+        self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! String)
+        self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! String)
         
         super.init()
         
@@ -62,9 +62,9 @@ class Default_Grade_Values: NSObject, NSCoding {
 
 class Save_Default_Grade_Values {
     
-    static func saveGradesvalue(Default_GradesValues: [Default_Grade_Values]) {
+    static func saveGradesvalue(Default_GradesValues: [Default_Grade_Values], PSAKey:String) {
         
-        let key = "Default_Grade_Values"
+        let key = "Default_Grade_Values\(PSAKey)"
         
         print("Grades Saved Key CardID, \(key)")
 
@@ -104,11 +104,10 @@ class Save_Default_Grade_Values {
 
 class Load_Default_Grade_Values {
     
-    static func loadGradesvalue() -> [Default_Grade_Values]  {
+    static func loadGradesvalue(PSAKey: String) -> [Default_Grade_Values]  {
            
             let defaults =  UserDefaults.standard
-            let key = "Default_Grade_Values"
-
+            let key = "Default_Grade_Values\(PSAKey)"
 
             print("Grades Loaded, CardID -Key : \(key)")
         
@@ -116,7 +115,6 @@ class Load_Default_Grade_Values {
     
             return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! [Default_Grade_Values]
         }
-    
     
     static func LoadGradesArrayStrings(column: String) -> [String] {
         

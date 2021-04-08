@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Segmentio
 
 var ChosenGrading = String()
@@ -130,6 +131,7 @@ class ViewController: UIViewController {
     
     var FinalValue = String()
 
+   
     
     func SearchValues(PSA: Double, BGS: Double, SGC: Double, chosenGrading: String) -> Double {
         
@@ -141,21 +143,51 @@ class ViewController: UIViewController {
         var columnFStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "F")
         var columnGStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "G")
 
-        if columnFStrings.contains("\(GlobalPSA)") {
+        
+        let stringGlobalPSA = String(GlobalPSA)
+        print("stringGlobalPSA\(stringGlobalPSA)")
+        
+        
+        let result = columnFStrings.contains(where: stringGlobalPSA.contains)
+        print(result)
+        
+        let itemExists = columnFStrings.contains(where: {
+            $0.range(of: stringGlobalPSA, options: .caseInsensitive) != nil
+        })
+        print(itemExists)
+
+        let matchingTerms = columnFStrings.filter({
+            $0.range(of: stringGlobalPSA, options: .caseInsensitive) != nil
+        })
+        print(matchingTerms)
+        
+        let findIndex = columnFStrings.firstIndex(of: stringGlobalPSA)
+        
+        print("findIndex: \(findIndex)")
+        
+//        let searchText = columnFStrings.filter { $0.contains(GlobalPSA) }
+        
+//        print("searchText\(searchText)")
+        
+        
+//        if columnFStrings.contains("\(GlobalPSA)") {
             
-            print("columnEStrings.contains GlobalPSA: \(GlobalPSA)")
+            print("GlobalPSA: \(GlobalPSA)")
             
+        
         for (index, value) in columnFStrings.enumerated() {
             
             print("Inside First For Loop Enumerated")
             
+            
+            
            if Double(value) == GlobalPSA {
                 
                 print("VALUE EQUALS GLOBAL PSA")
+            /*
+//            if columnEStrings.contains("\(GlobalBGS)") {
                 
-            if columnEStrings.contains("\(GlobalBGS)") {
-                
-                print("columnFStrings.contains GlobalBGS: \(GlobalBGS)")
+                print("GlobalBGS: \(GlobalBGS)")
                 
                for (index1, myvalue1) in columnEStrings.dropLast(index).enumerated() {
                     
@@ -165,7 +197,7 @@ class ViewController: UIViewController {
                     
                  if Double(myvalue1) == GlobalBGS {
                         
-                    if columnGStrings.contains("\(GlobalSGC)") {
+//                    if columnGStrings.contains("\(GlobalSGC)") {
                         
                         print("Inside If GlobalBGS: \(GlobalBGS)")
 
@@ -212,39 +244,40 @@ class ViewController: UIViewController {
                         }
                         
                         
-                    } else {
-                        
-                    print("GLOBAL SGC NOT AVAILABLE INSIDE THIS ARRAY")
-                        
-                        }
+//                    } else {
+//
+//                    print("GLOBAL SGC NOT AVAILABLE INSIDE THIS ARRAY")
+//
+//                        }
                         
                     }
                     
                 }
                 
-            } else {
-                
-                
-                print("columnFStrings does not have this BGS value: \(GlobalBGS)")
-                
-            }
+//            } else {
+//
+//
+//                print("columnFStrings does not have this BGS value: \(GlobalBGS)")
+//
+//            }*/
                 
             } else {
                 
                 print("BGS NOT equal")
             }
             
+            
             }
         
             print("FinalValue: \(FinalValue)")
             return Double(FinalValue)!
             
-        } else {
-            
-            print("VALUE NOT AVAILABLE")
-            return 0.0
-            
-        }
+//        } else {
+//
+//            print("VALUE NOT AVAILABLE")
+//            return 0.0
+//
+//        }
         
     }
     
@@ -290,8 +323,6 @@ class ViewController: UIViewController {
         myTableView.reloadData()
     
     }
-    
-    
     
     @objc func scanFrontPage(tapGestureRecognizer: UITapGestureRecognizer) {
         selected_img = "front_img"
