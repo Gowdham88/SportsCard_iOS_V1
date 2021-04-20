@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Grading_Standards@3x.png",
+      "filename" : "Grading_Standards.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

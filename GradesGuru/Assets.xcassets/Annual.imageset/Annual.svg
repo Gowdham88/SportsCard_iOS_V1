@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159" height="156" viewBox="0 0 159 156">
+  <defs>
+    <filter id="Rectangle_56" x="0" y="0" width="159" height="156" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#5375fc" flood-opacity="0.153"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_136" data-name="Group 136" transform="translate(-29 -229)">
+    <g transform="matrix(1, 0, 0, 1, 29, 229)" filter="url(#Rectangle_56)">
+      <g id="Rectangle_56-2" data-name="Rectangle 56" transform="translate(15 15)" fill="#fff" stroke="#5375fc" stroke-width="2">
+        <rect width="129" height="126" rx="10" stroke="none"/>
+        <rect x="1" y="1" width="127" height="124" rx="9" fill="none"/>
+      </g>
+    </g>
+    <text id="Annual" transform="translate(81 287)" fill="#00d663" font-size="16" font-family="Muli-Bold, Muli" font-weight="700" letter-spacing="0.004em"><tspan x="0" y="0">Annual</tspan></text>
+    <text id="_2.50_month" data-name="$2.50 / month" transform="translate(66 312)" fill="#06012f" font-size="13" font-family="Muli-Bold, Muli" font-weight="700" letter-spacing="0.004em"><tspan x="0" y="0">$2.50 / month</tspan></text>
+    <text id="Billed_Yearly_29.99" data-name="Billed Yearly @ $29.99" transform="translate(57 355)" fill="#7a8fa6" font-size="10" font-family="Muli-Light, Muli" font-weight="300" letter-spacing="0.004em"><tspan x="0" y="0">Billed Yearly @ $29.99</tspan></text>
+    <path id="Path_118" data-name="Path 118" d="M10,0H65A10,10,0,0,1,75,10v2A10,10,0,0,1,65,22H0V10A10,10,0,0,1,10,0Z" transform="translate(44 245)" fill="#5375fc"/>
+    <text id="SAVE_50_" data-name="SAVE 50%" transform="translate(56 259)" fill="#fff" font-size="10" font-family="Muli-Bold, Muli" font-weight="700" letter-spacing="0.004em"><tspan x="0" y="0">SAVE 50%</tspan></text>
+  </g>
+</svg>

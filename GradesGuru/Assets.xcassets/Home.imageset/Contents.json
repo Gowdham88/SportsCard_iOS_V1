@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "surface1.png",
+      "filename" : "Graph_Icon.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,9 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "auto-scaling" : "auto",
+    "template-rendering-intent" : "original"
   }
 }

@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import StoreKit
+import MessageUI
+import SafariServices
 
-class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource,UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     var sideMenu = ["Go Pro", "Grading Standards", "About Us", "Contact Us", "Rate Us", "Recommend To a Friend", "Terms & Privacy"]
     
@@ -23,12 +27,51 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0)
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //        self.navigationController?.view.backgroundColor = .clear
         
+    }
+    
+    //Mark: Share the app link to friends
+    func shareApp() {
+        if let urlStr = NSURL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8") {
+            let objectsToShare = [urlStr]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                if let popup = activityVC.popoverPresentationController {
+                    popup.sourceView = self.view
+                    popup.sourceRect = CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0)
+                }
+            }
+
+            self.present(activityVC, animated: true, completion: nil)
+        }
+
+    }
+    
+    //Mark: App store rating
+    func rateApp() {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+
+        } else if let url = URL(string: "itms-apps://itunes.apple.com/app/" + "appId") {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
+    // MARK: - Email Delegate
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -46,28 +89,53 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! sideMenuCell
-        
+        cell.backgroundColor = UIColor(red: 83.0/255.0, green: 117.0/255.0, blue: 252.0/255.0, alpha: 1.0)
         cell.sideMenuTitle.text = sideMenu[indexPath.row]
         cell.sidemenuImage.image = sideMenuImages[indexPath.row]
         
-                
-
         // Configure the cell...
 
         return cell
     }
     
-    func ModalRepFullScreen(Storyboard: String, Identifier: String) {
-        
-        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
+//    fileprivate func whitespaceString(font: UIFont = UIFont.systemFont(ofSize: 15), width: CGFloat) -> String {
+//        let kPadding: CGFloat = 20
+//        let mutable = NSMutableString(string: "")
+//        let attribute = [NSAttributedString.Key.font: font]
+//        while mutable.size(withAttributes: attribute).width < width - (2 * kPadding) {
+//            mutable.append(" ")
+//        }
+//        return mutable as String
+//    }
+//
+//   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let whitespace = whitespaceString(width: kCellActionWidth)
+//        let deleteAction = UITableViewRowAction(style: .`default`, title: whitespace) { (action, indexPath) in
+//            // do whatever you want
+//        }
+//
+//        // create a color from patter image and set the color as a background color of action
+//        let kActionImageSize: CGFloat = 34
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: kCellActionWidth, height: kCellHeight))
+//        view.backgroundColor = UIColor.white
+//        let imageView = UIImageView(frame: CGRect(x: (kCellActionWidth - kActionImageSize) / 2,
+//                                                  y: (kCellHeight - kActionImageSize) / 2,
+//                                                  width: 34,
+//                                                  height: 34))
+//        imageView.image = UIImage(named: "x")
+//        view.addSubview(imageView)
+//        let image = view.image()
+//
+//        deleteAction.backgroundColor = UIColor(patternImage: image)
+//
+//        return [deleteAction]
+//    }
+  
+    
+   
+    
+    
 
-        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
-        
-        vc.modalPresentationStyle = .fullScreen
-        
-        self.present(vc, animated: true, completion: nil)
-        
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 
@@ -78,27 +146,49 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         case 0:
         print("Go Pro")
         
-        ModalRepFullScreen(Storyboard: "Main", Identifier: "GoPro")
-
+        presentDetail(Storyboard: "Main", Identifier: "GoPro")
+            
         case 1:
         print("Grading Standards")
         
         case 2:
         print("About Us")
         
-        ModalRepFullScreen(Storyboard: "Main", Identifier: "aboutUs")
-        
+        presentDetail(Storyboard: "Main", Identifier: "aboutUs")
+
         case 3:
         print("Contact Us")
+            if MFMailComposeViewController.canSendMail(){
+                let vc = MFMailComposeViewController()
+                vc.delegate = self
+                vc.setSubject("Grade Guru Support")
+                vc.setToRecipients(["sportscardsscience@gmail.com"])
+                vc.setMessageBody("Please let us know about any issues, feature request or anything else in your mind!", isHTML: true)
+        //        vc.addAttachmentData(<#T##attachment: Data##Data#>, mimeType: "plain", fileName: v)
+                present(vc, animated: true)
+            }else{
+                if let url = URL(string: "message://") {
+                  if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                  } else {
+                    UIApplication.shared.openURL(url)
+                  }
+                }
+            }
+          
         
         case 4:
         print("Rate Us")
+        rateApp()
+         
         
         case 5:
         print("Recommend To a Friend")
+        shareApp()
         
         case 6:
         print("Terms and Privacy Us")
+//        ModalRepFullScreen(Storyboard: "Card", Identifier: "newTabbarController")
         
         default:
             break
@@ -152,4 +242,49 @@ class SideMenuTVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     */
 
+
+
+    func presentDetail(Storyboard: String, Identifier: String) {
+        
+        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
+        
+
+
+        
+        let transition = CATransition()
+        transition.duration = 0.25
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.view.window!.layer.add(transition, forKey: kCATransition)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+        
+    }
+
 }
+
+
+    /*func ModalRepFullScreen(Storyboard: String, Identifier: String) {
+        
+        let storyboard = UIStoryboard(name: Storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Identifier)
+//        vc.modalPresentationStyle = .fullScreen
+//        let transition = CATransition()
+//        transition.duration = 0.25
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        self.view.window!.layer.add(transition, forKey: kCATransition)
+//
+//        self.present(vc, animated: false, completion: nil)
+        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
+        
+    }*/
