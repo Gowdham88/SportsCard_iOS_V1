@@ -313,6 +313,7 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let filename = "GradeEstimates"
         let filetype = "xlsx"
         let filepath : String = Bundle.main.path(forResource: filename, ofType: filetype)!
+        
         guard let file = XLSXFile(filepath: filepath) else {
             
           fatalError("XLSX file at \(filepath) is corrupted or does not exist")
@@ -386,6 +387,12 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                     
                                     Save_Default_Grade_Values.saveGradesArrayStrings(ArrayStrings: columnFStrings, column: "F")
                                     
+                                    for (index, value) in columnFStrings.enumerated() {
+                                                                            
+                                        print("columnFStrings[index]: \(columnFStrings[index])")
+                                                                        
+                                    }
+                                    
                                     //COLUMN G
                                     columnGStrings = worksheet.cells(atColumns: [ColumnReference("G")!])
                                      .compactMap { $0.stringValue(sharedStrings) }
@@ -401,23 +408,19 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //                                        PSADesc = columnBStrings
 //                                        PSAState = columnCStrings
                                     
-                                    var Grade_Array = [Default_Grade_Values]()
+                                    let Grade_Array = [Default_Grade_Values]()
                                     
                                     let DefaultValue : Default_Grade_Values!
                                     
+                                    print("Grade_Array: \(Grade_Array)")
                                     
-
-                                        
                                     Save_Default_Grade_Values.saveGradesvalue(Default_GradesValues: Grade_Array, PSAKey: String(GlobalPSA))
-
                                   
-                                }
-                
                             }
+                
+                        }
                             
-                            
-                          }
-                    
+                    }
                     
                 }
                 

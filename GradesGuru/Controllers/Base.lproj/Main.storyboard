@@ -382,7 +382,7 @@ estimate.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kpf-VM-6Wh">
-                                <rect key="frame" x="38" y="72" width="348" height="486"/>
+                                <rect key="frame" x="38" y="73" width="348" height="576"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Grade Guru is here to help you decide which cards to grade!
@@ -391,15 +391,10 @@ estimate.</string>
 
 - Self-evaluate corners, edges and surface
 
-- Estimate overall grades
-
 - View grading standards of the major grading companies
 
 While Grade Guru helps guide you through this
-process, YOU are the one actually evaluating your
-cards. Therefore, Grade Guru does not make any
-guarantee about the actual grade your cards may
-receive.
+process, YOU are the one actually evaluating your cards. Therefore, Grade Guru does not make any guarantee about the actual grade your cards may receive.
 
 To get started
 
@@ -409,9 +404,9 @@ To get started
 
 - Review corners, edges and surface
 
-- Get your Grade Estimate!</string>
+- Based on those 4 scores, select the Overall Grade that best matches your card</string>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -429,7 +424,7 @@ To get started
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImT-RJ-U5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3109" y="-982"/>
+            <point key="canvasLocation" x="3108.6956521739135" y="-982.33695652173924"/>
         </scene>
         <!--Go Pro-->
         <scene sceneID="5mg-gI-Yqp">
@@ -1328,36 +1323,36 @@ To get started
                                         <viewLayoutGuide key="frameLayoutGuide" id="cQT-W0-MLi"/>
                                     </scrollView>
                                     <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAV-ff-icm">
-                                        <rect key="frame" x="30" y="0.0" width="15" height="550"/>
+                                        <rect key="frame" x="30" y="0.0" width="4" height="550"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.77391284699999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="beV-YG-qgV" appends="YES" id="RAb-5n-OUV"/>
                                         </connections>
                                     </view>
                                     <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0l-p1-Crn">
-                                        <rect key="frame" x="0.0" y="50" width="380" height="15"/>
+                                        <rect key="frame" x="0.0" y="50" width="380" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.77391284699999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="lu4-uN-9ic" appends="YES" id="Zxi-77-BOh"/>
                                         </connections>
                                     </view>
                                     <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lqw-Vr-wSk">
-                                        <rect key="frame" x="330" y="0.0" width="15" height="550"/>
+                                        <rect key="frame" x="330" y="0.0" width="4" height="550"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.77391284699999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Mqi-kh-hm6" appends="YES" id="35k-dg-Cp4"/>
                                         </connections>
                                     </view>
                                     <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rj6-9E-YcC">
-                                        <rect key="frame" x="0.0" y="500" width="380" height="15"/>
+                                        <rect key="frame" x="0.0" y="500" width="380" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.77391284699999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="BXZ-W6-1mT" appends="YES" id="3Tz-rV-geD"/>
