@@ -15,6 +15,7 @@ import VisionKit
 
 var PanView : String = "one"
 var CroppedImage: UIImage!
+var centeringImage: UIImage!
 
 var borderview1XY : BorderView = BorderView(id: 1, x: 10.0, y: 0.0, scale: 1.03)
 var borderview2XY : BorderView = BorderView(id: 2, x: 0.0, y: 20.0, scale: 1.03)
@@ -38,7 +39,8 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
     var NewCropImage = UIImage()
     
     var textRecognitionRequest = VNRecognizeTextRequest(completionHandler: nil)
-       private let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
+       
+    private let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
    
     let defaults =  UserDefaults.standard
     var scaledX : CGFloat!
@@ -47,22 +49,28 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
     var border2Scale: CGFloat!
     var border3Scale: CGFloat!
     var border4Scale: CGFloat!
-    var myImage = UIImage(named: "Dummy_Sportscard1")
+    //var myImage = UIImage(named: "Dummy_Sportscard1")
+    
+    @IBAction func back_Button(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+    
+//        centeringImage = UIImage(named: "Dummy_Sportscard1")
 //        setupVision()
         
         print("View did load")
         
         contentView.alpha = 1
-        borderview1.alpha = 0
-        borderview2.alpha = 0
-        borderview3.alpha = 0
-        borderview4.alpha = 0
+//        borderview1.alpha = 1
+//        borderview2.alpha = 1
+//        borderview3.alpha = 1
+//        borderview4.alpha = 1
         
         print("contentView.frame.width: \(contentView.frame.width)")
         print("contentView.frame.height: \(contentView.frame.height)")
@@ -71,16 +79,17 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
         ImageScrollView.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         ImageScrollView.imageContentMode = .aspectFit
-        
-        borderview1.frame = CGRect(x: 20, y: 0, width: 15, height: ImageScrollView.frame.height)
-        borderview3.frame = CGRect(x: ImageScrollView.frame.width, y: 0, width: 15, height: ImageScrollView.frame.height)
-
-        borderview2.frame = CGRect(x: 0, y: 50, width: ImageScrollView.frame.width, height: 15)
-        borderview4.frame = CGRect(x: 0, y: ImageScrollView.frame.width, width: ImageScrollView.frame.width, height: 15)
-        
         ImageScrollView.setup()
-        ImageScrollView.display(image: myImage!)
-        ImageScrollView.imageScrollViewDelegate = self
+        
+        borderview1.frame = CGRect(x: 20, y: 0, width: 4, height: ImageScrollView.frame.height)
+        borderview3.frame = CGRect(x: ImageScrollView.frame.width, y: 0, width: 4, height: ImageScrollView.frame.height)
+
+        borderview2.frame = CGRect(x: 0, y: 50, width: ImageScrollView.frame.width, height: 4)
+        borderview4.frame = CGRect(x: 0, y: ImageScrollView.frame.width, width: ImageScrollView.frame.width, height: 4)
+        
+       
+//        ImageScrollView.display(image: centeringImage!)
+//        ImageScrollView.imageScrollViewDelegate = self
       
 //        ImageScrollView.addSubview(borderview2)
 //        ImageScrollView.addSubview(borderview3)
@@ -92,6 +101,8 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 //        borderview3.autoresizesSubviews = true
 //        borderview4.autoresizesSubviews = true
 //
+        
+        processImage(centeringImage)
         
     }
     
@@ -119,7 +130,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
         print("ImageScrollView.contentSize: \(ImageScrollView.contentSize)")
         print("contentView.frame.size: \(contentView.frame.size)")
-        print("myImage?.size: \(myImage?.size)")
+        print("myImage?.size: \(centeringImage?.size)")
         print("frame1.origin.x: \(frame1.origin.x)")
         print("frame1.origin.y: \(frame1.origin.y)")
         print("frame2.origin.x: \(frame2.origin.x)")
@@ -167,9 +178,9 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         borderview3XY = SaveUtil.loadBorder3()
         borderview4XY = SaveUtil.loadBorder4()
         
-        let leftPixelsBorder1 = borderview1XY.x + 15
+        let leftPixelsBorder1 = borderview1XY.x + 4
         let RightPixelsXBorder3 = ImageScrollView.frame.width - borderview3XY.x
-        let TopPixelsBorder2 = borderview2XY.y + 15
+        let TopPixelsBorder2 = borderview2XY.y + 4
         let BottomPixelsBorder4 = ImageScrollView.frame.height - borderview4XY.y
        
         
@@ -303,7 +314,9 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
        ImageScrollView.addSubview(borderview2)
        ImageScrollView.addSubview(borderview3)
        ImageScrollView.addSubview(borderview4)
-               
+        
+//        ImageScrollView.sendSubviewToBack(contentView)
+//        borderview1.bringSubviewToFront(ImageScrollView)
 //       borderview1.clipsToBounds = true
 //       borderview2.clipsToBounds = true
 //       borderview3.clipsToBounds = true
@@ -312,7 +325,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         //        ImageScrollView.addSubview(borderview2)
         //        ImageScrollView.addSubview(borderview3)
         //        ImageScrollView.addSubview(borderview4)
-        ImageScrollView.autoresizesSubviews = true
+//        ImageScrollView.autoresizesSubviews = true
         
         borderview1.alpha = 1
         borderview2.alpha = 1
@@ -411,7 +424,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
         if gestureView.frame.origin.x > ImageScrollView.contentSize.width / 2 - 10 {
             
-            gestureView.frame = CGRect(x: ImageScrollView.contentSize.width/2 - 10, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+            gestureView.frame = CGRect(x: ImageScrollView.contentSize.width/2 - 10, y: 0, width: 4, height: ImageScrollView.contentSize.height + 10)
             
                         borderview1XY.id = 1
                         borderview1XY.x = ImageScrollView.contentSize.width / 2 - 10
@@ -425,7 +438,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                         
         } else if gestureView.frame.origin.x < 20 {
             
-            gestureView.frame = CGRect(x: 20, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+            gestureView.frame = CGRect(x: 20, y: 0, width: 4, height: ImageScrollView.contentSize.height + 10)
             
                             borderview1XY.id = 1
                            borderview1XY.x = 20
@@ -437,7 +450,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
             
         } else {
             
-            gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+            gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 4, height: ImageScrollView.contentSize.height + 10)
             
                         borderview1XY.id = 1
                         borderview1XY.x = gestureView.frame.origin.x
@@ -446,7 +459,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                         
                         let bordercategory = BorderView(id: borderview1XY.id, x: borderview1XY.x, y: borderview1XY.y, scale: border1Scale)
                         SaveUtil.saveBorder(borderview: bordercategory)
-            //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+            //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
         }
         
             gesture.minimumNumberOfTouches =  1
@@ -490,7 +503,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
               
                     if gestureView.frame.origin.y > ImageScrollView.contentSize.height / 2 - 10 {
                         
-                    gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 - 10, width: ImageScrollView.contentSize.width, height: 15)
+                    gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 - 10, width: ImageScrollView.contentSize.width, height: 4)
                         
                       borderview2XY.id = 2
                       borderview2XY.x = frame.origin.x
@@ -503,7 +516,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                                     
                     } else if gestureView.frame.origin.y < 30 {
                         
-                    gestureView.frame = CGRect(x: 0, y: 30, width: ImageScrollView.contentSize.width, height: 15)
+                    gestureView.frame = CGRect(x: 0, y: 30, width: ImageScrollView.contentSize.width, height: 4)
                       
                       borderview2XY.id = 2
                       borderview2XY.x = frame.origin.x
@@ -523,7 +536,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                         let bordercategory2 = BorderView(id: borderview2XY.id, x: borderview2XY.x, y: borderview2XY.y, scale: border2Scale)
                         SaveUtil.saveBorder2(borderview: bordercategory2)
                       
-                        //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+                        //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
                     }
                     
                     gesture.minimumNumberOfTouches =  1
@@ -562,7 +575,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
               
               if gestureView.frame.origin.x > ImageScrollView.contentSize.width - 30 {
                   
-                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width - 30, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width - 30, y: 0, width: 4, height: ImageScrollView.contentSize.height + 10)
                   
                               borderview3XY.id = 3
                               borderview3XY.x = ImageScrollView.contentSize.width - 30
@@ -574,7 +587,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
               } else if gestureView.frame.origin.x < ImageScrollView.contentSize.width / 2 + 10 {
                   
-                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width / 2 + 10, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width / 2 + 10, y: 0, width: 4, height: ImageScrollView.contentSize.height + 10)
                 
                               borderview3XY.id = 3
                               borderview3XY.x = ImageScrollView.contentSize.width / 2 + 10
@@ -587,7 +600,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                   
               } else {
                   
-                gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 4, height: ImageScrollView.contentSize.height + 10)
                 
                               borderview3XY.id = 3
                               borderview3XY.x = gestureView.frame.origin.x
@@ -596,7 +609,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
                               let bordercategory3 = BorderView(id: borderview3XY.id, x: borderview3XY.x, y: borderview3XY.y, scale: border3Scale)
                               SaveUtil.saveBorder3(borderview: bordercategory3)
-                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
               }
               
               gesture.minimumNumberOfTouches = 1
@@ -635,7 +648,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
               if gestureView.frame.origin.y > ImageScrollView.contentSize.height - 30 {
                   
-                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height - 30, width: ImageScrollView.contentSize.width, height: 15)
+                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height - 30, width: ImageScrollView.contentSize.width, height: 4)
                   
                 borderview4XY.id = 4
                 borderview4XY.x = frame.origin.x
@@ -648,7 +661,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
               } else if gestureView.frame.origin.y < ImageScrollView.contentSize.height / 2 + 10 {
                   
-                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 + 10, width: ImageScrollView.contentSize.width, height: 15)
+                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 + 10, width: ImageScrollView.contentSize.width, height: 4)
                 
                     borderview4XY.id = 4
                     borderview4XY.x = frame.origin.x
@@ -669,7 +682,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
                         SaveUtil.saveBorder4(borderview: bordercategory4)
                 
-                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
               }
               
               gesture.minimumNumberOfTouches =  1
@@ -781,7 +794,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                  
                  if scaleFactorX > imagecontentSizewidth / 2 - 20 {
                      
-                     borderview1.frame = CGRect(x: imagecontentSizewidth / 2 - 20, y: 0, width: 15, height: imagecontentSizeheight)
+                     borderview1.frame = CGRect(x: imagecontentSizewidth / 2 - 20, y: 0, width: 4, height: imagecontentSizeheight)
                      
                      border1Scale =  (imagecontentSizewidth) / (imagecontentSizewidth * 0.5 - 20)
                      
@@ -791,7 +804,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                      
                  } else if scaleFactorX < 20 {
                      
-                     borderview1.frame = CGRect(x: 20, y: 0, width: 15, height: imagecontentSizeheight)
+                     borderview1.frame = CGRect(x: 20, y: 0, width: 4, height: imagecontentSizeheight)
                                  
                      border1Scale =  imagecontentSizewidth / 20
                                  
@@ -801,7 +814,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                      
                  } else {
                      
-                     borderview1.frame = CGRect(x: scaleFactorX, y: 0, width: 15, height: imagecontentSizeheight)
+                     borderview1.frame = CGRect(x: scaleFactorX, y: 0, width: 4, height: imagecontentSizeheight)
                      
                      border1Scale =  imagecontentSizewidth / scaleFactorX
                      
@@ -824,7 +837,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                     
                    if scaleFactorY2 > imagecontentSizeheight / 2 - 20 {
                        
-                       borderview2.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 - 20, width: imagecontentSizewidth, height: 15)
+                       borderview2.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 - 20, width: imagecontentSizewidth, height: 4)
                        
                        border2Scale =  (imagecontentSizeheight) / (imagecontentSizeheight * 0.5 - 20)
 
@@ -834,7 +847,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                        
                    } else if scaleFactorY2 < 20 {
                        
-                       borderview2.frame = CGRect(x: 0, y: 20, width: imagecontentSizewidth, height: 15)
+                       borderview2.frame = CGRect(x: 0, y: 20, width: imagecontentSizewidth, height: 4)
                                    
                        border2Scale =  imagecontentSizeheight / 20
                                    
@@ -844,7 +857,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                        
                    } else {
                        
-                       borderview2.frame = CGRect(x: 0, y: scaleFactorY2, width: imagecontentSizewidth, height: 15)
+                       borderview2.frame = CGRect(x: 0, y: scaleFactorY2, width: imagecontentSizewidth, height: 4)
                        
                        border2Scale =  imagecontentSizeheight / scaleFactorY2
                        
@@ -865,7 +878,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                 
                 if scaleFactorX3 > imagecontentSizewidth - 50 {
                            
-                           borderview3.frame = CGRect(x: imagecontentSizewidth - 50, y: 0, width: 15, height: imagecontentSizeheight)
+                           borderview3.frame = CGRect(x: imagecontentSizewidth - 50, y: 0, width: 4, height: imagecontentSizeheight)
                            
                            border3Scale =  (imagecontentSizewidth) / (imagecontentSizewidth - 50)
                            
@@ -875,7 +888,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                            
                        } else if scaleFactorX3 < imagecontentSizewidth / 2 + 10 {
                            
-                           borderview3.frame = CGRect(x: imagecontentSizewidth / 2 + 10, y: 0, width: 15, height: imagecontentSizeheight)
+                           borderview3.frame = CGRect(x: imagecontentSizewidth / 2 + 10, y: 0, width: 4, height: imagecontentSizeheight)
                                        
                            border3Scale =  imagecontentSizewidth / (imagecontentSizewidth / 2 + 10)
                                        
@@ -885,7 +898,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                            
                        } else {
                            
-                           borderview3.frame = CGRect(x: scaleFactorX3, y: 0, width: 15, height: imagecontentSizeheight)
+                           borderview3.frame = CGRect(x: scaleFactorX3, y: 0, width: 4, height: imagecontentSizeheight)
                            
                            border3Scale =  imagecontentSizewidth / scaleFactorX3
                            
@@ -912,7 +925,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                        
                 if scaleFactorY4 < imagecontentSizeheight / 2 + 10 {
                     
-                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 + 10, width: imagecontentSizewidth, height: 15)
+                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 + 10, width: imagecontentSizewidth, height: 4)
                     
                     border4Scale =  (imagecontentSizeheight) / (imagecontentSizeheight * 0.5 + 10)
 
@@ -922,7 +935,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                     
                 } else if scaleFactorY4 > imagecontentSizeheight - 50 {
                     
-                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight - 50, width: imagecontentSizewidth, height: 15)
+                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight - 50, width: imagecontentSizewidth, height: 4)
                                 
                     border4Scale =  imagecontentSizeheight / (imagecontentSizeheight - 50)
                                 
@@ -932,7 +945,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                     
                 } else {
                     
-                    borderview4.frame = CGRect(x: 0, y: scaleFactorY4, width: imagecontentSizewidth, height: 15)
+                    borderview4.frame = CGRect(x: 0, y: scaleFactorY4, width: imagecontentSizewidth, height: 4)
                     
                     border4Scale =  imagecontentSizeheight / scaleFactorY4
                     

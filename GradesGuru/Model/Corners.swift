@@ -15,14 +15,14 @@ class Corners: NSObject, NSCoding {
     var Pictures: [String]?
     var Corners_Value: Double?
     var PSA: Double?
-    var SelectedPSA: [Int:Double]?
+    var SelectedPSA: [Int:Int]
     var BGS: Double?
-    var SelectedBGS: [Int:Double]?
+    var SelectedBGS: [Int:Int]
     var SGC: Double?
-    var SelectedSGC: [Int:Double]?
+    var SelectedSGC: [Int:Int]
     var viewonPSA: String?
     
-    init(Device_ID: String, Card_ID: String, Pictures: [String], Corners_Value: Double, PSA: Double, SelectedPSA: [Int:Double], BGS: Double, SelectedBGS: [Int:Double], SGC: Double, SelectedSGC: [Int:Double], viewonPSA: String) {
+    init(Device_ID: String, Card_ID: String, Pictures: [String], Corners_Value: Double, PSA: Double, SelectedPSA: [Int:Int], BGS: Double, SelectedBGS: [Int:Int], SGC: Double, SelectedSGC: [Int:Int], viewonPSA: String) {
         
         self.Device_ID = Device_ID
         self.Card_ID = Card_ID
@@ -46,11 +46,11 @@ class Corners: NSObject, NSCoding {
         self.Pictures = (aDecoder.decodeObject(forKey: "Pictures") as! [String])
         self.Corners_Value = (aDecoder.decodeObject(forKey: "Corners_Value") as! Double)
         self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! Double)
-        self.SelectedPSA = (aDecoder.decodeObject(forKey: "SelectedPSA") as! [Int:Double])
+        self.SelectedPSA = (aDecoder.decodeObject(forKey: "SelectedPSA") as! [Int : Int])
         self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! Double)
-        self.SelectedBGS = (aDecoder.decodeObject(forKey: "SelectedBGS") as! [Int:Double])
+        self.SelectedBGS = (aDecoder.decodeObject(forKey: "SelectedBGS") as! [Int : Int])
         self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! Double)
-        self.SelectedSGC = (aDecoder.decodeObject(forKey: "SelectedSGC") as! [Int:Double])
+        self.SelectedSGC = (aDecoder.decodeObject(forKey: "SelectedSGC") as! [Int : Int])
         self.viewonPSA = (aDecoder.decodeObject(forKey: "viewonPSA") as! String)
         
         super.init()

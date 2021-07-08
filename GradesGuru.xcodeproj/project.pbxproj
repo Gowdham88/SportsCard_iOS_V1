@@ -30,6 +30,7 @@
 		C3697C6725F64E4900CE81EA /* GetGrading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3697C6625F64E4900CE81EA /* GetGrading.swift */; };
 		C36A7C0B25E8E39D00EAAC8A /* CenteringTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */; };
 		C36B24032511038B006ED6E3 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B24022511038B006ED6E3 /* InitialPageViewController.swift */; };
+		C371021826961DDD00A04C49 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371021726961DDD00A04C49 /* ViewControllerTableViewCell.swift */; };
 		C37642B4251BB358008F26C9 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37642B3251BB358008F26C9 /* HomeTVCell.swift */; };
 		C37BFB3D25CDC62B008522EE /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */; };
 		C37BFB3E25CDC62B008522EE /* SelectCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3925CDC62A008522EE /* SelectCellVC.swift */; };
@@ -88,6 +89,7 @@
 		C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5597A24E8F98000AAEC41 /* Constants.swift */; };
 		C3C5598124E9A8AC00AAEC41 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5598024E9A8AC00AAEC41 /* Login.storyboard */; };
 		C3C5598324E9BC0800AAEC41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */; };
+		C3D48F5A264DC7E200D030C7 /* CenteringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D48F59264DC7E200D030C7 /* CenteringCell.swift */; };
 		C3FF9261BD329D4183D7E467 /* Pods_GradesGuruTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +138,7 @@
 		C3697C6625F64E4900CE81EA /* GetGrading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGrading.swift; sourceTree = "<group>"; };
 		C36A7C0A25E8E39D00EAAC8A /* CenteringTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringTVC.swift; sourceTree = "<group>"; };
 		C36B24022511038B006ED6E3 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
+		C371021726961DDD00A04C49 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		C37642B3251BB358008F26C9 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
 		C37BFB3925CDC62A008522EE /* SelectCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCellVC.swift; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 		C3C5597A24E8F98000AAEC41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3C5598024E9A8AC00AAEC41 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C3C5598224E9BC0800AAEC41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C3D48F59264DC7E200D030C7 /* CenteringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringCell.swift; sourceTree = "<group>"; };
 		CB0C566CD8FA040E584CEAC3 /* Pods-GradesGuru.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradesGuru.release.xcconfig"; path = "Target Support Files/Pods-GradesGuru/Pods-GradesGuru.release.xcconfig"; sourceTree = "<group>"; };
 		D5333CC9E42C80B1179A4BB4 /* Pods_GradesGuruTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuruTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0BC837CAA304C06B00BE0A /* Pods_GradesGuru_GradesGuruUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradesGuru_GradesGuruUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +287,8 @@
 				C34C5E80251380D60024BE54 /* sideMenuCell.swift */,
 				C37642B3251BB358008F26C9 /* HomeTVCell.swift */,
 				C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */,
+				C3D48F59264DC7E200D030C7 /* CenteringCell.swift */,
+				C371021726961DDD00A04C49 /* ViewControllerTableViewCell.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -729,6 +735,7 @@
 				C3BEF0FE251912CB008BEFC1 /* GoProVC.swift in Sources */,
 				C35F252D25DC1FB7007BD420 /* Hints.swift in Sources */,
 				C3C1407624E86E34005046E9 /* Centering.swift in Sources */,
+				C3D48F5A264DC7E200D030C7 /* CenteringCell.swift in Sources */,
 				C381EFD7251A686500C7E4C6 /* SurfaceMaster.swift in Sources */,
 				C3C1404524E86BBC005046E9 /* ViewController.swift in Sources */,
 				C381EFD2251A640E00C7E4C6 /* CenteringDetails.swift in Sources */,
@@ -745,6 +752,7 @@
 				C38D9B492512732F00BE981A /* HomePageVC.swift in Sources */,
 				C3C1407424E86E21005046E9 /* ScanImage.swift in Sources */,
 				C34C5E81251380D60024BE54 /* sideMenuCell.swift in Sources */,
+				C371021826961DDD00A04C49 /* ViewControllerTableViewCell.swift in Sources */,
 				C3C1407A24E86E56005046E9 /* Surface.swift in Sources */,
 				C37BFB4125CDC62B008522EE /* CameraViewController.swift in Sources */,
 				C381EFDB251A6B3700C7E4C6 /* CardDetailsMaster.swift in Sources */,

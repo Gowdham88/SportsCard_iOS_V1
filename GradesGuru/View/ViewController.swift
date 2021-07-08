@@ -12,17 +12,16 @@ import Segmentio
 
 var ChosenGrading = String()
 var ChosenGradingIndex = Int()
-var GradeDetails = ["Centering", "Corners", "Surface", "Edges"]
+var GradeDetails = ["Centering", "Corners", "Surface", "Edges", "Overall Grade"]
 
-var CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
-var CardSurfacevalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
-var CardEdgesvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0.0], BGS: 0.0, SelectedBGS: [0:0.0], SGC: 0.0, SelectedSGC: [0:0.0], viewonPSA: "")
+var CardCornersvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0], BGS: 0.0, SelectedBGS: [0:0], SGC: 0.0, SelectedSGC: [0:0], viewonPSA: "")
+var CardSurfacevalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0], BGS: 0.0, SelectedBGS: [0:0], SGC: 0.0, SelectedSGC: [0:0], viewonPSA: "")
+var CardEdgesvalue = Corners(Device_ID: Usersdetails.device_ID, Card_ID: CardDetails.Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0], BGS: 0.0, SelectedBGS: [0:0], SGC: 0.0, SelectedSGC: [0:0], viewonPSA: "")
 
 class ViewController: UIViewController {
    
     @IBOutlet var segmentioView: Segmentio!
     @IBOutlet var TitleView: UIView!
-    
     @IBOutlet var myTableView: UITableView!
     
 
@@ -103,6 +102,9 @@ class ViewController: UIViewController {
        
     }
     
+    var selected_Segment = Int()
+    var FinalValue = String()
+
     override func viewDidAppear(_ animated: Bool) {
         
         SegmentioBuilder.buildSegmentioView(
@@ -114,10 +116,12 @@ class ViewController: UIViewController {
         
         if defaults.data(forKey: "\(selected_CardID),\(ChosenGrading)") != nil {
         
-            for (index,value) in GradeDetails.enumerated() {
-                
+            print("\(selected_CardID),\(ChosenGrading)")
+
+                         for (index,value) in GradeDetails.enumerated() {
+
                 LoadCardGradeValues(ChosenGrading: value, Card_ID: selected_CardID)
-                
+
             }
             
         } else {
@@ -127,15 +131,23 @@ class ViewController: UIViewController {
             
         }
         
+        segmentioView.valueDidChange = { segmentio, segmentIndex in
+            print("Selected item: ", segmentIndex)
+            
+            self.selected_Segment = segmentIndex
+            self.myTableView.reloadData()
+            
+        }
+        
+        
     }
     
-    var FinalValue = String()
 
-   
-    
     func SearchValues(PSA: Double, BGS: Double, SGC: Double, chosenGrading: String) -> Double {
         
-        var columnAStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "A")
+        print("Search Values")
+        
+      /*  var columnAStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "A")
         var columnBStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "B")
         var columnCStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "C")
         var columnDStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "D")
@@ -143,7 +155,6 @@ class ViewController: UIViewController {
         var columnFStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "F")
         var columnGStrings = Load_Default_Grade_Values.LoadGradesArrayStrings(column: "G")
 
-        
         let stringGlobalPSA = String(GlobalPSA)
         print("stringGlobalPSA\(stringGlobalPSA)")
         
@@ -174,12 +185,9 @@ class ViewController: UIViewController {
             
             print("GlobalPSA: \(GlobalPSA)")
             
-        
         for (index, value) in columnFStrings.enumerated() {
             
             print("Inside First For Loop Enumerated")
-            
-            
             
            if Double(value) == GlobalPSA {
                 
@@ -242,8 +250,6 @@ class ViewController: UIViewController {
                             }
                              
                         }
-                        
-                        
 //                    } else {
 //
 //                    print("GLOBAL SGC NOT AVAILABLE INSIDE THIS ARRAY")
@@ -278,7 +284,9 @@ class ViewController: UIViewController {
 //            return 0.0
 //
 //        }
+        */
         
+        return 0.0
     }
     
     
@@ -292,7 +300,7 @@ class ViewController: UIViewController {
             
             CardCornersvalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
             
-            CardCornersvalue.Corners_Value = SearchValues(PSA: CardCornersvalue.PSA!, BGS: CardCornersvalue.BGS!, SGC: CardCornersvalue.SGC!, chosenGrading: ChosenGrading)
+//            CardCornersvalue.Corners_Value = SearchValues(PSA: CardCornersvalue.PSA!, BGS: CardCornersvalue.BGS!, SGC: CardCornersvalue.SGC!, chosenGrading: ChosenGrading)
             
             print("CardCornersvalue.Corners_Value: \(CardCornersvalue.Corners_Value)")
             
@@ -301,7 +309,7 @@ class ViewController: UIViewController {
             
             CardSurfacevalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
             
-            CardSurfacevalue.Corners_Value = SearchValues(PSA: CardSurfacevalue.PSA!, BGS: CardSurfacevalue.BGS!, SGC: CardSurfacevalue.SGC!, chosenGrading: ChosenGrading)
+//            CardSurfacevalue.Corners_Value = SearchValues(PSA: CardSurfacevalue.PSA!, BGS: CardSurfacevalue.BGS!, SGC: CardSurfacevalue.SGC!, chosenGrading: ChosenGrading)
            
             print("CardSurfacevalue.Corners_Value: \(CardSurfacevalue.Corners_Value)")
             
@@ -309,7 +317,7 @@ class ViewController: UIViewController {
             
             CardEdgesvalue = LoadGrades.loadGradesvalue(CardID: Card_ID, ChosenGrading:ChosenGrading)
             
-            CardEdgesvalue.Corners_Value = SearchValues(PSA: CardEdgesvalue.PSA!, BGS: CardEdgesvalue.BGS!, SGC: CardEdgesvalue.SGC!, chosenGrading: ChosenGrading)
+//            CardEdgesvalue.Corners_Value = SearchValues(PSA: CardEdgesvalue.PSA!, BGS: CardEdgesvalue.BGS!, SGC: CardEdgesvalue.SGC!, chosenGrading: ChosenGrading)
             
             print("CardEdgesvalue.Corners_Value: \(CardEdgesvalue.Corners_Value)")
             
@@ -661,7 +669,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: 1, Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
 
-            CardCornersvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+            CardCornersvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0], BGS: 0.0, SelectedBGS: [0:0], SGC: 0.0, SelectedSGC: [0:0], viewonPSA: "")
             
 //            CardSurfacevalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
 //            CardEdgesvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
@@ -709,6 +717,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource  {
+    
     func numberOfSections(in tableView: UITableView) -> Int
    {
        return 1
@@ -717,46 +726,127 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
    {
-       return 4
+    return GradeDetails.count
    }
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
              
-       var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier") as! ViewControllerTableViewCell
 
-              if cell == nil {
-                  cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
-              }
+//              if cell == nil {
+//                cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier") as! ViewControllerTableViewCell
+//              }
 
-
+    cell.textLabel?.text = GradeDetails[indexPath.row]
+//            cell!.detailTextLabel?.text = "Review"
     
-              cell!.textLabel?.text = GradeDetails[indexPath.row]
-              cell!.detailTextLabel?.text = "Review"
-    
-    switch indexPath.row {
-    
+    switch selected_Segment {
     case 0:
-                
-        cell?.detailTextLabel?.text = "Centering Data"
-                
+        
+        switch indexPath.row {
+        case 0:
+            print("Centering")
+            
+        case 1:
+            print("Corners")
+            cell.Grade_Value.text = String(CardCornersvalue.PSA!)
+
+        case 2:
+            print("Surface")
+            
+            cell.Grade_Value.text = String(CardSurfacevalue.PSA!)
+
+        case 3:
+            print("Edges")
+            cell.Grade_Value.text = String(CardEdgesvalue.PSA!)
+            
+        case 4:
+            print("Overall Grading")
+        default:
+            break
+        }
+        
+        
     case 1:
         
-        cell?.detailTextLabel?.text = "\(CardCornersvalue.Corners_Value)"
+        switch indexPath.row {
+        case 0:
+            print("Centering")
+            
+        case 1:
+            print("Corners")
+            cell.Grade_Value.text = String(CardCornersvalue.BGS!)
+
+        case 2:
+            print("Surface")
+            
+            cell.Grade_Value.text = String(CardSurfacevalue.BGS!)
+
+        case 3:
+            print("Edges")
+            cell.Grade_Value.text = String(CardEdgesvalue.BGS!)
+            
+        case 4:
+            print("Overall Grading")
+        default:
+            break
+        }
+        
+        
         
     case 2:
         
-        cell?.detailTextLabel?.text = "\(CardSurfacevalue.Corners_Value)"
-           
-    case 3:
-        
-        cell?.detailTextLabel?.text = "\(CardEdgesvalue.Corners_Value)"
-           
-    default:
-        cell?.detailTextLabel?.text = "Review"
+        switch indexPath.row {
+        case 0:
+            print("Centering")
             
-    }
+        case 1:
+            print("Corners")
+            cell.Grade_Value.text = String(CardCornersvalue.SGC!)
 
-              return cell!
+        case 2:
+            print("Surface")
+            
+            cell.Grade_Value.text = String(CardSurfacevalue.SGC!)
+
+        case 3:
+            print("Edges")
+            cell.Grade_Value.text = String(CardEdgesvalue.SGC!)
+            
+        case 4:
+            print("Overall Grading")
+            
+        default:
+            break
+        }
+        
+    default:
+        break
+    }
+//    switch indexPath.row {
+//
+//    case 0:
+//
+//        cell?.detailTextLabel?.text = "Centering Data"
+//
+//    case 1:
+//
+//        cell?.detailTextLabel?.text = "\(CardCornersvalue.Corners_Value)"
+//
+//    case 2:
+//
+//        cell?.detailTextLabel?.text = "\(CardSurfacevalue.Corners_Value)"
+//
+//    case 3:
+//
+//        cell?.detailTextLabel?.text = "\(CardEdgesvalue.Corners_Value)"
+//
+//    default:
+//        cell?.detailTextLabel?.text = "Review"
+//
+//    }
+
+            return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -771,7 +861,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
             
             print("Centering Chosen")
             
-            let popup = (self.storyboard?.instantiateViewController(withIdentifier: "CenteringTVC"))!
+            let popup = (self.storyboard?.instantiateViewController(withIdentifier: "CenteringView"))!
             
             popup.modalPresentationStyle = .fullScreen
              
@@ -788,5 +878,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
         }
         
     }
+    
 }
 

@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "31FC23D8-5100-4B9C-B005-7DAE7A78263C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/CardDetailsVC.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "24A7463A-FEFB-4312-9F46-9FF25B14EE78"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/Model/Corners.swift"
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "87754D94-DB2F-4113-A6AE-04293CEBE6C3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/HomePageVC.swift"
@@ -48,15 +48,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "20EBE413-3F7D-41F2-B763-5F9E732174C2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/HomePageVC.swift"
@@ -64,15 +64,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2331A539-4B38-41B4-85D1-E1FBC91566FF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/HomePageVC.swift"
@@ -80,15 +80,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "80B5EC32-3BD7-4603-B359-CA2756BA103C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/HomePageVC.swift"
@@ -96,15 +96,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FAEA733D-3611-4332-97FE-4414D6C05865"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/Model/Masters/CardDetailsMaster.swift"
@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ECEE0509-1545-4750-8797-E247FE3EBEF7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/HomePageVC.swift"
@@ -128,15 +128,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1AC3520A-1112-4502-A543-83DA0D2D523E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GradesGuru/View/HomePageVC.swift"
@@ -144,8 +144,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
             endingLineNumber = "148"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -160,150 +160,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
             endingLineNumber = "140"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DFEC5A53-281B-4E2B-A2F0-1FE1C4E59C13"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "741"
-            endingLineNumber = "741"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B3AD57DF-89C1-4626-90D1-5835F3DC7B83"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "683"
-            endingLineNumber = "683"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EA2B1282-203F-4F69-A01F-C8D26ADCB8DF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "693"
-            endingLineNumber = "693"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5C8C87A4-26D1-4B53-A674-C46F691084E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "707"
-            endingLineNumber = "707"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9FC0D403-A0A5-4582-8F64-5C7362AB96C1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "712"
-            endingLineNumber = "712"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9FC0D403-A0A5-4582-8F64-5C7362AB96C1 - 860b5cf1395d3f97"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GradesGuru.GradesChoiceTVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "GradesGuru"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "717"
-                  endingLineNumber = "717"
-                  offsetFromSymbolStart = "7331">
-               </Location>
-               <Location
-                  uuid = "9FC0D403-A0A5-4582-8F64-5C7362AB96C1 - 860b5cf1395d3f97"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GradesGuru.GradesChoiceTVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "GradesGuru"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "717"
-                  endingLineNumber = "717"
-                  offsetFromSymbolStart = "7352">
-               </Location>
-               <Location
-                  uuid = "9FC0D403-A0A5-4582-8F64-5C7362AB96C1 - 860b5cf1395d3f97"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GradesGuru.GradesChoiceTVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "GradesGuru"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "717"
-                  endingLineNumber = "717"
-                  offsetFromSymbolStart = "7607">
-               </Location>
-               <Location
-                  uuid = "9FC0D403-A0A5-4582-8F64-5C7362AB96C1 - 860b5cf1395d3f97"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GradesGuru.GradesChoiceTVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "GradesGuru"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "717"
-                  endingLineNumber = "717"
-                  offsetFromSymbolStart = "7867">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -318,8 +176,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,8 +192,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -350,8 +208,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -366,8 +224,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "LoadCardIDS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -382,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -398,8 +256,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,8 +272,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
             endingLineNumber = "182"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -437,54 +295,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F7E946B4-ED83-46AC-9A9B-96F0C4E347C3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "696"
-            endingLineNumber = "696"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0D6720B3-BB80-4A2F-A4A3-CEC226B43632"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "721"
-            endingLineNumber = "721"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C27680B6-DFFE-4125-9EDB-90B882CEA8CF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1D4DC2C4-0C92-4251-8309-6B921294786C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -492,89 +302,9 @@
             filePath = "GradesGuru/View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "37D11CE8-C84B-4011-B6C3-A8EE53965779"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "751"
-            endingLineNumber = "751"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9F5B32F3-ABDA-4BB6-A52C-E8F4F7A701CC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "769"
-            endingLineNumber = "769"
-            landmarkName = "selected_Grading(Grading:Segment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E50D2C36-AB95-472E-96C7-710313D8EE57"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "780"
-            endingLineNumber = "780"
-            landmarkName = "selected_Grading(Grading:Segment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5862E8CF-014C-4BF3-A3C1-A2492658E4A5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "710"
-            endingLineNumber = "710"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3F5EAFEC-9DCD-48A2-BB68-37C7D7BED6B4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "787"
-            endingLineNumber = "787"
-            landmarkName = "selected_Grading(Grading:Segment:)"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "SearchValues(PSA:BGS:SGC:chosenGrading:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -588,9 +318,9 @@
             filePath = "GradesGuru/View/GradesChoiceTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "794"
-            endingLineNumber = "794"
-            landmarkName = "selected_Grading(Grading:Segment:)"
+            startingLineNumber = "816"
+            endingLineNumber = "816"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -604,9 +334,9 @@
             filePath = "GradesGuru/View/GradesChoiceTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "797"
-            endingLineNumber = "797"
-            landmarkName = "selected_Grading(Grading:Segment:)"
+            startingLineNumber = "819"
+            endingLineNumber = "819"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -620,9 +350,9 @@
             filePath = "GradesGuru/View/GradesChoiceTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "802"
-            endingLineNumber = "802"
-            landmarkName = "selected_Grading(Grading:Segment:)"
+            startingLineNumber = "824"
+            endingLineNumber = "824"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -636,26 +366,10 @@
             filePath = "GradesGuru/View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5C547250-A638-4DF1-9FA2-90B713237D3D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GradesGuru/View/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "SearchValues(PSA:BGS:SGC:chosenGrading:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -668,42 +382,10 @@
             filePath = "GradesGuru/View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "0DE13BEE-96BE-4B7D-8C0B-2060D9313378 - f6735efef822cded"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GradesGuru.ViewController.SearchValues(PSA: Swift.Double, BGS: Swift.Double, SGC: Swift.Double, chosenGrading: Swift.String) -&gt; Swift.Double"
-                  moduleName = "GradesGuru"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "1710">
-               </Location>
-               <Location
-                  uuid = "0DE13BEE-96BE-4B7D-8C0B-2060D9313378 - 495e188423d8ac1f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #2 (Swift.String) -&gt; Swift.Bool in implicit closure #1 (Swift.String) -&gt; (Swift.String) -&gt; Swift.Bool in GradesGuru.ViewController.SearchValues(PSA: Swift.Double, BGS: Swift.Double, SGC: Swift.Double, chosenGrading: Swift.String) -&gt; Swift.Double"
-                  moduleName = "GradesGuru"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "53">
-               </Location>
-            </Locations>
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "SearchValues(PSA:BGS:SGC:chosenGrading:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -716,10 +398,10 @@
             filePath = "GradesGuru/View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "SearchValues(PSA:BGS:SGC:chosenGrading:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -732,10 +414,783 @@
             filePath = "GradesGuru/View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "SearchValues(PSA:BGS:SGC:chosenGrading:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01504D27-097B-455A-8BA9-214F60409B2B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "682"
+            endingLineNumber = "682"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "019D2352-F193-42DB-A35C-5EBAEA77095B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "692"
+            endingLineNumber = "692"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCCC9AB6-E728-46D9-A10C-9F54D919883C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "607"
+            endingLineNumber = "607"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E27B8361-D2B8-4D61-B051-C36BCEBE394B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "651"
+            endingLineNumber = "651"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE0A7D91-4707-4210-B865-95315E7FEBF5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3EE0B17B-6D0E-47DD-87DC-A1657EDD44A4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "697"
+            endingLineNumber = "697"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26FE18FE-AD16-41C8-B3C7-8E4C5D29A238"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "784"
+            endingLineNumber = "784"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26FE18FE-AD16-41C8-B3C7-8E4C5D29A238 - c4357f2e8f7b7a0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.selected_Grading(Grading: Swift.String, Segment: Swift.Int, indexPath: Swift.Int) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "785"
+                  endingLineNumber = "785"
+                  offsetFromSymbolStart = "775">
+               </Location>
+               <Location
+                  uuid = "26FE18FE-AD16-41C8-B3C7-8E4C5D29A238 - c4357f2e8f7b7a0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.selected_Grading(Grading: Swift.String, Segment: Swift.Int, indexPath: Swift.Int) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "785"
+                  endingLineNumber = "785"
+                  offsetFromSymbolStart = "796">
+               </Location>
+               <Location
+                  uuid = "26FE18FE-AD16-41C8-B3C7-8E4C5D29A238 - c4357f2e8f7b7a0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.selected_Grading(Grading: Swift.String, Segment: Swift.Int, indexPath: Swift.Int) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "785"
+                  endingLineNumber = "785"
+                  offsetFromSymbolStart = "5393">
+               </Location>
+               <Location
+                  uuid = "26FE18FE-AD16-41C8-B3C7-8E4C5D29A238 - c4357f2e8f7b7a0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.selected_Grading(Grading: Swift.String, Segment: Swift.Int, indexPath: Swift.Int) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "785"
+                  endingLineNumber = "785"
+                  offsetFromSymbolStart = "8739">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1B77502-68DE-4B2C-B885-6451A1C64661"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "861"
+            endingLineNumber = "861"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BCAF5B3-2C9A-4EA4-B7BB-098430D6D7CB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "870"
+            endingLineNumber = "870"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCDB2D1D-6A59-4105-9D92-760CCE7297A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DCDB2D1D-6A59-4105-9D92-760CCE7297A3 - f6950bce4def4d2c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.LoadSelectedCells(ChosenGrading: Swift.String, Card_ID: Swift.String) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "495"
+                  endingLineNumber = "495"
+                  offsetFromSymbolStart = "270">
+               </Location>
+               <Location
+                  uuid = "DCDB2D1D-6A59-4105-9D92-760CCE7297A3 - f6950bce4def4d2c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.LoadSelectedCells(ChosenGrading: Swift.String, Card_ID: Swift.String) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "495"
+                  endingLineNumber = "495"
+                  offsetFromSymbolStart = "1668">
+               </Location>
+               <Location
+                  uuid = "DCDB2D1D-6A59-4105-9D92-760CCE7297A3 - f6950bce4def4d2c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.GradesChoiceTVC.LoadSelectedCells(ChosenGrading: Swift.String, Card_ID: Swift.String) -&gt; ()"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/GradesChoiceTVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "495"
+                  endingLineNumber = "495"
+                  offsetFromSymbolStart = "3063">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5BE144D-8B34-4D45-86E4-444847BBDB08"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "496"
+            endingLineNumber = "496"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41D53CBD-2B4F-47C3-AC2F-A7A8CE703E98"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "507"
+            endingLineNumber = "507"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "156EB990-FE97-4101-9D0A-2F3F3E5EF79C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "514"
+            endingLineNumber = "514"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76E7716D-37A1-4DB6-8DAE-464027C124FC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "521"
+            endingLineNumber = "521"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B87C2711-31C3-4014-9BD7-82069420D2D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7BA6F63D-4692-4F44-8236-67E16BF7B518"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B7227D5-F400-459C-AA5B-1664F0386D6A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "532"
+            endingLineNumber = "532"
+            landmarkName = "LoadSelectedCells(ChosenGrading:Card_ID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A27CE875-B709-4C1E-BA6A-0C2FEF6F4E94"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "616"
+            endingLineNumber = "616"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2151CA21-94E2-4A71-9B2E-78E1A13A3574"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "624"
+            endingLineNumber = "624"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA371CED-0AAB-4316-BE3F-35386F399400"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DD29E58-D906-4F3E-A1A7-EFA0429410D7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "840"
+            endingLineNumber = "840"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74C94468-B377-4A1E-A468-430252085145"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/GradesChoiceTVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "798"
+            endingLineNumber = "798"
+            landmarkName = "selected_Grading(Grading:Segment:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3228B51-612A-4F3B-AAB9-DF6748BCA6C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "733"
+            endingLineNumber = "733"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E778412D-2056-4979-A7F3-8FCA190584C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "771"
+            endingLineNumber = "771"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E778412D-2056-4979-A7F3-8FCA190584C5 - 97e521a5dc67af9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "772"
+                  endingLineNumber = "772"
+                  offsetFromSymbolStart = "4107">
+               </Location>
+               <Location
+                  uuid = "E778412D-2056-4979-A7F3-8FCA190584C5 - 97e521a5dc67af9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "772"
+                  endingLineNumber = "772"
+                  offsetFromSymbolStart = "4173">
+               </Location>
+               <Location
+                  uuid = "E778412D-2056-4979-A7F3-8FCA190584C5 - 97e521a5dc67af9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "772"
+                  endingLineNumber = "772"
+                  offsetFromSymbolStart = "4382">
+               </Location>
+               <Location
+                  uuid = "E778412D-2056-4979-A7F3-8FCA190584C5 - 97e521a5dc67af9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "772"
+                  endingLineNumber = "772"
+                  offsetFromSymbolStart = "5209">
+               </Location>
+               <Location
+                  uuid = "E778412D-2056-4979-A7F3-8FCA190584C5 - 97e521a5dc67af9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "772"
+                  endingLineNumber = "772"
+                  offsetFromSymbolStart = "6036">
+               </Location>
+               <Location
+                  uuid = "E778412D-2056-4979-A7F3-8FCA190584C5 - 97e521a5dc67af9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "772"
+                  endingLineNumber = "772"
+                  offsetFromSymbolStart = "6863">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "798"
+            endingLineNumber = "798"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81 - 97e521a5dc67b267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "7137">
+               </Location>
+               <Location
+                  uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81 - 97e521a5dc67b267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "7203">
+               </Location>
+               <Location
+                  uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81 - 97e521a5dc67b267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "7412">
+               </Location>
+               <Location
+                  uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81 - 97e521a5dc67b267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "8239">
+               </Location>
+               <Location
+                  uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81 - 97e521a5dc67b267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "9054">
+               </Location>
+               <Location
+                  uuid = "106CFF7A-1846-49ED-9E22-DB04FA53AF81 - 97e521a5dc67b267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GradesGuru.ViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "GradesGuru"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Drive%20D/Developer/SportsCardScan/GradesGuru/GradesGuru/GradesGuru/View/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "9869">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BF6CDD8-744B-4DD1-9803-3E8521EA1170"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "778"
+            endingLineNumber = "778"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54BA6164-0B33-4483-A4D5-29B8D1D71993"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "783"
+            endingLineNumber = "783"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC5F32E9-4694-47C6-9BF9-6F51C503D3F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "788"
+            endingLineNumber = "788"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6065DCB7-ED10-4D1D-89DE-019E6BCF9D94"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "753"
+            endingLineNumber = "753"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0477778-EB14-497C-9784-6161979C6C34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GradesGuru/View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
