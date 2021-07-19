@@ -9,6 +9,8 @@
 import UIKit
 import Segmentio
 
+var selected_img = ""
+
 class CenteringTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
   
     
@@ -19,7 +21,6 @@ class CenteringTVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet var leftImageView: UIImageView!
     @IBOutlet var rightImageView: UIImageView!
-    var selected_img = ""
     var isLeftimage = Bool()
     var isRightimage = Bool()
 
@@ -130,11 +131,13 @@ class CenteringTVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             print("sender.tag: \(String(describing: (sender as AnyObject).tag))")
             
+            selected_img = "left_img"
             centeringImage = CardDetails.Card_frontImage
             
         } else {
             
             print("sender.tag: \(String(describing: (sender as AnyObject).tag))")
+            selected_img = "right_img"
             centeringImage = CardDetails.Card_BackImage
 
         }
@@ -152,6 +155,27 @@ class CenteringTVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             segmentioView: segmentioView,
             segmentioStyle: segmentioStyle
         )
+        
+        if CardIDs.contains(selected_CardID) {
+            
+            print("CardID Available ")
+            
+            CardDetails = LoadCards.loadCardsDetails(Card_ID: selected_CardID)
+            
+            print("CardDetails.Card_ID: \(CardDetails.Card_ID)")
+            
+            leftImageView.image = CardDetails.Card_frontImage
+            rightImageView.image = CardDetails.Card_BackImage
+            
+            ImageResize(Image: leftImageView)
+            ImageResize(Image: rightImageView)
+            
+        } else {
+            
+            print("Card ID not available")
+            
+        }
+        
         
     }
     
@@ -278,7 +302,6 @@ class CenteringTVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
         self.leftImageView.isHidden = false
         self.leftImageView.contentMode = .scaleAspectFill
-            
         
         }
         else{

@@ -294,6 +294,11 @@ class ViewController: UIViewController {
         
         print("LoadCardGradeValues, Chosen Grading: \(ChosenGrading)")
         
+        CardDetails = LoadCards.loadCardsDetails(Card_ID: Card_ID)
+        
+        scanfrontPage.image = CardDetails.Card_frontImage
+        scanBackPage.image = CardDetails.Card_BackImage
+        
         switch ChosenGrading {
         
         case "Corners":

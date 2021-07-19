@@ -37,11 +37,9 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             CardNumber = 0
             defaults.setValue(CardNumber, forKey: "cardNumber")
             //calling if loading for the first time
-
             
         }
         
-         
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 
             textfield.backgroundColor = UIColor.white
@@ -103,9 +101,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             print("No Cards")
             
         }
-        
-        
-            
         
     }
     

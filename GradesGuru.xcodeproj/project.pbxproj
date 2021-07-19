@@ -36,7 +36,6 @@
 		C37BFB3E25CDC62B008522EE /* SelectCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3925CDC62A008522EE /* SelectCellVC.swift */; };
 		C37BFB4125CDC62B008522EE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB3C25CDC62B008522EE /* CameraViewController.swift */; };
 		C37BFB7425CDC86B008522EE /* CameraStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB6F25CDC86A008522EE /* CameraStartViewController.swift */; };
-		C37BFB7725CDC86B008522EE /* ImageviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB7225CDC86A008522EE /* ImageviewViewController.swift */; };
 		C37BFB7825CDC86B008522EE /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37BFB7325CDC86A008522EE /* BorderView.swift */; };
 		C37D1DC925BD27040002D9AC /* GradesChoiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */; };
 		C37D1DFC25BDE39A0002D9AC /* GradingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */; };
@@ -144,7 +143,6 @@
 		C37BFB3925CDC62A008522EE /* SelectCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCellVC.swift; sourceTree = "<group>"; };
 		C37BFB3C25CDC62B008522EE /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C37BFB6F25CDC86A008522EE /* CameraStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraStartViewController.swift; path = GradesGuru/Model/Border/CameraStartViewController.swift; sourceTree = SOURCE_ROOT; };
-		C37BFB7225CDC86A008522EE /* ImageviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageviewViewController.swift; path = GradesGuru/Model/Border/ImageviewViewController.swift; sourceTree = SOURCE_ROOT; };
 		C37BFB7325CDC86A008522EE /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = GradesGuru/Model/Border/BorderView.swift; sourceTree = SOURCE_ROOT; };
 		C37D1DC825BD27040002D9AC /* GradesChoiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesChoiceTVC.swift; sourceTree = "<group>"; };
 		C37D1DFB25BDE39A0002D9AC /* GradingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingCells.swift; sourceTree = "<group>"; };
@@ -438,7 +436,6 @@
 			children = (
 				C37BFB7325CDC86A008522EE /* BorderView.swift */,
 				C37BFB6F25CDC86A008522EE /* CameraStartViewController.swift */,
-				C37BFB7225CDC86A008522EE /* ImageviewViewController.swift */,
 				C37BFB3C25CDC62B008522EE /* CameraViewController.swift */,
 				C37BFB3825CDC62A008522EE /* CardDetailsVC.swift */,
 				C37BFB3925CDC62A008522EE /* SelectCellVC.swift */,
@@ -759,7 +756,6 @@
 				C352B2002515FC81004321F1 /* Users.swift in Sources */,
 				C35F252725DC1F8B007BD420 /* SegmentioBuilder.swift in Sources */,
 				1877033E25A4BC66002EC49E /* YearViewController.swift in Sources */,
-				C37BFB7725CDC86B008522EE /* ImageviewViewController.swift in Sources */,
 				C3C5597B24E8F98000AAEC41 /* Constants.swift in Sources */,
 				C3C1407824E86E43005046E9 /* Corners.swift in Sources */,
 				C381EFD0251A600100C7E4C6 /* ScanDetails.swift in Sources */,
