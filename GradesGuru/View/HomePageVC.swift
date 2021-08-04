@@ -31,7 +31,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             CardNumber = defaults.value(forKey: "cardNumber") as! Int
             LoadCardIDS()
 
-            
         } else {
             
             CardNumber = 0
@@ -61,11 +60,13 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         // Do any additional setup after loading the view.
     }
     
-    
+    var HomedetailArray = [HomeMaster]()
+
     func LoadCardIDS()  {
         
         let saveCardsIDs = "SaveCardIDS_\(Usersdetails.device_ID!)"
         cardImages.removeAll()
+        HomedetailArray.removeAll()
         
         print("saveCardsIDs: \(saveCardsIDs)")
         if UserDefaults.standard.object(forKey: saveCardsIDs) != nil {
@@ -82,6 +83,10 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 print("For Loop cardID: \(cardID)")
 
                 let carddetails = LoadCards.loadCardsDetails(Card_ID: cardID)
+                
+                Homedetails = LoadHome(cardID: cardID)
+                
+                HomedetailArray.append(Homedetails)
                 
                 let cardImage = carddetails.Card_frontImage
                 
@@ -158,6 +163,8 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         myTableView.isHidden = true
         searchBar.isHidden = true
         tabBar.isHidden = true
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -176,16 +183,22 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
          
-               let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
         
-            print("cardImages.count: \(cardImages.count)")
-            print("myCardImages.count: \(myCardImages.count)")
+        print("cardImages.count: \(cardImages.count)")
+        print("myCardImages.count: \(myCardImages.count)")
         
-                cell.DPImage.image = myCardImages[indexPath.row]
+        cell.DPImage.image = myCardImages[indexPath.row]
+        
+        cell.playerName.text = HomedetailArray[indexPath.row].Name
+        cell.PSAValue.text = HomedetailArray[indexPath.row].PSA
+        cell.BGSValue.text = HomedetailArray[indexPath.row].BGS
+        cell.SGCValue.text = HomedetailArray[indexPath.row].SGC
                
-               // Configure the cell...
+        // Configure the cell...
 
-               return cell
+        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

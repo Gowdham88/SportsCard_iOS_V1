@@ -10,6 +10,19 @@ import UIKit
 
 class CenteringCell: UITableViewCell {
 
+    
+    @IBOutlet var center_Grade: UILabel!
+    @IBOutlet var center_Desc: UILabel!
+    
+    @IBOutlet var center_Front: UILabel!
+    @IBOutlet var center_Back: UILabel!
+    @IBOutlet var SGC_CenteringData: UILabel!
+
+    @IBOutlet var Center_Front_Label: UILabel!
+    @IBOutlet var Center_Back_Label: UILabel!
+    @IBOutlet var SGC_Centering: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

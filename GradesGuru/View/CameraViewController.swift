@@ -65,6 +65,11 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("selected_img: \(selected_img)")
+        
+        CenteringDetails.device_ID = Usersdetails.device_ID
+        CenteringDetails.CardID = selected_CardID
 
 // Do any additional setup after loading the view.
     
@@ -128,6 +133,8 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 //        borderview4.autoresizesSubviews = true
         
         processImage(centeringImage)
+        
+        
         
     }
     
@@ -207,7 +214,6 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         let RightPixelsXBorder3 = ImageScrollView.frame.width - borderview3XY.x
         let TopPixelsBorder2 = borderview2XY.y + 4
         let BottomPixelsBorder4 = ImageScrollView.frame.height - borderview4XY.y
-       
         
         print("leftPixelsBorder1: \(leftPixelsBorder1)")
         print("RightPixelsXBorder3: \(RightPixelsXBorder3)")
@@ -246,10 +252,62 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         print("Top: \(top)")
         print("Bottom: \(bottom)")
         
-        leftPixelsPercent.text = "\(left/2*100)"
-        rightPixelsPercent.text = "\(right/2*100)"
-        topPixelsPercent.text = "\(top/2*100)"
-        bottonPixelsPercent.text = "\(bottom/2*100)"
+        let leftvalue = left/2*100
+        let rightvalue = right/2*100
+        let topvalue = top/2*100
+        let bottomvalue = bottom/2*100
+        
+        leftPixelsPercent.text = "\(leftvalue)"
+        rightPixelsPercent.text = "\(rightvalue)"
+        topPixelsPercent.text = "\(topvalue)"
+        bottonPixelsPercent.text = "\(bottomvalue)"
+        
+        print("leftvalue: \(leftvalue)")
+        print("leftvalue: \(rightvalue)")
+        print("leftvalue: \(topvalue)")
+        print("leftvalue: \(bottomvalue)")
+        
+        /*
+         
+         self.SelectedPSA = SelectedPSA
+         self.SelectedBGS = SelectedBGS
+         self.SelectedSGC = SelectedSGC*/
+        
+        if selected_img == "right_img" {
+        
+            
+            CenteringDetails.BackLeft = Int(leftvalue)
+            CenteringDetails.BackRight = Int(rightvalue)
+            CenteringDetails.BackTop = Int(topvalue)
+            CenteringDetails.BackBottom = Int(bottomvalue)
+            
+            
+            
+            
+        } else if selected_img == "left_img" {
+            
+            
+            CenteringDetails.FrontLeft = Int(leftvalue)
+            CenteringDetails.FrontRight = Int(rightvalue)
+            CenteringDetails.FrontTop = Int(topvalue)
+            CenteringDetails.FrontBottom = Int(bottomvalue)
+            
+        } else {
+            
+            print("Do Nothing")
+        }
+        
+        SaveCentering.updateCentering(CenteringMaster: CenteringDetails, cardID: selected_CardID)
+        
+        print("CenteringDetails.FrontLeft: \(CenteringDetails.FrontLeft)")
+        print("CenteringDetails.FrontRight: \(CenteringDetails.FrontRight)")
+        print("CenteringDetails.FrontTop: \(CenteringDetails.FrontTop)")
+        print("CenteringDetails.FrontBottom: \(CenteringDetails.FrontBottom)")
+        
+        print("CenteringDetails.BackLeft: \(CenteringDetails.BackLeft)")
+        print("CenteringDetails.BackRight: \(CenteringDetails.BackRight)")
+        print("CenteringDetails.BackTop: \(CenteringDetails.BackTop)")
+        print("CenteringDetails.BackBottom: \(CenteringDetails.BackBottom)")
         
         print("pixelsbetween1and3: \(pixelsbetween1and3)")
         print("pixelsbetween2and4: \(pixelsbetween2and4)")
@@ -381,14 +439,12 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
             
             processImage(pickedImage)
             
-                }
+        }
         print("selected_CardID: \(selected_CardID)")
 
         if selected_img == "right_img" {
             
-            CardDetails.Card_frontImage = pickedImage
-            
-            
+            CardDetails.Card_BackImage = pickedImage
             
             SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
             
@@ -427,7 +483,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                for observation in observations {
                    guard let topCandidate = observation.topCandidates(1).first else { return }
                    print("text \(topCandidate.string) has confidence \(topCandidate.confidence)")
-       
+    
                    detectedText += topCandidate.string
                    detectedText += "\n"
                }
@@ -441,24 +497,24 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 
            textRecognitionRequest.recognitionLevel = .accurate
        }
-       
+
        private func processImage(_ image: UIImage) {
 
 //        imageView.image = image
-        
+
         ImageScrollView.display(image: image)
         ImageScrollView.imageScrollViewDelegate = self
-        
+
 //        ImageScrollView.addSubview(borderview1)
 //       ImageScrollView.addSubview(borderview2)
 //       ImageScrollView.addSubview(borderview3)
 //       ImageScrollView.addSubview(borderview4)
-        
+
         contentView.addSubview(borderview1)
         contentView.addSubview(borderview2)
         contentView.addSubview(borderview3)
         contentView.addSubview(borderview4)
-                
+
 //        borderview1.bringSubviewToFront(contentView)
         
 //        ImageScrollView.sendSubviewToBack(contentView)
@@ -482,8 +538,46 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 
         recognizeTextInImage(image)
         
+//        CenteringDetails = SaveCentering.loadCentering(cardID: selected_CardID)
+        
+        if UserDefaults.standard.data(forKey: "center_cardID:\(selected_CardID)") != nil  {
+            
+        if selected_img == "right_img" {
+        
+            CenteringDetails.BackLeft = SaveCentering.loadCentering(cardID: selected_CardID).BackLeft!
+            CenteringDetails.BackRight = SaveCentering.loadCentering(cardID: selected_CardID).BackRight!
+            CenteringDetails.BackTop = SaveCentering.loadCentering(cardID: selected_CardID).BackTop!
+            CenteringDetails.BackBottom = SaveCentering.loadCentering(cardID: selected_CardID).BackBottom!
+            
+            leftPixelsPercent.text = "\(CenteringDetails.BackLeft!)"
+            rightPixelsPercent.text = "\(CenteringDetails.BackRight!)"
+            topPixelsPercent.text = "\(CenteringDetails.BackTop!)"
+            bottonPixelsPercent.text = "\(CenteringDetails.BackBottom!)"
+        
+        } else if selected_img == "left_img" {
+            
+            CenteringDetails.FrontLeft = SaveCentering.loadCentering(cardID: selected_CardID).FrontLeft!
+            CenteringDetails.FrontRight = SaveCentering.loadCentering(cardID: selected_CardID).FrontRight!
+            CenteringDetails.FrontTop = SaveCentering.loadCentering(cardID: selected_CardID).FrontTop!
+            CenteringDetails.FrontBottom = SaveCentering.loadCentering(cardID: selected_CardID).FrontBottom!
+            
+            leftPixelsPercent.text = "\(CenteringDetails.FrontLeft!)"
+            rightPixelsPercent.text = "\(CenteringDetails.FrontRight!)"
+            topPixelsPercent.text = "\(CenteringDetails.FrontTop!)"
+            bottonPixelsPercent.text = "\(CenteringDetails.FrontBottom!)"
+            
+        } else {
+            
+            print("Nothing Selected")
+            
+            
+        }
+            
+        }
+        
        }
        
+    
        private func recognizeTextInImage(_ image: UIImage) {
            guard let cgImage = image.cgImage else { return }
            
@@ -600,7 +694,6 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
             
                 gestureView.frame = CGRect(x: 20, y: 0, width: 20, height: ImageScrollView.contentSize.height)
                 //ImageScrollView.frame.height
-                
                 
             } else {
                 

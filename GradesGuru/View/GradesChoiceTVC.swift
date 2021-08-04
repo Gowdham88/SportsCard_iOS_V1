@@ -67,12 +67,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         print("ViewdidLoad_GradeChoicesTVC")
         setupLoadingPlaceholderView()
         
-        
         self.tableView.allowsSelection = (1 != 0)
-        
-//        self.tableView.allowsMultipleSelection = true
-//        self.tableView.allowsMultipleSelectionDuringEditing = true
-        
+  
         tableView.setContentOffset(CGPoint(x: 0, y: CGFloat.greatestFiniteMagnitude), animated: false)
 
         segmentioView.selectedSegmentioIndex = 0
@@ -91,7 +87,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             break
         }
         
-//        self.selectedCellLabel.text = GradeDetails.first
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
@@ -232,7 +227,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                                         SaveGrades.savePSA(PSAValue: PSADetails1, Key: worksheetName)
 //                                        Load_PSA_BGS_SGC(GradingType: chosenGrading)
 
-                                    
                                     case 1:
                                         
                                         print("Saving BGS from worksheet")
@@ -413,7 +407,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                     
                 }
                 
-                
             } catch let error1 as NSError {
                 
                 print("Error: \(error1)")
@@ -421,8 +414,8 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             } catch {
                 
                 print("Any other error")
-                
-        }
+            
+            }
             
     }
     
@@ -483,7 +476,6 @@ class GradesChoiceTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         SGCGrade = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCGrade
         SGCDesc = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCDesc
         SGCState = LoadGrades.loadSGC(Key: storedWorksheet[GradingType]![2]).SGCState
-
         
         LoadSelectedCells(ChosenGrading: ChosenGrading, Card_ID: selected_CardID)
         
