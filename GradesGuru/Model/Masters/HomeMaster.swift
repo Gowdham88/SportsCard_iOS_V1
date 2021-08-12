@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-var Homedetails : HomeMaster = HomeMaster(device_ID: "", CardID: "", DisplayCardPicture: Date(), Name: "", PSA: "0.0", BGS: "0.0",  SGC: "0.0", ScanTime: Date())
+var Homedetails : HomeMaster = HomeMaster(device_ID: "", CardID: "", DisplayCardPicture: Date(), Name: "", SubTitle: "", PSA: "0.0", BGS: "0.0",  SGC: "0.0", ScanTime: Date())
 
 class HomeMaster : NSObject, NSCoding {
     
@@ -20,18 +20,20 @@ class HomeMaster : NSObject, NSCoding {
     var CardID: String!
     var DisplayCardPicture: Date!
     var Name: String!
+    var SubTitle: String!
     var PSA: String!
     var BGS: String!
     var SGC: String!
     var ScanTime: Date!
     
 
-    init(device_ID: String, CardID: String, DisplayCardPicture: Date, Name: String, PSA:  String, BGS:  String,  SGC:  String, ScanTime: Date) {
+    init(device_ID: String, CardID: String, DisplayCardPicture: Date, Name: String, SubTitle: String, PSA:  String, BGS:  String,  SGC:  String, ScanTime: Date) {
         
         self.device_ID = device_ID
         self.CardID = CardID
         self.DisplayCardPicture = DisplayCardPicture
         self.Name = Name
+        self.SubTitle = SubTitle
         self.PSA = PSA
         self.BGS = BGS
         self.SGC = SGC
@@ -45,6 +47,7 @@ class HomeMaster : NSObject, NSCoding {
         self.CardID = (aDecoder.decodeObject(forKey: "CardID") as! String)
         self.DisplayCardPicture = (aDecoder.decodeObject(forKey: "DisplayCardPicture") as! Date)
         self.Name = (aDecoder.decodeObject(forKey: "Name") as! String)
+        self.SubTitle = (aDecoder.decodeObject(forKey: "SubTitle") as! String)
         self.PSA = (aDecoder.decodeObject(forKey: "PSA") as! String)
         self.BGS = (aDecoder.decodeObject(forKey: "BGS") as! String)
         self.SGC = (aDecoder.decodeObject(forKey: "SGC") as! String)
@@ -60,6 +63,7 @@ class HomeMaster : NSObject, NSCoding {
         aCoder.encode(CardID, forKey: "CardID")
         aCoder.encode(DisplayCardPicture, forKey: "DisplayCardPicture")
         aCoder.encode(Name, forKey: "Name")
+        aCoder.encode(SubTitle, forKey: "SubTitle")
         aCoder.encode(PSA, forKey: "PSA")
         aCoder.encode(BGS, forKey: "BGS")
         aCoder.encode(SGC, forKey: "SGC")

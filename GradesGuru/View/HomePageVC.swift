@@ -189,7 +189,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         print("myCardImages.count: \(myCardImages.count)")
         
         cell.DPImage.image = myCardImages[indexPath.row]
-        
         cell.playerName.text = HomedetailArray[indexPath.row].Name
         cell.PSAValue.text = HomedetailArray[indexPath.row].PSA
         cell.BGSValue.text = HomedetailArray[indexPath.row].BGS

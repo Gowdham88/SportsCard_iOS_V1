@@ -17,8 +17,6 @@ var CardIDs = [String]()
 
 class CardDetailsMaster : NSObject, NSCoding {
     
-    
-    
     var Device_ID: String!
     var Card_ID: String!
     var Card_frontImage: UIImage?

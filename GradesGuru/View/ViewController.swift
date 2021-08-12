@@ -52,8 +52,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        Homedetails = LoadHome(cardID: selected_CardID)
         
+        if Homedetails.Name != nil {
+            
+        TitleView = setTitle(title: Homedetails.Name, subtitle: Homedetails.SubTitle)
+            
+        } else {
+
         TitleView = setTitle(title: "Enter a Name", subtitle: "SubTitle")
+            
+        }
         
         switch segmentioStyle {
         
@@ -116,8 +126,6 @@ class ViewController: UIViewController {
         
         
         print("selected_CardID,ChosenGrading:\(selected_CardID),\(ChosenGrading)")
-        
-        
         
         segmentioView.valueDidChange = { segmentio, segmentIndex in
             
@@ -520,7 +528,7 @@ class ViewController: UIViewController {
     
     @objc private func titleWasTapped() {
         NSLog("Hello, titleWasTapped!")
-        
+
         var TitleTextField: UITextField?
         var subTitleTextField: UITextField?
 
@@ -532,19 +540,31 @@ class ViewController: UIViewController {
 
         // 3.
         let Submit = UIAlertAction(
-        title: "Submit", style: .default) {
+            title: "Submit", style: .default) { [self]
             (action) -> Void in
-
+            
             if let Title = TitleTextField?.text {
                 print(" Title = \(Title)")
+            
+                Homedetails.Name = Title
                 
                 if let subTitle = subTitleTextField?.text {
                     print("subTitle = \(subTitle)")
+                
+                    Homedetails.SubTitle = subTitle
                     
                     self.TitleView = self.setTitle(title: Title, subtitle: subTitle)
+                    
+                    
+                    SaveHome(HomeMaster: Homedetails, cardID: selected_CardID)
+                    
                 } else {
                     print("No subTitle entered")
+                    
+                    self.TitleView = self.setTitle(title: Title, subtitle: "")
                 }
+                
+                SaveHome(HomeMaster: Homedetails, cardID: selected_CardID)
                 
             } else {
                 print("No Title entered")
@@ -581,6 +601,8 @@ class ViewController: UIViewController {
     
     func setTitle(title:String, subtitle:String) -> UIView {
         
+        TitleView.subviews.forEach({ $0.removeFromSuperview() })
+
         let width = TitleView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)).width
 
         let titleLabel = UILabel(frame: CGRect(x: -20, y: 0, width: 100, height: 50))
@@ -787,7 +809,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: 1, Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
             
-            Homedetails = HomeMaster(device_ID: Device_ID, CardID: Card_ID, DisplayCardPicture: Date(), Name: "Name", PSA: "", BGS: "", SGC: "", ScanTime: Date())
+            Homedetails = HomeMaster(device_ID: Device_ID, CardID: Card_ID, DisplayCardPicture: Date(), Name: "", SubTitle: "", PSA: "", BGS: "", SGC: "", ScanTime: Date())
 
 //            CardCornersvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0], BGS: 0.0, SelectedBGS: [0:0], SGC: 0.0, SelectedSGC: [0:0], viewonPSA: "")
             
@@ -924,7 +946,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
         default:
             break
         }
-        
         
         
     case 2:
