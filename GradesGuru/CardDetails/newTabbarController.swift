@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     // MARK: ***** Variable and outlets  *****
     
     // outlets
@@ -18,6 +19,7 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tabbarTableView: UITableView!
     
     // Variables
+    
     var textboxCellPlaceHolderArray = ["Player Name", "Sport", "Year", "Set", "Variation/Color", "Card #"]
     var switchLabelPlaceHolderArray = ["Rookie", "Autograph", "Patch", "Scanned on "]
     
@@ -47,6 +49,7 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.textboxCellPlaceHolderArray.count + self.switchLabelPlaceHolderArray.count
     }
@@ -54,15 +57,24 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let PlaceHolderArrayCount = textboxCellPlaceHolderArray.count - 1
         let SwitchStartingPoint =  (textboxCellPlaceHolderArray.count + switchLabelPlaceHolderArray.count) - 1
-        switch indexPath.row{
+        
+        switch indexPath.row {
+        
         case 0...PlaceHolderArrayCount:
+            
             let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
             cell.placeHolderLabel.text = self.textboxCellPlaceHolderArray[indexPath.row]
             cell.textFieldInsideCell.placeholder = "Enter \(self.textboxCellPlaceHolderArray[indexPath.row])"
             cell.textFieldInsideCell.delegate = self
+            
+            cell.tag = indexPath.row
+            
             if indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3 {
+                
                 cell.textFieldInsideCell.isEnabled = false
-            }else{
+                
+            } else {
+                
                 cell.textFieldInsideCell.isEnabled = true
             }
             
@@ -83,9 +95,15 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.row{
+        
+        case 0:
+            
+            print("Player Name Tapped")
+            
         case 1:
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SportViewController") as! SportViewController
             vc.modalPresentationStyle = .fullScreen
@@ -119,10 +137,61 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
 // MARK: ***** TextField Delegate Functions  *****
 
 extension newTabbarController: UITextFieldDelegate{
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        print("Editing Started")
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        print(textField.text)
+       
+        let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
+        
+        switch cell.tag {
+        
+        case 0:
+            Homedetails.Name = textField.text
+            
+            SaveHome(HomeMaster: Homedetails, cardID: selected_CardID)
+            
+            CardDetails.PlayerName = textField.text
+            
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+            print("Name Saved under Home Details and CardDetails after editing")
+            
+        case 4:
+            
+            CardDetails.VariationColour = textField.text
+            
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+            print("Variation Colour Saved in Card Details after editing")
+            
+        case 5:
+            
+            CardDetails.CardNo = Int(textField.text ?? "0")
+            
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+            print("CardNo Saved in Card Details after editing")
+            
+            
+        default:
+            break
+        }
+        print("Editing Ended")
+        
+    }
+    
 }
 
 
@@ -143,8 +212,7 @@ class cellWithTextbox: UITableViewCell{
     }
 }
 
-class cellWithSwitchButton: UITableViewCell{
-    
+class cellWithSwitchButton: UITableViewCell {
     
     @IBOutlet weak var labelSwitchCell: UILabel!
     @IBOutlet weak var switchInsideCell: UISwitch!

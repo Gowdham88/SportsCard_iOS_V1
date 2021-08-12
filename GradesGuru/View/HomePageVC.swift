@@ -13,15 +13,16 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     var myCardImages = [UIImage]()
     var cardImages = [UIImage]()
+    var HomedetailArray = [HomeMaster]()
+    var CardNumber = 0
+    var defaults = UserDefaults.standard
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addImage: UIImageView!
-    
     @IBOutlet var tabBar: UITabBar!
     //sample data array
-    var CardNumber = 0
-    var defaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,7 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         // Do any additional setup after loading the view.
     }
     
-    var HomedetailArray = [HomeMaster]()
+    
 
     func LoadCardIDS()  {
         
