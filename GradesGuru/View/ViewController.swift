@@ -53,17 +53,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        Homedetails = LoadHome(cardID: selected_CardID)
-        
-        if Homedetails.Name != nil {
-            
-        TitleView = setTitle(title: Homedetails.Name, subtitle: Homedetails.SubTitle)
-            
-        } else {
+        let homekey = "Home: \(selected_CardID)"
+        let defaults =  UserDefaults.standard
 
-        TitleView = setTitle(title: "Enter a Name", subtitle: "SubTitle")
+        print("Load Home, Key : \(homekey)")
+
+        if defaults.data(forKey: homekey) != nil {
+                
+            Homedetails = LoadHome(cardID: selected_CardID)
+            CardDetails = LoadCards.loadCardsDetails(Card_ID: selected_CardID)
+            
+            if Homedetails.Name != nil {
+                
+            TitleView = setTitle(title: Homedetails.Name, subtitle: Homedetails.SubTitle)          
+                
+            } else {
+
+            TitleView = setTitle(title: "Enter a Name", subtitle: "SubTitle")
+                
+            }
+                
+        } else {
+            
+            TitleView = setTitle(title: "Enter a Name", subtitle: "SubTitle")
             
         }
+        
+        
         
         switch segmentioStyle {
         
@@ -388,7 +404,7 @@ class ViewController: UIViewController {
     
     func LoadCardGradeValues(ChosenGrading: String, Card_ID: String) {
         
-        print("LoadCardGradeValues, Chosen Grading: \(ChosenGrading)")
+        print("LoadCardGradeValues, Chosen Grading, Card ID: \(ChosenGrading), \(Card_ID)")
         
         CardDetails = LoadCards.loadCardsDetails(Card_ID: Card_ID)
         
@@ -545,8 +561,9 @@ class ViewController: UIViewController {
             
             if let Title = TitleTextField?.text {
                 print(" Title = \(Title)")
-            
+                
                 Homedetails.Name = Title
+                CardDetails.PlayerName = Title
                 
                 if let subTitle = subTitleTextField?.text {
                     print("subTitle = \(subTitle)")
@@ -555,15 +572,20 @@ class ViewController: UIViewController {
                     
                     self.TitleView = self.setTitle(title: Title, subtitle: subTitle)
                     
+                    print("CardDetails.PlayerName under SubTitle: \(CardDetails.PlayerName)")
                     
+                    SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
                     SaveHome(HomeMaster: Homedetails, cardID: selected_CardID)
                     
                 } else {
+                    
                     print("No subTitle entered")
                     
                     self.TitleView = self.setTitle(title: Title, subtitle: "")
+                    
                 }
                 
+                SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
                 SaveHome(HomeMaster: Homedetails, cardID: selected_CardID)
                 
             } else {
@@ -771,6 +793,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             }
             else{
+                
                 self.scanBackPage.image = pickedImage
                 
                 NotificationCenter.default.post(name: Notification.Name("backImgSelected"), object: nil)
@@ -807,20 +830,20 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print("Device_ID: \(Device_ID)")
             print("Card_ID: \(Card_ID)")
             
-            CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: 1, Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
+            CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "Enter Player Name", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: "Enter Card #", Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
             
-            Homedetails = HomeMaster(device_ID: Device_ID, CardID: Card_ID, DisplayCardPicture: Date(), Name: "", SubTitle: "", PSA: "", BGS: "", SGC: "", ScanTime: Date())
+            Homedetails = HomeMaster(device_ID: Device_ID, CardID: Card_ID, DisplayCardPicture: Date(), Name: "Enter Name", SubTitle: " Enter SubTitle", PSA: "", BGS: "", SGC: "", ScanTime: Date())
 
 //            CardCornersvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [0:0], BGS: 0.0, SelectedBGS: [0:0], SGC: 0.0, SelectedSGC: [0:0], viewonPSA: "")
             
 //            CardSurfacevalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
+            
 //            CardEdgesvalue = Corners(Device_ID: Device_ID, Card_ID: Card_ID, Pictures: [""], Corners_Value: 0.0, PSA: 0.0, SelectedPSA: [:], BGS: 0.0, SelectedBGS: [:], SGC: 0.0, SelectedSGC: [:], viewonPSA: "")
             
             var GradesValue = [Corners]()
             GradesValue.append(CardCornersvalue)
             GradesValue.append(CardSurfacevalue)
             GradesValue.append(CardSurfacevalue)
-            
 
             if CardIDs.contains(Card_ID) {
                 

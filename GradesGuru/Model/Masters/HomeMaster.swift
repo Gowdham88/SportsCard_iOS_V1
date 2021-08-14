@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-var Homedetails : HomeMaster = HomeMaster(device_ID: "", CardID: "", DisplayCardPicture: Date(), Name: "", SubTitle: "", PSA: "0.0", BGS: "0.0",  SGC: "0.0", ScanTime: Date())
+var Homedetails : HomeMaster = HomeMaster(device_ID: "", CardID: "", DisplayCardPicture: Date(), Name: "Enter Name", SubTitle: "Enter SubTitle", PSA: "0.0", BGS: "0.0",  SGC: "0.0", ScanTime: Date())
 
 class HomeMaster : NSObject, NSCoding {
     

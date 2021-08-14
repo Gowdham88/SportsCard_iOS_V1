@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
+
+var StartText : String!
+
 class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: ***** Variable and outlets  *****
@@ -22,17 +25,34 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var textboxCellPlaceHolderArray = ["Player Name", "Sport", "Year", "Set", "Variation/Color", "Card #"]
     var switchLabelPlaceHolderArray = ["Rookie", "Autograph", "Patch", "Scanned on "]
-    
-    
+    let defaults =  UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+  
+        let saveCard_key = "SaveCards_\(selected_CardID)"
+
+        print("newTabbarController saveCard_key: \(saveCard_key)")
+            
+        if defaults.data(forKey: saveCard_key) != nil {
+            
+            CardDetails = LoadCards.loadCardsDetails(Card_ID: selected_CardID)
+            
+            print("CardDetails.number: \(CardDetails.Card_ID)")
+            print("CardDetails.PlayerName: \(CardDetails.PlayerName)")
+            
+        } else {
+            
+            print("NO CARD DETAILS AVAILABLE")
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-      
         self.tabbarTableView.delegate  = self
         self.tabbarTableView.dataSource = self
     }
@@ -55,6 +75,7 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let PlaceHolderArrayCount = textboxCellPlaceHolderArray.count - 1
         let SwitchStartingPoint =  (textboxCellPlaceHolderArray.count + switchLabelPlaceHolderArray.count) - 1
         
@@ -63,6 +84,7 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
         case 0...PlaceHolderArrayCount:
             
             let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
+            
             cell.placeHolderLabel.text = self.textboxCellPlaceHolderArray[indexPath.row]
             cell.textFieldInsideCell.placeholder = "Enter \(self.textboxCellPlaceHolderArray[indexPath.row])"
             cell.textFieldInsideCell.delegate = self
@@ -73,16 +95,39 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 cell.textFieldInsideCell.isEnabled = false
                 
+            } else if indexPath.row == 0 {
+                
+                CardDetails = LoadCards.loadCardsDetails(Card_ID: selected_CardID)
+                
+                print("CellforRow CardDetails.PlayerName: \(CardDetails.PlayerName)")
+                
+                cell.textFieldInsideCell.text = CardDetails.PlayerName
+                cell.textFieldInsideCell.isEnabled = true
+
+            } else if indexPath.row == 4 {
+                
+                cell.textFieldInsideCell.text = CardDetails.VariationColour
+                cell.textFieldInsideCell.isEnabled = true
+                
+            } else if indexPath.row == 5 {
+                
+                cell.textFieldInsideCell.text = CardDetails.CardNo
+                cell.textFieldInsideCell.isEnabled = true
+                
             } else {
                 
                 cell.textFieldInsideCell.isEnabled = true
             }
             
             return cell
+            
         case textboxCellPlaceHolderArray.count...SwitchStartingPoint:
+            
             let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithSwitchButton") as! cellWithSwitchButton
             let count = indexPath.row - textboxCellPlaceHolderArray.count
+            
             cell.labelSwitchCell.text = self.switchLabelPlaceHolderArray[count]
+            
             if indexPath.row == 9{
                 cell.switchInsideCell.isHidden = true
             }else{
@@ -138,13 +183,15 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
 
 extension newTabbarController: UITextFieldDelegate{
     
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
+        StartText = textField.text
         print("Editing Started")
         
     }
@@ -152,7 +199,9 @@ extension newTabbarController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         print(textField.text)
-       
+        
+        if StartText != textField.text {
+            
         let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
         
         switch cell.tag {
@@ -178,7 +227,7 @@ extension newTabbarController: UITextFieldDelegate{
             
         case 5:
             
-            CardDetails.CardNo = Int(textField.text ?? "0")
+            CardDetails.CardNo = (textField.text ?? "0")
             
             SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
             
@@ -187,6 +236,12 @@ extension newTabbarController: UITextFieldDelegate{
             
         default:
             break
+        }
+            
+        } else {
+            
+            
+            print("START TEXT and END TEXT SAME")
         }
         print("Editing Ended")
         
