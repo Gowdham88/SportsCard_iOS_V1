@@ -147,14 +147,26 @@ class ViewController: UIViewController {
             
             print("Selected item: ", segmentIndex)
             
-            self.SearchData()
             
-            self.selected_Segment = segmentIndex
-            self.myTableView.reloadData()
+            if CardIDs.contains(selected_CardID) {
+                
+                print("CardID Available ")
+                
+                print("CardDetails.Card_ID: \(CardDetails.Card_ID)")
+                
+                self.SearchData()
+                
+                self.selected_Segment = segmentIndex
+                self.myTableView.reloadData()
+                
+                
+            } else {
+                
+                print("Card ID not available")
+                
+            }
             
         }
-        
-       
         
     }
     
@@ -830,7 +842,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print("Device_ID: \(Device_ID)")
             print("Card_ID: \(Card_ID)")
             
-            CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "Enter Player Name", Sport: 0, Year: 0, Set: "123", VariationColour: "123", CardNo: "Enter Card #", Rookie: 1, Autograph: "123", Patch: "123", ScannedDate: "123")
+            CardDetails = CardDetailsMaster(Device_ID: Device_ID, Card_ID: Card_ID, Card_frontImage: scanfrontPage.image ?? UIImage(named: "Scan"), Card_BackImage: scanBackPage.image ?? UIImage(named: "Scan"), PlayerName: "Enter Player Name", Sport: "Enter Sport", Year: "Enter Year", Set: "Enter Set", VariationColour: "Variation/Colour", CardNo: "Enter Card #", Rookie: true, Autograph: true, Patch: true, ScannedDate: "Scanned Date")
             
             Homedetails = HomeMaster(device_ID: Device_ID, CardID: Card_ID, DisplayCardPicture: Date(), Name: "Enter Name", SubTitle: " Enter SubTitle", PSA: "", BGS: "", SGC: "", ScanTime: Date())
 
@@ -913,96 +925,111 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
     cell.textLabel?.text = GradeDetails[indexPath.row]
 //            cell!.detailTextLabel?.text = "Review"
     
-    switch selected_Segment {
-    case 0:
+    if CardIDs.contains(selected_CardID) {
         
-        switch indexPath.row {
+        print("Cell for row CardID Available ")
+        
+        print("CardDetails.Card_ID: \(CardDetails.Card_ID)")
+        switch selected_Segment {
         case 0:
-            print("Centering")
-            cell.Grade_Value.text = String(CardCentervalue.PSA!)
+            
+            switch indexPath.row {
+            case 0:
+                print("Centering")
+                cell.Grade_Value.text = String(CardCentervalue.PSA!)
+                
+            case 1:
+                print("Corners")
+                cell.Grade_Value.text = String(CardCornersvalue.PSA!)
+
+            case 2:
+                print("Surface")
+                
+                cell.Grade_Value.text = String(CardSurfacevalue.PSA!)
+
+            case 3:
+                print("Edges")
+                cell.Grade_Value.text = String(CardEdgesvalue.PSA!)
+                
+            case 4:
+                print("PSA Overall Grading: \(Homedetails.PSA)")
+                cell.Grade_Value.text = String(Homedetails.PSA!)
+                
+            default:
+                break
+            }
+            
             
         case 1:
-            print("Corners")
-            cell.Grade_Value.text = String(CardCornersvalue.PSA!)
+            
+            switch indexPath.row {
+            case 0:
+                print("Centering")
+                cell.Grade_Value.text = String(CardCentervalue.BGS!)
+                
+            case 1:
+                print("Corners")
+                cell.Grade_Value.text = String(CardCornersvalue.BGS!)
 
+            case 2:
+                print("Surface")
+                
+                cell.Grade_Value.text = String(CardSurfacevalue.BGS!)
+
+            case 3:
+                print("Edges")
+                cell.Grade_Value.text = String(CardEdgesvalue.BGS!)
+                
+            case 4:
+                print("BGS Overall Grading; \(Homedetails.BGS)")
+                cell.Grade_Value.text = String(Homedetails.BGS!)
+            default:
+                break
+            }
+            
+            
         case 2:
-            print("Surface")
             
-            cell.Grade_Value.text = String(CardSurfacevalue.PSA!)
+            switch indexPath.row {
+            case 0:
+                print("Centering")
+                cell.Grade_Value.text = String(CardCentervalue.SGC!)
+                
+            case 1:
+                print("Corners")
+                cell.Grade_Value.text = String(CardCornersvalue.SGC!)
 
-        case 3:
-            print("Edges")
-            cell.Grade_Value.text = String(CardEdgesvalue.PSA!)
-            
-        case 4:
-            print("PSA Overall Grading: \(Homedetails.PSA)")
-            cell.Grade_Value.text = String(Homedetails.PSA!)
+            case 2:
+                print("Surface")
+                
+                cell.Grade_Value.text = String(CardSurfacevalue.SGC!)
+
+            case 3:
+                print("Edges")
+                cell.Grade_Value.text = String(CardEdgesvalue.SGC!)
+                
+            case 4:
+                print("SGC Overall Grading: \(Homedetails.SGC)")
+                
+                cell.Grade_Value.text = String(Homedetails.SGC!)
+                
+            default:
+                break
+            }
             
         default:
             break
         }
         
         
-    case 1:
+    } else {
         
-        switch indexPath.row {
-        case 0:
-            print("Centering")
-            cell.Grade_Value.text = String(CardCentervalue.BGS!)
-            
-        case 1:
-            print("Corners")
-            cell.Grade_Value.text = String(CardCornersvalue.BGS!)
-
-        case 2:
-            print("Surface")
-            
-            cell.Grade_Value.text = String(CardSurfacevalue.BGS!)
-
-        case 3:
-            print("Edges")
-            cell.Grade_Value.text = String(CardEdgesvalue.BGS!)
-            
-        case 4:
-            print("BGS Overall Grading; \(Homedetails.BGS)")
-            cell.Grade_Value.text = String(Homedetails.BGS!)
-        default:
-            break
-        }
+        print("Card ID not available")
         
-        
-    case 2:
-        
-        switch indexPath.row {
-        case 0:
-            print("Centering")
-            cell.Grade_Value.text = String(CardCentervalue.SGC!)
-            
-        case 1:
-            print("Corners")
-            cell.Grade_Value.text = String(CardCornersvalue.SGC!)
-
-        case 2:
-            print("Surface")
-            
-            cell.Grade_Value.text = String(CardSurfacevalue.SGC!)
-
-        case 3:
-            print("Edges")
-            cell.Grade_Value.text = String(CardEdgesvalue.SGC!)
-            
-        case 4:
-            print("SGC Overall Grading: \(Homedetails.SGC)")
-            
-            cell.Grade_Value.text = String(Homedetails.SGC!)
-            
-        default:
-            break
-        }
-        
-    default:
-        break
     }
+    
+    
+
 //    switch indexPath.row {
 //
 //    case 0:

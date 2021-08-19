@@ -45,7 +45,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFC-ad-Bs8">
+                                                <textField opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFC-ad-Bs8">
                                                     <rect key="frame" x="253" y="15" width="120" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.32549019610000002" green="0.45882352939999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,200 +140,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxY-32-xKQ" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62.318840579710148" y="73.660714285714278"/>
-        </scene>
-        <!--Sport View Controller-->
-        <scene sceneID="9Rn-26-qo9">
-            <objects>
-                <viewController storyboardIdentifier="SportViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JIP-iA-0d7" customClass="SportViewController" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FLh-si-hcu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-AD-bY8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJZ-qt-ZKO">
-                                        <rect key="frame" x="10" y="50" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="4RK-Ay-GiB"/>
-                                            <constraint firstAttribute="height" constant="40" id="oZQ-sx-qDT"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="Back_Black"/>
-                                        <connections>
-                                            <action selector="backAction:" destination="JIP-iA-0d7" eventType="touchUpInside" id="Uhd-YB-rtr"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Sport" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yp-c5-STh">
-                                        <rect key="frame" x="55" y="50" width="354" height="40"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="5nd-hg-A0i"/>
-                                    <constraint firstAttribute="bottom" secondItem="1Yp-c5-STh" secondAttribute="bottom" constant="10" id="E4e-MY-WYt"/>
-                                    <constraint firstItem="1Yp-c5-STh" firstAttribute="top" secondItem="ZX8-AD-bY8" secondAttribute="top" constant="50" id="F8b-G0-nee"/>
-                                    <constraint firstItem="TJZ-qt-ZKO" firstAttribute="leading" secondItem="ZX8-AD-bY8" secondAttribute="leading" constant="10" id="Mgv-JX-XMe"/>
-                                    <constraint firstAttribute="bottom" secondItem="TJZ-qt-ZKO" secondAttribute="bottom" constant="10" id="jUc-9h-vsy"/>
-                                    <constraint firstItem="1Yp-c5-STh" firstAttribute="leading" secondItem="TJZ-qt-ZKO" secondAttribute="trailing" constant="5" id="qay-ve-I4l"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Yp-c5-STh" secondAttribute="trailing" constant="5" id="rSo-IY-sPW"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lzj-QH-LTj">
-                                <rect key="frame" x="1" y="102" width="412" height="758"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="separatorColor" red="0.47843137250000001" green="0.56078431370000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sportsCell" rowHeight="57" id="x6s-X8-qpG" customClass="sportsCell" customModule="GradesGuru" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="412" height="57"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x6s-X8-qpG" id="5xB-Vb-NF0">
-                                            <rect key="frame" x="0.0" y="0.0" width="412" height="57"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzU-0N-Z34">
-                                                    <rect key="frame" x="30" y="16" width="352" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="MzU-0N-Z34" firstAttribute="leading" secondItem="5xB-Vb-NF0" secondAttribute="leadingMargin" constant="10" id="SF2-gw-Eah"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="MzU-0N-Z34" secondAttribute="trailing" constant="10" id="WrZ-VE-nKu"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="MzU-0N-Z34" secondAttribute="bottom" constant="5" id="dkT-j5-FcI"/>
-                                                <constraint firstItem="MzU-0N-Z34" firstAttribute="top" secondItem="5xB-Vb-NF0" secondAttribute="topMargin" constant="5" id="kEc-1z-XYi"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="sportsCellTextValue" destination="MzU-0N-Z34" id="VU0-EK-KM4"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0fI-F9-qR5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="0fI-F9-qR5" firstAttribute="trailing" secondItem="lzj-QH-LTj" secondAttribute="trailing" constant="1" id="B3T-J3-3Y7"/>
-                            <constraint firstItem="lzj-QH-LTj" firstAttribute="leading" secondItem="0fI-F9-qR5" secondAttribute="leading" constant="1" id="FBk-TN-A8f"/>
-                            <constraint firstItem="0fI-F9-qR5" firstAttribute="bottom" secondItem="lzj-QH-LTj" secondAttribute="bottom" constant="2" id="P7o-Zh-KJK"/>
-                            <constraint firstItem="lzj-QH-LTj" firstAttribute="top" secondItem="ZX8-AD-bY8" secondAttribute="bottom" constant="2" id="RuK-BX-ljt"/>
-                            <constraint firstItem="ZX8-AD-bY8" firstAttribute="top" secondItem="FLh-si-hcu" secondAttribute="top" id="ikP-0J-bFj"/>
-                            <constraint firstItem="ZX8-AD-bY8" firstAttribute="trailing" secondItem="0fI-F9-qR5" secondAttribute="trailing" id="mCz-Zc-VGO"/>
-                            <constraint firstItem="ZX8-AD-bY8" firstAttribute="leading" secondItem="0fI-F9-qR5" secondAttribute="leading" id="pBq-7c-WCF"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backButton" destination="TJZ-qt-ZKO" id="pSc-5z-2Ef"/>
-                        <outlet property="headerView" destination="ZX8-AD-bY8" id="JpM-fM-5IW"/>
-                        <outlet property="sportsTableView" destination="lzj-QH-LTj" id="OqG-a9-A7h"/>
-                        <outlet property="titleLAbel" destination="1Yp-c5-STh" id="OVC-XO-PDi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TIh-dZ-ArG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="575" y="74"/>
-        </scene>
-        <!--Year View Controller-->
-        <scene sceneID="fqv-Lv-bMF">
-            <objects>
-                <viewController storyboardIdentifier="YearViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zeP-a4-eeF" customClass="YearViewController" customModule="GradesGuru" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0eY-yx-hPv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pu-Ny-7kB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpK-5G-2wK">
-                                        <rect key="frame" x="10" y="50" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="8Of-di-gER"/>
-                                            <constraint firstAttribute="width" constant="40" id="Mh2-U8-bgX"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="Back_Black"/>
-                                        <connections>
-                                            <action selector="backAction:" destination="zeP-a4-eeF" eventType="touchUpInside" id="EqI-43-AAI"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-5I-xWQ">
-                                        <rect key="frame" x="55" y="50" width="354" height="40"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="fW8-5I-xWQ" firstAttribute="leading" secondItem="CpK-5G-2wK" secondAttribute="trailing" constant="5" id="7ZJ-ja-Aio"/>
-                                    <constraint firstItem="fW8-5I-xWQ" firstAttribute="top" secondItem="7pu-Ny-7kB" secondAttribute="top" constant="50" id="Dug-Vh-Jsw"/>
-                                    <constraint firstAttribute="height" constant="100" id="N0D-dP-H7z"/>
-                                    <constraint firstAttribute="bottom" secondItem="fW8-5I-xWQ" secondAttribute="bottom" constant="10" id="QqR-yj-Ep2"/>
-                                    <constraint firstAttribute="trailing" secondItem="fW8-5I-xWQ" secondAttribute="trailing" constant="5" id="ZUC-y5-vrM"/>
-                                    <constraint firstAttribute="bottom" secondItem="CpK-5G-2wK" secondAttribute="bottom" constant="10" id="o0o-ij-giK"/>
-                                    <constraint firstItem="CpK-5G-2wK" firstAttribute="leading" secondItem="7pu-Ny-7kB" secondAttribute="leading" constant="10" id="tNA-Pv-YWB"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NUn-jy-exc">
-                                <rect key="frame" x="1" y="102" width="412" height="758"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="separatorColor" red="0.61736840010000005" green="0.68516761059999998" blue="0.76014190910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sportsCell" rowHeight="57" id="dc2-f6-UpI" customClass="sportsCell" customModule="GradesGuru" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="412" height="57"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dc2-f6-UpI" id="uMu-5o-3Lm">
-                                            <rect key="frame" x="0.0" y="0.0" width="412" height="57"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdl-JB-6Lr">
-                                                    <rect key="frame" x="30" y="16" width="352" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Hdl-JB-6Lr" firstAttribute="top" secondItem="uMu-5o-3Lm" secondAttribute="topMargin" constant="5" id="6fM-Ck-E0m"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Hdl-JB-6Lr" secondAttribute="bottom" constant="5" id="AiV-gi-prn"/>
-                                                <constraint firstItem="Hdl-JB-6Lr" firstAttribute="leading" secondItem="uMu-5o-3Lm" secondAttribute="leadingMargin" constant="10" id="ckz-bY-H2z"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hdl-JB-6Lr" secondAttribute="trailing" constant="10" id="tHz-qM-sif"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="sportsCellTextValue" destination="Hdl-JB-6Lr" id="qLz-qd-H7l"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="y8B-jn-VQk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="7pu-Ny-7kB" firstAttribute="top" secondItem="0eY-yx-hPv" secondAttribute="top" id="4yR-Jl-dcG"/>
-                            <constraint firstItem="NUn-jy-exc" firstAttribute="leading" secondItem="y8B-jn-VQk" secondAttribute="leading" constant="1" id="BxK-RJ-Kcz"/>
-                            <constraint firstItem="7pu-Ny-7kB" firstAttribute="leading" secondItem="y8B-jn-VQk" secondAttribute="leading" id="Mdj-Em-BVV"/>
-                            <constraint firstItem="y8B-jn-VQk" firstAttribute="bottom" secondItem="NUn-jy-exc" secondAttribute="bottom" constant="2" id="Ujf-ak-RnY"/>
-                            <constraint firstItem="7pu-Ny-7kB" firstAttribute="trailing" secondItem="y8B-jn-VQk" secondAttribute="trailing" id="cnW-QN-eyR"/>
-                            <constraint firstItem="NUn-jy-exc" firstAttribute="top" secondItem="7pu-Ny-7kB" secondAttribute="bottom" constant="2" id="foF-qu-6sC"/>
-                            <constraint firstItem="y8B-jn-VQk" firstAttribute="trailing" secondItem="NUn-jy-exc" secondAttribute="trailing" constant="1" id="nTn-vZ-LzI"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backButton" destination="CpK-5G-2wK" id="pCw-vH-VgK"/>
-                        <outlet property="headerView" destination="7pu-Ny-7kB" id="YZx-i2-CRi"/>
-                        <outlet property="titleLAbel" destination="fW8-5I-xWQ" id="HRV-f3-g8Q"/>
-                        <outlet property="yearTAbleView" destination="NUn-jy-exc" id="84m-mx-0Kh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bx5-b6-x3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1223" y="74"/>
         </scene>
         <!--Set View Controller-->
         <scene sceneID="j5g-jm-D7U">
@@ -441,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8R-CL-ZYb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1855" y="74"/>
+            <point key="canvasLocation" x="651" y="74"/>
         </scene>
     </scenes>
     <resources>

@@ -202,6 +202,7 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let storyboard = UIStoryboard(name: "Card", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "newTabbarController")
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency

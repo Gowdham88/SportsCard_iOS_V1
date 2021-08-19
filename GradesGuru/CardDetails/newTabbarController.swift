@@ -55,6 +55,9 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.tabbarTableView.delegate  = self
         self.tabbarTableView.dataSource = self
+        
+        tabbarTableView.reloadData()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -68,10 +71,16 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.textboxCellPlaceHolderArray.count + self.switchLabelPlaceHolderArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,11 +98,23 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.textFieldInsideCell.placeholder = "Enter \(self.textboxCellPlaceHolderArray[indexPath.row])"
             cell.textFieldInsideCell.delegate = self
             
-            cell.tag = indexPath.row
+            print("Enter \(self.textboxCellPlaceHolderArray[indexPath.row])")
+            print("\(indexPath.row)")
             
-            if indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3 {
+            if indexPath.row == 1 {
                 
                 cell.textFieldInsideCell.isEnabled = false
+                cell.textFieldInsideCell.text = CardDetails.Sport
+                
+            } else if indexPath.row == 2 {
+                
+                cell.textFieldInsideCell.isEnabled = false
+                cell.textFieldInsideCell.text = CardDetails.Year
+                
+            } else if indexPath.row == 3 {
+                
+                cell.textFieldInsideCell.isEnabled = false
+                cell.textFieldInsideCell.text = CardDetails.Set
                 
             } else if indexPath.row == 0 {
                 
@@ -103,20 +124,27 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 cell.textFieldInsideCell.text = CardDetails.PlayerName
                 cell.textFieldInsideCell.isEnabled = true
-
+                cell.textFieldInsideCell.viewWithTag(indexPath.row)
+                
             } else if indexPath.row == 4 {
                 
+                print("CellforRow CardDetails.VariationColour: \(CardDetails.VariationColour)")
+                
+                cell.textFieldInsideCell.viewWithTag(indexPath.row)
                 cell.textFieldInsideCell.text = CardDetails.VariationColour
                 cell.textFieldInsideCell.isEnabled = true
                 
             } else if indexPath.row == 5 {
                 
+                print("CellforRow CardDetails.CardNo: \(CardDetails.CardNo)")
+                cell.textFieldInsideCell.viewWithTag(indexPath.row)
                 cell.textFieldInsideCell.text = CardDetails.CardNo
                 cell.textFieldInsideCell.isEnabled = true
                 
             } else {
                 
                 cell.textFieldInsideCell.isEnabled = true
+                
             }
             
             return cell
@@ -127,14 +155,58 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
             let count = indexPath.row - textboxCellPlaceHolderArray.count
             
             cell.labelSwitchCell.text = self.switchLabelPlaceHolderArray[count]
+//            cell.labelSwitchCell.viewWithTag(indexPath.row)
+
+            switch indexPath.row {
             
-            if indexPath.row == 9{
-                cell.switchInsideCell.isHidden = true
-            }else{
+            case 6:
+                
                 cell.switchInsideCell.isHidden = false
                 
+                if CardDetails.Rookie == true {
+                    
+                    cell.switchInsideCell.isOn = true
+                    
+                } else {
+                    cell.switchInsideCell.isOn = false
+                    
+                }
+                
+            case 7:
+                
+                cell.switchInsideCell.isHidden = false
+                
+                if CardDetails.Autograph == true {
+                    
+                    cell.switchInsideCell.isOn = true
+                    
+                } else {
+                    cell.switchInsideCell.isOn = false
+                    
+                }
+                
+            case 8:
+                
+                cell.switchInsideCell.isHidden = false
+                
+                if CardDetails.Patch == true {
+                    
+                    cell.switchInsideCell.isOn = true
+                    
+                } else {
+                    cell.switchInsideCell.isOn = false
+                    
+                }
+                
+            case 9:
+                cell.switchInsideCell.isHidden = true
+
+            default:
+                break
             }
+            
             return cell
+            
         default:
             return UITableViewCell()
         }
@@ -143,29 +215,44 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row{
+        let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
+
+        switch indexPath.row {
         
         case 0:
             
             print("Player Name Tapped")
             
         case 1:
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SportViewController") as! SportViewController
+            
+            CellTapped = "Sports"
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetViewController") as! SetViewController
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
             print("Sport tapped")
+            
         case 2:
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "YearViewController") as! YearViewController
+            
+            CellTapped = "Year"
+
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetViewController") as! SetViewController
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
             print("year tapped")
+            
         case 3:
+            
+            CellTapped = "SetView"
+
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetViewController") as! SetViewController
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
             print("set tapped")
+            
         default:
+            
             print("other Actions")
+            
         }
     }
     
@@ -180,6 +267,9 @@ class newTabbarController: UIViewController, UITableViewDelegate, UITableViewDat
 
 
 // MARK: ***** TextField Delegate Functions  *****
+var playerNameString : String!
+var Variation : String!
+var CardNumbers: String!
 
 extension newTabbarController: UITextFieldDelegate{
     
@@ -190,59 +280,99 @@ extension newTabbarController: UITextFieldDelegate{
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
+       
+//        let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
+       
+        let cell: UITableViewCell = textField.superview?.superview as! UITableViewCell
+        var table: UITableView = cell.superview as! UITableView
         
-        StartText = textField.text
-        print("Editing Started")
+        let textfieldIndexPath = table.indexPath(for: cell)?.row
+            
+        print("textfieldIndexPath -->> textFieldDidBeginEditing: \(textfieldIndexPath)")
+        
+        
+        print(textField.text)
+        
+        
+        switch textfieldIndexPath {
+        
+        case 0:
+            
+        print("playerNameString: \(textField.text)")
+            
+        playerNameString = textField.text
+            
+        case 4:
+
+        print("Variation: \(textField.text)")
+            
+        Variation = textField.text
+            
+        case 5:
+        print("CardNumbers: \(textField.text)")
+            
+        CardNumbers = textField.text
+            
+        default:
+            break
+        }
+       
+        print("Editing Ended")
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         print(textField.text)
+
+        let cell: UITableViewCell = textField.superview?.superview as! UITableViewCell
+        var table: UITableView = cell.superview as! UITableView
         
-        if StartText != textField.text {
+        let textfieldIndexPath = table.indexPath(for: cell)?.row
             
-        let cell = tabbarTableView.dequeueReusableCell(withIdentifier: "cellWithTextbox") as! cellWithTextbox
+        print("textfieldIndexPath -->> textFieldDidEndEditing : \(textfieldIndexPath)")
         
-        switch cell.tag {
+     
+        
+        switch textfieldIndexPath {
         
         case 0:
+            print(textField.text)
+            print(StartText)
+            
             Homedetails.Name = textField.text
             
             SaveHome(HomeMaster: Homedetails, cardID: selected_CardID)
             
             CardDetails.PlayerName = textField.text
-            
+            print("Name Saved under Home Details and CardDetails after editing")
+
             SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
             
-            print("Name Saved under Home Details and CardDetails after editing")
             
         case 4:
+            print(textField.text)
+
             
             CardDetails.VariationColour = textField.text
-            
+            print("Variation Colour Saved in Card Details after editing")
             SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
             
-            print("Variation Colour Saved in Card Details after editing")
+            
             
         case 5:
-            
+            print(textField.text)
+
             CardDetails.CardNo = (textField.text ?? "0")
-            
-            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
-            
             print("CardNo Saved in Card Details after editing")
-            
+
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
             
         default:
             break
         }
             
-        } else {
-            
-            
-            print("START TEXT and END TEXT SAME")
-        }
+       
         print("Editing Ended")
         
     }
@@ -276,9 +406,49 @@ class cellWithSwitchButton: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         self.selectionStyle = .none
         
+        switchInsideCell.addTarget(self, action: #selector(SwitchChanged), for: .valueChanged)
+        
     }
+    
+    @objc func SwitchChanged(mySwitch: UISwitch) {
+        
+        let value = mySwitch.isOn
+        
+        print("Switch value: \(value)")
+        
+        let cell: UITableViewCell = mySwitch.superview?.superview as! UITableViewCell
+        let table: UITableView = cell.superview as! UITableView
+        
+        let switchIndexPath = table.indexPath(for: cell)?.row
+            
+        print("switchIndexPath -->> switchDidBeginEditing: \(switchIndexPath)")
+        
+        switch switchIndexPath {
+        
+        case 6:
+            
+            CardDetails.Rookie = value
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+        case 7:
+            
+            CardDetails.Autograph = value
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+
+        case 8:
+            
+            CardDetails.Patch = value
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+        default:
+            break
+        }
+
+    }
+    
 }
 
 
