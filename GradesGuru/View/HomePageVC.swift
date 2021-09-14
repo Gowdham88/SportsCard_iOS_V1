@@ -13,15 +13,16 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     var myCardImages = [UIImage]()
     var cardImages = [UIImage]()
+    var HomedetailArray = [HomeMaster]()
+    var CardNumber = 0
+    var defaults = UserDefaults.standard
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addImage: UIImageView!
-    
     @IBOutlet var tabBar: UITabBar!
     //sample data array
-    var CardNumber = 0
-    var defaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +32,14 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             CardNumber = defaults.value(forKey: "cardNumber") as! Int
             LoadCardIDS()
 
-            
         } else {
             
             CardNumber = 0
             defaults.setValue(CardNumber, forKey: "cardNumber")
             //calling if loading for the first time
-
             
         }
         
-         
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 
             textfield.backgroundColor = UIColor.white
@@ -64,10 +62,12 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     
+
     func LoadCardIDS()  {
         
         let saveCardsIDs = "SaveCardIDS_\(Usersdetails.device_ID!)"
         cardImages.removeAll()
+        HomedetailArray.removeAll()
         
         print("saveCardsIDs: \(saveCardsIDs)")
         if UserDefaults.standard.object(forKey: saveCardsIDs) != nil {
@@ -84,6 +84,10 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 print("For Loop cardID: \(cardID)")
 
                 let carddetails = LoadCards.loadCardsDetails(Card_ID: cardID)
+                
+                Homedetails = LoadHome(cardID: cardID)
+                
+                HomedetailArray.append(Homedetails)
                 
                 let cardImage = carddetails.Card_frontImage
                 
@@ -103,9 +107,6 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             print("No Cards")
             
         }
-        
-        
-            
         
     }
     
@@ -163,6 +164,8 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         myTableView.isHidden = true
         searchBar.isHidden = true
         tabBar.isHidden = true
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -181,19 +184,25 @@ class HomePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
          
-               let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTVCell
         
-            print("cardImages.count: \(cardImages.count)")
-            print("myCardImages.count: \(myCardImages.count)")
+        print("cardImages.count: \(cardImages.count)")
+        print("myCardImages.count: \(myCardImages.count)")
         
-                cell.DPImage.image = myCardImages[indexPath.row]
+        cell.DPImage.image = myCardImages[indexPath.row]
+        cell.playerName.text = HomedetailArray[indexPath.row].Name
+        cell.PSAValue.text = HomedetailArray[indexPath.row].PSA
+        cell.BGSValue.text = HomedetailArray[indexPath.row].BGS
+        cell.SGCValue.text = HomedetailArray[indexPath.row].SGC
                
-               // Configure the cell...
+        // Configure the cell...
 
-               return cell
+        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let storyboard = UIStoryboard(name: "Card", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "newTabbarController")
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency

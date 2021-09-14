@@ -7,81 +7,127 @@
 //
 
 import Foundation
+import UIKit
+import CoreXLSX
 import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-var CenteringDetails : CenteringMaster = CenteringMaster(device_ID: "", CardID: "", FrontScan: "", BackScan: "", Right: 1, Left: 2, Top: 3, Bottom: 4, Border1X: 1.0, Border2X: 1.0, Border3X: 1.0, Border4X: 1.0, Border1Y: 1.0, Border2Y: 1.0, Border3Y: 1.0, Border4Y: 1.0)
+var CenteringDetails : CenteringMaster = CenteringMaster(device_ID: "", CardID: "", FrontScan: "", BackScan: "", FrontRight: 0, FrontLeft: 0, FrontTop: 0, FrontBottom: 0, BackRight: 0, BackLeft: 0, BackTop: 0, BackBottom: 0, SelectedPSA: 0, SelectedBGS: 0, SelectedSGC: 0)
 
-class CenteringMaster : NSObject {
+class CenteringMaster : NSObject, NSCoding {
     
     var device_ID: String!
     var CardID: String!
     var FrontScan: String!
     var BackScan: String!
-    var Right: Int!
-    var Left: Int!
-    var Top: Int!
-    var Bottom: Int!
-    var Border1X: Float!
-    var Border2X: Float!
-    var Border3X: Float!
-    var Border4X: Float!
-    var Border1Y: Float!
-    var Border2Y: Float!
-    var Border3Y: Float!
-    var Border4Y: Float!
+    var FrontRight: Int!
+    var FrontLeft: Int!
+    var FrontTop: Int!
+    var FrontBottom: Int!
+    var BackRight: Int!
+    var BackLeft: Int!
+    var BackTop: Int!
+    var BackBottom: Int!
+    var SelectedPSA: Int!
+    var SelectedBGS: Int!
+    var SelectedSGC: Int!
     
 
-    init(device_ID: String, CardID: String, FrontScan: String, BackScan: String, Right: Int, Left: Int, Top: Int, Bottom: Int, Border1X: Float, Border2X: Float, Border3X: Float, Border4X: Float, Border1Y: Float, Border2Y: Float, Border3Y: Float, Border4Y: Float) {
+    init(device_ID: String, CardID: String, FrontScan: String, BackScan: String, FrontRight: Int, FrontLeft: Int, FrontTop: Int, FrontBottom: Int, BackRight: Int, BackLeft: Int, BackTop: Int, BackBottom: Int, SelectedPSA: Int, SelectedBGS: Int, SelectedSGC: Int) {
         
         self.device_ID = device_ID
         self.CardID = CardID
         self.FrontScan = FrontScan
         self.BackScan = BackScan
-        self.Right = Right
-        self.Left = Left
-        self.Top = Top
-        self.Bottom = Bottom
-        self.Border1X = Border1X
-        self.Border2X = Border2X
-        self.Border3X = Border3X
-        self.Border4X = Border4X
-        self.Border1Y = Border1Y
-        self.Border2Y = Border2Y
-        self.Border3Y = Border3Y
-        self.Border4Y = Border4Y
+        self.FrontRight = FrontRight
+        self.FrontLeft = FrontLeft
+        self.FrontTop = FrontTop
+        self.FrontBottom = FrontBottom
+        self.BackRight = BackRight
+        self.BackLeft = BackLeft
+        self.BackTop = BackTop
+        self.BackBottom = BackBottom
+        self.SelectedPSA = SelectedPSA
+        self.SelectedBGS = SelectedBGS
+        self.SelectedSGC = SelectedSGC
         
     }
     
-    func LoadCentering() {
+    required init!(coder aDecoder: NSCoder) {
         
+        self.device_ID = (aDecoder.decodeObject(forKey: "device_ID") as! String)
+        self.CardID = (aDecoder.decodeObject(forKey: "CardID") as! String)
+        self.FrontScan = (aDecoder.decodeObject(forKey: "FrontScan") as! String)
+        self.BackScan = (aDecoder.decodeObject(forKey: "BackScan") as! String)
+        self.FrontRight = (aDecoder.decodeObject(forKey: "FrontRight") as! Int)
+        self.FrontLeft = (aDecoder.decodeObject(forKey: "FrontLeft") as! Int)
+        self.FrontTop = (aDecoder.decodeObject(forKey: "FrontTop") as! Int)
+        self.FrontBottom = (aDecoder.decodeObject(forKey: "FrontBottom") as! Int)
+        self.BackRight = (aDecoder.decodeObject(forKey: "BackRight") as! Int)
+        self.BackLeft = (aDecoder.decodeObject(forKey: "BackLeft") as! Int)
+        self.BackTop = (aDecoder.decodeObject(forKey: "BackTop") as! Int)
+        self.BackBottom = (aDecoder.decodeObject(forKey: "BackBottom") as! Int)
+        self.SelectedPSA = (aDecoder.decodeObject(forKey: "SelectedPSA") as! Int)
+        self.SelectedBGS = (aDecoder.decodeObject(forKey: "SelectedBGS") as! Int)
+        self.SelectedSGC = (aDecoder.decodeObject(forKey: "SelectedSGC") as! Int)
+        
+     
+        super.init()
+        
+       }
+
+    func encode(with aCoder: NSCoder) {
+        
+        aCoder.encode(device_ID, forKey: "device_ID")
+        aCoder.encode(CardID, forKey: "CardID")
+        aCoder.encode(FrontScan, forKey: "FrontScan")
+        aCoder.encode(BackScan, forKey: "BackScan")
+        
+        aCoder.encode(FrontRight, forKey: "FrontRight")
+        aCoder.encode(FrontLeft, forKey: "FrontLeft")
+        aCoder.encode(FrontTop, forKey: "FrontTop")
+        aCoder.encode(FrontBottom, forKey: "FrontBottom")
+        
+        aCoder.encode(BackRight, forKey: "BackRight")
+        aCoder.encode(BackLeft, forKey: "BackLeft")
+        aCoder.encode(BackTop, forKey: "BackTop")
+        aCoder.encode(BackBottom, forKey: "BackBottom")
+        
+        aCoder.encode(SelectedPSA, forKey: "SelectedPSA")
+        aCoder.encode(SelectedBGS, forKey: "SelectedBGS")
+        aCoder.encode(SelectedSGC, forKey: "SelectedSGC")
         
     }
-    
-    
     
 }
 
-func UpdateCentering(CenteringMaster: CenteringMaster) {
+class SaveCentering {
     
-    
-//    let docData = ["device_ID": Users.device_ID!,
-//        "Subscription_Status": Users.Subscription_Status!,
-//        "Subscription_Date": Users.Subscription_Date!,
-//        "Subscription_Type": Users.Subscription_Type!,
-//        "Cost": Users.Cost!,
-//        "CurrentScan_Count": Users.CurrentScan_Count! ] as [String : Any]
-//
-//
-//    db.collection("Users").document(Users.device_ID).setData(docData) { err in
-//        if let err = err {
-//            print("Error writing document: \(err)")
-//        } else {
-//            print("Document successfully written!")
-//        }
-//    }
-//
+    static func updateCentering(CenteringMaster: CenteringMaster, cardID: String) {
+        
+        print("Border Saved")
+
+        let defaults =  UserDefaults.standard
+        guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: CenteringMaster, requiringSecureCoding: false)
+        
+        //archivedData(withRootObject: category as Array, requiringSecureCoding: false) as NSData
+                else {
+            fatalError("Can't encode data")
+        }
+                               
+        defaults.set(encodedData, forKey: "center_cardID:\(cardID)")
+        
+    }
+
+    static func loadCentering(cardID: String) -> CenteringMaster  {
+        
+        let defaults =  UserDefaults.standard
+        
+        let data = defaults.data(forKey: "center_cardID:\(cardID)")
+        
+        return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! CenteringMaster
+    }
     
 }
 

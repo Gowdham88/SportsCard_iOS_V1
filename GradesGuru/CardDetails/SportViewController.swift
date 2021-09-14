@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SportViewController: UIViewController {
 
     // MARK: ***** Variables and outlets  *****
@@ -35,7 +36,6 @@ class SportViewController: UIViewController {
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     
 }
 

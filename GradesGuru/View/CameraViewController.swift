@@ -15,13 +15,14 @@ import VisionKit
 
 var PanView : String = "one"
 var CroppedImage: UIImage!
+var centeringImage: UIImage!
 
 var borderview1XY : BorderView = BorderView(id: 1, x: 10.0, y: 0.0, scale: 1.03)
 var borderview2XY : BorderView = BorderView(id: 2, x: 0.0, y: 20.0, scale: 1.03)
 var borderview3XY : BorderView = BorderView(id: 3, x: 350.0, y: 0.0, scale: 1.03)
 var borderview4XY : BorderView = BorderView(id: 4, x: 0.0, y: 500.0, scale: 1.03)
 
-class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollViewDelegate, VNDocumentCameraViewControllerDelegate {
+class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollViewDelegate, VNDocumentCameraViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var ImageScrollView: ImageScrollView!
@@ -29,6 +30,13 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
     @IBOutlet weak var borderview2: UIView!
     @IBOutlet weak var borderview3: UIView!
     @IBOutlet weak var borderview4: UIView!
+    
+    let panImage1 = UIImage(named: "Pan_View1.svg")
+    let panImage2 = UIImage(named: "Pan_View.svg")
+    let panImage3 = UIImage(named: "Pan_View1.svg")
+    let panImage4 = UIImage(named: "Pan_View.svg")
+    
+    
     
     @IBOutlet weak var leftPixelsPercent: UILabel!
     @IBOutlet weak var rightPixelsPercent: UILabel!
@@ -38,7 +46,8 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
     var NewCropImage = UIImage()
     
     var textRecognitionRequest = VNRecognizeTextRequest(completionHandler: nil)
-       private let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
+       
+    private let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
    
     let defaults =  UserDefaults.standard
     var scaledX : CGFloat!
@@ -47,22 +56,34 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
     var border2Scale: CGFloat!
     var border3Scale: CGFloat!
     var border4Scale: CGFloat!
-    var myImage = UIImage(named: "Dummy_Sportscard1")
+    //var myImage = UIImage(named: "Dummy_Sportscard1")
     
-    
+    @IBAction func back_Button(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
+        print("selected_img: \(selected_img)")
+        
+        CenteringDetails.device_ID = Usersdetails.device_ID
+        CenteringDetails.CardID = selected_CardID
+
+// Do any additional setup after loading the view.
+    
+//        centeringImage = UIImage(named: "Dummy_Sportscard1")
 //        setupVision()
         
         print("View did load")
         
         contentView.alpha = 1
-        borderview1.alpha = 0
-        borderview2.alpha = 0
-        borderview3.alpha = 0
-        borderview4.alpha = 0
+
+//        borderview1.alpha = 1
+//        borderview2.alpha = 1
+//        borderview3.alpha = 1
+//        borderview4.alpha = 1
         
         print("contentView.frame.width: \(contentView.frame.width)")
         print("contentView.frame.height: \(contentView.frame.height)")
@@ -71,27 +92,49 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
         ImageScrollView.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         ImageScrollView.imageContentMode = .aspectFit
-        
-        borderview1.frame = CGRect(x: 20, y: 0, width: 15, height: ImageScrollView.frame.height)
-        borderview3.frame = CGRect(x: ImageScrollView.frame.width, y: 0, width: 15, height: ImageScrollView.frame.height)
-
-        borderview2.frame = CGRect(x: 0, y: 50, width: ImageScrollView.frame.width, height: 15)
-        borderview4.frame = CGRect(x: 0, y: ImageScrollView.frame.width, width: ImageScrollView.frame.width, height: 15)
-        
         ImageScrollView.setup()
-        ImageScrollView.display(image: myImage!)
-        ImageScrollView.imageScrollViewDelegate = self
+        
+        let imageView1 = UIImageView(image: panImage1)
+        let imageView2 = UIImageView(image: panImage2)
+        let imageView3 = UIImageView(image: panImage3)
+        let imageView4 = UIImageView(image: panImage4)
+        
+        borderview1.frame = CGRect(x: 20, y: 0, width: 20, height: ImageScrollView.frame.height)
+        self.borderview1.addSubview(imageView1)
+
+//        imageView.isUserInteractionEnabled = true
+//        imageView1.autoresizesSubviews = true
+//        self.borderview1.bringSubviewToFront(imageView)
+        
+        borderview3.frame = CGRect(x: ImageScrollView.frame.width - 20, y: 0, width: 20, height: ImageScrollView.frame.height)
+        self.borderview3.addSubview(imageView3)
+
+        borderview2.frame = CGRect(x: 0, y: 50, width: ImageScrollView.frame.width, height: 20)
+        self.borderview2.addSubview(imageView2)
+        
+        borderview4.frame = CGRect(x: 0, y: ImageScrollView.frame.width - 20, width: ImageScrollView.frame.width, height: 20)
+        self.borderview4.addSubview(imageView4)
+        
+        contentView.addSubview(ImageScrollView)
+
+//        ImageScrollView.display(image: centeringImage!)
+//        ImageScrollView.imageScrollViewDelegate = self
       
 //        ImageScrollView.addSubview(borderview2)
 //        ImageScrollView.addSubview(borderview3)
 //        ImageScrollView.addSubview(borderview4)
+        
+//        contentView.autoresizesSubviews = true
         
 //        ImageScrollView.autoresizesSubviews = true
 //        borderview1.autoresizesSubviews = true
 //        borderview2.autoresizesSubviews = true
 //        borderview3.autoresizesSubviews = true
 //        borderview4.autoresizesSubviews = true
-//
+        
+        processImage(centeringImage)
+        
+        
         
     }
     
@@ -119,7 +162,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         
         print("ImageScrollView.contentSize: \(ImageScrollView.contentSize)")
         print("contentView.frame.size: \(contentView.frame.size)")
-        print("myImage?.size: \(myImage?.size)")
+        print("myImage?.size: \(centeringImage?.size)")
         print("frame1.origin.x: \(frame1.origin.x)")
         print("frame1.origin.y: \(frame1.origin.y)")
         print("frame2.origin.x: \(frame2.origin.x)")
@@ -167,11 +210,10 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         borderview3XY = SaveUtil.loadBorder3()
         borderview4XY = SaveUtil.loadBorder4()
         
-        let leftPixelsBorder1 = borderview1XY.x + 15
+        let leftPixelsBorder1 = borderview1XY.x + 4
         let RightPixelsXBorder3 = ImageScrollView.frame.width - borderview3XY.x
-        let TopPixelsBorder2 = borderview2XY.y + 15
+        let TopPixelsBorder2 = borderview2XY.y + 4
         let BottomPixelsBorder4 = ImageScrollView.frame.height - borderview4XY.y
-       
         
         print("leftPixelsBorder1: \(leftPixelsBorder1)")
         print("RightPixelsXBorder3: \(RightPixelsXBorder3)")
@@ -210,10 +252,62 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         print("Top: \(top)")
         print("Bottom: \(bottom)")
         
-        leftPixelsPercent.text = "\(left/2*100)"
-        rightPixelsPercent.text = "\(right/2*100)"
-        topPixelsPercent.text = "\(top/2*100)"
-        bottonPixelsPercent.text = "\(bottom/2*100)"
+        let leftvalue = left/2*100
+        let rightvalue = right/2*100
+        let topvalue = top/2*100
+        let bottomvalue = bottom/2*100
+        
+        leftPixelsPercent.text = "\(leftvalue)"
+        rightPixelsPercent.text = "\(rightvalue)"
+        topPixelsPercent.text = "\(topvalue)"
+        bottonPixelsPercent.text = "\(bottomvalue)"
+        
+        print("leftvalue: \(leftvalue)")
+        print("leftvalue: \(rightvalue)")
+        print("leftvalue: \(topvalue)")
+        print("leftvalue: \(bottomvalue)")
+        
+        /*
+         
+         self.SelectedPSA = SelectedPSA
+         self.SelectedBGS = SelectedBGS
+         self.SelectedSGC = SelectedSGC*/
+        
+        if selected_img == "right_img" {
+        
+            
+            CenteringDetails.BackLeft = Int(leftvalue)
+            CenteringDetails.BackRight = Int(rightvalue)
+            CenteringDetails.BackTop = Int(topvalue)
+            CenteringDetails.BackBottom = Int(bottomvalue)
+            
+            
+            
+            
+        } else if selected_img == "left_img" {
+            
+            
+            CenteringDetails.FrontLeft = Int(leftvalue)
+            CenteringDetails.FrontRight = Int(rightvalue)
+            CenteringDetails.FrontTop = Int(topvalue)
+            CenteringDetails.FrontBottom = Int(bottomvalue)
+            
+        } else {
+            
+            print("Do Nothing")
+        }
+        
+        SaveCentering.updateCentering(CenteringMaster: CenteringDetails, cardID: selected_CardID)
+        
+        print("CenteringDetails.FrontLeft: \(CenteringDetails.FrontLeft)")
+        print("CenteringDetails.FrontRight: \(CenteringDetails.FrontRight)")
+        print("CenteringDetails.FrontTop: \(CenteringDetails.FrontTop)")
+        print("CenteringDetails.FrontBottom: \(CenteringDetails.FrontBottom)")
+        
+        print("CenteringDetails.BackLeft: \(CenteringDetails.BackLeft)")
+        print("CenteringDetails.BackRight: \(CenteringDetails.BackRight)")
+        print("CenteringDetails.BackTop: \(CenteringDetails.BackTop)")
+        print("CenteringDetails.BackBottom: \(CenteringDetails.BackBottom)")
         
         print("pixelsbetween1and3: \(pixelsbetween1and3)")
         print("pixelsbetween2and4: \(pixelsbetween2and4)")
@@ -251,7 +345,6 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         print("New_Pixels1and3: \(New_Pixels1and3)")
         print("New_Pixels1and3: \(New_Pixels2and4)")
         
-        
         let size = CGSize(width: New_Pixels1and3, height:New_Pixels2and4)
         CroppedImage = NewCropImage.crop(to: size, newx: X_scaled_Crop, newy: Y_scaled_Crop)
          
@@ -262,14 +355,127 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
      
     }
     
-    @IBAction func btnTakePicture(_ sender: Any) {
-           
-           let scannerViewController = VNDocumentCameraViewController()
-           scannerViewController.delegate = self
-           present(scannerViewController, animated: true)
-       }
+    @IBAction func Retake_Picture(_ sender: Any) {
+        
+        
+        scanImageOption()
+        
+    }
+    
+    func scanImageOption()
+    {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+                    
+                    self.openCamera()
+                }))
+
+                alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+                    self.openGallery()
+                }))
+
+                alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+
+                self.present(alert, animated: true, completion: nil)
+
+    }
+    
+    func openCamera()
+    {
+        
+//        performSegue(withIdentifier: "centering", sender: self)
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = true
+
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        }
+        
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+
+    func openGallery()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            
+                    self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var pickedImage : UIImage!
+
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+                {
+            pickedImage = img
+
+            processImage(pickedImage)
+            
+                }
+        else if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+                {
+            pickedImage = img
+            
+            processImage(pickedImage)
+            
+        }
+        print("selected_CardID: \(selected_CardID)")
+
+        if selected_img == "right_img" {
+            
+            CardDetails.Card_BackImage = pickedImage
+            
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+        } else if selected_img == "left_img" {
+            
+            CardDetails.Card_frontImage = pickedImage
+            
+            SaveCards.saveCardsvalue(CardsValue: CardDetails, Card_ID: selected_CardID)
+            
+        } else {
+            
+            print("NO IMAGE AVAILABLE")
+            
+        }
+        
+        calculateDistance()
+       
+        picker.dismiss(animated: true, completion: nil)
+}
+    
+    
+//    @IBAction func btnTakePicture(_ sender: Any) {
+//
+//           let scannerViewController = VNDocumentCameraViewController()
+//           scannerViewController.delegate = self
+//           present(scannerViewController, animated: true)
+//
+//       }
        
        private func setupVision() {
+        
            textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
                guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
                
@@ -277,7 +483,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                for observation in observations {
                    guard let topCandidate = observation.topCandidates(1).first else { return }
                    print("text \(topCandidate.string) has confidence \(topCandidate.confidence)")
-       
+    
                    detectedText += topCandidate.string
                    detectedText += "\n"
                }
@@ -291,19 +497,28 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 
            textRecognitionRequest.recognitionLevel = .accurate
        }
-       
+
        private func processImage(_ image: UIImage) {
 
 //        imageView.image = image
-        
+
         ImageScrollView.display(image: image)
         ImageScrollView.imageScrollViewDelegate = self
+
+//        ImageScrollView.addSubview(borderview1)
+//       ImageScrollView.addSubview(borderview2)
+//       ImageScrollView.addSubview(borderview3)
+//       ImageScrollView.addSubview(borderview4)
+
+        contentView.addSubview(borderview1)
+        contentView.addSubview(borderview2)
+        contentView.addSubview(borderview3)
+        contentView.addSubview(borderview4)
+
+//        borderview1.bringSubviewToFront(contentView)
         
-        ImageScrollView.addSubview(borderview1)
-       ImageScrollView.addSubview(borderview2)
-       ImageScrollView.addSubview(borderview3)
-       ImageScrollView.addSubview(borderview4)
-               
+//        ImageScrollView.sendSubviewToBack(contentView)
+//        borderview1.bringSubviewToFront(ImageScrollView)
 //       borderview1.clipsToBounds = true
 //       borderview2.clipsToBounds = true
 //       borderview3.clipsToBounds = true
@@ -312,7 +527,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         //        ImageScrollView.addSubview(borderview2)
         //        ImageScrollView.addSubview(borderview3)
         //        ImageScrollView.addSubview(borderview4)
-        ImageScrollView.autoresizesSubviews = true
+//        ImageScrollView.autoresizesSubviews = true
         
         borderview1.alpha = 1
         borderview2.alpha = 1
@@ -323,8 +538,46 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 
         recognizeTextInImage(image)
         
+//        CenteringDetails = SaveCentering.loadCentering(cardID: selected_CardID)
+        
+        if UserDefaults.standard.data(forKey: "center_cardID:\(selected_CardID)") != nil  {
+            
+        if selected_img == "right_img" {
+        
+            CenteringDetails.BackLeft = SaveCentering.loadCentering(cardID: selected_CardID).BackLeft!
+            CenteringDetails.BackRight = SaveCentering.loadCentering(cardID: selected_CardID).BackRight!
+            CenteringDetails.BackTop = SaveCentering.loadCentering(cardID: selected_CardID).BackTop!
+            CenteringDetails.BackBottom = SaveCentering.loadCentering(cardID: selected_CardID).BackBottom!
+            
+            leftPixelsPercent.text = "\(CenteringDetails.BackLeft!)"
+            rightPixelsPercent.text = "\(CenteringDetails.BackRight!)"
+            topPixelsPercent.text = "\(CenteringDetails.BackTop!)"
+            bottonPixelsPercent.text = "\(CenteringDetails.BackBottom!)"
+        
+        } else if selected_img == "left_img" {
+            
+            CenteringDetails.FrontLeft = SaveCentering.loadCentering(cardID: selected_CardID).FrontLeft!
+            CenteringDetails.FrontRight = SaveCentering.loadCentering(cardID: selected_CardID).FrontRight!
+            CenteringDetails.FrontTop = SaveCentering.loadCentering(cardID: selected_CardID).FrontTop!
+            CenteringDetails.FrontBottom = SaveCentering.loadCentering(cardID: selected_CardID).FrontBottom!
+            
+            leftPixelsPercent.text = "\(CenteringDetails.FrontLeft!)"
+            rightPixelsPercent.text = "\(CenteringDetails.FrontRight!)"
+            topPixelsPercent.text = "\(CenteringDetails.FrontTop!)"
+            bottonPixelsPercent.text = "\(CenteringDetails.FrontBottom!)"
+            
+        } else {
+            
+            print("Nothing Selected")
+            
+            
+        }
+            
+        }
+        
        }
        
+    
        private func recognizeTextInImage(_ image: UIImage) {
            guard let cgImage = image.cgImage else { return }
            
@@ -378,12 +631,11 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         if (gesture.state == UIGestureRecognizer.State.ended) {
 
             //Move label back to original position (function invoked when gesture stops)
-            ImageScrollView.bounces = true
-
+//            ImageScrollView.bounces = true
            
         } else {
             
-            ImageScrollView.bounces = false
+//            ImageScrollView.bounces = false
             
         }
         
@@ -409,24 +661,46 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         print("contentView.frame.origin: \(contentView.frame.origin)")
         
         
-        if gestureView.frame.origin.x > ImageScrollView.contentSize.width / 2 - 10 {
+        if gestureView.frame.origin.x > ImageScrollView.frame.width / 2 - 10 {
+             
+            if ImageScrollView.contentSize.height > ImageScrollView.frame.height {
             
-            gestureView.frame = CGRect(x: ImageScrollView.contentSize.width/2 - 10, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                gestureView.frame = CGRect(x: ImageScrollView.frame.width/2 - 10, y: 0, width: 20, height: ImageScrollView.contentSize.height)
+                
+                //ImageScrollView.frame.height
+                
+                
+            } else {
+                
+                    gestureView.frame = CGRect(x: ImageScrollView.frame.width/2 - 10, y: 0, width: 20, height: ImageScrollView.frame.height)
+                    
+                    //ImageScrollView.frame.height
+                
+            }
             
-                        borderview1XY.id = 1
-                        borderview1XY.x = ImageScrollView.contentSize.width / 2 - 10
-                        borderview1XY.y = frame.origin.y
-                        //border1Scale =  CGFloat(baseWidth) / borderview1XY.x
+            borderview1XY.id = 1
+            borderview1XY.x = ImageScrollView.frame.width / 2 - 10
+            borderview1XY.y = frame.origin.y
+            //border1Scale =  CGFloat(baseWidth) / borderview1XY.x
             border1Scale =  ImageScrollView.contentSize.width / borderview1XY.x
             
-                        let bordercategory = BorderView(id: borderview1XY.id, x: borderview1XY.x, y: borderview1XY.y, scale: border1Scale)
+            let bordercategory = BorderView(id: borderview1XY.id, x: borderview1XY.x, y: borderview1XY.y, scale: border1Scale)
          
-                        SaveUtil.saveBorder(borderview: bordercategory)
+            SaveUtil.saveBorder(borderview: bordercategory)
                         
         } else if gestureView.frame.origin.x < 20 {
             
-            gestureView.frame = CGRect(x: 20, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+            if ImageScrollView.contentSize.height > ImageScrollView.frame.height {
             
+                gestureView.frame = CGRect(x: 20, y: 0, width: 20, height: ImageScrollView.contentSize.height)
+                //ImageScrollView.frame.height
+                
+            } else {
+                
+                gestureView.frame = CGRect(x: 20, y: 0, width: 20, height: ImageScrollView.frame.height)
+                    //ImageScrollView.frame.height
+                
+            }
                             borderview1XY.id = 1
                            borderview1XY.x = 20
                            borderview1XY.y = frame.origin.y
@@ -437,7 +711,21 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
             
         } else {
             
-            gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+            
+            if ImageScrollView.contentSize.height > ImageScrollView.frame.height {
+            
+                gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 20, height: ImageScrollView.contentSize.height)
+                //ImageScrollView.frame.height
+                
+                
+            } else {
+                
+                gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 20, height: ImageScrollView.frame.height)
+                    //ImageScrollView.frame.height
+                
+            }
+            
+            
             
                         borderview1XY.id = 1
                         borderview1XY.x = gestureView.frame.origin.x
@@ -446,7 +734,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                         
                         let bordercategory = BorderView(id: borderview1XY.id, x: borderview1XY.x, y: borderview1XY.y, scale: border1Scale)
                         SaveUtil.saveBorder(borderview: bordercategory)
-            //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+            //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
         }
         
             gesture.minimumNumberOfTouches =  1
@@ -490,7 +778,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
               
                     if gestureView.frame.origin.y > ImageScrollView.contentSize.height / 2 - 10 {
                         
-                    gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 - 10, width: ImageScrollView.contentSize.width, height: 15)
+                    gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 - 10, width: ImageScrollView.contentSize.width, height: 20)
                         
                       borderview2XY.id = 2
                       borderview2XY.x = frame.origin.x
@@ -503,7 +791,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                                     
                     } else if gestureView.frame.origin.y < 30 {
                         
-                    gestureView.frame = CGRect(x: 0, y: 30, width: ImageScrollView.contentSize.width, height: 15)
+                    gestureView.frame = CGRect(x: 0, y: 30, width: ImageScrollView.contentSize.width, height: 20)
                       
                       borderview2XY.id = 2
                       borderview2XY.x = frame.origin.x
@@ -523,7 +811,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                         let bordercategory2 = BorderView(id: borderview2XY.id, x: borderview2XY.x, y: borderview2XY.y, scale: border2Scale)
                         SaveUtil.saveBorder2(borderview: bordercategory2)
                       
-                        //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+                        //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
                     }
                     
                     gesture.minimumNumberOfTouches =  1
@@ -560,12 +848,12 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
         let frame = borderview3.convert(borderview3.frame, to: nil) // convert(buttons.frame, from:secondView)
 
               
-              if gestureView.frame.origin.x > ImageScrollView.contentSize.width - 30 {
+              if gestureView.frame.origin.x > ImageScrollView.contentSize.width - 20 {
                   
-                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width - 30, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width - 20, y: 0, width: 20, height: ImageScrollView.frame.height)
                   
                               borderview3XY.id = 3
-                              borderview3XY.x = ImageScrollView.contentSize.width - 30
+                              borderview3XY.x = ImageScrollView.contentSize.width - 20
                               borderview3XY.y = frame.origin.y
                               border3Scale =  ImageScrollView.contentSize.width / borderview3XY.x
                               let bordercategory3 = BorderView(id: borderview3XY.id, x: borderview3XY.x, y: borderview3XY.y, scale: border3Scale)
@@ -574,7 +862,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
               } else if gestureView.frame.origin.x < ImageScrollView.contentSize.width / 2 + 10 {
                   
-                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width / 2 + 10, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                  gestureView.frame = CGRect(x: ImageScrollView.contentSize.width / 2 + 10, y: 0, width: 20, height: ImageScrollView.frame.height)
                 
                               borderview3XY.id = 3
                               borderview3XY.x = ImageScrollView.contentSize.width / 2 + 10
@@ -587,7 +875,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                   
               } else {
                   
-                gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 15, height: ImageScrollView.contentSize.height + 10)
+                gestureView.frame = CGRect(x: gestureView.frame.origin.x, y: 0, width: 20, height: ImageScrollView.frame.height)
                 
                               borderview3XY.id = 3
                               borderview3XY.x = gestureView.frame.origin.x
@@ -596,7 +884,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
                               let bordercategory3 = BorderView(id: borderview3XY.id, x: borderview3XY.x, y: borderview3XY.y, scale: border3Scale)
                               SaveUtil.saveBorder3(borderview: bordercategory3)
-                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
               }
               
               gesture.minimumNumberOfTouches = 1
@@ -633,26 +921,26 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
 
               print("gestureView.frame.origin.y: \(gestureView.frame.origin.y)")
         
-              if gestureView.frame.origin.y > ImageScrollView.contentSize.height - 30 {
+              if gestureView.frame.origin.y > ImageScrollView.frame.height - 30 {
                   
-                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height - 30, width: ImageScrollView.contentSize.width, height: 15)
+                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.frame.height - 30, width: ImageScrollView.frame.width, height: 20)
                   
                 borderview4XY.id = 4
                 borderview4XY.x = frame.origin.x
-                borderview4XY.y = ImageScrollView.contentSize.height - 30
+                borderview4XY.y = ImageScrollView.frame.height - 30
                 border4Scale =  ImageScrollView.contentSize.height / borderview4XY.y
                 
                 let bordercategory4 = BorderView(id: borderview4XY.id, x: borderview4XY.x, y: borderview4XY.y, scale: border4Scale)
                
                 SaveUtil.saveBorder4(borderview: bordercategory4)
                               
-              } else if gestureView.frame.origin.y < ImageScrollView.contentSize.height / 2 + 10 {
+              } else if gestureView.frame.origin.y < ImageScrollView.frame.height / 2 + 10 {
                   
-                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.contentSize.height / 2 + 10, width: ImageScrollView.contentSize.width, height: 15)
+                  gestureView.frame = CGRect(x: 0, y: ImageScrollView.frame.height / 2 + 10, width: ImageScrollView.contentSize.width, height: 20)
                 
                     borderview4XY.id = 4
                     borderview4XY.x = frame.origin.x
-                    borderview4XY.y = ImageScrollView.contentSize.height / 2 + 10
+                    borderview4XY.y = ImageScrollView.frame.height / 2 + 10
                     border4Scale =  ImageScrollView.contentSize.height / borderview4XY.y
                      let bordercategory4 = BorderView(id: borderview4XY.id, x: borderview4XY.x, y: borderview4XY.y, scale: border4Scale)
       
@@ -669,7 +957,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                               
                         SaveUtil.saveBorder4(borderview: bordercategory4)
                 
-                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 15, height: ImageScrollView.contentSize.height)
+                  //            borderview1.frame = CGRect(x: borderview1XY.x, y: 0, width: 4, height: ImageScrollView.contentSize.height)
               }
               
               gesture.minimumNumberOfTouches =  1
@@ -781,7 +1069,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                  
                  if scaleFactorX > imagecontentSizewidth / 2 - 20 {
                      
-                     borderview1.frame = CGRect(x: imagecontentSizewidth / 2 - 20, y: 0, width: 15, height: imagecontentSizeheight)
+                     borderview1.frame = CGRect(x: imagecontentSizewidth / 2 - 20, y: 0, width: 20, height: imagecontentSizeheight)
                      
                      border1Scale =  (imagecontentSizewidth) / (imagecontentSizewidth * 0.5 - 20)
                      
@@ -791,7 +1079,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                      
                  } else if scaleFactorX < 20 {
                      
-                     borderview1.frame = CGRect(x: 20, y: 0, width: 15, height: imagecontentSizeheight)
+                     borderview1.frame = CGRect(x: 20, y: 0, width: 20, height: imagecontentSizeheight)
                                  
                      border1Scale =  imagecontentSizewidth / 20
                                  
@@ -801,7 +1089,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                      
                  } else {
                      
-                     borderview1.frame = CGRect(x: scaleFactorX, y: 0, width: 15, height: imagecontentSizeheight)
+                     borderview1.frame = CGRect(x: scaleFactorX, y: 0, width: 20, height: imagecontentSizeheight)
                      
                      border1Scale =  imagecontentSizewidth / scaleFactorX
                      
@@ -824,7 +1112,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                     
                    if scaleFactorY2 > imagecontentSizeheight / 2 - 20 {
                        
-                       borderview2.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 - 20, width: imagecontentSizewidth, height: 15)
+                       borderview2.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 - 20, width: imagecontentSizewidth, height: 20)
                        
                        border2Scale =  (imagecontentSizeheight) / (imagecontentSizeheight * 0.5 - 20)
 
@@ -834,7 +1122,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                        
                    } else if scaleFactorY2 < 20 {
                        
-                       borderview2.frame = CGRect(x: 0, y: 20, width: imagecontentSizewidth, height: 15)
+                       borderview2.frame = CGRect(x: 0, y: 20, width: imagecontentSizewidth, height: 20)
                                    
                        border2Scale =  imagecontentSizeheight / 20
                                    
@@ -844,7 +1132,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                        
                    } else {
                        
-                       borderview2.frame = CGRect(x: 0, y: scaleFactorY2, width: imagecontentSizewidth, height: 15)
+                       borderview2.frame = CGRect(x: 0, y: scaleFactorY2, width: imagecontentSizewidth, height: 20)
                        
                        border2Scale =  imagecontentSizeheight / scaleFactorY2
                        
@@ -865,7 +1153,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                 
                 if scaleFactorX3 > imagecontentSizewidth - 50 {
                            
-                           borderview3.frame = CGRect(x: imagecontentSizewidth - 50, y: 0, width: 15, height: imagecontentSizeheight)
+                           borderview3.frame = CGRect(x: imagecontentSizewidth - 50, y: 0, width: 20, height: imagecontentSizeheight)
                            
                            border3Scale =  (imagecontentSizewidth) / (imagecontentSizewidth - 50)
                            
@@ -875,7 +1163,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                            
                        } else if scaleFactorX3 < imagecontentSizewidth / 2 + 10 {
                            
-                           borderview3.frame = CGRect(x: imagecontentSizewidth / 2 + 10, y: 0, width: 15, height: imagecontentSizeheight)
+                           borderview3.frame = CGRect(x: imagecontentSizewidth / 2 + 10, y: 0, width: 20, height: imagecontentSizeheight)
                                        
                            border3Scale =  imagecontentSizewidth / (imagecontentSizewidth / 2 + 10)
                                        
@@ -885,7 +1173,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                            
                        } else {
                            
-                           borderview3.frame = CGRect(x: scaleFactorX3, y: 0, width: 15, height: imagecontentSizeheight)
+                           borderview3.frame = CGRect(x: scaleFactorX3, y: 0, width: 20, height: imagecontentSizeheight)
                            
                            border3Scale =  imagecontentSizewidth / scaleFactorX3
                            
@@ -912,7 +1200,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                        
                 if scaleFactorY4 < imagecontentSizeheight / 2 + 10 {
                     
-                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 + 10, width: imagecontentSizewidth, height: 15)
+                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight / 2 + 10, width: imagecontentSizewidth, height: 20)
                     
                     border4Scale =  (imagecontentSizeheight) / (imagecontentSizeheight * 0.5 + 10)
 
@@ -922,7 +1210,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                     
                 } else if scaleFactorY4 > imagecontentSizeheight - 50 {
                     
-                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight - 50, width: imagecontentSizewidth, height: 15)
+                    borderview4.frame = CGRect(x: 0, y: imagecontentSizeheight - 50, width: imagecontentSizewidth, height: 20)
                                 
                     border4Scale =  imagecontentSizeheight / (imagecontentSizeheight - 50)
                                 
@@ -932,7 +1220,7 @@ class CameraViewController: UIViewController, ImageScrollViewDelegate, UIScrollV
                     
                 } else {
                     
-                    borderview4.frame = CGRect(x: 0, y: scaleFactorY4, width: imagecontentSizewidth, height: 15)
+                    borderview4.frame = CGRect(x: 0, y: scaleFactorY4, width: imagecontentSizewidth, height: 20)
                     
                     border4Scale =  imagecontentSizeheight / scaleFactorY4
                     
